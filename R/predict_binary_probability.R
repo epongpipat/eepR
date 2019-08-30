@@ -5,18 +5,18 @@ predict_binary_probability <- function(model, x) {
 
   # elastic net
   if (any(str_detect(class, "glmnet"))) {
-    predict <- predict(df_model$model_lasso[[1]], df_model$data_x[[1]], type = "response") %>% as_tibble()
+    predict <- predict(model, x, type = "response") %>% as_tibble()
 
   # svm
   } else if (any(str_detect(class, "svm"))) {
-    predict <- predict(df_model$model_svm_linear[[1]], df_model$data[[1]], probability = TRUE) %>%
+    predict <- predict(model, x, probability = TRUE) %>%
       attributes() %>%
       .$probabilities %>%
       as_tibble()
 
   # glm
   } else if (any(str_detect(class, "glm"))) {
-    predict <- predict.glm(model)
+    predict <- predict.glm(model, x)
 
   # not supported
   } else {
