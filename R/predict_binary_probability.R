@@ -2,7 +2,8 @@ predict_binary_probability <- function(model, x) {
 
   # determine class (model type)
   class <- model %>% attributes %>% .$class
-
+  
+  # glm
   if (any(str_detect(class, "glm"))) {
     predict <- predict.glm(model, x)
 
@@ -15,11 +16,9 @@ predict_binary_probability <- function(model, x) {
     predict <- predict(model, x, probability = TRUE) %>%
       attributes() %>%
       .$probabilities %>%
-      as_tibble()
-
-  # glm
-  } else if (any(str_detect(class, "tf"))) {
-
+      as_tibble() %>%
+      select(`1`)
+    
   # not supported
   } else {
     stop(paste0("Class (", class, ") is not supported"))
