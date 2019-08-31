@@ -3,8 +3,11 @@ predict_binary_probability <- function(model, x) {
   # determine class (model type)
   class <- model %>% attributes %>% .$class
 
+  if (any(str_detect(class, "glm"))) {
+    predict <- predict.glm(model, x)
+
   # elastic net
-  if (any(str_detect(class, "glmnet"))) {
+  } else if (any(str_detect(class, "glmnet"))) {
     predict <- predict(model, x, type = "response") %>% as_tibble()
 
   # svm
@@ -15,8 +18,7 @@ predict_binary_probability <- function(model, x) {
       as_tibble()
 
   # glm
-  } else if (any(str_detect(class, "glm"))) {
-    predict <- predict.glm(model, x)
+  } else if (any(str_detect(class, "tf"))) {
 
   # not supported
   } else {
