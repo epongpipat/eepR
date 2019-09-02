@@ -1,16 +1,19 @@
 predict_binary_probability <- function(model, x) {
-
+  
+  # ensure data is matrix
+  x <- as.matrix(x)
+  
   # determine class (model type)
   class <- model %>% attributes %>% .$class
   
-  # glm
-  if (any(str_detect(class, "glm"))) {
-    predict <- predict.glm(model, x)
-
   # elastic net
-  } else if (any(str_detect(class, "glmnet"))) {
+  if (any(str_detect(class, "glmnet"))) {
     predict <- predict(model, x, type = "response") %>% as_tibble()
-
+  
+  # glm
+  } else if (any(str_detect(class, "glm"))) {
+    predict <- predict.glm(model, x)
+      
   # svm
   } else if (any(str_detect(class, "svm"))) {
     predict <- predict(model, x, probability = TRUE) %>%
