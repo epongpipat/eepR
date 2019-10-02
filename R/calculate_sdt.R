@@ -8,7 +8,9 @@ calculate_sdt <- function(n_tp, n_tn, n_fp, n_fn) {
   # calculate rates
   acc <- n_t / n
   tpr <- n_tp / (n_tp + n_fn)
+  tnr <- n_tn / (n_tn + n_fp)
   fpr <- n_fp / (n_fp + n_tn)
+  fnr <-n_fn / (n_fn + n_tp)
 
   # adjust rates
   if (tpr == 1) {
@@ -34,7 +36,7 @@ calculate_sdt <- function(n_tp, n_tn, n_fp, n_fn) {
   c <- (tpr_z + fpr_z) / 2
 
   # create table
-  df <- tibble(n, n_t, n_f, accuracy = acc, tpr, fpr, tpr_adj, fpr_adj, tpr_z, fpr_z, d_prime, c)
+  df <- tibble(n, n_t, n_f, accuracy = acc, tpr, tnr, fpr, fnr, tpr_adj, fpr_adj, tpr_z, fpr_z, d_prime, c)
   return(df)
 
 }
