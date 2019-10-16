@@ -1,14 +1,15 @@
-#' calculate_sdt
+#' @title calculate_sdt
+#' @description calculate signal detection theory (SDT) metrics such as d' and c
+#' @param n_tp number of true positives (or hit)
+#' @param n_tn number of true negatives (or correct rejection)
+#' @param n_fp number of false positives (or false alarm)
+#' @param n_fn number of false negatives (or miss)
 #'
-#' @param n_tp
-#' @param n_tn
-#' @param n_fp
-#' @param n_fn
-#'
-#' @return
+#' @return data.frame of signal detection theory metrics along with all the variables created along the way
 #' @export
-#'
+#' @importFrom tibble tibble
 #' @examples
+#' #example to be written
 calculate_sdt <- function(n_tp, n_tn, n_fp, n_fn) {
 
   # totals

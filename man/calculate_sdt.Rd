@@ -7,8 +7,20 @@
 calculate_sdt(n_tp, n_tn, n_fp, n_fn)
 }
 \arguments{
-\item{n_fn}{}
+\item{n_tp}{number of true positives (or hit)}
+
+\item{n_tn}{number of true negatives (or correct rejection)}
+
+\item{n_fp}{number of false positives (or false alarm)}
+
+\item{n_fn}{number of false negatives (or miss)}
+}
+\value{
+data.frame of signal detection theory metrics along with all the variables created along the way
 }
 \description{
-calculate_sdt
+calculate signal detection theory (SDT) metrics such as d' and c
+}
+\examples{
+#example to be written
 }

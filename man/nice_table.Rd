@@ -7,7 +7,10 @@
 nice_table(table)
 }
 \arguments{
-\item{table}{}
+\item{table}{a data.frame/table to pass through kable}
+}
+\value{
+a kable-styled table
 }
 \description{
 nice_table

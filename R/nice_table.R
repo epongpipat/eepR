@@ -1,8 +1,8 @@
 #' nice_table
 #'
-#' @param table
+#' @param table a data.frame/table to pass through kable
 #'
-#' @return
+#' @return a kable-styled table
 #' @export
 #'
 #' @examples

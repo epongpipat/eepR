@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>calculate_sdt — calculate_sdt • eepR</title>
+<title>rename_colnames — rename_colnames • eepR</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -30,9 +30,9 @@
 
 
 
-<meta property="og:title" content="calculate_sdt — calculate_sdt" />
+<meta property="og:title" content="rename_colnames — rename_colnames" />
 
-<meta property="og:description" content="calculate signal detection theory (SDT) metrics such as d' and c" />
+<meta property="og:description" content="rename column names" />
 <meta name="twitter:card" content="summary" />
 
 
@@ -94,50 +94,40 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>calculate_sdt</h1>
+    <h1>rename_colnames</h1>
     
-    <div class="hidden name"><code>calculate_sdt.Rd</code></div>
+    <div class="hidden name"><code>rename_colnames.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>calculate signal detection theory (SDT) metrics such as d' and c</p>
+    <p>rename column names</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>calculate_sdt</span>(<span class='no'>n_tp</span>, <span class='no'>n_tn</span>, <span class='no'>n_fp</span>, <span class='no'>n_fn</span>)</pre>
+    <pre class="usage"><span class='fu'>rename_colnames</span>(<span class='no'>data</span>, <span class='no'>new_colnames</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>n_tp</th>
-      <td><p>number of true positives (or hit)</p></td>
+      <th>data</th>
+      <td><p>data.frame to be renamed</p></td>
     </tr>
     <tr>
-      <th>n_tn</th>
-      <td><p>number of true negatives (or correct rejection)</p></td>
-    </tr>
-    <tr>
-      <th>n_fp</th>
-      <td><p>number of false positives (or false alarm)</p></td>
-    </tr>
-    <tr>
-      <th>n_fn</th>
-      <td><p>number of false negatives (or miss)</p></td>
+      <th>new_colnames</th>
+      <td><p>a vector of new column names</p></td>
     </tr>
     </table>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>data.frame of signal detection theory metrics along with all the variables created along the way</p>
+    <p>data.frame with the new column names</p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'>example to be written
-</div><div class='output co'>#&gt; <span class='error'>Error: &lt;text&gt;:1:9: unexpected symbol</span>
-#&gt; <span class='error'>1: example to</span>
-#&gt; <span class='error'>            ^</span></div></pre>
+    <pre class="examples"><div class='input'># example to be added
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
