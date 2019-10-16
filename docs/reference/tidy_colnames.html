@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Function reference • eepR</title>
+<title>tidy_colnames — tidy_colnames • eepR</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -30,7 +30,10 @@
 
 
 
-<meta property="og:title" content="Function reference" />
+<meta property="og:title" content="tidy_colnames — tidy_colnames" />
+
+<meta property="og:description" content="makes the data.frame have column names that are in tidy format." />
+<meta name="twitter:card" content="summary" />
 
 
 
@@ -47,7 +50,7 @@
   </head>
 
   <body>
-    <div class="container template-reference-index">
+    <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -89,72 +92,72 @@
       </header>
 
 <div class="row">
-  <div class="contents col-md-9">
+  <div class="col-md-9 contents">
     <div class="page-header">
-      <h1>Reference</h1>
+    <h1>tidy_colnames</h1>
+    
+    <div class="hidden name"><code>tidy_colnames.Rd</code></div>
     </div>
 
-    <table class="ref-index">
+    <div class="ref-description">
+    
+    <p>makes the data.frame have column names that are in tidy format.</p>
+    
+    </div>
 
-    <colgroup>
-      
-      <col class="alias" />
-      <col class="title" />
-    </colgroup>
-
-    <tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-all-functions" class="hasAnchor"><a href="#section-all-functions" class="anchor"></a>All functions</h2>
-          <p class="section-desc"></p>
-        </th>
-      </tr>
-      <tr>
-        
-        <td>
-          <p><code><a href="append_suffix_to_colnames.html">append_suffix_to_colnames()</a></code> </p>
-        </td>
-        <td><p>append_suffix_to_colnames</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="calculate_sdt.html">calculate_sdt()</a></code> </p>
-        </td>
-        <td><p>calculate_sdt</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="nice_table.html">nice_table()</a></code> </p>
-        </td>
-        <td><p>nice_table</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="nice_table_html.html">nice_table_html()</a></code> </p>
-        </td>
-        <td><p>nice_table_html</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="nice_table_html_short.html">nice_table_html_short()</a></code> </p>
-        </td>
-        <td><p>nice_table_html_short</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="tidy_colnames.html">tidy_colnames()</a></code> </p>
-        </td>
-        <td><p>tidy_colnames</p></td>
-      </tr>
-    </tbody>
+    <pre class="usage"><span class='fu'>tidy_colnames</span>(<span class='no'>data</span>)</pre>
+    
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>data</th>
+      <td><p>data.frame that contains the column names to be converted</p></td>
+    </tr>
     </table>
-  </div>
+    
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
+    <p>data.frame with tidy column names</p>
+    
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p>currently, does the following modifications:
+1. lower-case
+2. replaces:
+   - periods with underscores
+   - space with underscores
+   - double underscore with one underscore
+   - parentheses with underscore
+   - brackets with underscore
+   - forward and backward slashes with underscore
+   - dash with underscore
+   - e_mail with email
+   - removes trailing white space and trailing underscores</p>
+    
+
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='co'># before</span>
+<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/colnames'>colnames</a></span>(<span class='kw pkg'>carData</span><span class='kw ns'>::</span><span class='no'><a href='https://www.rdocumentation.org/packages/carData/topics/Salaries'>Salaries</a></span>)</div><div class='output co'>#&gt; [1] "rank"          "discipline"    "yrs.since.phd" "yrs.service"  
+#&gt; [5] "sex"           "salary"       </div><div class='input'>
+<span class='co'># after</span>
+<span class='no'>df</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>carData</span><span class='kw ns'>::</span><span class='no'><a href='https://www.rdocumentation.org/packages/carData/topics/Salaries'>Salaries</a></span> <span class='kw'>%&gt;%</span>
+<span class='fu'>tidy_colnames</span>(<span class='no'>.</span>)
+<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/colnames'>colnames</a></span>(<span class='no'>df</span>)</div><div class='output co'>#&gt; [1] "rank"          "discipline"    "yrs_since_phd" "yrs_service"  
+#&gt; [5] "sex"           "salary"       </div></pre>
+  </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
-      <li><a href="#section-all-functions">All functions</a></li>
+      <li><a href="#arguments">Arguments</a></li>
+      
+      <li><a href="#value">Value</a></li>
+
+      <li><a href="#details">Details</a></li>
+      
+      <li><a href="#examples">Examples</a></li>
     </ul>
+
   </div>
 </div>
 
