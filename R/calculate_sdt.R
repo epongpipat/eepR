@@ -1,3 +1,14 @@
+#' calculate_sdt
+#'
+#' @param n_tp
+#' @param n_tn
+#' @param n_fp
+#' @param n_fn
+#'
+#' @return
+#' @export
+#'
+#' @examples
 calculate_sdt <- function(n_tp, n_tn, n_fp, n_fn) {
 
   # totals
