@@ -8,14 +8,14 @@
 #' @import glmnet doParallel foreach future dplyr furrr
 #' @examples
 #' # to be added
-model_continous_elastic_net <- function(data, y) {
+model_continous_elastic_net <- function(data, y, alpha_list = seq(0.0001, 0.9999, 0.0001)) {
 
   registerDoParallel(cores = availableCores()-1)
   plan(multiprocess)
 
   x <- data %>% select(-y) %>% as.matrix()
   y <- data %>% select(y) %>% as.matrix()
-  a <- seq(0.0001, 0.9999, 0.0001)
+  a <- alpha_list
 
   func_cv <- function(a) {
     cv <- cv.glmnet(x, y, nfold = 10, parallel = TRUE, alpha = a)
@@ -23,14 +23,15 @@ model_continous_elastic_net <- function(data, y) {
   }
 
   df_model <- tibble(a) %>%
-    .[1:100,] %>%
     mutate(cv_model = future_map(a, func_cv))
 
-  search <- foreach(i = a[1:100], .combine = rbind) %dopar% {
+  search <- foreach(i = a, .combine = rbind) %dopar% {
     cv <- cv.glmnet(x, y, nfold = 10, parallel = TRUE, alpha = i)
     data.frame(cvm = cv$cvm[cv$lambda == cv$lambda.1se], lambda.1se = cv$lambda.1se, alpha = i)
   }
 
   cv_elastic_net <- search[search$cvm == min(search$cvm), ]
-  glmnet(x, y, lambda = cv_elastic_net$lambda.1se, alpha = cv_elastic_net$alpha)
+  model <- glmnet(x, y, lambda = cv_elastic_net$lambda.1se, alpha = cv_elastic_net$alpha)
+  model$alpha <- cv_elastic_net$alpha
+  return(model)
 }
