@@ -13,9 +13,6 @@ model_continous_elastic_net <- function(data, y) {
   registerDoParallel(cores = availableCores()-1)
   plan(multiprocess)
 
-  data <- df_clean
-  y <- "female"
-
   x <- data %>% select(-y) %>% as.matrix()
   y <- data %>% select(y) %>% as.matrix()
   a <- seq(0.0001, 0.9999, 0.0001)
