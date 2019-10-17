@@ -7,8 +7,16 @@
 append_suffix_to_colnames(data, suffix)
 }
 \arguments{
-\item{suffix}{}
+\item{data}{data.frame that contains the column names to change with a suffix}
+
+\item{suffix}{string to add to the end of all of the column names of the data.frame}
+}
+\value{
+data.frame with new column names with suffix string appended to the column names
 }
 \description{
-append_suffix_to_colnames
+add a string to end of all the column names
+}
+\examples{
+# to be added
 }

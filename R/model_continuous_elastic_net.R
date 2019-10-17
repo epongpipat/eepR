@@ -1,4 +1,4 @@
-#' @title model_binary_elastic_net
+#' @title model_continous_elastic_net
 #'
 #' @param data data to be analyzed
 #' @param y name/string of outcome to be predicted that is within the data
@@ -8,10 +8,13 @@
 #' @import glmnet doParallel foreach future dplyr furrr
 #' @examples
 #' # to be added
-model_binary_elastic_net <- function(data, y) {
+model_continous_elastic_net <- function(data, y) {
 
   registerDoParallel(cores = availableCores()-1)
   plan(multiprocess)
+
+  data <- df_clean
+  y <- "female"
 
   x <- data %>% select(-y) %>% as.matrix()
   y <- data %>% select(y) %>% as.matrix()

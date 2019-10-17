@@ -1,6 +1,8 @@
 # eepR
 
-Common functions that I use
+This package contains functions that I use regularly.
+
+**Note**: This package will likely always be in a testing phase. Please use this with caution.
 
 ## Install
 
