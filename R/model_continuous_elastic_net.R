@@ -1,14 +1,13 @@
-#' @title model_continous_elastic_net
-#'
+#' @title model_continuous_elastic_net
 #' @param data data to be analyzed
 #' @param y name/string of outcome to be predicted that is within the data
-#'
+#' @param alpha_list vector of alpha to cross-validate (default: seq(0.0001, 0.9999, 0.0001))
 #' @return elastic net results
 #' @export
 #' @import glmnet doParallel foreach future dplyr furrr
 #' @examples
 #' # to be added
-model_continous_elastic_net <- function(data, y, alpha_list = seq(0.0001, 0.9999, 0.0001)) {
+model_continuous_elastic_net <- function(data, y, alpha_list = seq(0.0001, 0.9999, 0.0001)) {
 
   registerDoParallel(cores = availableCores()-1)
   plan(multiprocess)
