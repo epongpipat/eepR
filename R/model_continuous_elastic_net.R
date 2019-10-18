@@ -17,21 +17,25 @@ model_continous_elastic_net <- function(data, y, alpha_list = seq(0.0001, 0.9999
   y <- data %>% select(y) %>% as.matrix()
   a <- alpha_list
 
+  # perform cv.glmnet for each alpha
+  # to obtain table of optimal lambda for each alpha
   func_cv <- function(a) {
     cv <- cv.glmnet(x, y, nfold = 10, parallel = TRUE, alpha = a)
     data.frame(cvm = cv$cvm[cv$lambda == cv$lambda.1se], lambda.1se = cv$lambda.1se, alpha = a)
   }
 
   df_model <- tibble(a) %>%
-    mutate(cv_model = future_map(a, func_cv))
+    mutate(cv_model = future_map(a, func_cv)) %>%
+    unnest()
 
-  search <- foreach(i = a, .combine = rbind) %dopar% {
-    cv <- cv.glmnet(x, y, nfold = 10, parallel = TRUE, alpha = i)
-    data.frame(cvm = cv$cvm[cv$lambda == cv$lambda.1se], lambda.1se = cv$lambda.1se, alpha = i)
-  }
+  # obtain the lowest cvm (mean cross-validated error)
+  cv_elastic_net <- df_model[df_model$cvm == min(df_model$cvm), ]
 
-  cv_elastic_net <- search[search$cvm == min(search$cvm), ]
+  # run final model using the lambda and alpha from the lowest cvm
   model <- glmnet(x, y, lambda = cv_elastic_net$lambda.1se, alpha = cv_elastic_net$alpha)
+
+  # append useful information
   model$alpha <- cv_elastic_net$alpha
+  model$cv <- df_model
   return(model)
 }
