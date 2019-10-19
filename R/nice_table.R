@@ -4,7 +4,7 @@
 #'
 #' @return a kable-styled table
 #' @export
-#'
+#' @import kableExtra
 #' @examples
 nice_table <- function(table) {
   kable(table) %>%
