@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>model_continous_elastic_net — model_continous_elastic_net • eepR</title>
+<title>append_prefix_to_colnames — append_prefix_to_colnames • eepR</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -30,9 +30,9 @@
 
 
 
-<meta property="og:title" content="model_continous_elastic_net — model_continous_elastic_net" />
+<meta property="og:title" content="append_prefix_to_colnames — append_prefix_to_colnames" />
 
-<meta property="og:description" content="model_continous_elastic_net" />
+<meta property="og:description" content="add a string to beginning of all the column names" />
 <meta name="twitter:card" content="summary" />
 
 
@@ -94,36 +94,35 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>model_continous_elastic_net</h1>
+    <h1>append_prefix_to_colnames</h1>
     
-    <div class="hidden name"><code>model_continous_elastic_net.Rd</code></div>
+    <div class="hidden name"><code>append_prefix_to_colnames.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>model_continous_elastic_net</p>
+    <p>add a string to beginning of all the column names</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>model_continous_elastic_net</span>(<span class='no'>data</span>, <span class='no'>y</span>, <span class='kw'>alpha_list</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/seq'>seq</a></span>(<span class='fl'>1e-04</span>, <span class='fl'>0.9999</span>,
-  <span class='fl'>1e-04</span>))</pre>
+    <pre class="usage"><span class='fu'>append_prefix_to_colnames</span>(<span class='no'>data</span>, <span class='no'>prefix</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>data</th>
-      <td><p>data to be analyzed</p></td>
+      <td><p>data.frame that contains the column names to change with a prefix</p></td>
     </tr>
     <tr>
-      <th>y</th>
-      <td><p>name/string of outcome to be predicted that is within the data</p></td>
+      <th>prefix</th>
+      <td><p>string to add to the beginning of all of the column names of the data.frame</p></td>
     </tr>
     </table>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>elastic net results</p>
+    <p>data.frame with new column names with prefix string appended to the column names</p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
