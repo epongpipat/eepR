@@ -48,7 +48,7 @@ tidy_colnames <- function(data) {
     trimws() %>%
     str_replace_all(., "__", "_") %>%
     str_remove_all(., "_$") %>%
-    str_remove_all(., "$")
+    str_remove_all(., "[$]")
 
   #colnames(data) <- sub("_$", "", colnames(data))
 
