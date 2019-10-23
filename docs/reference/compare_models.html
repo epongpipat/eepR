@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>model_binary_elastic_net — model_binary_elastic_net • eepR</title>
+<title>compare_models — compare_models • eepR</title>
 
 
 <!-- jquery -->
@@ -33,8 +33,8 @@
 
 
 
-<meta property="og:title" content="model_binary_elastic_net — model_binary_elastic_net" />
-<meta property="og:description" content="model_binary_elastic_net" />
+<meta property="og:title" content="compare_models — compare_models" />
+<meta property="og:description" content="compare_models" />
 <meta name="twitter:card" content="summary" />
 
 
@@ -96,37 +96,44 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>model_binary_elastic_net</h1>
+    <h1>compare_models</h1>
     
-    <div class="hidden name"><code>model_binary_elastic_net.Rd</code></div>
+    <div class="hidden name"><code>compare_models.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>model_binary_elastic_net</p>
+    <p>compare_models</p>
     </div>
 
-    <pre class="usage"><span class='fu'>model_binary_elastic_net</span>(<span class='no'>data</span>, <span class='no'>y</span>, <span class='kw'>alpha_list</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/seq'>seq</a></span>(<span class='fl'>1e-04</span>, <span class='fl'>0.9999</span>, <span class='fl'>1e-04</span>))</pre>
+    <pre class="usage"><span class='fu'>compare_models</span>(<span class='no'>model_1</span>, <span class='no'>model_2</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>data</th>
-      <td><p>data to be analyzed</p></td>
+      <th>model_1</th>
+      <td><p>a model to compare</p></td>
     </tr>
     <tr>
-      <th>y</th>
-      <td><p>name/string of outcome to be predicted that is within the data</p></td>
+      <th>model_2</th>
+      <td><p>the other model to compare</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>elastic net results</p>
+    <p>comparison of the two models</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'># to be added
-</div></pre>
+    <pre class="examples"><div class='input'><span class='no'>data</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>carData</span><span class='kw ns'>::</span><span class='no'><a href='https://www.rdocumentation.org/packages/carData/topics/Salaries'>Salaries</a></span>
+<span class='no'>model_1</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/lm'>lm</a></span>(<span class='no'>salary</span> ~ <span class='no'>yrs.since.phd</span> * <span class='no'>rank</span>, <span class='no'>data</span>)
+<span class='no'>model_2</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/lm'>lm</a></span>(<span class='no'>salary</span> ~ <span class='no'>yrs.since.phd</span> * <span class='no'>rank</span> * <span class='no'>sex</span>, <span class='no'>data</span>)
+<span class='fu'>compare_models</span>(<span class='no'>model_1</span>, <span class='no'>model_2</span>)</div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 2 x 12</span><span>
+#&gt;   model formula     n   n_p     sse     ssr  df_r df_residual f_statistic
+#&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>   </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span>   </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>   </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span>       </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span>       </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>
+#&gt; </span><span style='color: #555555;'>1</span><span>     1 salary…   397     6 2.19</span><span style='color: #555555;'>e</span><span>11 </span><span style='color: #BB0000;'>NA</span><span>   </span><span style='color: #555555;'> </span><span>     </span><span style='color: #BB0000;'>NA</span><span>         391      </span><span style='color: #BB0000;'>NA</span><span>    
+#&gt; </span><span style='color: #555555;'>2</span><span>     2 salary…   397    12 2.17</span><span style='color: #555555;'>e</span><span>11  1.79</span><span style='color: #555555;'>e</span><span>9     6         385       0.529
+#&gt; </span><span style='color: #555555;'># … with 3 more variables: r_sqaure </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, adj_r_squared </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span style='color: #555555;'>, p.value </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span></div></span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

@@ -5,7 +5,7 @@
 #'
 #' @return
 #' @export
-#'
+#' @import kableExtra
 #' @examples
 nice_table_html_short <- function(table, height = "200px") {
   nice_table(table) %>%
