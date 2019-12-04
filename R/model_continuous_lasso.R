@@ -12,7 +12,7 @@ model_continuous_lasso <- function(data, y) {
   x <- data %>% select(-y) %>% as.matrix()
   y <- data %>% select(y) %>% as.matrix()
   cv_lasso <- cv.glmnet(x, y, alpha = 1)
-  glmnet(x, y, alpha = 1, lambda = cv_lasso$lambda.min)
+  model <- glmnet(x, y, alpha = 1, lambda = cv_lasso$lambda.min)
   model$cv <- cv_lasso
   return(model)
 }
