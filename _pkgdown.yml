@@ -1,0 +1,10 @@
+destination: docs
+
+authors:
+  Ekarin Eric Pongpipat:
+  href: https://ekarinpongpipat.com
+
+reference:
+  - title: Model Categorical
+    contents:
+    - has_concept("model_categorical")
