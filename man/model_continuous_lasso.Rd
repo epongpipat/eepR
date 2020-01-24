@@ -20,3 +20,4 @@ model_continuous_lasso
 \examples{
 # to be added
 }
+\concept{model_continuous}

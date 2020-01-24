@@ -9,6 +9,9 @@ nice_table_html_short(table, height = "200px")
 \arguments{
 \item{height}{}
 }
+\value{
+
+}
 \description{
 nice_table_html_short
 }

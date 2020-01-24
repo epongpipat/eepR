@@ -8,21 +8,25 @@
 
 <title>Function reference • eepR</title>
 
+
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
 
 <!-- Font Awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha256-nAmazAk6vS34Xqo0BSrTb+abbtFlgsFK7NKSi6o7Y78=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
 
-<!-- sticky kit -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script>
+<!-- headroom.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
@@ -30,7 +34,9 @@
 
 
 
+
 <meta property="og:title" content="Function reference" />
+
 
 
 
@@ -42,6 +48,7 @@
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]-->
+
 
 
   </head>
@@ -68,7 +75,7 @@
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fa fa-home fa-lg"></span>
+    <span class="fas fa fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -76,9 +83,13 @@
   <a href="../reference/index.html">Reference</a>
 </li>
       </ul>
-      
       <ul class="nav navbar-nav navbar-right">
-        
+        <li>
+  <a href="https://github.com/epongpipat/eepR">
+    <span class="fab fa fab fa-github fa-lg"></span>
+     
+  </a>
+</li>
       </ul>
       
     </div><!--/.nav-collapse -->
@@ -86,6 +97,7 @@
 </div><!--/.navbar -->
 
       
+
       </header>
 
 <div class="row">
@@ -105,71 +117,49 @@
     <tbody>
       <tr>
         <th colspan="2">
-          <h2 id="section-all-functions" class="hasAnchor"><a href="#section-all-functions" class="anchor"></a>All functions</h2>
+          <h2 id="section-model-categorical" class="hasAnchor"><a href="#section-model-categorical" class="anchor"></a>Model Categorical</h2>
           <p class="section-desc"></p>
         </th>
       </tr>
       <tr>
         
         <td>
-          <p><code><a href="append_prefix_to_colnames.html">append_prefix_to_colnames()</a></code> </p>
+          <p><code><a href="model_categorical_elastic_net.html">model_categorical_elastic_net()</a></code> </p>
         </td>
-        <td><p>append_prefix_to_colnames</p></td>
+        <td><p>model_categorical_elastic_net</p></td>
       </tr><tr>
         
         <td>
-          <p><code><a href="append_suffix_to_colnames.html">append_suffix_to_colnames()</a></code> </p>
+          <p><code><a href="model_categorical_glm.html">model_categorical_glm()</a></code> </p>
         </td>
-        <td><p>append_suffix_to_colnames</p></td>
+        <td><p>model_categorical_glm</p></td>
       </tr><tr>
         
         <td>
-          <p><code><a href="calculate_sdt.html">calculate_sdt()</a></code> </p>
+          <p><code><a href="model_categorical_lasso.html">model_categorical_lasso()</a></code> </p>
         </td>
-        <td><p>calculate_sdt</p></td>
+        <td><p>model_categorical_lasso</p></td>
       </tr><tr>
         
         <td>
-          <p><code><a href="compare_all_models.html">compare_all_models()</a></code> </p>
+          <p><code><a href="model_categorical_ridge.html">model_categorical_ridge()</a></code> </p>
         </td>
-        <td><p>compare_all_models</p></td>
+        <td><p>model_categorical_ridge</p></td>
       </tr><tr>
         
         <td>
-          <p><code><a href="compare_models.html">compare_models()</a></code> </p>
+          <p><code><a href="model_categorical_svm.html">model_categorical_svm()</a></code> </p>
         </td>
-        <td><p>compare_models</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="flatten_dimension.html">flatten_dimension()</a></code> </p>
-        </td>
-        <td><p>flatten_dimension</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="flatten_dimension_all.html">flatten_dimension_all()</a></code> </p>
-        </td>
-        <td><p>flatten_dimension_all</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="model_binary_elastic_net.html">model_binary_elastic_net()</a></code> </p>
-        </td>
-        <td><p>model_binary_elastic_net</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="model_binary_lasso.html">model_binary_lasso()</a></code> </p>
-        </td>
-        <td><p>model_binary_lasso</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="model_binary_ridge.html">model_binary_ridge()</a></code> </p>
-        </td>
-        <td><p>model_binary_ridge</p></td>
-      </tr><tr>
+        <td><p>model_categorical_svm</p></td>
+      </tr>
+    </tbody><tbody>
+      <tr>
+        <th colspan="2">
+          <h2 id="section-model-continuous" class="hasAnchor"><a href="#section-model-continuous" class="anchor"></a>Model Continuous</h2>
+          <p class="section-desc"></p>
+        </th>
+      </tr>
+      <tr>
         
         <td>
           <p><code><a href="model_continuous_elastic_net.html">model_continuous_elastic_net()</a></code> </p>
@@ -193,42 +183,20 @@
           <p><code><a href="model_continuous_svm_linear.html">model_continuous_svm_linear()</a></code> </p>
         </td>
         <td><p>model_continuous_svm_linear</p></td>
-      </tr><tr>
+      </tr>
+    </tbody><tbody>
+      <tr>
+        <th colspan="2">
+          <h2 id="section-model-uber-functions" class="hasAnchor"><a href="#section-model-uber-functions" class="anchor"></a>Model Uber Functions</h2>
+          <p class="section-desc"></p>
+        </th>
+      </tr>
+      <tr>
         
         <td>
-          <p><code><a href="nice_table.html">nice_table()</a></code> </p>
+          <p><code><a href="model_categorical_all.html">model_categorical_all()</a></code> </p>
         </td>
-        <td><p>nice_table</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="nice_table_html.html">nice_table_html()</a></code> </p>
-        </td>
-        <td><p>nice_table_html</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="nice_table_html_short.html">nice_table_html_short()</a></code> </p>
-        </td>
-        <td><p>nice_table_html_short</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="r_sq_to_adj_r_sq.html">r_sq_to_adj_r_sq()</a></code> </p>
-        </td>
-        <td><p>r_sq_to_adj_r_sq</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="rename_colnames.html">rename_colnames()</a></code> </p>
-        </td>
-        <td><p>rename_colnames</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="tidy_colnames.html">tidy_colnames()</a></code> </p>
-        </td>
-        <td><p>tidy_colnames</p></td>
+        <td><p>model_categorical_all</p></td>
       </tr>
     </tbody>
     </table>
@@ -237,10 +205,13 @@
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
-      <li><a href="#section-all-functions">All functions</a></li>
+      <li><a href="#section-model-categorical">Model Categorical</a></li>
+      <li><a href="#section-model-continuous">Model Continuous</a></li>
+      <li><a href="#section-model-uber-functions">Model Uber Functions</a></li>
     </ul>
   </div>
 </div>
+
 
       <footer>
       <div class="copyright">
@@ -248,13 +219,16 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.3.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.1.</p>
 </div>
+
       </footer>
    </div>
 
   
 
+
   </body>
 </html>
+
 

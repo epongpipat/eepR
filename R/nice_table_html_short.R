@@ -1,4 +1,4 @@
-#' nice_table_html_short
+#' @title nice_table_html_short
 #'
 #' @param table
 #' @param height

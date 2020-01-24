@@ -20,3 +20,4 @@ model_continuous_ridge
 \examples{
 # to be added
 }
+\concept{model_continuous}

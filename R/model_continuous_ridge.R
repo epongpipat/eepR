@@ -1,5 +1,5 @@
 #' @title model_continuous_ridge
-#'
+#' @concept model_continuous
 #' @param data data to be analyzed
 #' @param y name/string of outcome to be predicted that is within the data
 #'

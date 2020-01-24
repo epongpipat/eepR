@@ -8,7 +8,7 @@
 #' @import glmnet dplyr
 #' @examples
 #' # to be added
-model_categorical_lasso <- function(y, x) {
+model_categorical_lasso <- function(x, y) {
   x <- as.matrix(x)
   y <- as.matrix(y)
   n_y <- unique(y) %>% length()

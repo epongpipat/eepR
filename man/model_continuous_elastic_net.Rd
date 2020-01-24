@@ -4,8 +4,7 @@
 \alias{model_continuous_elastic_net}
 \title{model_continuous_elastic_net}
 \usage{
-model_continuous_elastic_net(data, y, alpha_list = seq(1e-04, 0.9999,
-  1e-04))
+model_continuous_elastic_net(data, y, alpha_list = seq(1e-04, 0.9999, 1e-04))
 }
 \arguments{
 \item{data}{data to be analyzed}
@@ -23,3 +22,4 @@ model_continuous_elastic_net
 \examples{
 # to be added
 }
+\concept{model_continuous}

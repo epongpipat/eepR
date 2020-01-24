@@ -8,7 +8,7 @@
 #' @import glmnet dplyr furrr doParallel foreach tidyr
 #' @examples
 #' # to be added
-model_categorical_elastic_net <- function(y, x, alpha_list = seq(0.0001, 0.9999, 0.0001)) {
+model_categorical_elastic_net <- function(x, y, alpha_list = seq(0.0001, 0.9999, 0.0001)) {
 
   if (n_y == 2) {
     family <- "binomial"

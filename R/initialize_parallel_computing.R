@@ -5,7 +5,6 @@
 #' @export
 #' @import doParallel foreach future
 initialize_parallel_computing <- function(save = 1) {
-
   n_cores <- availableCores()
   n_cores <- makeCluster(n_cores - save)
   registerDoParallel(cores = n_cores)

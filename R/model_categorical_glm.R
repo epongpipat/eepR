@@ -7,7 +7,7 @@
 #' @export
 #' @import dplyr nnet
 #' @examples
-model_categorical_glm <- function(y, x) {
+model_categorical_glm <- function(x, y) {
   x <- as.matrix(x)
   y <- as.matrix(y)
   n_y <- unique(y) %>% length()

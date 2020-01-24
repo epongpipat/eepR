@@ -20,3 +20,4 @@ model continuous linear support vector machine
 \examples{
 # to be added
 }
+\concept{model_continuous}

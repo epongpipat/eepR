@@ -1,4 +1,5 @@
 #' @title model_continuous_elastic_net
+#' @concept model_continuous
 #' @param data data to be analyzed
 #' @param y name/string of outcome to be predicted that is within the data
 #' @param alpha_list vector of alpha to cross-validate (default: seq(0.0001, 0.9999, 0.0001))

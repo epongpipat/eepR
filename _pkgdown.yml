@@ -8,3 +8,9 @@ reference:
   - title: Model Categorical
     contents:
     - has_concept("model_categorical")
+  - title: Model Continuous
+    contents:
+    - has_concept("model_continuous")
+  - title: Model Uber Functions
+    contents:
+    - has_concept("model_uber")

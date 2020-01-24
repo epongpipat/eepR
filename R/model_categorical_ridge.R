@@ -7,7 +7,7 @@
 #' @export
 #' @import glmnet dplyr
 #' @examples
-model_categorical_ridge <- function(y, x) {
+model_categorical_ridge <- function(x, y) {
   x <- as.matrix(x)
   y <- as.matrix(y)
   n_y <- unique(y) %>% length()
