@@ -19,7 +19,7 @@ model_categorical_lasso <- function(x, y) {
   } else {
     stop("number of factors of y must be greater than 2")
   }
-  cv <- cv.glmnet(x, y, family = , alpha = 1)
+  cv <- cv.glmnet(x, y, family = family, alpha = 1)
   model <- glmnet(x, y, family = family, alpha = 1, lambda = cv$lambda.min)
   return(model)
 }
