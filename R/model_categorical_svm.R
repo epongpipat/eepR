@@ -8,8 +8,8 @@
 #' @export
 #' @import e1071 dplyr
 #' @examples
-model_categorical_svm <- function(x, y, kernel = "linear") {
+model_categorical_svm <- function(x, y, kernel = "linear", ...) {
   x <- as.matrix(x)
   y <- as.factor(y)
-  svm(y = y, x = x, kernel = kernel)
+  svm(y = y, x = x, kernel = kernel, ...)
 }

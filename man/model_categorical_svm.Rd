@@ -4,7 +4,7 @@
 \alias{model_categorical_svm}
 \title{model_categorical_svm}
 \usage{
-model_categorical_svm(x, y, kernel = "linear")
+model_categorical_svm(x, y, kernel = "linear", ...)
 }
 \arguments{
 \item{x}{features/predictors used in prediction of outcome}
