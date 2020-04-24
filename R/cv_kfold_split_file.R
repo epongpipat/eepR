@@ -25,10 +25,12 @@ cv_kfold_split_file <- function(x_path, y_path, k_fold, out_dir) {
   }
 
   out_file <- glue("{out_dir}/x.csv")
+  mkdir_if_dne(out_file)
   stop_if_e(out_file)
   file.copy(x_path, out_file)
 
   out_file <- glue("{out_dir}/y.csv")
+  mkdir_if_dne(out_file)
   stop_if_e(out_file)
   file.copy(y_path, out_file)
 
