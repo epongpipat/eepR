@@ -55,15 +55,15 @@ cv_kfold_split_file <- function(x_path, y_path, k_fold, out_dir) {
 
       out_path <- glue("{cv_out_dir}/x_test.csv")
       stop_if_e(out_path)
-      write.csv(x_train, out_path, row.names = F)
+      write.csv(x_test, out_path, row.names = F)
 
       out_path <- glue("{cv_out_dir}/y_train.csv")
       stop_if_e(out_path)
-      write.csv(x_train, out_path, row.names = F)
+      write.csv(y_train, out_path, row.names = F)
 
       out_path <- glue("{cv_out_dir}/y_test.csv")
       stop_if_e(out_path)
-      write.csv(x_train, out_path, row.names = F)
+      write.csv(y_test, out_path, row.names = F)
     })
   }
 }
