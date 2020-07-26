@@ -15,12 +15,22 @@ output:
       smooth_scroll: yes
 ---
 
-# Heading 1
+```{r, include = F}
+knitr::opts_chunk$set(fig.ext = 'svg')
+```
 
-## Heading 2
+## R Packages
+```{r}
+packages <- c("tidyverse")
+xfun::pkg_attach2(packages, message = F)
+```
 
-### Heading 3
+## Heading
+```{r}
+print("hello world")
+```
 
-#### Heading 4
-
-##### Heading 5
+## Session Info
+```{r}
+sessioninfo::session_info()
+```
