@@ -13,24 +13,91 @@ output:
     toc_float:
       collapsed: yes
       smooth_scroll: yes
+bibliography: references.bib
+csl: https://raw.githubusercontent.com/citation-style-language/styles/master/apa.csl
 ---
 
 ```{r, include = F}
 knitr::opts_chunk$set(dev = 'svg')
 ```
 
+<style>
+h2 {
+  padding-top: 1.5em;
+}
+.references.hanging-indent {
+  padding-left: 1.5em;
+  text-indent: -1.5em;
+}
+</style>
+
 ## R Packages
-```{r}
-packages <- c("tidyverse")
+
+---
+
+```{r, warning = F}
+packages <- c("tidyverse", "grateful", "eepR", "kableExtra", "DT")
 xfun::pkg_attach2(packages, message = F)
 ```
 
 ## Heading
+
+---
+
 ```{r}
 print("hello world")
 ```
 
-## Session Info
-```{r}
-sessioninfo::session_info()
+## Session Info {.tabset}
+
+---
+
+### Platform
+```{r, echo = F}
+si_platform <- sessioninfo::session_info()[["platform"]] %>% 
+  unlist() %>% 
+  as.data.frame() %>%
+  rownames_to_column()
+colnames(si_platform) <- c("Setting", "Value")
+nice_table(si_platform)
 ```
+
+### Packages
+```{r, echo = F}
+si_packages <- sessioninfo::session_info()[["packages"]] %>% 
+  as_tibble() %>%
+  mutate(package = ifelse(attached == TRUE, paste0(package, " *"), package)) %>%
+  select(package, loadedversion, date, source)
+colnames(si_packages) <- c("Package", "Version", "Date", "Source")
+datatable(si_packages, caption = htmltools::tags$caption(
+  style = "caption-side: bottom; text-align: left;",
+  "Note: * Loaded R Packages"))
+```
+
+## References
+
+---
+
+```{r, include = F}
+# this code was modified from the grateful package (see reference)
+# specifically, allows for additional citations (e.g, base R, RStudio, and rmarkdown)
+citations <- lapply(packages, citation)
+citations[[length(citations)+1]] <- citation('base')
+citations[[length(citations)+1]] <- rstudioapi::versionInfo()$citation
+citations[[length(citations)+1]] <- citation('rmarkdown')
+references <- c(packages, 'base', 'RStudio', 'rmarkdown') %>%
+  unique()
+citations_bibtex <- lapply(citations, toBibtex) %>%
+  unique()
+for (i in 1:length(citations)) {
+  citations_bibtex[[i]] <- sub("\\{,", paste0("\\{", references[i], ","), citations_bibtex[[i]])
+}
+writeLines(unlist(citations_bibtex), con = 'references.bib')
+```
+
+---
+nocite: |
+  `r paste0('@', references, collapse = ", ")`
+---
+
+
