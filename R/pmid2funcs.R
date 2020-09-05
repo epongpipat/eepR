@@ -34,14 +34,22 @@ pmid2pmcid <- function(pmid) {
   require(stringr)
   require(rvest)
   require(glue)
-  glue("https://pubmed.ncbi.nlm.nih.gov/{pmid}") %>%
+  html_pmcid <- glue("https://pubmed.ncbi.nlm.nih.gov/{pmid}") %>%
     read_html(.) %>%
     html_node(".identifiers") %>%
-    html_node(".identifier.pmc") %>%
+    html_node(".identifier.pmc")
+  if (is.na(html_pmcid)) {
+    pmcid <- NULL
+    warning("No PMCID Found")
+  } else {
+    pmcid <- html_pmcid %>%
     html_node(".id-link") %>%
-    html_text() %>%
-    str_remove_all(., "\n") %>%
-    str_squish()
+      html_text() %>%
+      str_remove_all(., "\n") %>%
+      str_squish()
+  }
+  return(pmcid)
+
 }
 
 #' @title pmid2bibtex
