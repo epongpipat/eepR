@@ -14,3 +14,7 @@ reference:
   - title: Model Uber Functions
     contents:
     - has_concept("model_uber")
+  - title: PubMed
+    contents:
+    - has_concept("references_pubmed")
+
