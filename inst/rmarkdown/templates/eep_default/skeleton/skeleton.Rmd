@@ -24,6 +24,8 @@ knitr::opts_chunk$set(dev = 'svg')
 <style>
 h2 {
   padding-top: 1.5em;
+  border-bottom: 1px solid #f0f0f0;
+  padding-bottom: 1em; 
 }
 .references.hanging-indent {
   padding-left: 1.5em;
@@ -33,8 +35,6 @@ h2 {
 
 ## R Packages
 
----
-
 ```{r, warning = F}
 packages <- c("tidyverse", "grateful", "eepR", "kableExtra", "DT")
 xfun::pkg_attach2(packages, message = F)
@@ -42,15 +42,11 @@ xfun::pkg_attach2(packages, message = F)
 
 ## Heading
 
----
-
 ```{r}
 print("hello world")
 ```
 
 ## Session Info {.tabset}
-
----
 
 ### Platform
 ```{r, echo = F}
@@ -76,8 +72,6 @@ datatable(si_packages, caption = htmltools::tags$caption(
 
 ## References
 
----
-
 ```{r, include = F}
 # this code was modified from the grateful package (see reference)
 # specifically, allows for additional citations (e.g, base R, RStudio, and rmarkdown)
@@ -99,5 +93,3 @@ writeLines(unlist(citations_bibtex), con = 'references.bib')
 nocite: |
   `r paste0('@', references, collapse = ", ")`
 ---
-
-
