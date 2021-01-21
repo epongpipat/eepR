@@ -43,7 +43,7 @@ pmid2pmcid <- function(pmid) {
     warning("No PMCID Found")
   } else {
     pmcid <- html_pmcid %>%
-    html_node(".id-link") %>%
+      html_node(".id-link") %>%
       html_text() %>%
       str_remove_all(., "\n") %>%
       str_squish()

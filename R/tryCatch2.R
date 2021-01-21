@@ -1,5 +1,5 @@
-#' tryCatch2
-#'
+#' @title tryCatch2
+#' @concept r_helper
 #' @param expr
 #'
 #' @return

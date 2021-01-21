@@ -15,3 +15,4 @@ tryCatch2(expr)
 \description{
 tryCatch2
 }
+\concept{r_helper}
