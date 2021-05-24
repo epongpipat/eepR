@@ -26,5 +26,5 @@ get_lm_multicollinearity <- function(model) {
     mutate(tolerance = as.numeric(tolerance),
            vif = as.numeric(vif))
 
-  return(get_lm_multicollinearity)
+  return(df_multicollinearity)
 }
