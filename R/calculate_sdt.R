@@ -1,4 +1,5 @@
 #' @title calculate_sdt
+#' @concept stats
 #' @description calculate signal detection theory (SDT) metrics such as d' and c
 #' @param n_tp number of true positives (or hit)
 #' @param n_tn number of true negatives (or correct rejection)

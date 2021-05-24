@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>compare_all_models — compare_all_models • eepR</title>
+<title>get_lm_multicollinearity — get_lm_multicollinearity • eepR</title>
 
 
 <!-- jquery -->
@@ -39,8 +39,8 @@
 
 
 
-<meta property="og:title" content="compare_all_models — compare_all_models" />
-<meta property="og:description" content="compare_all_models" />
+<meta property="og:title" content="get_lm_multicollinearity — get_lm_multicollinearity" />
+<meta property="og:description" content="get_lm_multicollinearity" />
 
 
 
@@ -108,43 +108,32 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>compare_all_models</h1>
-    <small class="dont-index">Source: <a href='https://github.com/epongpipat/eepR/blob/master/R/compare_all_models.R'><code>R/compare_all_models.R</code></a></small>
-    <div class="hidden name"><code>compare_all_models.Rd</code></div>
+    <h1>get_lm_multicollinearity</h1>
+    <small class="dont-index">Source: <a href='https://github.com/epongpipat/eepR/blob/master/R/get_lm_multicollinearity.R'><code>R/get_lm_multicollinearity.R</code></a></small>
+    <div class="hidden name"><code>get_lm_multicollinearity.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>compare_all_models</p>
+    <p>get_lm_multicollinearity</p>
     </div>
 
-    <pre class="usage"><span class='fu'>compare_all_models</span><span class='op'>(</span><span class='va'>model_list</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>get_lm_multicollinearity</span><span class='op'>(</span><span class='va'>model</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>model_list</th>
-      <td><p>list of models</p></td>
+      <th>model</th>
+      <td><p>fitted model from `lm()`</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>comparison of models</p>
+    
 
-    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='va'>data</span> <span class='op'>&lt;-</span> <span class='fu'>carData</span><span class='fu'>::</span><span class='va'><a href='https://rdrr.io/pkg/carData/man/Salaries.html'>Salaries</a></span>
-<span class='va'>model_1</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/lm.html'>lm</a></span><span class='op'>(</span><span class='va'>salary</span> <span class='op'>~</span> <span class='va'>yrs.since.phd</span>, <span class='va'>data</span><span class='op'>)</span>
-<span class='va'>model_2</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/lm.html'>lm</a></span><span class='op'>(</span><span class='va'>salary</span> <span class='op'>~</span> <span class='va'>yrs.since.phd</span> <span class='op'>*</span> <span class='va'>rank</span>, <span class='va'>data</span><span class='op'>)</span>
-<span class='va'>model_3</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/lm.html'>lm</a></span><span class='op'>(</span><span class='va'>salary</span> <span class='op'>~</span> <span class='va'>yrs.since.phd</span> <span class='op'>*</span> <span class='va'>rank</span> <span class='op'>*</span> <span class='va'>sex</span>, <span class='va'>data</span><span class='op'>)</span>
-<span class='fu'>compare_all_models</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span><span class='va'>model_1</span>, <span class='va'>model_2</span>, <span class='va'>model_3</span><span class='op'>)</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 3 x 12</span><span>
-#&gt;   model formula          n   n_p      sse      ssr  df_r df_residual f_statistic
-#&gt;   </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>        </span><span style='color: #949494;font-style: italic;'>&lt;int&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;int&gt;</span><span>    </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span>    </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;int&gt;</span><span>       </span><span style='color: #949494;font-style: italic;'>&lt;int&gt;</span><span>       </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span>
-#&gt; </span><span style='color: #BCBCBC;'>1</span><span>     1 salary ~ yr…   397     2  2.99</span><span style='color: #949494;'>e</span><span>11 </span><span style='color: #BB0000;'>NA</span><span>   </span><span style='color: #949494;'> </span><span>      </span><span style='color: #BB0000;'>NA</span><span>         395      </span><span style='color: #BB0000;'>NA</span><span>    
-#&gt; </span><span style='color: #BCBCBC;'>2</span><span>     2 salary ~ yr…   397     6  2.19</span><span style='color: #949494;'>e</span><span>11  8.05</span><span style='color: #949494;'>e</span><span>10     4         391      35.9  
-#&gt; </span><span style='color: #BCBCBC;'>3</span><span>     3 salary ~ yr…   397    12  2.17</span><span style='color: #949494;'>e</span><span>11  1.79</span><span style='color: #949494;'>e</span><span> 9     6         385       0.529
-#&gt; </span><span style='color: #949494;'># … with 3 more variables: r_sqaure &lt;dbl&gt;, adj_r_squared &lt;dbl&gt;, p.value &lt;dbl&gt;</span><span></div></span></pre>
+
+
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

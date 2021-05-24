@@ -24,3 +24,4 @@ calculate signal detection theory (SDT) metrics such as d' and c
 \examples{
 #example to be written
 }
+\concept{stats}
