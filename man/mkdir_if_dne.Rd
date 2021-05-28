@@ -4,7 +4,7 @@
 \alias{mkdir_if_dne}
 \title{mkdir_if_dne}
 \usage{
-mkdir_if_dne(dir)
+mkdir_if_dne(dir, recursive = TRUE)
 }
 \arguments{
 \item{dir}{}
@@ -13,5 +13,6 @@ mkdir_if_dne(dir)
 
 }
 \description{
-mkdir_if_dne
+recursively create directories if it does not exist
 }
+\concept{r_helper}

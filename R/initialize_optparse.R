@@ -1,4 +1,5 @@
 #' @title initialize_optparse
+#' @description creates an optparse template from a function and its arguments
 #' @concept r_helper
 #'
 #' @param func_name name of function [type: string]

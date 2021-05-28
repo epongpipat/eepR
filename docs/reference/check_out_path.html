@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>mkdir_if_dne — mkdir_if_dne • eepR</title>
+<title>check_out_path — check_out_path • eepR</title>
 
 
 <!-- jquery -->
@@ -39,8 +39,16 @@
 
 
 
-<meta property="og:title" content="mkdir_if_dne — mkdir_if_dne" />
-<meta property="og:description" content="recursively create directories if it does not exist" />
+<meta property="og:title" content="check_out_path — check_out_path" />
+<meta property="og:description" content="
+
+checks to see if output file exists.
+
+1. STOP WITH ERROR if output file exists, overwrite set to FALSE and skip to FALSE
+2. WARN AND SKIP to next in the for/while loop if output file exists, overwrite set to FALSE, and skip set to TRUE
+3. WARN if output file exists and overwrite set to TRUE
+
+" />
 
 
 
@@ -108,23 +116,39 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>mkdir_if_dne</h1>
-    <small class="dont-index">Source: <a href='https://github.com/epongpipat/eepR/blob/master/R/mkdir_if_dne.R'><code>R/mkdir_if_dne.R</code></a></small>
-    <div class="hidden name"><code>mkdir_if_dne.Rd</code></div>
+    <h1>check_out_path</h1>
+    <small class="dont-index">Source: <a href='https://github.com/epongpipat/eepR/blob/master/R/check_out_path.R'><code>R/check_out_path.R</code></a></small>
+    <div class="hidden name"><code>check_out_path.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>recursively create directories if it does not exist</p>
+    
+<pre>
+checks to see if output file exists.
+
+1. STOP WITH ERROR if output file exists, overwrite set to FALSE and skip to FALSE
+2. WARN AND SKIP to next in the for/while loop if output file exists, overwrite set to FALSE, and skip set to TRUE
+3. WARN if output file exists and overwrite set to TRUE
+</pre>
+
     </div>
 
-    <pre class="usage"><span class='fu'>mkdir_if_dne</span><span class='op'>(</span><span class='va'>dir</span>, recursive <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>check_out_path</span><span class='op'>(</span><span class='va'>out_path</span>, overwrite <span class='op'>=</span> <span class='cn'>FALSE</span>, skip <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>dir</th>
-      <td></td>
+      <th>out_path</th>
+      <td><p>path to output file</p></td>
+    </tr>
+    <tr>
+      <th>overwrite</th>
+      <td><p>booleon to overwrite the output path (default: FALSE)</p></td>
+    </tr>
+    <tr>
+      <th>skip</th>
+      <td><p>boolean to skip if used in a for/while loop (default: FALSE)</p></td>
     </tr>
     </table>
 
@@ -134,6 +158,9 @@
 
 
 
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

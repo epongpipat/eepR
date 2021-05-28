@@ -17,7 +17,7 @@ initialize_optparse(func_name, func_path = NULL, out_path = NULL)
 
 }
 \description{
-initialize_optparse
+creates an optparse template from a function and its arguments
 }
 \examples{
 initialize_optparse("pmid2doi")

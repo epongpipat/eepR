@@ -3,6 +3,7 @@
 export(append_prefix_to_colnames)
 export(append_suffix_to_colnames)
 export(calculate_sdt)
+export(check_out_path)
 export(compare_all_models)
 export(compare_models)
 export(cor_long)
