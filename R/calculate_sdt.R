@@ -26,17 +26,17 @@ calculate_sdt <- function(n_tp, n_tn, n_fp, n_fn) {
   fnr <-n_fn / (n_fn + n_tp)
 
   # adjust rates
-  if (tpr == 1) {
-    tpr_adj <- 1 - 0.5 * 1 / (n_tp + n_fn)
-  } else {
-    tpr_adj <- tpr
+  adjust_rates <- function(x, n) {
+    if (x == 1) {
+      x_adj <- 1 - 0.5 * 1 / n
+    } else if (x == 0) {
+      x_adj <- 0.5 * 1 / n
+    }else {
+      x_adj <- x
+    }
   }
-
-  if (fpr == 0) {
-    fpr_adj <- 0.5 * 1/(n_fp + n_tn)
-  } else {
-    fpr_adj <- fpr
-  }
+  tpr_adj <- adjust_rates(tpr, (n_tp + n_fn))
+  fpr_adj <- adjust_rates(fpr, (n_fp + n_tn))
 
   # p > z
   tpr_z <- qnorm(tpr_adj)
