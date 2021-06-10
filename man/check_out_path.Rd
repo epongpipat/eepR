@@ -4,14 +4,14 @@
 \alias{check_out_path}
 \title{check_out_path}
 \usage{
-check_out_path(out_path, overwrite = FALSE, skip = FALSE)
+check_out_path(out_path, overwrite = FALSE, warn_only = FALSE)
 }
 \arguments{
 \item{out_path}{path to output file}
 
 \item{overwrite}{booleon to overwrite the output path (default: FALSE)}
 
-\item{skip}{boolean to skip if used in a for/while loop (default: FALSE)}
+\item{warn_only}{boolean to warn instead of stop if file exists and overwrite set to FALSE (default: FALSE)}
 }
 \value{
 
@@ -20,8 +20,8 @@ check_out_path(out_path, overwrite = FALSE, skip = FALSE)
 \preformatted{
 checks to see if output file exists.
 
-1. STOP WITH ERROR if output file exists, overwrite set to FALSE and skip to FALSE
-2. WARN AND SKIP to next in the for/while loop if output file exists, overwrite set to FALSE, and skip set to TRUE
+1. STOP WITH ERROR if output file exists, overwrite set to FALSE and warn_only set to FALSE
+2. WARN if output file exists, overwrite set to FALSE and warn_only set to TRUE
 3. WARN if output file exists and overwrite set to TRUE
 }
 }

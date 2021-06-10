@@ -44,8 +44,8 @@
 
 checks to see if output file exists.
 
-1. STOP WITH ERROR if output file exists, overwrite set to FALSE and skip to FALSE
-2. WARN AND SKIP to next in the for/while loop if output file exists, overwrite set to FALSE, and skip set to TRUE
+1. STOP WITH ERROR if output file exists, overwrite set to FALSE and warn_only set to FALSE
+2. WARN if output file exists, overwrite set to FALSE and warn_only set to TRUE
 3. WARN if output file exists and overwrite set to TRUE
 
 " />
@@ -80,7 +80,7 @@ checks to see if output file exists.
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">eepR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.0.9000</span>
       </span>
     </div>
 
@@ -126,14 +126,14 @@ checks to see if output file exists.
 <pre>
 checks to see if output file exists.
 
-1. STOP WITH ERROR if output file exists, overwrite set to FALSE and skip to FALSE
-2. WARN AND SKIP to next in the for/while loop if output file exists, overwrite set to FALSE, and skip set to TRUE
+1. STOP WITH ERROR if output file exists, overwrite set to FALSE and warn_only set to FALSE
+2. WARN if output file exists, overwrite set to FALSE and warn_only set to TRUE
 3. WARN if output file exists and overwrite set to TRUE
 </pre>
 
     </div>
 
-    <pre class="usage"><span class='fu'>check_out_path</span><span class='op'>(</span><span class='va'>out_path</span>, overwrite <span class='op'>=</span> <span class='cn'>FALSE</span>, skip <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>check_out_path</span><span class='op'>(</span><span class='va'>out_path</span>, overwrite <span class='op'>=</span> <span class='cn'>FALSE</span>, warn_only <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -147,8 +147,8 @@ checks to see if output file exists.
       <td><p>booleon to overwrite the output path (default: FALSE)</p></td>
     </tr>
     <tr>
-      <th>skip</th>
-      <td><p>boolean to skip if used in a for/while loop (default: FALSE)</p></td>
+      <th>warn_only</th>
+      <td><p>boolean to warn instead of stop if file exists and overwrite set to FALSE (default: FALSE)</p></td>
     </tr>
     </table>
 
