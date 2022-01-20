@@ -1,0 +1,45 @@
+---
+title: "Title"
+author: "Ekarin Eric Pongpipat, M.A."
+date: "Date (Updated on `r Sys.Date()`)"
+output: 
+  html_document:
+    highlight: textmate
+    theme: lumen
+    code_download: TRUE
+    code_folding: show
+    toc: yes
+    toc_depth: 3
+    toc_float:
+      collapsed: yes
+      smooth_scroll: yes
+---
+
+```{r, include = F}
+knitr::opts_chunk$set(dev = 'svg')
+```
+
+<style>
+h2 {
+  padding-top: 1.5em;
+  border-bottom: 1px solid #f0f0f0;
+  padding-bottom: 1em; 
+}
+.references.hanging-indent {
+  padding-left: 1.5em;
+  text-indent: -1.5em;
+}
+</style>
+
+## R Packages
+
+```{r, warning = F}
+packages <- c("tidyverse", 'eepR')
+xfun::pkg_attach2(packages, message = F)
+```
+
+## Heading
+
+```{r}
+print("hello world")
+```
