@@ -1,0 +1,37 @@
+on:
+  push:
+    branches: main
+    paths:
+      - "R/*.R"
+      - "R/*R"
+  pull_request:
+    branches: main
+    paths:
+      - "R/*.R"
+      - "R/*.R"
+
+name: render man/ and docs/
+
+jobs:
+  render:
+    name: render man/ and docs/
+    runs-on: macOS-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: r-lib/actions/setup-r@master
+      - uses: r-lib/actions/setup-pandoc@master
+      - name: Install dependencies
+        run: |
+          install.packages("xfun")
+          pkgs <- c('renv', 'roxygen2', 'pkgdown')
+          xfun::pkg_attach2(pkgs)
+        shell: Rscript {0}
+      - name: Render man/ and docs/
+        run: |
+          Rscript --vanilla build_pkgs.R
+      - name: Commit results
+        run: |
+          git add -f man/
+          git add -f docs/
+          git commit -m 'gh actions: render man/ and docs/'
+          git push origin
