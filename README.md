@@ -9,7 +9,7 @@
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
 <!-- badges: end -->
 
-This package contains functions that I use regularly.
+This package contains helper functions that I use regularly.
 
 **Note**: This package will likely always be in a testing phase. Please
 use this with caution.
@@ -18,5 +18,5 @@ use this with caution.
 
 ``` r
 # install.packages("devtools")
-devtools::install_github("epongpipat/eepR")
+remotes::install_github("epongpipat/eepR")
 ```
