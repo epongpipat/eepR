@@ -1,4 +1,4 @@
-#' tidy_eep
+#' tidy_es
 #' @description a modification of the tidy command
 #'
 #' @param model model fit from lm()
@@ -11,7 +11,7 @@
 #' @importFrom broom tidy
 #' @importFrom glue glue
 #' @examples tidy_eep(salary ~ yrs.since.phd, carData::Salaries)
-tidy_eep <- function(model, ci = 0.95) {
+tidy_es <- function(model, ci = 0.95) {
   if (attributes(model)$class != 'lm') {
     stop(glue("attribute must be lm (attribute: {attributes(model)$class})"))
   }
