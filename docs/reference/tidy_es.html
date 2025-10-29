@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>append_prefix_to_colnames — append_prefix_to_colnames • eepR</title>
+<title>tidy_es — tidy_es • eepR</title>
 
 
 <!-- jquery -->
@@ -39,8 +39,8 @@
 
 
 
-<meta property="og:title" content="append_prefix_to_colnames — append_prefix_to_colnames" />
-<meta property="og:description" content="add a string to beginning of all the column names" />
+<meta property="og:title" content="tidy_es — tidy_es" />
+<meta property="og:description" content="a modification of the tidy command" />
 
 
 
@@ -108,37 +108,37 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>append_prefix_to_colnames</h1>
-    <small class="dont-index">Source: <a href='https://github.com/epongpipat/eepR/blob/master/R/append_prefix_to_colnames.R'><code>R/append_prefix_to_colnames.R</code></a></small>
-    <div class="hidden name"><code>append_prefix_to_colnames.Rd</code></div>
+    <h1>tidy_es</h1>
+    <small class="dont-index">Source: <a href='https://github.com/epongpipat/eepR/blob/master/R/tidy_es.R'><code>R/tidy_es.R</code></a></small>
+    <div class="hidden name"><code>tidy_es.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>add a string to beginning of all the column names</p>
+    <p>a modification of the tidy command</p>
     </div>
 
-    <pre class="usage"><span class='fu'>append_prefix_to_colnames</span><span class='op'>(</span><span class='va'>data</span>, <span class='va'>prefix</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>tidy_es</span><span class='op'>(</span><span class='va'>model</span>, ci <span class='op'>=</span> <span class='fl'>0.95</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>data</th>
-      <td><p>data.frame that contains the column names to change with a prefix</p></td>
+      <th>model</th>
+      <td><p>model fit from lm()</p></td>
     </tr>
     <tr>
-      <th>prefix</th>
-      <td><p>string to add to the beginning of all of the column names of the data.frame</p></td>
+      <th>ci</th>
+      <td><p>confidence interval (0, 1)</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>data.frame with new column names with prefix string appended to the column names</p>
+    <p>data.frame</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='co'># to be added</span>
-</div></pre>
+    <pre class="examples"><div class='input'><span class='fu'>tidy_eep</span><span class='op'>(</span><span class='va'>salary</span> <span class='op'>~</span> <span class='va'>yrs.since.phd</span>, <span class='fu'>carData</span><span class='fu'>::</span><span class='va'><a href='https://rdrr.io/pkg/carData/man/Salaries.html'>Salaries</a></span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span class='error'>Error in tidy_eep(salary ~ yrs.since.phd, carData::Salaries): could not find function "tidy_eep"</span></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
