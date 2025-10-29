@@ -26,6 +26,6 @@ This package contains helper functions that I use regularly.
 ## Install
 
 ```{r, eval = F}
-# install.packages("devtools")
+# install.packages("remotes")
 remotes::install_github("epongpipat/eepR")
 ```
