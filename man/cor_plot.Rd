@@ -9,9 +9,6 @@ cor_plot(data)
 \arguments{
 \item{data}{data to create a heat map from}
 }
-\value{
-
-}
 \description{
 cor_plot
 }

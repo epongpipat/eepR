@@ -13,9 +13,6 @@ initialize_optparse(func_name, func_path = NULL, out_path = NULL)
 
 \item{out_path}{path to write optparsed file (optional)}
 }
-\value{
-
-}
 \description{
 creates an optparse template from a function and its arguments
 }

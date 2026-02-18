@@ -9,9 +9,6 @@ pmid2abstract(pmid)
 \arguments{
 \item{pmid}{}
 }
-\value{
-
-}
 \description{
 pmid2abstract
 }

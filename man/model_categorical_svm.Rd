@@ -13,9 +13,6 @@ model_categorical_svm(x, y, kernel = "linear", ...)
 
 \item{kernel}{}
 }
-\value{
-
-}
 \description{
 model_categorical_svm
 }

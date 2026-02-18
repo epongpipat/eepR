@@ -11,9 +11,6 @@ model_categorical_all(x, y)
 
 \item{y}{outcome to predict}
 }
-\value{
-
-}
 \description{
 model_categorical_all
 }

@@ -9,9 +9,6 @@ get_lm_multicollinearity(model)
 \arguments{
 \item{model}{fitted model from `lm()`}
 }
-\value{
-
-}
 \description{
 get_lm_multicollinearity
 }

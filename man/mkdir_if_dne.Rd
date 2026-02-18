@@ -9,9 +9,6 @@ mkdir_if_dne(dir, recursive = TRUE)
 \arguments{
 \item{dir}{}
 }
-\value{
-
-}
 \description{
 recursively create directories if it does not exist
 }

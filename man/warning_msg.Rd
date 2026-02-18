@@ -9,9 +9,6 @@ warning_msg(msg)
 \arguments{
 \item{msg}{warning message to print}
 }
-\value{
-
-}
 \description{
 warning_msg
 }

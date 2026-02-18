@@ -9,9 +9,6 @@ print_footer(start_datetime)
 \arguments{
 \item{start_datetime}{start time from `print_header()`}
 }
-\value{
-
-}
 \description{
 print_footer
 }

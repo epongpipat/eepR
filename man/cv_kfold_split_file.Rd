@@ -9,9 +9,6 @@ cv_kfold_split_file(x_path, y_path, k_fold, out_dir)
 \arguments{
 \item{out_dir}{}
 }
-\value{
-
-}
 \description{
 cv_kfold_split_file
 }
