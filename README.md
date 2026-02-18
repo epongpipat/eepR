@@ -17,6 +17,6 @@ use this with caution.
 ## Install
 
 ``` r
-# install.packages("devtools")
+# install.packages("remotes")
 remotes::install_github("epongpipat/eepR")
 ```

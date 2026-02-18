@@ -1,7 +1,7 @@
 Package: eepR
 Type: Package
 Title: Common Functions that I Use Regularly
-Version: 0.2.0
+Version: 0.3.0
 Author: Ekarin Eric Pongpipat
 Maintainer: Ekarin Pongpipat <epongpipat@gmail.com>
 Description: This package will likely always be in a testing-phase. Please use this package cautiously.

@@ -1,5 +1,14 @@
+<<<<<<< HEAD
 pandoc: 3.8.3
 pkgdown: 2.2.0
 pkgdown_sha: ~
 articles: {}
 last_built: 2026-02-18T05:59Z
+=======
+pandoc: 3.1.1
+pkgdown: 1.6.1
+pkgdown_sha: ~
+articles: {}
+last_built: 2025-10-29T20:27Z
+
+>>>>>>> 314d75bb9bdd23faffaaa7bb0271387cd0242acf
