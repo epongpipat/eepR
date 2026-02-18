@@ -15,9 +15,6 @@ plot_age(data, y_var, x_var = "age", y_lab = NULL, x_lab = "Age")
 
 \item{var_x}{}
 }
-\value{
-
-}
 \description{
 plot_age
 }

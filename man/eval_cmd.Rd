@@ -15,9 +15,6 @@ eval_cmd(cmd, out_paths, overwrite = FALSE, print = FALSE)
 
 \item{print}{flag to print command only (default: FALSE)}
 }
-\value{
-
-}
 \description{
 eval_cmd
 }

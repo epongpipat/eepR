@@ -9,9 +9,6 @@ renamed_tidy(model)
 \arguments{
 \item{model}{}
 }
-\value{
-
-}
 \description{
 Title
 }

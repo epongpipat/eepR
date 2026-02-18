@@ -39,11 +39,8 @@ export(move_legend_to_btm)
 export(nice_table)
 export(nice_table_html)
 export(nice_table_html_short)
-<<<<<<< HEAD
-export(plot_scree)
-=======
 export(plot_age)
->>>>>>> 314d75bb9bdd23faffaaa7bb0271387cd0242acf
+export(plot_scree)
 export(pmcid2pdf)
 export(pmid2abstract)
 export(pmid2bibtex)
@@ -79,12 +76,9 @@ import(tidyr)
 importFrom(broom,tidy)
 importFrom(crayon,red)
 importFrom(crayon,yellow)
-<<<<<<< HEAD
 importFrom(dplyr,select)
-importFrom(effectsize,t_to_eta2_adj)
-=======
 importFrom(effectsize,F_to_eta2_adj)
->>>>>>> 314d75bb9bdd23faffaaa7bb0271387cd0242acf
+importFrom(effectsize,t_to_eta2_adj)
 importFrom(glue,glue)
 importFrom(lubridate,dyears)
 importFrom(lubridate,interval)
