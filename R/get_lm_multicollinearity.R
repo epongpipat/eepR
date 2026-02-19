@@ -1,23 +1,24 @@
 #' get_lm_multicollinearity
 #' @concept stats
-#' @param model fitted model from `lm()`
+#' @param model fitted model from \code{lm()}
 #'
 #' @return
 #' @export
 #' @import dplyr broom
-#' @examples
+#' @examples get_lm_multicollinearity(lm(salary ~ yrs.since.phd + yrs.service, carData::Salaries))
 get_lm_multicollinearity <- function(model) {
   X <- model.matrix(model)
   tolerance <- list()
   vif <- list()
   for (i in 2:ncol(X)) {
-    temp_x <- colnames(X)[-c(1, i)]
-    temp_y <- colnames(X)[i]
-    temp_formula <- glue("{temp_y} ~ {paste0(temp_x, collapse = '+')}")
-    print(temp_formula)
-    temp_model <- lm(eval(as.formula(temp_formula)), df)
-    tolerance[temp_y] <- as.numeric(1 - glance(temp_model)[['r.squared']])
-    vif[temp_y] <- as.numeric(1 / tolerance[[temp_y]])
+    tmp <- list()
+    tmp$x <- colnames(X)[-c(1, i)]
+    tmp$y <- colnames(X)[i]
+    tmp$formula <- glue("{tmp$y} ~ {paste0(tmp$x, collapse = '+')}")
+    print(tmp$formula)
+    tmp$model <- lm(eval(as.formula(tmp$formula)), model$model)
+    tolerance[tmp$y] <- as.numeric(1 - glance(tmp$model)[['r.squared']])
+    vif[tmp$y] <- as.numeric(1 / tolerance[[tmp$y]])
   }
 
   df_multicollinearity <- cbind(tolerance, vif) %>%
