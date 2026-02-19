@@ -1,11 +1,12 @@
-#' Title
+#' renamed_tidy
+#' @description Minor modification of the \code{tidy()} function that renames the columns to be more intuitive and adds the left-hand and operator columns for lm objects
+#' @concept stats
+#' @param model model fit from \code{lm()}
 #'
-#' @param model 
-#'
-#' @return
+#' @return data.frame
 #' @export
 #'
-#' @examples
+#' @examples renamed_tidy(lm(mpg ~ wt, data = mtcars))
 renamed_tidy <- function(model) {
   df_tidy <- tidy(model)
   if (attributes(model)$class == 'lm') {

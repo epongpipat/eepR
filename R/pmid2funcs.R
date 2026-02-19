@@ -4,13 +4,11 @@
 #'
 #' @return
 #' @export
-#'
+#' @import dplyr stringr rvest
+#' @importFrom glue glue
 #' @examples
+#' pmid2doi(33317393)
 pmid2doi <- function(pmid) {
-  require(dplyr)
-  require(stringr)
-  require(rvest)
-  require(glue)
   glue("https://pubmed.ncbi.nlm.nih.gov/{pmid}") %>%
     read_html(.) %>%
     html_node(".identifiers") %>%
@@ -28,12 +26,10 @@ pmid2doi <- function(pmid) {
 #' @return
 #' @export
 #'
-#' @examples
+#' @examples pmid2pmcid(33317393)
+#' @import dplyr stringr rvest
+#' @importFrom glue glue
 pmid2pmcid <- function(pmid) {
-  require(dplyr)
-  require(stringr)
-  require(rvest)
-  require(glue)
   html_pmcid <- glue("https://pubmed.ncbi.nlm.nih.gov/{pmid}") %>%
     read_html(.) %>%
     html_node(".identifiers") %>%
@@ -60,12 +56,10 @@ pmid2pmcid <- function(pmid) {
 #' @return
 #' @export
 #'
-#' @examples
+#' @examples pmid2bibtex(33317393)
+#' @import dplyr stringr rvest
+#' @importFrom glue glue
 pmid2bibtex <- function(pmid, key_as_first_author_year = TRUE) {
-  require(dplyr)
-  require(stringr)
-  require(rvest)
-  require(glue)
   bibtex <- glue("http://www.bioinformatics.org/texmed/cgi-bin/list.cgi?PMID={pmid}") %>%
     read_html(.) %>%
     html_node("body") %>%
@@ -112,12 +106,10 @@ pmid2bibtex <- function(pmid, key_as_first_author_year = TRUE) {
 #' @return
 #' @export
 #'
-#' @examples
+#' @examples pmcid2pdf(33317393)
+#' @import dplyr stringr rvest
+#' @importFrom glue glue
 pmcid2pdf <- function(pmcid) {
-  require(dplyr)
-  require(stringr)
-  require(rvest)
-  require(glue)
   glue("https://www.ncbi.nlm.nih.gov/pmc/articles/{pmcid}") %>%
     read_html(.) %>%
     html_node(".format-menu") %>%
@@ -136,12 +128,10 @@ pmcid2pdf <- function(pmcid) {
 #' @return
 #' @export
 #'
-#' @examples
+#' @examples pmid2abstract(33317393)
+#' @import dplyr stringr rvest
+#' @importFrom glue glue
 pmid2abstract <- function(pmid) {
-  require(dplyr)
-  require(stringr)
-  require(rvest)
-  require(glue)
   glue("https://pubmed.ncbi.nlm.nih.gov/{pmid}") %>%
     read_html(.) %>%
     html_node(".abstract-content.selected") %>%

@@ -9,7 +9,7 @@
 #' cor_plot(mtcars)
 cor_plot <- function(data) {
   cor_long(data) %>%
-    ggplot(., aes(var_1, var_2, fill = val)) +
+    ggplot(., aes(var_1, var_2, fill = r)) +
     geom_raster() +
     theme_minimal() +
     labs(x = NULL,

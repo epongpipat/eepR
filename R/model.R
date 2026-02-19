@@ -1,5 +1,5 @@
 #' model
-#'
+#' @concept model_uber
 #' @param x
 #' @param y
 #' @param pkg

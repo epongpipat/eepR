@@ -1,5 +1,5 @@
 #' @title cor_long
-#'
+#' @concept stats
 #' @param data data to correlate and transform to long format
 #'
 #' @return
@@ -16,7 +16,7 @@ cor_long <- function(data) {
   cor_long <- cor(data) %>%
     as.data.frame() %>%
     rownames_to_column(., "var_1") %>%
-    gather(., "var_2", "val", -var_1)
+    gather(., "var_2", "r", -var_1)
 
   return(cor_long)
 

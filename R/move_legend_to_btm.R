@@ -1,5 +1,5 @@
 #' move_legend_to_btm
-#'
+#' @concept visualization
 #' @returns
 #' @export
 #'

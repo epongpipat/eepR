@@ -10,7 +10,7 @@
 #' @export
 #' @importFrom tibble tibble
 #' @examples
-#' #example to be written
+#' calculate_sdt(25, 26, 5, 4)
 calculate_sdt <- function(n_tp, n_tn, n_fp, n_fn) {
 
   # totals

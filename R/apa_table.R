@@ -1,14 +1,13 @@
 #' apa_table
 #' @description covert a data table to APA format
 #' @details black border on the top and bottom of the columns, black border on the bottom of the table, and font is Times size 12
-#' @concept 
+#' @concept stats
 #' @param table input data table
 #'
 #' @return gt object
 #' @import gt
 #' @export
-
-#' @examples
+#' @examples apa_table(renamed_tidy(lm(mpg ~ wt, data = mtcars)))
 apa_table <- function(table) {
   df <- gt(table) %>%
     tab_style(style = list(cell_text(font = 'Times', size = 12, align = 'center'),
