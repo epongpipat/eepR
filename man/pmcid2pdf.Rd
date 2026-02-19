@@ -12,4 +12,7 @@ pmcid2pdf(pmcid)
 \description{
 pmcid2pdf
 }
+\examples{
+pmcid2pdf(33317393)
+}
 \concept{references_pubmed}

@@ -2,13 +2,20 @@
 % Please edit documentation in R/renamed_tidy.R
 \name{renamed_tidy}
 \alias{renamed_tidy}
-\title{Title}
+\title{renamed_tidy}
 \usage{
 renamed_tidy(model)
 }
 \arguments{
-\item{model}{}
+\item{model}{model fit from \code{lm()}}
+}
+\value{
+data.frame
 }
 \description{
-Title
+Minor modification of the \code{tidy()} function that renames the columns to be more intuitive and adds the left-hand and operator columns for lm objects
 }
+\examples{
+renamed_tidy(lm(mpg ~ wt, data = mtcars))
+}
+\concept{stats}

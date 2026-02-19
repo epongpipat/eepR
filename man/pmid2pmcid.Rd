@@ -12,4 +12,7 @@ pmid2pmcid(pmid)
 \description{
 pmid2pmcid
 }
+\examples{
+pmid2pmcid(33317393)
+}
 \concept{references_pubmed}

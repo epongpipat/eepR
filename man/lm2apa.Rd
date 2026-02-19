@@ -7,7 +7,7 @@
 lm2apa(m, terms = "all", level = 0.95, digits = 3, format = "html")
 }
 \arguments{
-\item{m}{model from `lm()`}
+\item{m}{model from \code{lm()}}
 
 \item{terms}{specify terms to print in APA format (default: all)}
 
@@ -15,8 +15,12 @@ lm2apa(m, terms = "all", level = 0.95, digits = 3, format = "html")
 
 \item{digits}{specify digit to round statistics (default: 3)}
 
-\item{format}{specify format (default: html)}
+\item{format}{specify format (default: html) (options: html, plain)}
 }
 \description{
-converts `lm` model to APA format string
+converts \code{lm()} model to APA format string
 }
+\examples{
+lm2apa(lm(mpg ~ wt, data = mtcars), format = 'plain')
+}
+\concept{stats}

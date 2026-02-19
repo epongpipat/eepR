@@ -7,18 +7,19 @@
 r_sq_to_adj_r_sq(r_sq, n, n_p)
 }
 \arguments{
-\item{r_sq}{r-squared (r^2) value}
+\item{r_sq}{r-squared ($R^2$) value}
 
 \item{n}{number of subjects/rows}
 
 \item{n_p}{number of parameters}
 }
 \value{
-adjusted r-squared (r^2) value
+
 }
 \description{
-r_sq_to_adj_r_sq
+Convert r-squared ($R^2$) to adjusted r-squared ($R^2_{Adj.}$).
 }
 \examples{
-# to be added
+r_sq_to_adj_r_sq(.5, 100, 5)
 }
+\concept{stats}

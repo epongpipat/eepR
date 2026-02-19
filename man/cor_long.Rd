@@ -15,3 +15,4 @@ cor_long
 \examples{
 cor_long(mtcars)
 }
+\concept{stats}

@@ -12,4 +12,7 @@ pmid2abstract(pmid)
 \description{
 pmid2abstract
 }
+\examples{
+pmid2abstract(33317393)
+}
 \concept{references_pubmed}

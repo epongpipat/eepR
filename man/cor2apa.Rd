@@ -7,13 +7,14 @@
 cor2apa(m, digits = 3)
 }
 \arguments{
-\item{m}{model from `cor.test()`}
+\item{m}{model from \code{cor.test()}}
 
 \item{digits}{round statistics to specified digit}
 }
 \description{
-converts `cor.test` model to APA format string
+converts \code{cor.test()} model to APA format string
 }
 \examples{
-cor.test()
+cor2apa(cor.test(carData::Salaries$yrs.since.phd, carData::Salaries$salary))
 }
+\concept{stats}

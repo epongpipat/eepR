@@ -7,9 +7,12 @@
 get_lm_multicollinearity(model)
 }
 \arguments{
-\item{model}{fitted model from `lm()`}
+\item{model}{fitted model from \code{lm()}}
 }
 \description{
 get_lm_multicollinearity
+}
+\examples{
+get_lm_multicollinearity(lm(salary ~ yrs.since.phd + yrs.service, carData::Salaries))
 }
 \concept{stats}

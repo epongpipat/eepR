@@ -12,4 +12,7 @@ pmid2doi(pmid)
 \description{
 pmid2doi
 }
+\examples{
+pmid2doi(33317393)
+}
 \concept{references_pubmed}

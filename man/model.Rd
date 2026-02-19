@@ -12,3 +12,4 @@ model(x, y, pkg, fun, args = NULL, id = NULL)
 \description{
 model
 }
+\concept{model_uber}

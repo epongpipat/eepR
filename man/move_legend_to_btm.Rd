@@ -9,3 +9,4 @@ move_legend_to_btm(learn = FALSE)
 \description{
 move_legend_to_btm
 }
+\concept{visualization}

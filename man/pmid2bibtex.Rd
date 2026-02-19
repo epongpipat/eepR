@@ -12,4 +12,7 @@ pmid2bibtex(pmid, key_as_first_author_year = TRUE)
 \description{
 pmid2bibtex
 }
+\examples{
+pmid2bibtex(33317393)
+}
 \concept{references_pubmed}

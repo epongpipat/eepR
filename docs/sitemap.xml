@@ -1,162 +1,67 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>/404.html</loc>
-  </url>
-  <url>
-    <loc>/LICENSE-text.html</loc>
-  </url>
-  <url>
-    <loc>/authors.html</loc>
-  </url>
-  <url>
-    <loc>/index.html</loc>
-  </url>
-  <url>
-    <loc>/reference/append_prefix_to_colnames.html</loc>
-  </url>
-  <url>
-    <loc>/reference/append_suffix_to_colnames.html</loc>
-  </url>
-  <url>
-    <loc>/reference/calculate_sdt.html</loc>
-  </url>
-  <url>
-    <loc>/reference/check_contrast_orthogonality.html</loc>
-  </url>
-  <url>
-    <loc>/reference/check_in_paths.html</loc>
-  </url>
-  <url>
-    <loc>/reference/check_out_path.html</loc>
-  </url>
-  <url>
-    <loc>/reference/check_out_paths.html</loc>
-  </url>
-  <url>
-    <loc>/reference/compare_all_models.html</loc>
-  </url>
-  <url>
-    <loc>/reference/compare_models.html</loc>
-  </url>
-  <url>
-    <loc>/reference/cor_long.html</loc>
-  </url>
-  <url>
-    <loc>/reference/cor_plot.html</loc>
-  </url>
-  <url>
-    <loc>/reference/cv_kfold_split_file.html</loc>
-  </url>
-  <url>
-    <loc>/reference/error_msg.html</loc>
-  </url>
-  <url>
-    <loc>/reference/flatten_dimension.html</loc>
-  </url>
-  <url>
-    <loc>/reference/flatten_dimension_all.html</loc>
-  </url>
-  <url>
-    <loc>/reference/get_lm_multicollinearity.html</loc>
-  </url>
-  <url>
-    <loc>/reference/index.html</loc>
-  </url>
-  <url>
-    <loc>/reference/info_msg.html</loc>
-  </url>
-  <url>
-    <loc>/reference/initialize_optparse.html</loc>
-  </url>
-  <url>
-    <loc>/reference/initialize_parallel_computing.html</loc>
-  </url>
-  <url>
-    <loc>/reference/mkdir_if_dne.html</loc>
-  </url>
-  <url>
-    <loc>/reference/model.html</loc>
-  </url>
-  <url>
-    <loc>/reference/model_categorical_all.html</loc>
-  </url>
-  <url>
-    <loc>/reference/model_categorical_elastic_net.html</loc>
-  </url>
-  <url>
-    <loc>/reference/model_categorical_glm.html</loc>
-  </url>
-  <url>
-    <loc>/reference/model_categorical_lasso.html</loc>
-  </url>
-  <url>
-    <loc>/reference/model_categorical_ridge.html</loc>
-  </url>
-  <url>
-    <loc>/reference/model_categorical_svm.html</loc>
-  </url>
-  <url>
-    <loc>/reference/model_continuous_elastic_net.html</loc>
-  </url>
-  <url>
-    <loc>/reference/model_continuous_lasso.html</loc>
-  </url>
-  <url>
-    <loc>/reference/model_continuous_ridge.html</loc>
-  </url>
-  <url>
-    <loc>/reference/model_continuous_svm_linear.html</loc>
-  </url>
-  <url>
-    <loc>/reference/nice_table.html</loc>
-  </url>
-  <url>
-    <loc>/reference/nice_table_html.html</loc>
-  </url>
-  <url>
-    <loc>/reference/nice_table_html_short.html</loc>
-  </url>
-  <url>
-    <loc>/reference/pmcid2pdf.html</loc>
-  </url>
-  <url>
-    <loc>/reference/pmid2abstract.html</loc>
-  </url>
-  <url>
-    <loc>/reference/pmid2bibtex.html</loc>
-  </url>
-  <url>
-    <loc>/reference/pmid2doi.html</loc>
-  </url>
-  <url>
-    <loc>/reference/pmid2pmcid.html</loc>
-  </url>
-  <url>
-    <loc>/reference/print_footer.html</loc>
-  </url>
-  <url>
-    <loc>/reference/print_header.html</loc>
-  </url>
-  <url>
-    <loc>/reference/r_sq_to_adj_r_sq.html</loc>
-  </url>
-  <url>
-    <loc>/reference/rename_colnames.html</loc>
-  </url>
-  <url>
-    <loc>/reference/stop_if_dne.html</loc>
-  </url>
-  <url>
-    <loc>/reference/stop_if_e.html</loc>
-  </url>
-  <url>
-    <loc>/reference/tidy_colnames.html</loc>
-  </url>
-  <url>
-    <loc>/reference/tryCatch2.html</loc>
-  </url>
-  <url>
-    <loc>/reference/warning_msg.html</loc>
-  </url>
+<urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
+<url><loc>/404.html</loc></url>
+<url><loc>/LICENSE-text.html</loc></url>
+<url><loc>/authors.html</loc></url>
+<url><loc>/index.html</loc></url>
+<url><loc>/reference/apa_table.html</loc></url>
+<url><loc>/reference/append_prefix_to_colnames.html</loc></url>
+<url><loc>/reference/append_suffix_to_colnames.html</loc></url>
+<url><loc>/reference/calculate_sdt.html</loc></url>
+<url><loc>/reference/check_contrast_orthogonality.html</loc></url>
+<url><loc>/reference/check_in_paths.html</loc></url>
+<url><loc>/reference/check_out_path.html</loc></url>
+<url><loc>/reference/check_out_paths.html</loc></url>
+<url><loc>/reference/compare_all_models.html</loc></url>
+<url><loc>/reference/compare_models.html</loc></url>
+<url><loc>/reference/cor2apa.html</loc></url>
+<url><loc>/reference/cor_long.html</loc></url>
+<url><loc>/reference/cor_plot.html</loc></url>
+<url><loc>/reference/cv_kfold_split_file.html</loc></url>
+<url><loc>/reference/error_msg.html</loc></url>
+<url><loc>/reference/eval_cmd.html</loc></url>
+<url><loc>/reference/flatten_dimension.html</loc></url>
+<url><loc>/reference/flatten_dimension_all.html</loc></url>
+<url><loc>/reference/get_age_yrs.html</loc></url>
+<url><loc>/reference/get_lm_multicollinearity.html</loc></url>
+<url><loc>/reference/index.html</loc></url>
+<url><loc>/reference/info_msg.html</loc></url>
+<url><loc>/reference/initialize_optparse.html</loc></url>
+<url><loc>/reference/initialize_parallel_computing.html</loc></url>
+<url><loc>/reference/lm2apa.html</loc></url>
+<url><loc>/reference/mkdir_if_dne.html</loc></url>
+<url><loc>/reference/model.html</loc></url>
+<url><loc>/reference/model_categorical_all.html</loc></url>
+<url><loc>/reference/model_categorical_elastic_net.html</loc></url>
+<url><loc>/reference/model_categorical_glm.html</loc></url>
+<url><loc>/reference/model_categorical_lasso.html</loc></url>
+<url><loc>/reference/model_categorical_ridge.html</loc></url>
+<url><loc>/reference/model_categorical_svm.html</loc></url>
+<url><loc>/reference/model_continuous_elastic_net.html</loc></url>
+<url><loc>/reference/model_continuous_lasso.html</loc></url>
+<url><loc>/reference/model_continuous_ridge.html</loc></url>
+<url><loc>/reference/model_continuous_svm_linear.html</loc></url>
+<url><loc>/reference/move_legend_to_btm.html</loc></url>
+<url><loc>/reference/nice_table.html</loc></url>
+<url><loc>/reference/nice_table_html.html</loc></url>
+<url><loc>/reference/nice_table_html_short.html</loc></url>
+<url><loc>/reference/plot_age.html</loc></url>
+<url><loc>/reference/plot_scree.html</loc></url>
+<url><loc>/reference/pmcid2pdf.html</loc></url>
+<url><loc>/reference/pmid2abstract.html</loc></url>
+<url><loc>/reference/pmid2bibtex.html</loc></url>
+<url><loc>/reference/pmid2doi.html</loc></url>
+<url><loc>/reference/pmid2pmcid.html</loc></url>
+<url><loc>/reference/print_footer.html</loc></url>
+<url><loc>/reference/print_header.html</loc></url>
+<url><loc>/reference/r_sq_to_adj_r_sq.html</loc></url>
+<url><loc>/reference/rename_colnames.html</loc></url>
+<url><loc>/reference/renamed_tidy.html</loc></url>
+<url><loc>/reference/safe_to_write.html</loc></url>
+<url><loc>/reference/stop_if_dne.html</loc></url>
+<url><loc>/reference/stop_if_e.html</loc></url>
+<url><loc>/reference/tidy_colnames.html</loc></url>
+<url><loc>/reference/tidy_es.html</loc></url>
+<url><loc>/reference/tryCatch2.html</loc></url>
+<url><loc>/reference/warning_msg.html</loc></url>
 </urlset>
+

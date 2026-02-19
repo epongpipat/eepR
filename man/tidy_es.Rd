@@ -7,7 +7,7 @@
 tidy_es(model, ci = 0.95)
 }
 \arguments{
-\item{model}{model fit from lm()}
+\item{model}{model fit from \code{lm()}}
 
 \item{ci}{confidence interval (0, 1)}
 }
@@ -15,8 +15,9 @@ tidy_es(model, ci = 0.95)
 data.frame
 }
 \description{
-a modification of the tidy command
+a modification of the tidy command to adds the effect size (confidence intervals for the regression coefficient and adjusted R^2)
 }
 \examples{
-tidy_eep(salary ~ yrs.since.phd, carData::Salaries)
+tidy_es(lm(salary ~ yrs.since.phd, carData::Salaries))
 }
+\concept{stats}

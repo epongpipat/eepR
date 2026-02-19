@@ -22,6 +22,6 @@ data.frame of signal detection theory metrics along with all the variables creat
 calculate signal detection theory (SDT) metrics such as d' and c
 }
 \examples{
-#example to be written
+calculate_sdt(25, 26, 5, 4)
 }
 \concept{stats}
