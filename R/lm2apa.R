@@ -119,7 +119,7 @@ lm2apa <- function(m, terms = 'all', level = 0.95, digits = 3, format = 'html') 
 
 
 
-    tmp$stat_str <- glue("{tmp$b_str}, {tmp$t_str}, {tmp$ci_str}, {tmp$r_sq_adj_str}")
+    tmp$stat_str <- glue("{tmp$b_str}, {tmp$t_str}, {tmp$p_str}, {tmp$ci_str}, {tmp$r_sq_adj_str}")
     names(tmp$stat_str) <- model_tidy[[i, 'term']]
     # df_stat_str$stat_str[i] <- tmp$stat_str
     stat_str <- c(stat_str, tmp$stat)
