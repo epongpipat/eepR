@@ -1,11 +1,11 @@
 #' plot_brain_slice
 #' @concept visualization
 #' @concept neuroimaging
-#' @param df brain slice data (output of `plot_brain_slice`)
+#' @param df brain slice data (output of `plot_brain_slice()`)
 #' @param title title of plot (default: NULL)
 #' @param fill_limits limits of the fill
 #' @param fill_low color of the lowest limit (default: black)
-#' @param fill_mid color of the midpoint. assigning a color automatically using `scale_fill_gradient2` rather `scale_fill_gradient`
+#' @param fill_mid color of the midpoint. assigning a color automatically using `scale_fill_gradient2()` rather `scale_fill_gradient()`
 #' @param fill_midpoint midpoint value (default: 0)
 #' @param fill_high color of the highest limit (default: white)
 #' @param legend_position position of the legend (default: NULL). can also be 'bottom'
@@ -24,7 +24,7 @@ plot_brain_slice <- function(df,
                              fill_high = 'white',
                              legend_position = NULL,
                              legend_title = NULL,
-                             slice_label_offset = 0.25
+                             slice_label_offset = 0.1
 ) {
 
   # checks
@@ -50,6 +50,7 @@ plot_brain_slice <- function(df,
              x = min(df$x) + slice_label_offset * sd(df$x),
              y = max(df$y) - slice_label_offset * sd(df$y),
              label = glue("{attr(df, 'extra_info')$dir} = {attr(df, 'extra_info')$slice}"),
+             hjust = 0,
              color = 'white') +
     theme_void() +
     labs(title = title)
