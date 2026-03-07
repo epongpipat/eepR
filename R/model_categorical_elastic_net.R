@@ -5,7 +5,14 @@
 #'
 #' @return elastic net results
 #' @export
-#' @import glmnet dplyr furrr doParallel foreach tidyr
+#' @import dplyr
+#' @importFrom doParallel registerDoParallel
+#' @importFrom furrr future_map
+#' @importFrom future plan
+#' @importFrom future availableCores
+#' @importFrom glmnet cv.glmnet
+#' @importFrom glmnet glmnet
+#' @importFrom tidyr tibble
 #' @examples
 #' # to be added
 model_categorical_elastic_net <- function(x, y, alpha_list = seq(0.0001, 0.9999, 0.0001)) {

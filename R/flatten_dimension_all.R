@@ -4,7 +4,9 @@
 #'
 #' @return data that is flattened to a single dimension
 #' @export
-#' @import dplyr tidyr purrr furrr
+#' @import dplyr tidyr
+#' @importFrom future plan
+#' @importFrom furrr future_map
 #' @examples
 #' # to be added
 flatten_dimension_all <- function(data) {

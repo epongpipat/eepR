@@ -6,7 +6,7 @@
 #'
 #' @return linear svm model
 #' @export
-#' @import e1071 dplyr
+#' @importFrom e1071 svm
 #' @examples
 #' # to be added
 model_continuous_svm_linear <- function(data, y) {

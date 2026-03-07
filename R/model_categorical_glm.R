@@ -5,12 +5,12 @@
 #'
 #' @return
 #' @export
-#' @import dplyr nnet
+#' @importFrom nnet multinom
 #' @examples
 model_categorical_glm <- function(x, y) {
   x <- as.matrix(x)
   y <- as.matrix(y)
-  n_y <- unique(y) %>% length()
+  n_y <- length(unique(y))
   if (n_y == 2) {
     glm(y ~ x, family = "binomial")
   } else if (n_y > 2) {

@@ -5,12 +5,13 @@
 #'
 #' @return
 #' @export
-#' @import glmnet dplyr
+#' @importFrom glmnet glmnet
+#' @importFrom glmnet cv.glmnet
 #' @examples
 model_categorical_ridge <- function(x, y) {
   x <- as.matrix(x)
   y <- as.matrix(y)
-  n_y <- unique(y) %>% length()
+  n_y <- length(unique(y))
 
   if (n_y == 2) {
     family <- "binomial"

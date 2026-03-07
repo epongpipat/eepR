@@ -6,12 +6,14 @@
 #' @return lasso results
 #' @export
 #' @import glmnet dplyr
+#' @importFrom glmnet cv.glmnet
+#' @importFrom glmnet glmnet
 #' @examples
 #' # to be added
 model_categorical_lasso <- function(x, y) {
   x <- as.matrix(x)
   y <- as.matrix(y)
-  n_y <- unique(y) %>% length()
+  n_y <- length(unique(y))
   if (n_y == 2) {
     family <- "binomial"
   } else if (n_y > 2) {

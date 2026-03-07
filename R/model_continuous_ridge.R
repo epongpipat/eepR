@@ -5,7 +5,9 @@
 #'
 #' @return ridge results
 #' @export
-#' @import glmnet dplyr
+#' @import dplyr
+#' @importFrom glmnet cv.glmnet
+#' @importFrom glmnet glmnet
 #' @examples
 #' # to be added
 model_continuous_ridge <- function(data, y) {

@@ -5,7 +5,14 @@
 #' @param alpha_list vector of alpha to cross-validate (default: seq(0.0001, 0.9999, 0.0001))
 #' @return elastic net results
 #' @export
-#' @import glmnet doParallel foreach future dplyr furrr
+#' @import dplyr
+#' @importFrom doParallel registerDoParallel
+#' @importFrom furrr future_map
+#' @importFrom future plan
+#' @importFrom future availableCores
+#' @importFrom glmnet cv.glmnet
+#' @importFrom glmnet glmnet
+#' @importFrom tidyr tibble
 #' @examples
 #' # to be added
 model_continuous_elastic_net <- function(data, y, alpha_list = seq(0.0001, 0.9999, 0.0001)) {

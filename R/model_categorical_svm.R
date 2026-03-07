@@ -6,7 +6,7 @@
 #'
 #' @return
 #' @export
-#' @import e1071 dplyr
+#' @importFrom e1071 svm
 #' @examples
 model_categorical_svm <- function(x, y, kernel = "linear", ...) {
   x <- as.matrix(x)
