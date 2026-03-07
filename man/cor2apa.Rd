@@ -11,9 +11,6 @@ cor2apa(m, digits = 3)
 
 \item{digits}{round statistics to specified digit}
 }
-\value{
-
-}
 \description{
 converts \code{cor.test()} model to APA format string
 }

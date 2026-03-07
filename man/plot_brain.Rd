@@ -4,7 +4,17 @@
 \alias{plot_brain}
 \title{plot_brain}
 \usage{
-plot_brain(data, indices = NULL, legend_position = NULL, ...)
+plot_brain(
+  data,
+  indices = NULL,
+  legend_position = NULL,
+  bg_color = "black",
+  text_color = "white",
+  out_path = NULL,
+  out_width = 12,
+  out_height = 3,
+  ...
+)
 }
 \arguments{
 \item{data}{3D brain data}
@@ -12,6 +22,16 @@ plot_brain(data, indices = NULL, legend_position = NULL, ...)
 \item{indices}{slices index of i, j, and k to plot}
 
 \item{legend_position}{position of the legend can be bottom or NULL (default)}
+
+\item{bg_color}{background color (default: black)}
+
+\item{text_color}{text color (default: white)}
+
+\item{out_path}{path to save image (default: NULL)}
+
+\item{out_width}{width to saved image in inches (default: 11)}
+
+\item{out_height}{height of saved image in inches (default: 8.5)}
 
 \item{...}{extra options to pass to `plot_brain_slice`}
 }

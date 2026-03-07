@@ -11,9 +11,6 @@ model_categorical_glm(x, y)
 
 \item{y}{categorical outcome to predict}
 }
-\value{
-
-}
 \description{
 model_categorical_glm
 }

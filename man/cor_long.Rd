@@ -9,9 +9,6 @@ cor_long(data)
 \arguments{
 \item{data}{data to correlate and transform to long format}
 }
-\value{
-
-}
 \description{
 cor_long
 }

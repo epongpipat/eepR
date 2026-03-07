@@ -17,9 +17,6 @@ plot_bland_altman(a, b, data, ci = 0.95, txt_offset = 0.25)
 
 \item{txt_offset}{text offset for labels (default: 0.25)}
 }
-\value{
-
-}
 \description{
 plot_bland_altman
 }

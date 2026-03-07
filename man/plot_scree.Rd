@@ -15,9 +15,6 @@ plot_scree(sv = NULL, eigs = NULL, p_perm = NULL, a_thr = 0.05)
 
 \item{a_thr}{alpha threshold for significance of permuted p values (default: 0.05)}
 }
-\value{
-
-}
 \description{
 plot_scree
 }

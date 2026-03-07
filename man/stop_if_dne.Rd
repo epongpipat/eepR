@@ -9,9 +9,6 @@ stop_if_dne(file)
 \arguments{
 \item{file}{}
 }
-\value{
-
-}
 \description{
 stop_if_dne
 }

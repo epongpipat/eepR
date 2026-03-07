@@ -11,9 +11,6 @@ check_out_paths(paths, overwrite = 0)
 
 \item{overwrite}{boolean}
 }
-\value{
-
-}
 \description{
 check_out_paths
 }

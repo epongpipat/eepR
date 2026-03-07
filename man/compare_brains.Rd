@@ -4,7 +4,17 @@
 \alias{compare_brains}
 \title{compare_brains}
 \usage{
-compare_brains(a, b, mask, ci = 0.95, legend_title = NULL)
+compare_brains(
+  a,
+  b,
+  mask,
+  ci = 0.95,
+  legend_title = NULL,
+  out_path = NULL,
+  out_width = 14,
+  out_height = 7,
+  ...
+)
 }
 \arguments{
 \item{a}{first image to compare}
@@ -14,10 +24,17 @@ compare_brains(a, b, mask, ci = 0.95, legend_title = NULL)
 \item{mask}{mask image}
 
 \item{ci}{confidence interval for bland-altman plots (default: 0.95)}
-}
-\value{
 
+\item{out_path}{path to save image}
+
+\item{out_width}{width of saved image in inches (default: 11)}
+
+\item{out_height}{height of saved image in inches (default: 8.5)}
+
+\item{...}{additional parameters for `plot_brain()`}
 }
 \description{
 compare_brains
 }
+\concept{neuroimaging}
+\concept{visualization}

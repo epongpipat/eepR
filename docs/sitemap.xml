@@ -12,6 +12,7 @@
 <url><loc>/reference/check_out_path.html</loc></url>
 <url><loc>/reference/check_out_paths.html</loc></url>
 <url><loc>/reference/compare_all_models.html</loc></url>
+<url><loc>/reference/compare_brains.html</loc></url>
 <url><loc>/reference/compare_models.html</loc></url>
 <url><loc>/reference/cor2apa.html</loc></url>
 <url><loc>/reference/cor_long.html</loc></url>
@@ -19,6 +20,7 @@
 <url><loc>/reference/cv_kfold_split_file.html</loc></url>
 <url><loc>/reference/error_msg.html</loc></url>
 <url><loc>/reference/eval_cmd.html</loc></url>
+<url><loc>/reference/extract_brain_slice.html</loc></url>
 <url><loc>/reference/flatten_dimension.html</loc></url>
 <url><loc>/reference/flatten_dimension_all.html</loc></url>
 <url><loc>/reference/get_age_yrs.html</loc></url>
@@ -45,6 +47,10 @@
 <url><loc>/reference/nice_table_html.html</loc></url>
 <url><loc>/reference/nice_table_html_short.html</loc></url>
 <url><loc>/reference/plot_age.html</loc></url>
+<url><loc>/reference/plot_bland_altman.html</loc></url>
+<url><loc>/reference/plot_brain.html</loc></url>
+<url><loc>/reference/plot_brain_slice.html</loc></url>
+<url><loc>/reference/plot_cor.html</loc></url>
 <url><loc>/reference/plot_scree.html</loc></url>
 <url><loc>/reference/pmcid2pdf.html</loc></url>
 <url><loc>/reference/pmid2abstract.html</loc></url>

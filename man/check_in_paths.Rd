@@ -9,9 +9,6 @@ check_in_paths(paths)
 \arguments{
 \item{paths}{paths to check}
 }
-\value{
-
-}
 \description{
 check_in_paths
 }

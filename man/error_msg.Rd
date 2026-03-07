@@ -9,9 +9,6 @@ error_msg(msg)
 \arguments{
 \item{msg}{error message to print}
 }
-\value{
-
-}
 \description{
 error_msg
 }

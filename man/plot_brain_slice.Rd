@@ -14,7 +14,7 @@ plot_brain_slice(
   fill_high = "white",
   legend_position = NULL,
   legend_title = NULL,
-  slice_label_offset = 0.25
+  slice_label_offset = 0.1
 )
 }
 \arguments{
@@ -37,9 +37,6 @@ plot_brain_slice(
 \item{legend_title}{title of fill legend (default: NULL)}
 
 \item{slice_label_offset}{slice label offset (default: 0.25)}
-}
-\value{
-
 }
 \description{
 plot_brain_slice
