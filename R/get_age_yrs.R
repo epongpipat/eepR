@@ -8,7 +8,7 @@
 #' @importFrom lubridate today
 #' @importFrom lubridate interval
 #' @importFrom lubridate dyears
-#' @examples get_age_years('1776-07-04')
+#' @examples get_age_yrs('1776-07-04')
 get_age_yrs <- function(dob, ref_date = lubridate::today()) {
   return(round(lubridate::interval(dob, ref_date) / lubridate::dyears(), 4))
 }
