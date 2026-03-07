@@ -11,6 +11,9 @@ model_categorical_ridge(x, y)
 
 \item{y}{categorical outcome to predict}
 }
+\value{
+
+}
 \description{
 model_categorical_ridge
 }

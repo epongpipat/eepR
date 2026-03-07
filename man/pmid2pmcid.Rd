@@ -9,6 +9,9 @@ pmid2pmcid(pmid)
 \arguments{
 \item{pmid}{}
 }
+\value{
+
+}
 \description{
 pmid2pmcid
 }

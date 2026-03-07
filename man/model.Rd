@@ -9,6 +9,9 @@ model(x, y, pkg, fun, args = NULL, id = NULL)
 \arguments{
 \item{args}{}
 }
+\value{
+
+}
 \description{
 model
 }

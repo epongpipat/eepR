@@ -9,10 +9,13 @@ pmid2bibtex(pmid, key_as_first_author_year = TRUE)
 \arguments{
 \item{key_as_first_author_year}{}
 }
+\value{
+
+}
 \description{
 pmid2bibtex
 }
 \examples{
-pmid2bibtex(33317393)
+# pmid2bibtex(33317393)
 }
 \concept{references_pubmed}

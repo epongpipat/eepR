@@ -9,6 +9,9 @@ stop_if_e(file)
 \arguments{
 \item{file}{}
 }
+\value{
+
+}
 \description{
 stop_if_e
 }

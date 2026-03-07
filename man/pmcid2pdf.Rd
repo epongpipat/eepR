@@ -9,6 +9,9 @@ pmcid2pdf(pmcid)
 \arguments{
 \item{pmcid}{}
 }
+\value{
+
+}
 \description{
 pmcid2pdf
 }

@@ -9,6 +9,9 @@ tryCatch2(expr)
 \arguments{
 \item{expr}{}
 }
+\value{
+
+}
 \description{
 tryCatch2
 }

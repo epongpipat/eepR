@@ -9,6 +9,9 @@ pmid2doi(pmid)
 \arguments{
 \item{pmid}{}
 }
+\value{
+
+}
 \description{
 pmid2doi
 }

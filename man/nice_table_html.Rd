@@ -9,6 +9,9 @@ nice_table_html(table)
 \arguments{
 \item{table}{}
 }
+\value{
+
+}
 \description{
 nice_table_html
 }

@@ -6,6 +6,9 @@
 \usage{
 move_legend_to_btm(learn = FALSE)
 }
+\value{
+
+}
 \description{
 move_legend_to_btm
 }

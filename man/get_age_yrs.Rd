@@ -11,6 +11,9 @@ get_age_yrs(dob, ref_date = lubridate::today())
 
 \item{ref_date}{reference date (default: today's date)}
 }
+\value{
+
+}
 \description{
 calculate age in years
 }
