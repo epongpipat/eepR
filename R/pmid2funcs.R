@@ -56,7 +56,7 @@ pmid2pmcid <- function(pmid) {
 #' @return
 #' @export
 #'
-#' @examples pmid2bibtex(33317393)
+#' @examples # pmid2bibtex(33317393)
 #' @import dplyr stringr rvest
 #' @importFrom glue glue
 pmid2bibtex <- function(pmid, key_as_first_author_year = TRUE) {
