@@ -34,7 +34,6 @@ currently, does the following modifications:
 colnames(carData::Salaries)
 
 # after
-df <- carData::Salaries \%>\%
-tidy_colnames(.)
+df <- tidy_colnames(carData::Salaries)
 colnames(df)
 }

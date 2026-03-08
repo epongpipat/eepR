@@ -9,7 +9,7 @@ compare_brains(
   b,
   mask,
   ci = 0.95,
-  legend_title = NULL,
+  legend_title = "Intensity",
   out_path = NULL,
   out_width = 14,
   out_height = 7,
@@ -25,13 +25,18 @@ compare_brains(
 
 \item{ci}{confidence interval for bland-altman plots (default: 0.95)}
 
+\item{legend_title}{legend title (default: intensity)}
+
 \item{out_path}{path to save image}
 
 \item{out_width}{width of saved image in inches (default: 11)}
 
 \item{out_height}{height of saved image in inches (default: 8.5)}
 
-\item{...}{additional parameters for `plot_brain()`}
+\item{...}{additional parameters for \code{plot_brain()}}
+}
+\value{
+ggplot figure comparing two images
 }
 \description{
 compare_brains

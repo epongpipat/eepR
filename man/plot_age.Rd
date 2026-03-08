@@ -7,14 +7,20 @@
 plot_age(data, y_var, x_var = "age", y_lab = NULL, x_lab = "Age")
 }
 \arguments{
-\item{data}{}
+\item{data}{input data.frame}
 
-\item{y_lab}{}
+\item{y_lab}{y-axis label}
 
-\item{var_y}{}
+\item{x_lab}{x-axis label}
 
-\item{var_x}{}
+\item{var_y}{y-axis variable to plot}
+
+\item{var_x}{x-axis variable to plot}
+}
+\value{
+ggplot figure of y-axis variable and age
 }
 \description{
 plot_age
 }
+\concept{visualization}

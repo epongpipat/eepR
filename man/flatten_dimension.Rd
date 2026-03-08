@@ -18,3 +18,4 @@ flatten_dimension
 \examples{
 # to be added
 }
+\concept{data_wrangle}

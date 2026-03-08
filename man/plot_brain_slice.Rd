@@ -18,7 +18,7 @@ plot_brain_slice(
 )
 }
 \arguments{
-\item{df}{brain slice data (output of `plot_brain_slice`)}
+\item{df}{brain slice data (output of \code{plot_brain_slice()})}
 
 \item{title}{title of plot (default: NULL)}
 
@@ -26,7 +26,7 @@ plot_brain_slice(
 
 \item{fill_low}{color of the lowest limit (default: black)}
 
-\item{fill_mid}{color of the midpoint. assigning a color automatically using `scale_fill_gradient2` rather `scale_fill_gradient`}
+\item{fill_mid}{color of the midpoint. assigning a color automatically using \code{scale_fill_gradient2()} rather \code{scale_fill_gradient()}}
 
 \item{fill_midpoint}{midpoint value (default: 0)}
 
@@ -37,6 +37,9 @@ plot_brain_slice(
 \item{legend_title}{title of fill legend (default: NULL)}
 
 \item{slice_label_offset}{slice label offset (default: 0.25)}
+}
+\value{
+ggplot2 figure of brain slice
 }
 \description{
 plot_brain_slice

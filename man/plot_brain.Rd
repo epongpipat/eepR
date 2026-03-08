@@ -32,8 +32,6 @@ plot_brain(
 \item{out_width}{width to saved image in inches (default: 11)}
 
 \item{out_height}{height of saved image in inches (default: 8.5)}
-
-\item{...}{extra options to pass to `plot_brain_slice`}
 }
 \value{
 ggplot2 figure of all three directions (i, j, k)

@@ -18,3 +18,4 @@ plot_scree(sv = NULL, eigs = NULL, p_perm = NULL, a_thr = 0.05)
 \description{
 plot_scree
 }
+\concept{visualization}
