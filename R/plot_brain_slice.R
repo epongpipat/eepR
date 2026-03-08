@@ -1,18 +1,18 @@
 #' plot_brain_slice
 #' @concept visualization
 #' @concept neuroimaging
-#' @param df brain slice data (output of `plot_brain_slice()`)
+#' @param df brain slice data (output of \code{plot_brain_slice()})
 #' @param title title of plot (default: NULL)
 #' @param fill_limits limits of the fill
 #' @param fill_low color of the lowest limit (default: black)
-#' @param fill_mid color of the midpoint. assigning a color automatically using `scale_fill_gradient2()` rather `scale_fill_gradient()`
+#' @param fill_mid color of the midpoint. assigning a color automatically using \code{scale_fill_gradient2()} rather \code{scale_fill_gradient()}
 #' @param fill_midpoint midpoint value (default: 0)
 #' @param fill_high color of the highest limit (default: white)
 #' @param legend_position position of the legend (default: NULL). can also be 'bottom'
 #' @param legend_title title of fill legend (default: NULL)
 #' @param slice_label_offset slice label offset (default: 0.25)
 #' @import ggplot2
-#' @return
+#' @return ggplot2 figure of brain slice
 #' @export
 #'
 plot_brain_slice <- function(df,
