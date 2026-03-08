@@ -5,7 +5,7 @@
 #' and (2) sum of each product of each contrast pair equals 0
 #' @param x contrast table/matrix
 #' @concept stats
-#' @return
+#' @return logical (TRUE if both rules are met and FALSE if not)
 #' @export
 #'
 #' @examples
@@ -14,12 +14,15 @@
 #' check_contrast_orthogonality(contrast_example)
 check_contrast_orthogonality <- function(x) {
   x <- as.matrix(x)
+  ortho <- NULL
   if (sum(colSums(x)) == 0) {
     cat('rule 1. sum of each contrast equals 0', '\u2713', '\n')
+    ortho <- c(ortho, 1)
   } else {
     cat('rule 1. sum of each contrast equals 0', '\u274C', '\n')
     cat(colnames(x), '\n')
     cat(colSums(x), '\n\n')
+    ortho <- c(ortho, 0)
   }
 
   sp <- t(x) %*% x
@@ -27,8 +30,11 @@ check_contrast_orthogonality <- function(x) {
   sp[diag(sp)] <- NA
   if (sum(sp[lower.tri(sp)]) == 0) {
     cat('rule 2. sum of products of contrast pairs equals 0', '\u2713', '\n')
+    ortho <- c(ortho, 1)
   } else {
     cat('rule 2. sum of products of contrast pairs equals 0', '\u274C', '\n')
     print(as.matrix(sp))
+    ortho <- c(ortho, 0)
   }
+  return(sum(ortho) == 2)
 }
