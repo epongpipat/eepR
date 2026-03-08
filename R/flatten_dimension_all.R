@@ -1,7 +1,6 @@
 #' @title flatten_dimension_all
-#'
+#' @concept data_wrangle
 #' @param data multi-dimensional data to completely flattened/reduced to a single dimension
-#'
 #' @return data that is flattened to a single dimension
 #' @export
 #' @import dplyr tidyr

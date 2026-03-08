@@ -9,7 +9,7 @@
 #' @param out_path path to save image (default: NULL)
 #' @param out_width width to saved image in inches (default: 11)
 #' @param out_height height of saved image in inches (default: 8.5)
-#' @param ... extra options to pass to `plot_brain_slice()`
+#' @param ... extra options to pass to \codeplot_brain_slice()}
 #'
 #' @return ggplot2 figure of all three directions (i, j, k)
 #' @export

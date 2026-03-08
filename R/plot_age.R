@@ -1,11 +1,12 @@
 #' plot_age
+#' @concept visualization
+#' @param data input data.frame
+#' @param var_y y-axis variable to plot
+#' @param var_x x-axis variable to plot
+#' @param y_lab y-axis label
+#' @param x_lab x-axis label
 #'
-#' @param data 
-#' @param var_y 
-#' @param var_x 
-#' @param y_lab 
-#'
-#' @return
+#' @return ggplot figure of y-axis variable and age
 #' @export
 #' @import ggplot2
 #' @import dplyr

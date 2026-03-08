@@ -9,7 +9,7 @@
 #' @param out_path path to save image
 #' @param out_width width of saved image in inches (default: 11)
 #' @param out_height height of saved image in inches (default: 8.5)
-#' @param ... additional parameters for [plot_brain()]
+#' @param ... additional parameters for \code{plot_brain()}
 #' @return ggplot figure comparing two images
 #' @export
 #' @import patchwork

@@ -1,5 +1,5 @@
 #' @title flatten_dimension
-#'
+#' @concept data_wrangle
 #' @param data multi-dimensional data to be flattened/reduced by a single dimension
 #'
 #' @return data that is flattened/reduced by a single dimension
