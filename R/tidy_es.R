@@ -16,12 +16,13 @@ tidy_es <- function(model, ci = 0.95) {
     stop(glue("attribute must be lm (attribute: {attributes(model)$class})"))
   }
 
-  df_tidy <- tidy(model) %>%
-    rename(rh = term,
-           b = estimate,
-           se = std.error,
-           t = statistic,
-           p = p.value)
+  # df_tidy <- tidy(model) %>%
+  #   rename(rh = term,
+  #          b = estimate,
+  #          se = std.error,
+  #          t = statistic,
+  #          p = p.value)
+  df_tidy <- renamed_tidy(model)
 
   b_ci <- confint(model, level = ci)
   colnames(b_ci) <- c('b_ci_ll', 'b_ci_ul')
@@ -34,7 +35,7 @@ tidy_es <- function(model, ci = 0.95) {
   df_tidy <- cbind(df_tidy, r_sq_adj)
 
   df_tidy <- df_tidy %>%
-    select(rh, b, se, t, p, r_sq_adj, everything())
+    select(lh, op, rh, b, se, t, p, r_sq_adj, everything())
 
   return(df_tidy)
 }
