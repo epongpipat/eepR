@@ -24,13 +24,10 @@
 #' colnames(carData::Salaries)
 #'
 #' # after
-#' df <- carData::Salaries %>%
-#' tidy_colnames(.)
+#' df <- tidy_colnames(carData::Salaries)
 #' colnames(df)
 tidy_colnames <- function(data) {
-  #require(xfun)
-  #packages <- c("dplyr", "stringr")
-  #xfun::pkg_attach(packages, install = T, message = F)
+  lifecycle::deprecate_warn("0.5.0", "tidy_colnames()", "janitor::clean_names()")
   colnames(data) <- colnames(data) %>%
     tolower() %>%
     str_replace_all(., "[.]", "_") %>%
