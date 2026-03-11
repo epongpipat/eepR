@@ -7,7 +7,7 @@
 tidy_es(model, ci = 0.95)
 }
 \arguments{
-\item{model}{model fit from \code{lm()}}
+\item{model}{model fit from \code{lm()}, \code{lmerTest::lmer()}, or \code{lme4::lmer()}}
 
 \item{ci}{confidence interval (0, 1)}
 }
@@ -15,9 +15,14 @@ tidy_es(model, ci = 0.95)
 data.frame
 }
 \description{
-a modification of the tidy command to adds the effect size (confidence intervals for the regression coefficient and adjusted R^2)
+a modification of the renamed tidy command to adds the effect
+size (confidence intervals for the regression coefficient and adjusted R^2)
 }
 \examples{
+# example: lm
 tidy_es(lm(salary ~ yrs.since.phd, carData::Salaries))
+
+# example: lmer
+tidy_es(lmerTest::lmer(Reaction ~ 1 + Days + (1 + Days | Subject), lme4::sleepstudy))
 }
 \concept{stats}

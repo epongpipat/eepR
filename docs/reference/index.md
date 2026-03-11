@@ -22,6 +22,10 @@
   : renamed_tidy
 - [`tidy_es()`](https://ekarinpongpipat.com/eepR/reference/tidy_es.md) :
   tidy_es
+- [`tidy_es_lm()`](https://ekarinpongpipat.com/eepR/reference/tidy_es_lm.md)
+  : tidy_es_lm
+- [`tidy_es_lmer()`](https://ekarinpongpipat.com/eepR/reference/tidy_es_lmer.md)
+  : tidy_es_lmer
 
 ## Neuroimaging
 

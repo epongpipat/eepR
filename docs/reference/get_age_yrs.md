@@ -22,5 +22,5 @@ get_age_yrs(dob, ref_date = lubridate::today())
 
 ``` r
 get_age_yrs('1776-07-04')
-#> [1] 249.6674
+#> [1] 249.6756
 ```

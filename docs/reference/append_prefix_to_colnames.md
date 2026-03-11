@@ -28,7 +28,7 @@ column names
 
 ``` r
 df <- append_prefix_to_colnames(carData::Salaries, 'p_')
-#> Warning: `append_suffix_to_colnames()` was deprecated in eepR 0.5.0.
+#> Warning: `append_suffix_to_colnames()` was deprecated in eepR 1.0.0.
 #> ℹ Please use the `prefix` argument of `append_colnames()` instead.
 head(df)
 #>      p_rank p_discipline p_yrs.since.phd p_yrs.service p_sex p_salary
