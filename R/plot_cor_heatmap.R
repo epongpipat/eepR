@@ -8,7 +8,7 @@
 #' @examples
 #' cor_plot(mtcars)
 cor_plot <- function(data) {
-  lifecycle::deprecate_warn("0.5.0", "cor_plot()", "plot_cor_heatmap()")
+  lifecycle::deprecate_warn("1.0.0", "cor_plot()", "plot_cor_heatmap()")
   plot_cor_heatmap(data)
 }
 

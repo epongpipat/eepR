@@ -32,7 +32,7 @@ append_colnames <- function(data, prefix = NULL, suffix = NULL) {
 #' df <- append_prefix_to_colnames(carData::Salaries, 'p_')
 #' head(df)
 append_prefix_to_colnames <- function(data, prefix) {
-  lifecycle::deprecate_warn("0.5.0", "append_suffix_to_colnames()", "append_colnames(prefix)")
+  lifecycle::deprecate_warn("1.0.0", "append_suffix_to_colnames()", "append_colnames(prefix)")
   return(append_colnames(data = data, prefix = prefix))
 }
 
@@ -49,6 +49,6 @@ append_prefix_to_colnames <- function(data, prefix) {
 #' df <- append_suffix_to_colnames(carData::Salaries, '_s')
 #' head(df)
 append_suffix_to_colnames <- function(data, suffix) {
-  lifecycle::deprecate_warn("0.5.0", "append_suffix_to_colnames()", "append_colnames(suffix)")
+  lifecycle::deprecate_warn("1.0.0", "append_suffix_to_colnames()", "append_colnames(suffix)")
   return(append_colnames(data = data, suffix = suffix))
 }
