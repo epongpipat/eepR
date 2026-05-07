@@ -50,6 +50,14 @@
   : flatten_dimension
 - [`flatten_dimension_all()`](https://ekarinpongpipat.com/eepR/reference/flatten_dimension_all.md)
   : flatten_dimension_all
+- [`is_centered()`](https://ekarinpongpipat.com/eepR/reference/is_centered.md)
+  : is_centered
+- [`is_scaled()`](https://ekarinpongpipat.com/eepR/reference/is_scaled.md)
+  : is_scaled
+- [`is_ss1()`](https://ekarinpongpipat.com/eepR/reference/is_ss1.md) :
+  is_ss1
+- [`is_z_scored()`](https://ekarinpongpipat.com/eepR/reference/is_z_scored.md)
+  : is_z_scored
 
 ## Model Fit
 
