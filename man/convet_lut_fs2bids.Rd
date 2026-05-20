@@ -4,12 +4,12 @@
 \alias{convet_lut_fs2bids}
 \title{convet_lut_fs2bids}
 \usage{
-convet_lut_fs2bids(in_path, out_path, overwrite)
+convet_lut_fs2bids(lut, out_path = NULL, overwrite = FALSE)
 }
 \arguments{
-\item{in_path}{input path to look up table in freesurfer format}
+\item{lut}{input path to look up table in freesurfer format}
 
-\item{out_path}{output path to look up table in BIDS format}
+\item{out_path}{output path to look up table in BIDS format (default: NULL)}
 
 \item{overwrite}{flag to overwrite (default: 0)}
 }
