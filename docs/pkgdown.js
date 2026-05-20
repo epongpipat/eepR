@@ -1,6 +1,6 @@
 /* http://gregfranko.com/blog/jquery-best-practices/ */
-(function ($) {
-  $(function () {
+(function($) {
+  $(function() {
 
     $('nav.navbar').headroom();
 
@@ -54,7 +54,6 @@
           return trigger.parentNode.textContent.replace(/\n#>[^\n]*/g, "");
         }
       });
-    }
 
       clipboard.on('success', function(e) {
         changeTooltipMessage(e.trigger, 'Copied!');

@@ -38,7 +38,7 @@
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
       <img src="" class="logo" alt=""><h1>append_prefix_to_colnames</h1>
-      <small class="dont-index">Source: <a href="https://github.com/epongpipat/eepR/blob/HEAD/R/append_prefix_to_colnames.R" class="external-link"><code>R/append_prefix_to_colnames.R</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/epongpipat/eepR/blob/HEAD/R/append_colnames.R" class="external-link"><code>R/append_colnames.R</code></a></small>
       <div class="d-none name"><code>append_prefix_to_colnames.Rd</code></div>
     </div>
 
@@ -70,8 +70,17 @@
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># to be added</span></span></span>
-<span class="r-in"></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu">append_prefix_to_colnames</span><span class="op">(</span><span class="fu">carData</span><span class="fu">::</span><span class="va"><a href="https://rdrr.io/pkg/carData/man/Salaries.html" class="external-link">Salaries</a></span>, <span class="st">'p_'</span><span class="op">)</span></span></span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>`append_suffix_to_colnames()` was deprecated in eepR 1.0.0.</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Please use the `prefix` argument of `append_colnames()` instead.</span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">df</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      p_rank p_discipline p_yrs.since.phd p_yrs.service p_sex p_salary</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1      Prof            B              19            18  Male   139750</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2      Prof            B              20            16  Male   173200</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3  AsstProf            B               4             3  Male    79750</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4      Prof            B              45            39  Male   115000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5      Prof            B              40            41  Male   141500</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6 AssocProf            B               6             6  Male    97000</span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
@@ -91,9 +100,6 @@
   
 
   
-
-  </body></html>
-
 
   </body></html>
 

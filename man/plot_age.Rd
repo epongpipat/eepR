@@ -17,6 +17,9 @@ plot_age(data, y_var, x_var = "age", y_lab = NULL, x_lab = "Age")
 
 \item{var_x}{x-axis variable to plot}
 }
+\value{
+ggplot figure of y-axis variable and age
+}
 \description{
 plot_age
 }

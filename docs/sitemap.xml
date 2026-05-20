@@ -16,6 +16,9 @@
     <loc>https://ekarinpongpipat.com/eepR/reference/apa_table.html</loc>
   </url>
   <url>
+    <loc>https://ekarinpongpipat.com/eepR/reference/append_colnames.html</loc>
+  </url>
+  <url>
     <loc>https://ekarinpongpipat.com/eepR/reference/append_prefix_to_colnames.html</loc>
   </url>
   <url>
@@ -94,6 +97,18 @@
     <loc>https://ekarinpongpipat.com/eepR/reference/initialize_parallel_computing.html</loc>
   </url>
   <url>
+    <loc>https://ekarinpongpipat.com/eepR/reference/is_centered.html</loc>
+  </url>
+  <url>
+    <loc>https://ekarinpongpipat.com/eepR/reference/is_scaled.html</loc>
+  </url>
+  <url>
+    <loc>https://ekarinpongpipat.com/eepR/reference/is_ss1.html</loc>
+  </url>
+  <url>
+    <loc>https://ekarinpongpipat.com/eepR/reference/is_z_scored.html</loc>
+  </url>
+  <url>
     <loc>https://ekarinpongpipat.com/eepR/reference/lm2apa.html</loc>
   </url>
   <url>
@@ -166,6 +181,9 @@
     <loc>https://ekarinpongpipat.com/eepR/reference/plot_cor.html</loc>
   </url>
   <url>
+    <loc>https://ekarinpongpipat.com/eepR/reference/plot_cor_heatmap.html</loc>
+  </url>
+  <url>
     <loc>https://ekarinpongpipat.com/eepR/reference/plot_scree.html</loc>
   </url>
   <url>
@@ -215,6 +233,12 @@
   </url>
   <url>
     <loc>https://ekarinpongpipat.com/eepR/reference/tidy_es.html</loc>
+  </url>
+  <url>
+    <loc>https://ekarinpongpipat.com/eepR/reference/tidy_es_lm.html</loc>
+  </url>
+  <url>
+    <loc>https://ekarinpongpipat.com/eepR/reference/tidy_es_lmer.html</loc>
   </url>
   <url>
     <loc>https://ekarinpongpipat.com/eepR/reference/tryCatch2.html</loc>

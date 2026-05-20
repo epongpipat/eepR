@@ -73,12 +73,12 @@
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">m1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html" class="external-link">lm</a></span><span class="op">(</span><span class="va">salary</span> <span class="op">~</span> <span class="va">yrs.since.phd</span>, <span class="fu">carData</span><span class="fu">::</span><span class="va"><a href="https://rdrr.io/pkg/carData/man/Salaries.html" class="external-link">Salaries</a></span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/attr.html" class="external-link">attr</a></span><span class="op">(</span><span class="va">m1</span>, <span class="st">'extra_info'</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>m <span class="op">=</span> <span class="fl">1</span>, another_key <span class="op">=</span> <span class="st">'another_value'</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu">models2coefs</span><span class="op">(</span><span class="va">m1</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   m   another_key            rh          b        se         t             p</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 1 another_value   (Intercept) 91718.6854 2765.7923 33.161813 3.332606e-116</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2 1 another_value yrs.since.phd   985.3421  107.3651  9.177488  2.495042e-18</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    r_sq_adj    b_ci_ll   b_ci_ul r_sq_adj_ci_ll r_sq_adj_ci_ul</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 0.7350649 86281.1714 97156.199      0.7026265              1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2 0.1736680   774.2636  1196.421      0.1210838              1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   m   another_key     lh op            rh          b        se         t</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 1 another_value salary  ~   (Intercept) 91718.6854 2765.7923 33.161813</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 1 another_value salary  ~ yrs.since.phd   985.3421  107.3651  9.177488</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>               p  r_sq_adj    b_ci_ll   b_ci_ul r_sq_adj_ci_ll r_sq_adj_ci_ul</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 3.332606e-116 0.7350649 86281.1714 97156.199      0.7026265              1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2  2.495042e-18 0.1736680   774.2636  1196.421      0.1210838              1</span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>

@@ -35,7 +35,11 @@ compare_brains(
 
 \item{...}{additional parameters for \code{plot_brain()}}
 }
+\value{
+ggplot figure comparing two images
+}
 \description{
 compare_brains
 }
 \concept{neuroimaging}
+\concept{visualization}
