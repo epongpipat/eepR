@@ -9,9 +9,6 @@ check_contrast_orthogonality(x)
 \arguments{
 \item{x}{contrast table/matrix}
 }
-\value{
-logical (TRUE if both rules are met and FALSE if not)
-}
 \description{
 checks to make sure that a contrast of a factor is orthogonal.
 }

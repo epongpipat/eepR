@@ -31,50 +31,35 @@ remotes::install_github("epongpipat/eepR")
   : get_lm_multicollinearity
 - [`lm2apa()`](https://ekarinpongpipat.com/eepR/reference/lm2apa.md) :
   lm2apa
+- [`models2coefs()`](https://ekarinpongpipat.com/eepR/reference/models2coefs.md)
+  : models2coefs
+- [`models2omni()`](https://ekarinpongpipat.com/eepR/reference/models2omni.md)
+  : models2omni
 - [`r_sq_to_adj_r_sq()`](https://ekarinpongpipat.com/eepR/reference/r_sq_to_adj_r_sq.md)
   : r_sq_to_adj_r_sq
 - [`renamed_tidy()`](https://ekarinpongpipat.com/eepR/reference/renamed_tidy.md)
   : renamed_tidy
 - [`tidy_es()`](https://ekarinpongpipat.com/eepR/reference/tidy_es.md) :
   tidy_es
-- [`tidy_es_lm()`](https://ekarinpongpipat.com/eepR/reference/tidy_es_lm.md)
-  : tidy_es_lm
-- [`tidy_es_lmer()`](https://ekarinpongpipat.com/eepR/reference/tidy_es_lmer.md)
-  : tidy_es_lmer
 
 ## Neuroimaging
 
 - [`compare_brains()`](https://ekarinpongpipat.com/eepR/reference/compare_brains.md)
   : compare_brains
+- [`convet_lut_fs2bids()`](https://ekarinpongpipat.com/eepR/reference/convet_lut_fs2bids.md)
+  : convet_lut_fs2bids
 - [`extract_brain_slice()`](https://ekarinpongpipat.com/eepR/reference/extract_brain_slice.md)
   : extract_brain_slice
+- [`get_3dstats()`](https://ekarinpongpipat.com/eepR/reference/get_3dstats.md)
+  : get_3dstats
 - [`plot_brain()`](https://ekarinpongpipat.com/eepR/reference/plot_brain.md)
   : plot_brain
 - [`plot_brain_slice()`](https://ekarinpongpipat.com/eepR/reference/plot_brain_slice.md)
   : plot_brain_slice
+- [`split_dseg()`](https://ekarinpongpipat.com/eepR/reference/split_dseg.md)
+  : split_dseg
 
-## Data Wrangling
-
-- [`append_colnames()`](https://ekarinpongpipat.com/eepR/reference/append_colnames.md)
-  : append_colnames
-- [`append_prefix_to_colnames()`](https://ekarinpongpipat.com/eepR/reference/append_prefix_to_colnames.md)
-  : append_prefix_to_colnames
-- [`append_suffix_to_colnames()`](https://ekarinpongpipat.com/eepR/reference/append_suffix_to_colnames.md)
-  : append_suffix_to_colnames
-- [`flatten_dimension()`](https://ekarinpongpipat.com/eepR/reference/flatten_dimension.md)
-  : flatten_dimension
-- [`flatten_dimension_all()`](https://ekarinpongpipat.com/eepR/reference/flatten_dimension_all.md)
-  : flatten_dimension_all
-- [`is_centered()`](https://ekarinpongpipat.com/eepR/reference/is_centered.md)
-  : is_centered
-- [`is_scaled()`](https://ekarinpongpipat.com/eepR/reference/is_scaled.md)
-  : is_scaled
-- [`is_ss1()`](https://ekarinpongpipat.com/eepR/reference/is_ss1.md) :
-  is_ss1
-- [`is_z_scored()`](https://ekarinpongpipat.com/eepR/reference/is_z_scored.md)
-  : is_z_scored
-
-## Model Fit
+## Model Fit - Categorical
 
 - [`model_categorical_elastic_net()`](https://ekarinpongpipat.com/eepR/reference/model_categorical_elastic_net.md)
   : model_categorical_elastic_net
@@ -86,6 +71,9 @@ remotes::install_github("epongpipat/eepR")
   : model_categorical_ridge
 - [`model_categorical_svm()`](https://ekarinpongpipat.com/eepR/reference/model_categorical_svm.md)
   : model_categorical_svm
+
+## Model Fit - Continuous
+
 - [`model_continuous_elastic_net()`](https://ekarinpongpipat.com/eepR/reference/model_continuous_elastic_net.md)
   : model_continuous_elastic_net
 - [`model_continuous_lasso()`](https://ekarinpongpipat.com/eepR/reference/model_continuous_lasso.md)
@@ -94,33 +82,13 @@ remotes::install_github("epongpipat/eepR")
   : model_continuous_ridge
 - [`model_continuous_svm_linear()`](https://ekarinpongpipat.com/eepR/reference/model_continuous_svm_linear.md)
   : model_continuous_svm_linear
+
+## Model Fit - Uber Functions
+
 - [`model()`](https://ekarinpongpipat.com/eepR/reference/model.md) :
   model
 - [`model_categorical_all()`](https://ekarinpongpipat.com/eepR/reference/model_categorical_all.md)
   : model_categorical_all
-
-## Visualization
-
-- [`compare_brains()`](https://ekarinpongpipat.com/eepR/reference/compare_brains.md)
-  : compare_brains
-- [`cor_plot()`](https://ekarinpongpipat.com/eepR/reference/cor_plot.md)
-  : cor_plot
-- [`move_legend_to_btm()`](https://ekarinpongpipat.com/eepR/reference/move_legend_to_btm.md)
-  : move_legend_to_btm
-- [`plot_age()`](https://ekarinpongpipat.com/eepR/reference/plot_age.md)
-  : plot_age
-- [`plot_bland_altman()`](https://ekarinpongpipat.com/eepR/reference/plot_bland_altman.md)
-  : plot_bland_altman
-- [`plot_brain()`](https://ekarinpongpipat.com/eepR/reference/plot_brain.md)
-  : plot_brain
-- [`plot_brain_slice()`](https://ekarinpongpipat.com/eepR/reference/plot_brain_slice.md)
-  : plot_brain_slice
-- [`plot_cor()`](https://ekarinpongpipat.com/eepR/reference/plot_cor.md)
-  : plot_cor
-- [`plot_cor_heatmap()`](https://ekarinpongpipat.com/eepR/reference/plot_cor_heatmap.md)
-  : plot_cor_heatmap
-- [`plot_scree()`](https://ekarinpongpipat.com/eepR/reference/plot_scree.md)
-  : plot_scree
 
 ## PubMed
 
@@ -134,6 +102,25 @@ remotes::install_github("epongpipat/eepR")
   : pmid2doi
 - [`pmid2pmcid()`](https://ekarinpongpipat.com/eepR/reference/pmid2pmcid.md)
   : pmid2pmcid
+
+## Visualization
+
+- [`move_legend_to_btm()`](https://ekarinpongpipat.com/eepR/reference/move_legend_to_btm.md)
+  : move_legend_to_btm
+- [`plot_bland_altman()`](https://ekarinpongpipat.com/eepR/reference/plot_bland_altman.md)
+  : plot_bland_altman
+- [`plot_brain()`](https://ekarinpongpipat.com/eepR/reference/plot_brain.md)
+  : plot_brain
+- [`plot_brain_slice()`](https://ekarinpongpipat.com/eepR/reference/plot_brain_slice.md)
+  : plot_brain_slice
+- [`plot_cor()`](https://ekarinpongpipat.com/eepR/reference/plot_cor.md)
+  : plot_cor
+- [`plot_age()`](https://ekarinpongpipat.com/eepR/reference/plot_age.md)
+  : plot_age
+- [`plot_scree()`](https://ekarinpongpipat.com/eepR/reference/plot_scree.md)
+  : plot_scree
+- [`cor_plot()`](https://ekarinpongpipat.com/eepR/reference/cor_plot.md)
+  : cor_plot
 
 ## R Helper Functions
 
@@ -149,6 +136,10 @@ remotes::install_github("epongpipat/eepR")
   : mkdir_if_dne
 - [`tryCatch2()`](https://ekarinpongpipat.com/eepR/reference/tryCatch2.md)
   : tryCatch2
+- [`append_prefix_to_colnames()`](https://ekarinpongpipat.com/eepR/reference/append_prefix_to_colnames.md)
+  : append_prefix_to_colnames
+- [`append_suffix_to_colnames()`](https://ekarinpongpipat.com/eepR/reference/append_suffix_to_colnames.md)
+  : append_suffix_to_colnames
 - [`compare_all_models()`](https://ekarinpongpipat.com/eepR/reference/compare_all_models.md)
   : compare_all_models
 - [`compare_models()`](https://ekarinpongpipat.com/eepR/reference/compare_models.md)
@@ -157,18 +148,22 @@ remotes::install_github("epongpipat/eepR")
   : cv_kfold_split_file
 - [`error_msg()`](https://ekarinpongpipat.com/eepR/reference/error_msg.md)
   : error_msg
+- [`flatten_dimension()`](https://ekarinpongpipat.com/eepR/reference/flatten_dimension.md)
+  : flatten_dimension
+- [`flatten_dimension_all()`](https://ekarinpongpipat.com/eepR/reference/flatten_dimension_all.md)
+  : flatten_dimension_all
 - [`get_age_yrs()`](https://ekarinpongpipat.com/eepR/reference/get_age_yrs.md)
   : get_age_yrs
 - [`info_msg()`](https://ekarinpongpipat.com/eepR/reference/info_msg.md)
   : warning_msg
 - [`initialize_parallel_computing()`](https://ekarinpongpipat.com/eepR/reference/initialize_parallel_computing.md)
   : initialize_parallel_computing
+- [`nice_table()`](https://ekarinpongpipat.com/eepR/reference/nice_table.md)
+  : nice_table
 - [`tidy_colnames()`](https://ekarinpongpipat.com/eepR/reference/tidy_colnames.md)
   : tidy_colnames
 - [`warning_msg()`](https://ekarinpongpipat.com/eepR/reference/warning_msg.md)
   : warning_msg
-- [`nice_table()`](https://ekarinpongpipat.com/eepR/reference/nice_table.md)
-  : nice_table
 - [`nice_table_html()`](https://ekarinpongpipat.com/eepR/reference/nice_table_html.md)
   : nice_table_html
 - [`nice_table_html_short()`](https://ekarinpongpipat.com/eepR/reference/nice_table_html_short.md)

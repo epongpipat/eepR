@@ -15,7 +15,7 @@ plot_brain_slice(
   fill_high = "white",
   legend_position = NULL,
   legend_title = NULL,
-  slice_label_offset = 0.1
+  slice_label_offset = 0.25
 )
 ```
 
@@ -23,7 +23,7 @@ plot_brain_slice(
 
 - df:
 
-  brain slice data (output of `plot_brain_slice()`)
+  brain slice data (output of \`plot_brain_slice\`)
 
 - title:
 
@@ -40,7 +40,7 @@ plot_brain_slice(
 - fill_mid:
 
   color of the midpoint. assigning a color automatically using
-  `scale_fill_gradient2()` rather `scale_fill_gradient()`
+  \`scale_fill_gradient2\` rather \`scale_fill_gradient\`
 
 - fill_midpoint:
 
@@ -61,7 +61,3 @@ plot_brain_slice(
 - slice_label_offset:
 
   slice label offset (default: 0.25)
-
-## Value
-
-ggplot2 figure of brain slice

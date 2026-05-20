@@ -36,10 +36,9 @@ colnames(carData::Salaries)
 #> [5] "sex"           "salary"       
 
 # after
-df <- tidy_colnames(carData::Salaries)
-#> Warning: `tidy_colnames()` was deprecated in eepR 0.5.0.
-#> ℹ Please use `janitor::clean_names()` instead.
+df <- carData::Salaries %>%
+tidy_colnames(.)
+#> Error in carData::Salaries %>% tidy_colnames(.): could not find function "%>%"
 colnames(df)
-#> [1] "rank"          "discipline"    "yrs_since_phd" "yrs_service"  
-#> [5] "sex"           "salary"       
+#> NULL
 ```

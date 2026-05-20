@@ -38,9 +38,6 @@ plot_brain_slice(
 
 \item{slice_label_offset}{slice label offset (default: 0.25)}
 }
-\value{
-ggplot2 figure of brain slice
-}
 \description{
 plot_brain_slice
 }

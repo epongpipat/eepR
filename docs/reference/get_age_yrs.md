@@ -21,6 +21,6 @@ get_age_yrs(dob, ref_date = lubridate::today())
 ## Examples
 
 ``` r
-get_age_yrs('1776-07-04')
-#> [1] 249.8316
+get_age_years('1776-07-04')
+#> Error in get_age_years("1776-07-04"): could not find function "get_age_years"
 ```
