@@ -1,10 +1,4 @@
 destination: docs
-
-template:
-  bootstrap: 5
-
-url: https://ekarinpongpipat.com/eepR
-
 authors:
   Ekarin Eric Pongpipat:
   href: https://ekarinpongpipat.com
