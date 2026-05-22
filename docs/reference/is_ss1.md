@@ -23,6 +23,13 @@ is_ss1(x, eps = 1e-08)
 
 vector of logicals
 
+## See also
+
+Other check scale functions:
+[`is_centered()`](https://ekarinpongpipat.com/eepR/reference/is_centered.md),
+[`is_scaled()`](https://ekarinpongpipat.com/eepR/reference/is_scaled.md),
+[`is_z_scored()`](https://ekarinpongpipat.com/eepR/reference/is_z_scored.md)
+
 ## Examples
 
 ``` r

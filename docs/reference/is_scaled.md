@@ -28,6 +28,13 @@ is_scaled(x, type = "z", eps = 1e-08)
 
 vector of logicals
 
+## See also
+
+Other check scale functions:
+[`is_centered()`](https://ekarinpongpipat.com/eepR/reference/is_centered.md),
+[`is_ss1()`](https://ekarinpongpipat.com/eepR/reference/is_ss1.md),
+[`is_z_scored()`](https://ekarinpongpipat.com/eepR/reference/is_z_scored.md)
+
 ## Examples
 
 ``` r

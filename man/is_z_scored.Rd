@@ -20,4 +20,11 @@ Checks if a numeric vector or matrix (column-wise) is z-scored. In other words, 
 \examples{
 is_z_scored(scale(c(1, 2, 2, 3, 3, 3)))
 }
+\seealso{
+Other check scale functions: 
+\code{\link{is_centered}()},
+\code{\link{is_scaled}()},
+\code{\link{is_ss1}()}
+}
+\concept{check scale functions}
 \concept{data_wrangle}

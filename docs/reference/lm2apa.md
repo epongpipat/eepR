@@ -31,6 +31,13 @@ lm2apa(m, terms = "all", level = 0.95, digits = 3, format = "html")
 
   specify format (default: html) (options: html, plain)
 
+## See also
+
+Other model2apa:
+[`cor2apa()`](https://ekarinpongpipat.com/eepR/reference/cor2apa.md),
+[`lmer2apa()`](https://ekarinpongpipat.com/eepR/reference/lmer2apa.md),
+[`model2apa()`](https://ekarinpongpipat.com/eepR/reference/model2apa.md)
+
 ## Examples
 
 ``` r

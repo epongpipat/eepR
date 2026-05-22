@@ -20,4 +20,11 @@ Checks if a numeric vector or matrix (column-wise) is mean-centered. In other wo
 \examples{
 is_centered(scale(c(1, 2, 2, 3, 3, 3)))
 }
+\seealso{
+Other check scale functions: 
+\code{\link{is_scaled}()},
+\code{\link{is_ss1}()},
+\code{\link{is_z_scored}()}
+}
+\concept{check scale functions}
 \concept{data_wrangle}

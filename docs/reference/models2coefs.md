@@ -31,5 +31,10 @@ size
 m1 <- lm(salary ~ yrs.since.phd, carData::Salaries)
 attr(m1, 'extra_info') <- list(m = 1, another_key = 'another_value')
 models2coefs(m1)
-#> Error in if (attributes(model)$class != "lm") {    stop(glue("attribute must be lm (attribute: {attributes(model)$class})"))}: argument is of length zero
+#>   m   another_key     lh op            rh          b        se         t
+#> 1 1 another_value salary  ~   (Intercept) 91718.6854 2765.7923 33.161813
+#> 2 1 another_value salary  ~ yrs.since.phd   985.3421  107.3651  9.177488
+#>               p  r_sq_adj    b_ci_ll   b_ci_ul r_sq_adj_ci_ll r_sq_adj_ci_ul
+#> 1 3.332606e-116 0.7350649 86281.1714 97156.199      0.7026265              1
+#> 2  2.495042e-18 0.1736680   774.2636  1196.421      0.1210838              1
 ```

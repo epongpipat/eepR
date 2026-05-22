@@ -23,4 +23,11 @@ converts \code{lm()} model to APA format string
 \examples{
 lm2apa(lm(mpg ~ wt, data = mtcars), format = 'plain')
 }
+\seealso{
+Other model2apa: 
+\code{\link{cor2apa}()},
+\code{\link{lmer2apa}()},
+\code{\link{model2apa}()}
+}
+\concept{model2apa}
 \concept{stats}

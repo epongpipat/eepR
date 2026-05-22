@@ -14,6 +14,10 @@ check_contrast_orthogonality(x)
 
   contrast table/matrix
 
+## Value
+
+logical (TRUE if both rules are met and FALSE if not)
+
 ## Details
 
 checks to make sure that a contrast of a factor is orthogonal by
@@ -28,4 +32,5 @@ contrast_example <- data.frame(c1 = c(1/3, 1/3, -2/3),
 check_contrast_orthogonality(contrast_example)
 #> rule 1. sum of each contrast equals 0 ✓ 
 #> rule 2. sum of products of contrast pairs equals 0 ✓ 
+#> [1] TRUE
 ```

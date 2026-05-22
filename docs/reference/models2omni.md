@@ -30,5 +30,8 @@ data.frame of extra_info of model attributes and glance
 m1 <- lm(salary ~ yrs.since.phd, carData::Salaries)
 attr(m1, 'extra_info') <- list(m = 1, another_key = 'another_value')
 models2omni(m1)
-#> Error in glance(m): No `glance()` method for objects of class <numeric>.
+#>   m   another_key r.squared adj.r.squared    sigma statistic      p.value df
+#> 1 1 another_value 0.1757547      0.173668 27533.59  84.22628 2.495042e-18  1
+#>      logLik      AIC      BIC     deviance df.residual nobs
+#> 1 -4620.911 9247.823 9259.774 299448839521         395  397
 ```

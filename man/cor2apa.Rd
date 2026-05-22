@@ -4,17 +4,28 @@
 \alias{cor2apa}
 \title{cor2apa}
 \usage{
-cor2apa(m, digits = 3)
+cor2apa(m, level = 0.95, digits = 3, format = "html")
 }
 \arguments{
 \item{m}{model from \code{cor.test()}}
 
+\item{level}{specify confidence level (default: 0.95). note: level should match the confidence level used in \code{cor.test()}. this argument does not actually update the confidence interval range, but only the reported confidence interval level}
+
 \item{digits}{round statistics to specified digit}
+
+\item{format}{specify format (default: html) (options: html, plain)}
 }
 \description{
 converts \code{cor.test()} model to APA format string
 }
 \examples{
-cor2apa(cor.test(carData::Salaries$yrs.since.phd, carData::Salaries$salary))
+cor2apa(cor.test(carData::Salaries$yrs.since.phd, carData::Salaries$salary), format = 'plain')
 }
+\seealso{
+Other model2apa: 
+\code{\link{lm2apa}()},
+\code{\link{lmer2apa}()},
+\code{\link{model2apa}()}
+}
+\concept{model2apa}
 \concept{stats}
