@@ -18,6 +18,11 @@ compare_all_models(model_list)
 
 comparison of models
 
+## See also
+
+Other model comparison helpers:
+[`compare_models()`](https://ekarinpongpipat.com/eepR/reference/compare_models.md)
+
 ## Examples
 
 ``` r

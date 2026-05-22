@@ -43,3 +43,7 @@ Other conversions between NIfTI and 2D-matrix:
 [`mat2nii()`](https://ekarinpongpipat.com/eepR/reference/mat2nii.md)
 
 ## Examples
+
+``` r
+# nii2mat("sub-01_task-rest_bold.nii.gz", "sub-01_brain_mask.nii.gz")
+```

@@ -95,7 +95,12 @@ are mapped back to active mask coordinates. If NULL, columns are mapped to the f
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># Example 1: Reconstructing a masked time-series using a T1 reference and a brain mask</span></span></span>
+<span class="r-in"><span><span class="co"># nii_obj &lt;- mat2nii(bold_matrix, in_reference = "T1w.nii.gz", in_mask = "brain_mask.nii.gz")</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># Example 2: Reconstructing an unmasked, full-volume matrix using a T1 reference</span></span></span>
+<span class="r-in"><span><span class="co"># nii_obj &lt;- mat2nii(full_matrix, in_reference = "T1w.nii.gz", in_mask = NULL)</span></span></span>
+</code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
     </nav></aside></div>

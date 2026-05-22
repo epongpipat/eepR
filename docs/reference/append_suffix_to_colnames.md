@@ -23,6 +23,14 @@ append_suffix_to_colnames(data, suffix)
 data.frame with new column names with suffix string appended to the
 column names
 
+## See also
+
+Other column name helpers:
+[`append_colnames()`](https://ekarinpongpipat.com/eepR/reference/append_colnames.md),
+[`append_prefix_to_colnames()`](https://ekarinpongpipat.com/eepR/reference/append_prefix_to_colnames.md),
+[`rename_colnames()`](https://ekarinpongpipat.com/eepR/reference/rename_colnames.md),
+[`tidy_colnames()`](https://ekarinpongpipat.com/eepR/reference/tidy_colnames.md)
+
 ## Examples
 
 ``` r

@@ -22,6 +22,11 @@ initialize_optparse(func_name, func_path = NULL, out_path = NULL)
 
   path to write optparsed file (optional)
 
+## Value
+
+Character string containing an optparse script template; optionally
+writes it to `out_path`.
+
 ## Examples
 
 ``` r

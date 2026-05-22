@@ -45,11 +45,39 @@
     <h2 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
 
 
-<dl><dt id="arg-out-dir">out_dir<a class="anchor" aria-label="anchor" href="#arg-out-dir"></a></dt>
-<dd></dd>
+<dl><dt id="arg-x-path">x_path<a class="anchor" aria-label="anchor" href="#arg-x-path"></a></dt>
+<dd><p>path to predictor CSV file</p></dd>
+
+
+<dt id="arg-y-path">y_path<a class="anchor" aria-label="anchor" href="#arg-y-path"></a></dt>
+<dd><p>path to outcome CSV file</p></dd>
+
+
+<dt id="arg-k-fold">k_fold<a class="anchor" aria-label="anchor" href="#arg-k-fold"></a></dt>
+<dd><p>number of folds</p></dd>
+
+
+<dt id="arg-out-dir">out_dir<a class="anchor" aria-label="anchor" href="#arg-out-dir"></a></dt>
+<dd><p>output directory for split CSV files</p></dd>
 
 </dl></div>
+    <div class="section level2">
+    <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
+    <p>Invisibly returns <code>NULL</code>; writes k-fold train/test CSV files to <code>out_dir</code>.</p>
+    </div>
 
+    <div class="section level2">
+    <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span> <span class="co"># \dontrun{</span></span></span>
+<span class="r-in"><span><span class="va">tmp</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">x_path</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="va">tmp</span>, <span class="st">"x.csv"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">y_path</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="va">tmp</span>, <span class="st">"y.csv"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/write.table.html" class="external-link">write.csv</a></span><span class="op">(</span><span class="va">iris</span><span class="op">[</span>, <span class="fl">1</span><span class="op">:</span><span class="fl">4</span><span class="op">]</span>, <span class="va">x_path</span>, row.names <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/write.table.html" class="external-link">write.csv</a></span><span class="op">(</span><span class="va">iris</span><span class="op">[</span><span class="st">"Species"</span><span class="op">]</span>, <span class="va">y_path</span>, row.names <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">cv_kfold_split_file</span><span class="op">(</span><span class="va">x_path</span>, <span class="va">y_path</span>, k_fold <span class="op">=</span> <span class="fl">5</span>, out_dir <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="va">tmp</span>, <span class="st">"cv"</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">}</span> <span class="co"># }</span></span></span>
+</code></pre></div>
+    </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
     </nav></aside></div>
 

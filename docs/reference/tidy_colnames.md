@@ -27,6 +27,14 @@ with underscore - forward and backward slashes with underscore - dash
 with underscore - e_mail with email - removes trailing white space and
 trailing underscores
 
+## See also
+
+Other column name helpers:
+[`append_colnames()`](https://ekarinpongpipat.com/eepR/reference/append_colnames.md),
+[`append_prefix_to_colnames()`](https://ekarinpongpipat.com/eepR/reference/append_prefix_to_colnames.md),
+[`append_suffix_to_colnames()`](https://ekarinpongpipat.com/eepR/reference/append_suffix_to_colnames.md),
+[`rename_colnames()`](https://ekarinpongpipat.com/eepR/reference/rename_colnames.md)
+
 ## Examples
 
 ``` r

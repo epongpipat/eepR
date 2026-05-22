@@ -12,6 +12,9 @@ time
 \description{
 print_header
 }
+\examples{
+start_time <- print_header()
+}
 \seealso{
 Other console messaging helpers: 
 \code{\link{error_msg}()},

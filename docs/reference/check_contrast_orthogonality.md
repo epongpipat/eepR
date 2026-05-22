@@ -24,6 +24,11 @@ checks to make sure that a contrast of a factor is orthogonal by
 ensuring (1) sum of each contrast equals 0 and (2) sum of each product
 of each contrast pair equals 0
 
+## See also
+
+Other statistical helpers:
+[`calculate_sdt()`](https://ekarinpongpipat.com/eepR/reference/calculate_sdt.md)
+
 ## Examples
 
 ``` r

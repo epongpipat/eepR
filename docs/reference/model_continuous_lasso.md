@@ -22,8 +22,21 @@ model_continuous_lasso(data, y)
 
 lasso results
 
+## See also
+
+Other continuous model wrappers:
+[`model_continuous_elastic_net()`](https://ekarinpongpipat.com/eepR/reference/model_continuous_elastic_net.md),
+[`model_continuous_ridge()`](https://ekarinpongpipat.com/eepR/reference/model_continuous_ridge.md),
+[`model_continuous_svm_linear()`](https://ekarinpongpipat.com/eepR/reference/model_continuous_svm_linear.md)
+
 ## Examples
 
 ``` r
-# to be added
+data <- data.frame(y = mtcars$mpg, wt = mtcars$wt, hp = mtcars$hp)
+model_continuous_lasso(data, "y")
+#> 
+#> Call:  glmnet(x = x, y = y, alpha = 1, lambda = cv_lasso$lambda.min) 
+#> 
+#>   Df  %Dev  Lambda
+#> 1  2 82.67 0.03386
 ```

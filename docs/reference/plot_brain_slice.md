@@ -65,3 +65,21 @@ plot_brain_slice(
 ## Value
 
 ggplot2 figure of brain slice
+
+## See also
+
+Other neuroimaging helpers:
+[`compare_brains()`](https://ekarinpongpipat.com/eepR/reference/compare_brains.md),
+[`convet_lut_fs2bids()`](https://ekarinpongpipat.com/eepR/reference/convet_lut_fs2bids.md),
+[`extract_brain_slice()`](https://ekarinpongpipat.com/eepR/reference/extract_brain_slice.md),
+[`get_3dstats()`](https://ekarinpongpipat.com/eepR/reference/get_3dstats.md),
+[`plot_brain()`](https://ekarinpongpipat.com/eepR/reference/plot_brain.md),
+[`split_dseg2mask()`](https://ekarinpongpipat.com/eepR/reference/split_dseg2mask.md)
+
+## Examples
+
+``` r
+brain <- array(1:27, dim = c(3, 3, 3))
+slice <- extract_brain_slice(brain, dir = "k", slice = 2)
+plot_brain_slice(slice)
+```

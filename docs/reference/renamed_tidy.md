@@ -20,6 +20,17 @@ renamed_tidy(model)
 
 data.frame
 
+## See also
+
+Other model summary helpers:
+[`get_lm_multicollinearity()`](https://ekarinpongpipat.com/eepR/reference/get_lm_multicollinearity.md),
+[`models2coefs()`](https://ekarinpongpipat.com/eepR/reference/models2coefs.md),
+[`models2omni()`](https://ekarinpongpipat.com/eepR/reference/models2omni.md),
+[`r_sq_to_adj_r_sq()`](https://ekarinpongpipat.com/eepR/reference/r_sq_to_adj_r_sq.md),
+[`tidy_es()`](https://ekarinpongpipat.com/eepR/reference/tidy_es.md),
+[`tidy_es_lm()`](https://ekarinpongpipat.com/eepR/reference/tidy_es_lm.md),
+[`tidy_es_lmer()`](https://ekarinpongpipat.com/eepR/reference/tidy_es_lmer.md)
+
 ## Examples
 
 ``` r

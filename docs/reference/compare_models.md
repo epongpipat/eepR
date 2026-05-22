@@ -22,6 +22,11 @@ compare_models(model_1, model_2)
 
 comparison of the two models
 
+## See also
+
+Other model comparison helpers:
+[`compare_all_models()`](https://ekarinpongpipat.com/eepR/reference/compare_all_models.md)
+
 ## Examples
 
 ``` r

@@ -12,9 +12,24 @@ pmcid2pdf(pmcid)
 
 - pmcid:
 
+  PubMed Central identifier
+
+## Value
+
+Downloaded PDF response/content from PubMed Central.
+
+## See also
+
+Other PubMed helpers:
+[`pmid2abstract()`](https://ekarinpongpipat.com/eepR/reference/pmid2abstract.md),
+[`pmid2bibtex()`](https://ekarinpongpipat.com/eepR/reference/pmid2bibtex.md),
+[`pmid2doi()`](https://ekarinpongpipat.com/eepR/reference/pmid2doi.md),
+[`pmid2pmcid()`](https://ekarinpongpipat.com/eepR/reference/pmid2pmcid.md)
+
 ## Examples
 
 ``` r
-pmcid2pdf(33317393)
-#> Error in open.connection(x, "rb"): cannot open the connection
+if (FALSE) { # \dontrun{
+pmcid2pdf("PMC7778853")
+} # }
 ```

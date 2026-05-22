@@ -15,6 +15,10 @@ Invisibly returns \code{NULL}; prints elapsed time.
 \description{
 print_footer
 }
+\examples{
+start_time <- Sys.time()
+print_footer(start_time)
+}
 \seealso{
 Other console messaging helpers: 
 \code{\link{error_msg}()},

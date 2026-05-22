@@ -13,3 +13,24 @@ error_msg(msg)
 - msg:
 
   error message to print
+
+## Value
+
+Invisibly returns `NULL`; prints a formatted error message.
+
+## See also
+
+Other console messaging helpers:
+[`info_msg()`](https://ekarinpongpipat.com/eepR/reference/info_msg.md),
+[`print_footer()`](https://ekarinpongpipat.com/eepR/reference/print_footer.md),
+[`print_header()`](https://ekarinpongpipat.com/eepR/reference/print_header.md),
+[`warning_msg()`](https://ekarinpongpipat.com/eepR/reference/warning_msg.md)
+
+## Examples
+
+``` r
+try(error_msg("example error"))
+#> Error in error_msg("example error") : 
+#>   [2026-05-22 11:12:27] [ERROR] example error
+#> 
+```

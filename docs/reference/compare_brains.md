@@ -60,3 +60,13 @@ compare_brains(
 ## Value
 
 ggplot figure comparing two images
+
+## See also
+
+Other neuroimaging helpers:
+[`convet_lut_fs2bids()`](https://ekarinpongpipat.com/eepR/reference/convet_lut_fs2bids.md),
+[`extract_brain_slice()`](https://ekarinpongpipat.com/eepR/reference/extract_brain_slice.md),
+[`get_3dstats()`](https://ekarinpongpipat.com/eepR/reference/get_3dstats.md),
+[`plot_brain()`](https://ekarinpongpipat.com/eepR/reference/plot_brain.md),
+[`plot_brain_slice()`](https://ekarinpongpipat.com/eepR/reference/plot_brain_slice.md),
+[`split_dseg2mask()`](https://ekarinpongpipat.com/eepR/reference/split_dseg2mask.md)

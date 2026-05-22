@@ -31,6 +31,10 @@ lm2apa(m, terms = "all", level = 0.95, digits = 3, format = "html")
 
   specify format (default: html) (options: html, plain)
 
+## Value
+
+Character string with APA-formatted linear model results.
+
 ## See also
 
 Other model2apa:

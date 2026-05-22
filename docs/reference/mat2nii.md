@@ -57,3 +57,11 @@ Other conversions between NIfTI and 2D-matrix:
 [`nii2mat()`](https://ekarinpongpipat.com/eepR/reference/nii2mat.md)
 
 ## Examples
+
+``` r
+# Example 1: Reconstructing a masked time-series using a T1 reference and a brain mask
+# nii_obj <- mat2nii(bold_matrix, in_reference = "T1w.nii.gz", in_mask = "brain_mask.nii.gz")
+
+# Example 2: Reconstructing an unmasked, full-volume matrix using a T1 reference
+# nii_obj <- mat2nii(full_matrix, in_reference = "T1w.nii.gz", in_mask = NULL)
+```

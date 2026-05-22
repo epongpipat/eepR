@@ -37,13 +37,11 @@ reference image to inherit spatial dimensions and orientation headers. If an opt
 binary mask is provided, voxels are mapped back to their specific coordinates.
 }
 \examples{
-\ignore{
-  # Case 1: Reconstructing a masked time-series using a T1 reference and a brain mask
-  nii_obj <- mat2nii(bold_matrix, in_reference = "T1w.nii.gz", in_mask = "brain_mask.nii.gz")
+# Example 1: Reconstructing a masked time-series using a T1 reference and a brain mask
+# nii_obj <- mat2nii(bold_matrix, in_reference = "T1w.nii.gz", in_mask = "brain_mask.nii.gz")
 
-  # Case 2: Reconstructing an unmasked, full-volume matrix using a T1 reference
-  nii_obj <- mat2nii(full_matrix, in_reference = "T1w.nii.gz", in_mask = NULL)
-}
+# Example 2: Reconstructing an unmasked, full-volume matrix using a T1 reference
+# nii_obj <- mat2nii(full_matrix, in_reference = "T1w.nii.gz", in_mask = NULL)
 }
 \seealso{
 Other conversions between NIfTI and 2D-matrix: 

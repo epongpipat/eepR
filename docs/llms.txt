@@ -178,7 +178,7 @@ remotes::install_github("epongpipat/eepR")
 - [`get_age_yrs()`](https://ekarinpongpipat.com/eepR/reference/get_age_yrs.md)
   : get_age_yrs
 - [`info_msg()`](https://ekarinpongpipat.com/eepR/reference/info_msg.md)
-  : warning_msg
+  : info_msg
 - [`initialize_parallel_computing()`](https://ekarinpongpipat.com/eepR/reference/initialize_parallel_computing.md)
   : initialize_parallel_computing
 - [`tidy_colnames()`](https://ekarinpongpipat.com/eepR/reference/tidy_colnames.md)

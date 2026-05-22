@@ -19,8 +19,15 @@ flatten_dimension_all(data)
 
 data that is flattened to a single dimension
 
+## See also
+
+Other dimension flattening helpers:
+[`flatten_dimension()`](https://ekarinpongpipat.com/eepR/reference/flatten_dimension.md)
+
 ## Examples
 
 ``` r
-# to be added
+x <- array(1:24, dim = c(2, 3, 4))
+flatten_dimension_all(x)
+#> Error in eval(first, envir = parent.frame(), enclos = baseenv()): object 'multiprocess' not found
 ```

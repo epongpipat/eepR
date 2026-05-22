@@ -15,6 +15,9 @@ Invisibly returns \code{NULL}; prints a formatted error message.
 \description{
 error_msg
 }
+\examples{
+try(error_msg("example error"))
+}
 \seealso{
 Other console messaging helpers: 
 \code{\link{info_msg}()},

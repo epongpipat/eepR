@@ -61,10 +61,20 @@
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
     <p>elastic net results</p>
     </div>
+    <div class="section level2">
+    <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
+    <div class="dont-index"><p>Other continuous model wrappers:
+<code><a href="model_continuous_lasso.html">model_continuous_lasso()</a></code>,
+<code><a href="model_continuous_ridge.html">model_continuous_ridge()</a></code>,
+<code><a href="model_continuous_svm_linear.html">model_continuous_svm_linear()</a></code></p></div>
+    </div>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># to be added</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span> <span class="co"># \dontrun{</span></span></span>
+<span class="r-in"><span><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span>y <span class="op">=</span> <span class="va">mtcars</span><span class="op">$</span><span class="va">mpg</span>, wt <span class="op">=</span> <span class="va">mtcars</span><span class="op">$</span><span class="va">wt</span>, hp <span class="op">=</span> <span class="va">mtcars</span><span class="op">$</span><span class="va">hp</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">model_continuous_elastic_net</span><span class="op">(</span><span class="va">data</span>, <span class="st">"y"</span>, alpha_list <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.25</span>, <span class="fl">0.5</span>, <span class="fl">0.75</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">}</span> <span class="co"># }</span></span></span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>

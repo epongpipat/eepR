@@ -53,7 +53,51 @@
 <dd><p>categorical outcome to predict</p></dd>
 
 </dl></div>
+    <div class="section level2">
+    <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
+    <p>Fitted binomial GLM or multinomial model.</p>
+    </div>
+    <div class="section level2">
+    <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
+    <div class="dont-index"><p>Other categorical model wrappers:
+<code><a href="model_categorical_all.html">model_categorical_all()</a></code>,
+<code><a href="model_categorical_elastic_net.html">model_categorical_elastic_net()</a></code>,
+<code><a href="model_categorical_lasso.html">model_categorical_lasso()</a></code>,
+<code><a href="model_categorical_ridge.html">model_categorical_ridge()</a></code>,
+<code><a href="model_categorical_svm.html">model_categorical_svm()</a></code></p></div>
+    </div>
 
+    <div class="section level2">
+    <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="va">iris</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Sepal.Length"</span>, <span class="st">"Sepal.Width"</span>, <span class="st">"Petal.Length"</span>, <span class="st">"Petal.Width"</span><span class="op">)</span><span class="op">]</span></span></span>
+<span class="r-in"><span><span class="va">y</span> <span class="op">&lt;-</span> <span class="va">iris</span><span class="op">$</span><span class="va">Species</span></span></span>
+<span class="r-in"><span><span class="fu">model_categorical_glm</span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> # weights:  18 (10 variable)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> initial  value 164.791843 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> iter  10 value 16.177348</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> iter  20 value 7.111438</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> iter  30 value 6.182999</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> iter  40 value 5.984028</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> iter  50 value 5.961278</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> iter  60 value 5.954900</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> iter  70 value 5.951851</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> iter  80 value 5.950343</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> iter  90 value 5.949904</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> iter 100 value 5.949867</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> final  value 5.949867 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> stopped after 100 iterations</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Call:</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> multinom(formula = y ~ x)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Coefficients:</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>            (Intercept) xSepal.Length xSepal.Width xPetal.Length xPetal.Width</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> versicolor    18.69037     -5.458424    -8.707401      14.24477    -3.097684</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> virginica    -23.83628     -7.923634   -15.370769      23.65978    15.135301</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Residual Deviance: 11.89973 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> AIC: 31.89973 </span>
+</code></pre></div>
+    </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
     </nav></aside></div>
 

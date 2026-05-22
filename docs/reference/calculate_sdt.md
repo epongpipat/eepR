@@ -31,6 +31,11 @@ calculate_sdt(n_tp, n_tn, n_fp, n_fn)
 data.frame of signal detection theory metrics along with all the
 variables created along the way
 
+## See also
+
+Other statistical helpers:
+[`check_contrast_orthogonality()`](https://ekarinpongpipat.com/eepR/reference/check_contrast_orthogonality.md)
+
 ## Examples
 
 ``` r

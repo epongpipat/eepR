@@ -57,10 +57,23 @@
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
     <p>lasso results</p>
     </div>
+    <div class="section level2">
+    <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
+    <div class="dont-index"><p>Other continuous model wrappers:
+<code><a href="model_continuous_elastic_net.html">model_continuous_elastic_net()</a></code>,
+<code><a href="model_continuous_ridge.html">model_continuous_ridge()</a></code>,
+<code><a href="model_continuous_svm_linear.html">model_continuous_svm_linear()</a></code></p></div>
+    </div>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># to be added</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span>y <span class="op">=</span> <span class="va">mtcars</span><span class="op">$</span><span class="va">mpg</span>, wt <span class="op">=</span> <span class="va">mtcars</span><span class="op">$</span><span class="va">wt</span>, hp <span class="op">=</span> <span class="va">mtcars</span><span class="op">$</span><span class="va">hp</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">model_continuous_lasso</span><span class="op">(</span><span class="va">data</span>, <span class="st">"y"</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Call:  glmnet(x = x, y = y, alpha = 1, lambda = cv_lasso$lambda.min) </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Df  %Dev  Lambda</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1  2 82.67 0.03386</span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
