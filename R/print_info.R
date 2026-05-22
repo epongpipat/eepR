@@ -4,6 +4,8 @@
 #' @return time
 #' @export
 #'
+#' @examples
+#' start_time <- print_header()
 print_header <- function() {
   start_datetime <- Sys.time()
   cat('\n')
@@ -20,6 +22,10 @@ print_header <- function() {
 #'
 #' @return Invisibly returns \code{NULL}; prints elapsed time.
 #' @export
+#'
+#' @examples
+#' start_time <- Sys.time()
+#' print_footer(start_time)
 print_footer <- function(start_datetime) {
   end_datetime <- Sys.time()
   cat("\n")
@@ -45,8 +51,11 @@ print_footer <- function(start_datetime) {
 #' @return Invisibly returns \code{NULL}; prints a formatted error message.
 #' @importFrom crayon red
 #' @export
+#'
+#' @examples
+#' try(error_msg("example error"))
 error_msg <- function(msg) {
-  stop(glue("{red('[ERROR]')}\t{msg}"), '\n')
+  stop(glue("{.console_msg_datetime()} {red('[ERROR]')}\t{msg}"), '\n')
 }
 
 #' warning_msg
@@ -57,8 +66,11 @@ error_msg <- function(msg) {
 #' @return Invisibly returns \code{NULL}; prints a formatted warning message.
 #' @importFrom crayon yellow
 #' @export
+#'
+#' @examples
+#' warning_msg("example warning")
 warning_msg <- function(msg) {
-  warning(glue("{yellow('[WARN]')}\t{msg}"), '\n')
+  warning(glue("{.console_msg_datetime()} {yellow('[WARN]')}\t{msg}"), '\n')
 }
 
 #' info_msg
@@ -68,6 +80,13 @@ warning_msg <- function(msg) {
 #'
 #' @return Invisibly returns \code{NULL}; prints a formatted info message.
 #' @export
+#'
+#' @examples
+#' info_msg("example info")
 info_msg <- function(msg) {
-  cat(glue("[INFO]\t{msg}"), '\n')
+  cat(glue("{.console_msg_datetime()} [INFO]\t{msg}"), '\n')
+}
+
+.console_msg_datetime <- function() {
+  glue("[{format(Sys.time(), '%Y-%m-%d %H:%M:%S')}]")
 }
