@@ -22,13 +22,11 @@
 #' @importFrom RNifti readNifti writeNifti asNifti
 #'
 #' @examples
-#' \ignore{
-#'   # Case 1: Reconstructing a masked time-series using a T1 reference and a brain mask
-#'   nii_obj <- mat2nii(bold_matrix, in_reference = "T1w.nii.gz", in_mask = "brain_mask.nii.gz")
+#' # Example 1: Reconstructing a masked time-series using a T1 reference and a brain mask
+#' # nii_obj <- mat2nii(bold_matrix, in_reference = "T1w.nii.gz", in_mask = "brain_mask.nii.gz")
 #'
-#'   # Case 2: Reconstructing an unmasked, full-volume matrix using a T1 reference
-#'   nii_obj <- mat2nii(full_matrix, in_reference = "T1w.nii.gz", in_mask = NULL)
-#' }
+#' # Example 2: Reconstructing an unmasked, full-volume matrix using a T1 reference
+#' # nii_obj <- mat2nii(full_matrix, in_reference = "T1w.nii.gz", in_mask = NULL)
 mat2nii <- function(matrix_2d, in_reference, in_mask = NULL, out_path = NULL, overwrite = FALSE) {
 
   # 1. Parameter and File Validation

@@ -18,9 +18,7 @@
 #' @importFrom RNifti readNifti
 #'
 #' @examples
-#' \ignore{
-#'   nii2mat("sub-01_task-rest_bold.nii.gz", "sub-01_brain_mask.nii.gz")
-#' }
+#' # mat <- nii2mat("sub-01_task-rest_bold.nii.gz", "sub-01_brain_mask.nii.gz")
 nii2mat <- function(in_path, in_mask = NULL, out_path = NULL, overwrite = FALSE) {
 
   # 1. checks
