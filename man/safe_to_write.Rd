@@ -17,3 +17,16 @@ logical, whether it is safe to write to the file
 \description{
 safe_to_write
 }
+\examples{
+safe_to_write(file.path(tempdir(), "new-file.txt"))
+}
+\seealso{
+Other path helpers: 
+\code{\link{check_in_paths}()},
+\code{\link{check_out_paths}()},
+\code{\link{eval_cmd}()},
+\code{\link{mkdir_if_dne}()},
+\code{\link{stop_if_dne}()},
+\code{\link{stop_if_e}()}
+}
+\concept{path helpers}

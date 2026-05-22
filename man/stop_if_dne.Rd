@@ -7,8 +7,24 @@
 stop_if_dne(file)
 }
 \arguments{
-\item{file}{}
+\item{file}{file path to check}
+}
+\value{
+Invisibly returns \code{NULL}; errors if \code{file} does not exist.
 }
 \description{
 stop_if_dne
 }
+\examples{
+stop_if_dne(tempdir())
+}
+\seealso{
+Other path helpers: 
+\code{\link{check_in_paths}()},
+\code{\link{check_out_paths}()},
+\code{\link{eval_cmd}()},
+\code{\link{mkdir_if_dne}()},
+\code{\link{safe_to_write}()},
+\code{\link{stop_if_e}()}
+}
+\concept{path helpers}

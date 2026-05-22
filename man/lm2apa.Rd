@@ -17,6 +17,9 @@ lm2apa(m, terms = "all", level = 0.95, digits = 3, format = "html")
 
 \item{format}{specify format (default: html) (options: html, plain)}
 }
+\value{
+Character string with APA-formatted linear model results.
+}
 \description{
 converts \code{lm()} model to APA format string
 }

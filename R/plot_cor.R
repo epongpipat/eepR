@@ -1,6 +1,7 @@
 #' plot_cor
 #'
 #' @concept visualization
+#' @family plotting helpers
 #' @param x x variable
 #' @param y y variable
 #' @param data data that contains the x and y variables

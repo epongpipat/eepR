@@ -1,4 +1,5 @@
 #' nice_table
+#' @family table helpers
 #'
 #' @param table a data.frame/table to pass through kable
 #'
@@ -7,6 +8,7 @@
 #' @importFrom kableExtra kable
 #' @importFrom kableExtra kable_styling
 #' @examples
+#' nice_table(head(mtcars))
 nice_table <- function(table) {
   kable(table) %>%
     kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive"))

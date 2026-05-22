@@ -18,6 +18,17 @@ lasso results
 model_categorical_lasso
 }
 \examples{
-# to be added
+x <- iris[, c("Sepal.Length", "Sepal.Width", "Petal.Length", "Petal.Width")]
+y <- iris$Species
+model_categorical_lasso(x, y)
 }
+\seealso{
+Other categorical model wrappers: 
+\code{\link{model_categorical_all}()},
+\code{\link{model_categorical_elastic_net}()},
+\code{\link{model_categorical_glm}()},
+\code{\link{model_categorical_ridge}()},
+\code{\link{model_categorical_svm}()}
+}
+\concept{categorical model wrappers}
 \concept{model_categorical}

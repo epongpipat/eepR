@@ -7,12 +7,25 @@
 pmid2abstract(pmid)
 }
 \arguments{
-\item{pmid}{}
+\item{pmid}{PubMed identifier}
+}
+\value{
+Character abstract text for the PMID, when available.
 }
 \description{
 pmid2abstract
 }
 \examples{
+\dontrun{
 pmid2abstract(33317393)
 }
+}
+\seealso{
+Other PubMed helpers: 
+\code{\link{pmcid2pdf}()},
+\code{\link{pmid2bibtex}()},
+\code{\link{pmid2doi}()},
+\code{\link{pmid2pmcid}()}
+}
+\concept{PubMed helpers}
 \concept{references_pubmed}

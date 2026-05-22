@@ -1,14 +1,23 @@
 #' cv_kfold_split_file
+#' @family cross-validation helpers
 #'
-#' @param x_path
-#' @param y_path
-#' @param k_fold
-#' @param out_dir
+#' @param x_path path to predictor CSV file
+#' @param y_path path to outcome CSV file
+#' @param k_fold number of folds
+#' @param out_dir output directory for split CSV files
 #'
-#' @return
+#' @return Invisibly returns \code{NULL}; writes k-fold train/test CSV files to \code{out_dir}.
 #' @export
 #'
 #' @examples
+#' \dontrun{
+#' tmp <- tempdir()
+#' x_path <- file.path(tmp, "x.csv")
+#' y_path <- file.path(tmp, "y.csv")
+#' write.csv(iris[, 1:4], x_path, row.names = FALSE)
+#' write.csv(iris["Species"], y_path, row.names = FALSE)
+#' cv_kfold_split_file(x_path, y_path, k_fold = 5, out_dir = file.path(tmp, "cv"))
+#' }
 cv_kfold_split_file <- function(x_path, y_path, k_fold, out_dir) {
 
   stop_if_dne(x_path)

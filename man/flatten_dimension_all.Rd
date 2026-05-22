@@ -16,6 +16,12 @@ data that is flattened to a single dimension
 flatten_dimension_all
 }
 \examples{
-# to be added
+x <- array(1:24, dim = c(2, 3, 4))
+flatten_dimension_all(x)
+}
+\seealso{
+Other dimension flattening helpers: 
+\code{\link{flatten_dimension}()}
 }
 \concept{data_wrangle}
+\concept{dimension flattening helpers}

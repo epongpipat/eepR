@@ -1,5 +1,6 @@
 #' extract_brain_slice
 #' @concept neuroimaging
+#' @family neuroimaging helpers
 #' @param data 3D brain data
 #' @param dir direction to extract slice (choices: i, j, or k)
 #' @param slice integer from 1 to slice max
@@ -10,6 +11,9 @@
 #' @import tidyr
 #' @import stringr
 #'
+#' @examples
+#' brain <- array(1:27, dim = c(3, 3, 3))
+#' extract_brain_slice(brain, dir = "k", slice = 2)
 extract_brain_slice <- function(data, dir, slice) {
   # checks
   if (is.null(data)) {

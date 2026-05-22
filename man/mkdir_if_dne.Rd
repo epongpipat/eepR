@@ -7,9 +7,29 @@
 mkdir_if_dne(dir, recursive = TRUE)
 }
 \arguments{
-\item{dir}{}
+\item{dir}{directory path to create if missing}
+
+\item{recursive}{logical, whether to create parent directories}
+}
+\value{
+Invisibly returns \code{NULL}; creates \code{dir} if needed.
 }
 \description{
 recursively create directories if it does not exist
 }
+\examples{
+out_dir <- file.path(tempdir(), "eepR-example-dir")
+mkdir_if_dne(out_dir)
+dir.exists(out_dir)
+}
+\seealso{
+Other path helpers: 
+\code{\link{check_in_paths}()},
+\code{\link{check_out_paths}()},
+\code{\link{eval_cmd}()},
+\code{\link{safe_to_write}()},
+\code{\link{stop_if_dne}()},
+\code{\link{stop_if_e}()}
+}
+\concept{path helpers}
 \concept{r_helper}

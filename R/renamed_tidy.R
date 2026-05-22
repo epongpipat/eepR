@@ -1,6 +1,7 @@
 #' renamed_tidy
 #' @description Minor modification of the \code{tidy()} function that renames the columns to be more intuitive and adds the left-hand and operator columns for lm objects
 #' @concept stats
+#' @family model summary helpers
 #' @param model model fit from \code{lm()}
 #'
 #' @return data.frame

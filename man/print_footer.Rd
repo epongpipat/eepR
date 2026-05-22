@@ -9,6 +9,17 @@ print_footer(start_datetime)
 \arguments{
 \item{start_datetime}{start time from `print_header()`}
 }
+\value{
+Invisibly returns \code{NULL}; prints elapsed time.
+}
 \description{
 print_footer
 }
+\seealso{
+Other console messaging helpers: 
+\code{\link{error_msg}()},
+\code{\link{info_msg}()},
+\code{\link{print_header}()},
+\code{\link{warning_msg}()}
+}
+\concept{console messaging helpers}

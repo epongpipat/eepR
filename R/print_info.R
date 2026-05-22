@@ -1,4 +1,5 @@
 #' print_header
+#' @family console messaging helpers
 #'
 #' @return time
 #' @export
@@ -13,10 +14,11 @@ print_header <- function() {
 }
 
 #' print_footer
+#' @family console messaging helpers
 #'
 #' @param start_datetime start time from `print_header()`
 #'
-#' @return
+#' @return Invisibly returns \code{NULL}; prints elapsed time.
 #' @export
 print_footer <- function(start_datetime) {
   end_datetime <- Sys.time()
@@ -36,10 +38,11 @@ print_footer <- function(start_datetime) {
 }
 
 #' error_msg
+#' @family console messaging helpers
 #'
 #' @param msg error message to print
 #'
-#' @return
+#' @return Invisibly returns \code{NULL}; prints a formatted error message.
 #' @importFrom crayon red
 #' @export
 error_msg <- function(msg) {
@@ -47,23 +50,24 @@ error_msg <- function(msg) {
 }
 
 #' warning_msg
+#' @family console messaging helpers
 #'
 #' @param msg warning message to print
 #'
-#' @return
+#' @return Invisibly returns \code{NULL}; prints a formatted warning message.
 #' @importFrom crayon yellow
 #' @export
 warning_msg <- function(msg) {
   warning(glue("{yellow('[WARN]')}\t{msg}"), '\n')
 }
 
-#' warning_msg
+#' info_msg
+#' @family console messaging helpers
 #'
 #' @param msg info message to print
 #'
-#' @return
+#' @return Invisibly returns \code{NULL}; prints a formatted info message.
 #' @export
 info_msg <- function(msg) {
   cat(glue("[INFO]\t{msg}"), '\n')
 }
-

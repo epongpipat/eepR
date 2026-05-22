@@ -1,13 +1,14 @@
 #' get_3dstats
 #' @description obtain summary metrics of data file from discrete segmentation. summary metrics include non-zero voxels, min, max, median, mean
 #' @concept neuroimaging
+#' @family neuroimaging helpers
 #' @param in_data input path to data nifti file
 #' @param in_dseg input path to discrete segmentation nifti file
 #' @param in_lut input path to look up table
 #' @param out_path output path to save stats tsv file
 #' @param overwrite flag to overwrite (default: 0)
 #'
-#' @return
+#' @return A data.frame of regional 3D summary statistics; optionally writes it to \code{out_path}.
 #' @export
 #' @import dplyr
 #' @importFrom RNifti readNifti
@@ -71,6 +72,4 @@ get_3dstats <- function(in_data, in_dseg, in_lut = NULL, out_path, overwrite = F
 #   args <- parser$parse_args()
 #   get_3dstats(args$in_data, args$in_dseg, args$in_lut, args$out_path, args$overwrite)
 # }
-
-
 

@@ -9,6 +9,17 @@ warning_msg(msg)
 \arguments{
 \item{msg}{warning message to print}
 }
+\value{
+Invisibly returns \code{NULL}; prints a formatted warning message.
+}
 \description{
 warning_msg
 }
+\seealso{
+Other console messaging helpers: 
+\code{\link{error_msg}()},
+\code{\link{info_msg}()},
+\code{\link{print_footer}()},
+\code{\link{print_header}()}
+}
+\concept{console messaging helpers}

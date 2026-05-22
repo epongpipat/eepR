@@ -1,5 +1,6 @@
 #' @title model_categorical_lasso
 #' @concept model_categorical
+#' @family categorical model wrappers
 #' @param y categorical outcome to predict
 #' @param x features/predictors used in prediction of outcome
 #'
@@ -9,7 +10,9 @@
 #' @importFrom glmnet cv.glmnet
 #' @importFrom glmnet glmnet
 #' @examples
-#' # to be added
+#' x <- iris[, c("Sepal.Length", "Sepal.Width", "Petal.Length", "Petal.Width")]
+#' y <- iris$Species
+#' model_categorical_lasso(x, y)
 model_categorical_lasso <- function(x, y) {
   x <- as.matrix(x)
   y <- as.matrix(y)

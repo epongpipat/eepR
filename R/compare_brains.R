@@ -1,6 +1,7 @@
 #' compare_brains
 #' @concept visualization
 #' @concept neuroimaging
+#' @family neuroimaging helpers
 #' @param a first image to compare
 #' @param b second image to compare
 #' @param mask mask image

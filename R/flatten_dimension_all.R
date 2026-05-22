@@ -1,5 +1,6 @@
 #' @title flatten_dimension_all
 #' @concept data_wrangle
+#' @family dimension flattening helpers
 #' @param data multi-dimensional data to completely flattened/reduced to a single dimension
 #' @return data that is flattened to a single dimension
 #' @export
@@ -7,7 +8,8 @@
 #' @importFrom future plan
 #' @importFrom furrr future_map
 #' @examples
-#' # to be added
+#' x <- array(1:24, dim = c(2, 3, 4))
+#' flatten_dimension_all(x)
 flatten_dimension_all <- function(data) {
 
   plan(multiprocess)

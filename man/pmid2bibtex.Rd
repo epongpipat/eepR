@@ -7,12 +7,27 @@
 pmid2bibtex(pmid, key_as_first_author_year = TRUE)
 }
 \arguments{
-\item{key_as_first_author_year}{}
+\item{pmid}{PubMed identifier}
+
+\item{key_as_first_author_year}{logical, whether to use first-author-year as the BibTeX key}
+}
+\value{
+Character string containing BibTeX citation text.
 }
 \description{
 pmid2bibtex
 }
 \examples{
-# pmid2bibtex(33317393)
+\dontrun{
+pmid2bibtex(33317393)
 }
+}
+\seealso{
+Other PubMed helpers: 
+\code{\link{pmcid2pdf}()},
+\code{\link{pmid2abstract}()},
+\code{\link{pmid2doi}()},
+\code{\link{pmid2pmcid}()}
+}
+\concept{PubMed helpers}
 \concept{references_pubmed}

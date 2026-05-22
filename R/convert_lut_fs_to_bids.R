@@ -1,11 +1,12 @@
 #' convet_lut_fs2bids
 #' @concept neuroimaging
 #' @description converts look up table (LUT) from freesurfer-format (No., Label Name, R, G, B, A) to BIDS-format (index, name, color [hex], alpha)
+#' @family neuroimaging helpers
 #' @param lut input path to look up table in freesurfer format
 #' @param out_path output path to look up table in BIDS format (default: NULL)
 #' @param overwrite flag to overwrite (default: 0)
 #'
-#' @return
+#' @return A data.frame with BIDS-style LUT columns; optionally writes it to \code{out_path}.
 #' @import dplyr
 #' @importFrom stringr str_to_lower
 #' @export

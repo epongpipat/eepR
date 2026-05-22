@@ -21,4 +21,12 @@ add a string to beginning of all the column names
 df <- append_prefix_to_colnames(carData::Salaries, 'p_')
 head(df)
 }
+\seealso{
+Other column name helpers: 
+\code{\link{append_colnames}()},
+\code{\link{append_suffix_to_colnames}()},
+\code{\link{rename_colnames}()},
+\code{\link{tidy_colnames}()}
+}
+\concept{column name helpers}
 \concept{data_wrangle}

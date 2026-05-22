@@ -7,8 +7,24 @@
 stop_if_e(file)
 }
 \arguments{
-\item{file}{}
+\item{file}{file path to check}
+}
+\value{
+Invisibly returns \code{NULL}; errors if \code{file} exists.
 }
 \description{
 stop_if_e
 }
+\examples{
+stop_if_e(file.path(tempdir(), "missing-file.txt"))
+}
+\seealso{
+Other path helpers: 
+\code{\link{check_in_paths}()},
+\code{\link{check_out_paths}()},
+\code{\link{eval_cmd}()},
+\code{\link{mkdir_if_dne}()},
+\code{\link{safe_to_write}()},
+\code{\link{stop_if_dne}()}
+}
+\concept{path helpers}

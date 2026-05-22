@@ -2,13 +2,24 @@
 % Please edit documentation in R/print_info.R
 \name{info_msg}
 \alias{info_msg}
-\title{warning_msg}
+\title{info_msg}
 \usage{
 info_msg(msg)
 }
 \arguments{
 \item{msg}{info message to print}
 }
-\description{
-warning_msg
+\value{
+Invisibly returns \code{NULL}; prints a formatted info message.
 }
+\description{
+info_msg
+}
+\seealso{
+Other console messaging helpers: 
+\code{\link{error_msg}()},
+\code{\link{print_footer}()},
+\code{\link{print_header}()},
+\code{\link{warning_msg}()}
+}
+\concept{console messaging helpers}

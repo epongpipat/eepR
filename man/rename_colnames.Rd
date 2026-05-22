@@ -18,5 +18,16 @@ data.frame with the new column names
 rename column names
 }
 \examples{
-# example to be added
+rename_colnames(
+  data.frame(a = 1:3, b = 4:6),
+  c("participant_id", "score")
+)
 }
+\seealso{
+Other column name helpers: 
+\code{\link{append_colnames}()},
+\code{\link{append_prefix_to_colnames}()},
+\code{\link{append_suffix_to_colnames}()},
+\code{\link{tidy_colnames}()}
+}
+\concept{column name helpers}

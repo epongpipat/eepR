@@ -1,14 +1,16 @@
 #' plot_scree
 #' @concept visualization
+#' @family plotting helpers
 #' @param sv singular values
 #' @param eigs eigenvalues
 #' @param p_perm permuted p values for each component
 #' @param a_thr alpha threshold for significance of permuted p values (default: 0.05)
 #'
-#' @returns
+#' @returns patchwork/ggplot object containing scree and cumulative variance plots.
 #' @export
 #'
 #' @examples
+#' plot_scree(eigs = c(4, 2, 1, 0.5))
 plot_scree <- function(sv = NULL, eigs = NULL, p_perm = NULL, a_thr = 0.05) {
   if (is.null(sv) & is.null(eigs)) {
     stop('either sv or eigs must be supplied')

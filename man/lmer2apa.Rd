@@ -17,6 +17,9 @@ lmer2apa(m, terms = "all", level = 0.95, digits = 3, format = "html")
 
 \item{format}{specify format (default: html) (options: html, plain)}
 }
+\value{
+Character string with APA-formatted mixed-effects model results.
+}
 \description{
 converts \code{lmer()} model to APA format string
 }

@@ -8,7 +8,7 @@
 #' @param digits specify digit to round statistics (default: 3)
 #' @param format specify format (default: html) (options: html, plain)
 
-#' @returns
+#' @returns Character string with APA-formatted mixed-effects model results.
 #' @export
 #' @examples
 #' lmer2apa(lmerTest::lmer(Reaction ~ 1 + Days + (1 + Days | Subject), lme4::sleepstudy), format = 'plain')
@@ -124,4 +124,3 @@ lmer2apa <- function(m, terms = 'all', level = 0.95, digits = 3, format = 'html'
 
   return(stat_str)
 }
-

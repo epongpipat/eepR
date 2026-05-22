@@ -2,6 +2,7 @@
 #'
 #' @description model(s) into a single omnibus table. Uses \code{broom::glance()} and adds extra columns of extra model attributes
 #' @concept stats
+#' @family model summary helpers
 #' @param models a single model or a list of models
 #' @param attribute name of attribute list to turn in columns (default: 'extra_info')
 #' @return data.frame of extra_info of model attributes and glance

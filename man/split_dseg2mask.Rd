@@ -15,7 +15,20 @@ split_dseg2mask(in_dseg, in_lut, out_prefix, overwrite = FALSE)
 
 \item{overwrite}{flag to overwrite output files (default: FALSE)}
 }
+\value{
+Invisibly returns \code{NULL}; writes one mask NIfTI per LUT entry.
+}
 \description{
 split_dseg2mask
 }
+\seealso{
+Other neuroimaging helpers: 
+\code{\link{compare_brains}()},
+\code{\link{convet_lut_fs2bids}()},
+\code{\link{extract_brain_slice}()},
+\code{\link{get_3dstats}()},
+\code{\link{plot_brain}()},
+\code{\link{plot_brain_slice}()}
+}
 \concept{neuroimaging}
+\concept{neuroimaging helpers}

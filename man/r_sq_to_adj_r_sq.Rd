@@ -14,7 +14,7 @@ r_sq_to_adj_r_sq(r_sq, n, n_p)
 \item{n_p}{number of parameters}
 }
 \value{
-
+adjusted r-squared ($R^2_{Adj.}$) value
 }
 \description{
 Convert r-squared ($R^2$) to adjusted r-squared ($R^2_{Adj.}$).
@@ -22,4 +22,15 @@ Convert r-squared ($R^2$) to adjusted r-squared ($R^2_{Adj.}$).
 \examples{
 r_sq_to_adj_r_sq(.5, 100, 5)
 }
+\seealso{
+Other model summary helpers: 
+\code{\link{get_lm_multicollinearity}()},
+\code{\link{models2coefs}()},
+\code{\link{models2omni}()},
+\code{\link{renamed_tidy}()},
+\code{\link{tidy_es}()},
+\code{\link{tidy_es_lm}()},
+\code{\link{tidy_es_lmer}()}
+}
+\concept{model summary helpers}
 \concept{stats}

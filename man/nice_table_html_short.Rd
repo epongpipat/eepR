@@ -7,8 +7,22 @@
 nice_table_html_short(table, height = "200px")
 }
 \arguments{
-\item{height}{}
+\item{table}{a data.frame/table to pass through kable}
+
+\item{height}{height of the scroll box}
+}
+\value{
+a short scrollable HTML table
 }
 \description{
 nice_table_html_short
 }
+\examples{
+nice_table_html_short(mtcars, height = "150px")
+}
+\seealso{
+Other table helpers: 
+\code{\link{nice_table}()},
+\code{\link{nice_table_html}()}
+}
+\concept{table helpers}

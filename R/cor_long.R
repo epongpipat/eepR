@@ -1,5 +1,6 @@
 #' @title cor_long
 #' @concept stats
+#' @family correlation helpers
 #' @param data data to correlate and transform to long format
 #'
 #' @return data.frame

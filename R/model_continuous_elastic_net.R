@@ -1,5 +1,6 @@
 #' @title model_continuous_elastic_net
 #' @concept model_continuous
+#' @family continuous model wrappers
 #' @param data data to be analyzed
 #' @param y name/string of outcome to be predicted that is within the data
 #' @param alpha_list vector of alpha to cross-validate (default: seq(0.0001, 0.9999, 0.0001))
@@ -14,7 +15,10 @@
 #' @importFrom glmnet glmnet
 #' @importFrom tidyr tibble
 #' @examples
-#' # to be added
+#' \dontrun{
+#' data <- data.frame(y = mtcars$mpg, wt = mtcars$wt, hp = mtcars$hp)
+#' model_continuous_elastic_net(data, "y", alpha_list = c(0.25, 0.5, 0.75))
+#' }
 model_continuous_elastic_net <- function(data, y, alpha_list = seq(0.0001, 0.9999, 0.0001)) {
 
   registerDoParallel(cores = availableCores()-1)

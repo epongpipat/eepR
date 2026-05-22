@@ -1,5 +1,6 @@
 #' @title tidy_colnames
 #' @description makes the data.frame have column names that are in tidy format.
+#' @family column name helpers
 #' @details currently, does the following modifications:
 #' 1. lower-case
 #' 2. replaces:

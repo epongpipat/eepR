@@ -2,6 +2,7 @@
 #' @description a modification of the renamed tidy command to adds the effect
 #' size (confidence intervals for the regression coefficient and adjusted R^2)
 #' @concept stats
+#' @family model summary helpers
 #' @param model model fit from \code{lm()}, \code{lmerTest::lmer()}, or \code{lme4::lmer()}
 #' @param ci confidence interval (0, 1)
 #' @return data.frame
@@ -26,6 +27,7 @@ tidy_es <- function(model, ci = 0.95) {
 #' @description a modification of the renamed tidy command that adds the effect
 #' size (confidence intervals for the regression coefficient and adjusted R^2)
 #' @concept stats
+#' @family model summary helpers
 #' @param model model fit from \code{lm()}
 #' @param ci confidence interval (0, 1)
 #' @return data.frame
@@ -64,6 +66,7 @@ tidy_es_lm <- function(model, ci = 0.95) {
 #' @description a modification of the renamed tidy command that adds the effect
 #' size (confidence intervals for the regression coefficient and adjusted R^2)
 #' @concept stats
+#' @family model summary helpers
 #' @param model model output from \code{lmerTest::lmer()} or \code{lme4::lmer()}
 #' @param ci confidence interval (default: 0.95)
 #' @returns data.frame

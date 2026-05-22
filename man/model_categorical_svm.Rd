@@ -11,9 +11,26 @@ model_categorical_svm(x, y, kernel = "linear", ...)
 
 \item{y}{categorical outcome to predict}
 
-\item{kernel}{}
+\item{kernel}{SVM kernel passed to \code{e1071::svm()}}
+}
+\value{
+Fitted SVM model from \code{e1071::svm()}.
 }
 \description{
 model_categorical_svm
 }
+\examples{
+x <- iris[, c("Sepal.Length", "Sepal.Width", "Petal.Length", "Petal.Width")]
+y <- iris$Species
+model_categorical_svm(x, y)
+}
+\seealso{
+Other categorical model wrappers: 
+\code{\link{model_categorical_all}()},
+\code{\link{model_categorical_elastic_net}()},
+\code{\link{model_categorical_glm}()},
+\code{\link{model_categorical_lasso}()},
+\code{\link{model_categorical_ridge}()}
+}
+\concept{categorical model wrappers}
 \concept{model_categorical}

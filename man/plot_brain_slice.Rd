@@ -44,5 +44,20 @@ ggplot2 figure of brain slice
 \description{
 plot_brain_slice
 }
+\examples{
+brain <- array(1:27, dim = c(3, 3, 3))
+slice <- extract_brain_slice(brain, dir = "k", slice = 2)
+plot_brain_slice(slice)
+}
+\seealso{
+Other neuroimaging helpers: 
+\code{\link{compare_brains}()},
+\code{\link{convet_lut_fs2bids}()},
+\code{\link{extract_brain_slice}()},
+\code{\link{get_3dstats}()},
+\code{\link{plot_brain}()},
+\code{\link{split_dseg2mask}()}
+}
 \concept{neuroimaging}
+\concept{neuroimaging helpers}
 \concept{visualization}

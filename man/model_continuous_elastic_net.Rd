@@ -20,6 +20,16 @@ elastic net results
 model_continuous_elastic_net
 }
 \examples{
-# to be added
+\dontrun{
+data <- data.frame(y = mtcars$mpg, wt = mtcars$wt, hp = mtcars$hp)
+model_continuous_elastic_net(data, "y", alpha_list = c(0.25, 0.5, 0.75))
 }
+}
+\seealso{
+Other continuous model wrappers: 
+\code{\link{model_continuous_lasso}()},
+\code{\link{model_continuous_ridge}()},
+\code{\link{model_continuous_svm_linear}()}
+}
+\concept{continuous model wrappers}
 \concept{model_continuous}

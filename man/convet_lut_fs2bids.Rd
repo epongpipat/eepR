@@ -13,7 +13,20 @@ convet_lut_fs2bids(lut, out_path = NULL, overwrite = FALSE)
 
 \item{overwrite}{flag to overwrite (default: 0)}
 }
+\value{
+A data.frame with BIDS-style LUT columns; optionally writes it to \code{out_path}.
+}
 \description{
 converts look up table (LUT) from freesurfer-format (No., Label Name, R, G, B, A) to BIDS-format (index, name, color [hex], alpha)
 }
+\seealso{
+Other neuroimaging helpers: 
+\code{\link{compare_brains}()},
+\code{\link{extract_brain_slice}()},
+\code{\link{get_3dstats}()},
+\code{\link{plot_brain}()},
+\code{\link{plot_brain_slice}()},
+\code{\link{split_dseg2mask}()}
+}
 \concept{neuroimaging}
+\concept{neuroimaging helpers}

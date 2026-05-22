@@ -7,9 +7,17 @@
 tryCatch2(expr)
 }
 \arguments{
-\item{expr}{}
+\item{expr}{expression to evaluate with error printing}
+}
+\value{
+result of \code{expr}, or printed error if \code{expr} fails
 }
 \description{
 tryCatch2
 }
+\examples{
+tryCatch2(1 + 1)
+tryCatch2(stop("example error"))
+}
+\concept{error helpers}
 \concept{r_helper}

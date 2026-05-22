@@ -41,5 +41,15 @@ ggplot figure comparing two images
 \description{
 compare_brains
 }
+\seealso{
+Other neuroimaging helpers: 
+\code{\link{convet_lut_fs2bids}()},
+\code{\link{extract_brain_slice}()},
+\code{\link{get_3dstats}()},
+\code{\link{plot_brain}()},
+\code{\link{plot_brain_slice}()},
+\code{\link{split_dseg2mask}()}
+}
 \concept{neuroimaging}
+\concept{neuroimaging helpers}
 \concept{visualization}

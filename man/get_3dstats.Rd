@@ -17,7 +17,20 @@ get_3dstats(in_data, in_dseg, in_lut = NULL, out_path, overwrite = FALSE)
 
 \item{overwrite}{flag to overwrite (default: 0)}
 }
+\value{
+A data.frame of regional 3D summary statistics; optionally writes it to \code{out_path}.
+}
 \description{
 obtain summary metrics of data file from discrete segmentation. summary metrics include non-zero voxels, min, max, median, mean
 }
+\seealso{
+Other neuroimaging helpers: 
+\code{\link{compare_brains}()},
+\code{\link{convet_lut_fs2bids}()},
+\code{\link{extract_brain_slice}()},
+\code{\link{plot_brain}()},
+\code{\link{plot_brain_slice}()},
+\code{\link{split_dseg2mask}()}
+}
 \concept{neuroimaging}
+\concept{neuroimaging helpers}

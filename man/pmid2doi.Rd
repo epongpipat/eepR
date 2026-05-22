@@ -7,12 +7,25 @@
 pmid2doi(pmid)
 }
 \arguments{
-\item{pmid}{}
+\item{pmid}{PubMed identifier}
+}
+\value{
+Character DOI for the PMID, when available.
 }
 \description{
 pmid2doi
 }
 \examples{
+\dontrun{
 pmid2doi(33317393)
 }
+}
+\seealso{
+Other PubMed helpers: 
+\code{\link{pmcid2pdf}()},
+\code{\link{pmid2abstract}()},
+\code{\link{pmid2bibtex}()},
+\code{\link{pmid2pmcid}()}
+}
+\concept{PubMed helpers}
 \concept{references_pubmed}

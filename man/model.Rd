@@ -7,9 +7,28 @@
 model(x, y, pkg, fun, args = NULL, id = NULL)
 }
 \arguments{
-\item{args}{}
+\item{x}{features/predictors passed to the modeling function}
+
+\item{y}{outcome passed to the modeling function}
+
+\item{pkg}{package name that contains the modeling function}
+
+\item{fun}{modeling function name}
+
+\item{args}{named list of additional arguments passed to the modeling function}
+
+\item{id}{optional column name or index to drop from both \code{x} and \code{y}}
+}
+\value{
+Fitted model returned by the requested modeling function.
 }
 \description{
 model
 }
+\examples{
+x <- iris[, c("Sepal.Length", "Sepal.Width", "Petal.Length", "Petal.Width")]
+y <- iris["Species"]
+model(x, y, pkg = "e1071", fun = "svm", args = list(kernel = "linear"))
+}
+\concept{model wrappers}
 \concept{model_uber}

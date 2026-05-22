@@ -1,14 +1,21 @@
 #' eval_cmd
 #' @concept r_helper
+#' @family path helpers
 #' @param cmd string expression to evaluate
 #' @param out_paths vector or list of output paths
 #' @param overwrite flag to overwrite output paths (default: FALSE)
 #' @param print flag to print command only (default: FALSE)
 #'
-#' @return
+#' @return Invisibly returns \code{NULL}; evaluates \code{cmd} for its side effects.
 #' @export
 #' 
 #' @examples
+#' out_path <- file.path(tempdir(), "eval-cmd-example.txt")
+#' eval_cmd(
+#'   "writeLines('hello', out_path)",
+#'   out_paths = out_path,
+#'   overwrite = TRUE
+#' )
 eval_cmd <- function(cmd, out_paths, overwrite = FALSE, print = FALSE) {
   out_paths <- unlist(out_paths)
   cat(paste0('\n[CMD]\t', cmd))

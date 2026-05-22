@@ -1,11 +1,12 @@
 #' split_dseg2mask
 #' @concept neuroimaging
+#' @family neuroimaging helpers
 #' @param in_dseg path to discrete segmentation file
 #' @param in_lut path to look up table .tsv file (bids format)
 #' @param out_prefix output prefix of the mask files
 #' @param overwrite flag to overwrite output files (default: FALSE)
 #'
-#' @return
+#' @return Invisibly returns \code{NULL}; writes one mask NIfTI per LUT entry.
 #' @export
 #' @importFrom RNifti readNifti
 #' @importFrom RNifti writeNifti

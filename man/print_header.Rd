@@ -12,3 +12,11 @@ time
 \description{
 print_header
 }
+\seealso{
+Other console messaging helpers: 
+\code{\link{error_msg}()},
+\code{\link{info_msg}()},
+\code{\link{print_footer}()},
+\code{\link{warning_msg}()}
+}
+\concept{console messaging helpers}

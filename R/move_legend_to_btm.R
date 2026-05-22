@@ -1,9 +1,12 @@
 #' move_legend_to_btm
 #' @concept visualization
-#' @returns
+#' @family plotting helpers
+#' @param learn logical, whether to print the equivalent ggplot2 theme code
+#' @returns ggplot2 theme object
 #' @export
 #'
 #' @examples
+#' plot_cor("wt", "mpg", mtcars) + move_legend_to_btm()
 move_legend_to_btm <- function(learn = FALSE) {
   cmd='theme(
     legend.position = "bottom",
@@ -21,5 +24,4 @@ move_legend_to_btm <- function(learn = FALSE) {
   )
   # eval(cmd)
 }
-
 

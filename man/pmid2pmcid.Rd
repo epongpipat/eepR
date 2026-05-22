@@ -7,12 +7,25 @@
 pmid2pmcid(pmid)
 }
 \arguments{
-\item{pmid}{}
+\item{pmid}{PubMed identifier}
+}
+\value{
+Character PMCID for the PMID, when available.
 }
 \description{
 pmid2pmcid
 }
 \examples{
+\dontrun{
 pmid2pmcid(33317393)
 }
+}
+\seealso{
+Other PubMed helpers: 
+\code{\link{pmcid2pdf}()},
+\code{\link{pmid2abstract}()},
+\code{\link{pmid2bibtex}()},
+\code{\link{pmid2doi}()}
+}
+\concept{PubMed helpers}
 \concept{references_pubmed}

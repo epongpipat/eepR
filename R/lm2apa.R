@@ -8,7 +8,7 @@
 #' @param digits specify digit to round statistics (default: 3)
 #' @param format specify format (default: html) (options: html, plain)
 
-#' @returns
+#' @returns Character string with APA-formatted linear model results.
 #' @export
 #' @examples lm2apa(lm(mpg ~ wt, data = mtcars), format = 'plain')
 #' @importFrom broom tidy
@@ -129,5 +129,4 @@ lm2apa <- function(m, terms = 'all', level = 0.95, digits = 3, format = 'html') 
 
   return(stat_str)
 }
-
 

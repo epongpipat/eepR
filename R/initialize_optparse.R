@@ -6,7 +6,7 @@
 #' @param func_path path to function (optional)
 #' @param out_path path to write optparsed file (optional)
 #'
-#' @return
+#' @return Character string containing an optparse script template; optionally writes it to \code{out_path}.
 #' @export
 #' @importFrom glue glue
 #' @examples initialize_optparse("pmid2doi")

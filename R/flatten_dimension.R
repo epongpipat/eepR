@@ -1,12 +1,15 @@
 #' @title flatten_dimension
 #' @concept data_wrangle
+#' @family dimension flattening helpers
 #' @param data multi-dimensional data to be flattened/reduced by a single dimension
 #'
 #' @return data that is flattened/reduced by a single dimension
 #' @export
 #' @import dplyr
 #' @examples
-#' # to be added
+#' x <- array(1:24, dim = c(2, 3, 4))
+#' flattened_once <- flatten_dimension(x)
+#' str(flattened_once)
 flatten_dimension <- function(data) {
 
   starting_letter <- 9 # start lettering at i rather than a

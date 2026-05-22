@@ -1,7 +1,9 @@
 #' @title model_categorical_elastic_net
 #' @concept model_categorical
+#' @family categorical model wrappers
 #' @param y categorical outcome to predict
 #' @param x features/predictors used in prediction of outcome
+#' @param alpha_list vector of alpha values to cross-validate
 #'
 #' @return elastic net results
 #' @export
@@ -14,7 +16,11 @@
 #' @importFrom glmnet glmnet
 #' @importFrom tidyr tibble
 #' @examples
-#' # to be added
+#' \dontrun{
+#' x <- iris[, c("Sepal.Length", "Sepal.Width", "Petal.Length", "Petal.Width")]
+#' y <- iris$Species
+#' model_categorical_elastic_net(x, y, alpha_list = c(0.25, 0.5, 0.75))
+#' }
 model_categorical_elastic_net <- function(x, y, alpha_list = seq(0.0001, 0.9999, 0.0001)) {
 
   if (n_y == 2) {

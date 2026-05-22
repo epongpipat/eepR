@@ -11,7 +11,23 @@ check_out_paths(paths, overwrite = 0)
 
 \item{overwrite}{boolean}
 }
+\value{
+Invisibly returns \code{NULL}; errors or warns if output paths already exist.
+}
 \description{
 check_out_paths
 }
+\examples{
+check_out_paths(file.path(tempdir(), "new-file.txt"))
+}
+\seealso{
+Other path helpers: 
+\code{\link{check_in_paths}()},
+\code{\link{eval_cmd}()},
+\code{\link{mkdir_if_dne}()},
+\code{\link{safe_to_write}()},
+\code{\link{stop_if_dne}()},
+\code{\link{stop_if_e}()}
+}
+\concept{path helpers}
 \concept{r_helper}

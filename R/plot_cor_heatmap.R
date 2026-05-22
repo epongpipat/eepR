@@ -1,8 +1,9 @@
 #' @title cor_plot
 #' @concept visualization
+#' @family plotting helpers
 #' @param data data to create a heat map from
 #'
-#' @return
+#' @return ggplot2 correlation heatmap.
 #' @export
 #' @importFrom lifecycle deprecate_warn
 #' @examples
@@ -14,6 +15,7 @@ cor_plot <- function(data) {
 
 #' @title plot_cor_heatmap
 #' @concept visualization
+#' @family plotting helpers
 #' @param data data to create a heat map from
 #' @return ggplot figure
 #' @export
@@ -31,4 +33,3 @@ plot_cor_heatmap <- function(data) {
     scale_fill_distiller(palette = "RdBu", values = c(-1, 1)) +
     theme(axis.text.x = element_text(hjust = 1, angle = 45))
 }
-

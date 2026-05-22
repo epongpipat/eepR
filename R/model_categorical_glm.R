@@ -1,12 +1,16 @@
 #' @title model_categorical_glm
 #' @concept model_categorical
+#' @family categorical model wrappers
 #' @param y categorical outcome to predict
 #' @param x features/predictors used in prediction of outcome
 #'
-#' @return
+#' @return Fitted binomial GLM or multinomial model.
 #' @export
 #' @importFrom nnet multinom
 #' @examples
+#' x <- iris[, c("Sepal.Length", "Sepal.Width", "Petal.Length", "Petal.Width")]
+#' y <- iris$Species
+#' model_categorical_glm(x, y)
 model_categorical_glm <- function(x, y) {
   x <- as.matrix(x)
   y <- as.matrix(y)
@@ -19,4 +23,3 @@ model_categorical_glm <- function(x, y) {
     stop("number of factors of y must be greater than 2")
   }
 }
-

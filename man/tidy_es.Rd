@@ -25,4 +25,15 @@ tidy_es(lm(salary ~ yrs.since.phd, carData::Salaries))
 # example: lmer
 tidy_es(lmerTest::lmer(Reaction ~ 1 + Days + (1 + Days | Subject), lme4::sleepstudy))
 }
+\seealso{
+Other model summary helpers: 
+\code{\link{get_lm_multicollinearity}()},
+\code{\link{models2coefs}()},
+\code{\link{models2omni}()},
+\code{\link{r_sq_to_adj_r_sq}()},
+\code{\link{renamed_tidy}()},
+\code{\link{tidy_es_lm}()},
+\code{\link{tidy_es_lmer}()}
+}
+\concept{model summary helpers}
 \concept{stats}

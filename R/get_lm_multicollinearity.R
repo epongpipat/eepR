@@ -1,8 +1,9 @@
 #' get_lm_multicollinearity
 #' @concept stats
+#' @family model summary helpers
 #' @param model fitted model from \code{lm()}
 #'
-#' @return
+#' @return A data.frame with multicollinearity diagnostics for each model term.
 #' @export
 #' @import dplyr broom
 #' @examples get_lm_multicollinearity(lm(salary ~ yrs.since.phd + yrs.service, carData::Salaries))

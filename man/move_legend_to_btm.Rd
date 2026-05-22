@@ -6,7 +6,26 @@
 \usage{
 move_legend_to_btm(learn = FALSE)
 }
+\arguments{
+\item{learn}{logical, whether to print the equivalent ggplot2 theme code}
+}
+\value{
+ggplot2 theme object
+}
 \description{
 move_legend_to_btm
 }
+\examples{
+plot_cor("wt", "mpg", mtcars) + move_legend_to_btm()
+}
+\seealso{
+Other plotting helpers: 
+\code{\link{cor_plot}()},
+\code{\link{plot_age}()},
+\code{\link{plot_bland_altman}()},
+\code{\link{plot_cor}()},
+\code{\link{plot_cor_heatmap}()},
+\code{\link{plot_scree}()}
+}
+\concept{plotting helpers}
 \concept{visualization}

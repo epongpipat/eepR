@@ -17,6 +17,9 @@ plot_bland_altman(a, b, data, ci = 0.95, txt_offset = 0.25)
 
 \item{txt_offset}{text offset for labels (default: 0.25)}
 }
+\value{
+ggplot2 Bland-Altman plot.
+}
 \description{
 plot_bland_altman
 }
@@ -24,4 +27,14 @@ plot_bland_altman
 # note: not the best example, since it should be conceptually similar metrics
 plot_bland_altman('yrs.since.phd', 'yrs.service', carData::Salaries)
 }
+\seealso{
+Other plotting helpers: 
+\code{\link{cor_plot}()},
+\code{\link{move_legend_to_btm}()},
+\code{\link{plot_age}()},
+\code{\link{plot_cor}()},
+\code{\link{plot_cor_heatmap}()},
+\code{\link{plot_scree}()}
+}
+\concept{plotting helpers}
 \concept{visualization}

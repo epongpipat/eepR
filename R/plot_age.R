@@ -1,8 +1,9 @@
 #' plot_age
 #' @concept visualization
+#' @family plotting helpers
 #' @param data input data.frame
-#' @param var_y y-axis variable to plot
-#' @param var_x x-axis variable to plot
+#' @param y_var y-axis variable to plot
+#' @param x_var x-axis variable to plot
 #' @param y_lab y-axis label
 #' @param x_lab x-axis label
 #'
@@ -11,6 +12,8 @@
 #' @import ggplot2
 #' @import dplyr
 #' @examples
+#' data <- data.frame(age = c(20, 30, 40, 50), score = c(4, 6, 7, 9))
+#' plot_age(data, y_var = "score")
 plot_age <- function(data, y_var, x_var = 'age', y_lab = NULL, x_lab = 'Age') {
   fig <- ggplot(data, aes(x = eval(as.name(x_var)), y = eval(as.name(y_var)))) +
     geom_point() +

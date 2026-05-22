@@ -1,5 +1,6 @@
 #' @title model_continuous_ridge
 #' @concept model_continuous
+#' @family continuous model wrappers
 #' @param data data to be analyzed
 #' @param y name/string of outcome to be predicted that is within the data
 #'
@@ -9,7 +10,8 @@
 #' @importFrom glmnet cv.glmnet
 #' @importFrom glmnet glmnet
 #' @examples
-#' # to be added
+#' data <- data.frame(y = mtcars$mpg, wt = mtcars$wt, hp = mtcars$hp)
+#' model_continuous_ridge(data, "y")
 model_continuous_ridge <- function(data, y) {
   x <- data %>% select(-y) %>% as.matrix()
   y <- data %>% select(y) %>% as.matrix()

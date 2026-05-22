@@ -1,13 +1,17 @@
 #' @title model_categorical_ridge
 #' @concept model_categorical
+#' @family categorical model wrappers
 #' @param y categorical outcome to predict
 #' @param x features/predictors used in prediction of outcome
 #'
-#' @return
+#' @return Fitted ridge regression model from \code{glmnet}.
 #' @export
 #' @importFrom glmnet glmnet
 #' @importFrom glmnet cv.glmnet
 #' @examples
+#' x <- iris[, c("Sepal.Length", "Sepal.Width", "Petal.Length", "Petal.Width")]
+#' y <- iris$Species
+#' model_categorical_ridge(x, y)
 model_categorical_ridge <- function(x, y) {
   x <- as.matrix(x)
   y <- as.matrix(y)

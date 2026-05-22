@@ -22,4 +22,15 @@ m1 <- lm(salary ~ yrs.since.phd, carData::Salaries)
 attr(m1, 'extra_info') <- list(m = 1, another_key = 'another_value')
 models2omni(m1)
 }
+\seealso{
+Other model summary helpers: 
+\code{\link{get_lm_multicollinearity}()},
+\code{\link{models2coefs}()},
+\code{\link{r_sq_to_adj_r_sq}()},
+\code{\link{renamed_tidy}()},
+\code{\link{tidy_es}()},
+\code{\link{tidy_es_lm}()},
+\code{\link{tidy_es_lmer}()}
+}
+\concept{model summary helpers}
 \concept{stats}

@@ -7,12 +7,25 @@
 pmcid2pdf(pmcid)
 }
 \arguments{
-\item{pmcid}{}
+\item{pmcid}{PubMed Central identifier}
+}
+\value{
+Downloaded PDF response/content from PubMed Central.
 }
 \description{
 pmcid2pdf
 }
 \examples{
-pmcid2pdf(33317393)
+\dontrun{
+pmcid2pdf("PMC7778853")
 }
+}
+\seealso{
+Other PubMed helpers: 
+\code{\link{pmid2abstract}()},
+\code{\link{pmid2bibtex}()},
+\code{\link{pmid2doi}()},
+\code{\link{pmid2pmcid}()}
+}
+\concept{PubMed helpers}
 \concept{references_pubmed}

@@ -15,7 +15,23 @@ plot_scree(sv = NULL, eigs = NULL, p_perm = NULL, a_thr = 0.05)
 
 \item{a_thr}{alpha threshold for significance of permuted p values (default: 0.05)}
 }
+\value{
+patchwork/ggplot object containing scree and cumulative variance plots.
+}
 \description{
 plot_scree
 }
+\examples{
+plot_scree(eigs = c(4, 2, 1, 0.5))
+}
+\seealso{
+Other plotting helpers: 
+\code{\link{cor_plot}()},
+\code{\link{move_legend_to_btm}()},
+\code{\link{plot_age}()},
+\code{\link{plot_bland_altman}()},
+\code{\link{plot_cor}()},
+\code{\link{plot_cor_heatmap}()}
+}
+\concept{plotting helpers}
 \concept{visualization}

@@ -7,7 +7,7 @@
 #' @param digits round statistics to specified digit
 #' @param format specify format (default: html) (options: html, plain)
 #'
-#' @returns
+#' @returns Character string with APA-formatted correlation results.
 #' @export
 #' @examples cor2apa(cor.test(carData::Salaries$yrs.since.phd, carData::Salaries$salary), format = 'plain')
 #' @importFrom broom tidy

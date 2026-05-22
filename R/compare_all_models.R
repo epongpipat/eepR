@@ -1,4 +1,5 @@
 #' @title compare_all_models
+#' @family model comparison helpers
 #'
 #' @param model_list list of models
 #'

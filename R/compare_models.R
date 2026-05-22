@@ -1,4 +1,5 @@
 #' @title compare_models
+#' @family model comparison helpers
 #'
 #' @param model_1 a model to compare
 #' @param model_2 the other model to compare

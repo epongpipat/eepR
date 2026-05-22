@@ -32,6 +32,8 @@ plot_brain(
 \item{out_width}{width to saved image in inches (default: 11)}
 
 \item{out_height}{height of saved image in inches (default: 8.5)}
+
+\item{...}{extra options to pass to \code{plot_brain_slice()}}
 }
 \value{
 ggplot2 figure of all three directions (i, j, k)
@@ -39,5 +41,19 @@ ggplot2 figure of all three directions (i, j, k)
 \description{
 plot_brain
 }
+\examples{
+brain <- array(1:125, dim = c(5, 5, 5))
+plot_brain(brain, indices = c(3, 3, 3))
+}
+\seealso{
+Other neuroimaging helpers: 
+\code{\link{compare_brains}()},
+\code{\link{convet_lut_fs2bids}()},
+\code{\link{extract_brain_slice}()},
+\code{\link{get_3dstats}()},
+\code{\link{plot_brain_slice}()},
+\code{\link{split_dseg2mask}()}
+}
 \concept{neuroimaging}
+\concept{neuroimaging helpers}
 \concept{visualization}

@@ -1,6 +1,7 @@
 #' plot_brain_slice
 #' @concept visualization
 #' @concept neuroimaging
+#' @family neuroimaging helpers
 #' @param df brain slice data (output of \code{plot_brain_slice()})
 #' @param title title of plot (default: NULL)
 #' @param fill_limits limits of the fill
@@ -15,6 +16,10 @@
 #' @return ggplot2 figure of brain slice
 #' @export
 #'
+#' @examples
+#' brain <- array(1:27, dim = c(3, 3, 3))
+#' slice <- extract_brain_slice(brain, dir = "k", slice = 2)
+#' plot_brain_slice(slice)
 plot_brain_slice <- function(df,
                              title = NULL,
                              fill_limits = 'min_max',

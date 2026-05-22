@@ -13,6 +13,9 @@ initialize_optparse(func_name, func_path = NULL, out_path = NULL)
 
 \item{out_path}{path to write optparsed file (optional)}
 }
+\value{
+Character string containing an optparse script template; optionally writes it to \code{out_path}.
+}
 \description{
 creates an optparse template from a function and its arguments
 }

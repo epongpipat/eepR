@@ -7,7 +7,7 @@
 #' @param level specify confidence level (default: 0.95)
 #' @param digits specify digit to round statistics (default: 3)
 #' @param format specify format (default: html) (options: html, plain)
-#' @return
+#' @return Character string with APA-formatted model results.
 #' @export
 #' @examples
 #' # cor.test

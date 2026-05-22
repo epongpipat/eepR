@@ -37,3 +37,11 @@ colnames(carData::Salaries)
 df <- tidy_colnames(carData::Salaries)
 colnames(df)
 }
+\seealso{
+Other column name helpers: 
+\code{\link{append_colnames}()},
+\code{\link{append_prefix_to_colnames}()},
+\code{\link{append_suffix_to_colnames}()},
+\code{\link{rename_colnames}()}
+}
+\concept{column name helpers}

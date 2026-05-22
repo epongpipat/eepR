@@ -1,13 +1,16 @@
 #' @title pmid2doi
 #' @concept references_pubmed
-#' @param pmid
+#' @family PubMed helpers
+#' @param pmid PubMed identifier
 #'
-#' @return
+#' @return Character DOI for the PMID, when available.
 #' @export
 #' @import dplyr stringr rvest
 #' @importFrom glue glue
 #' @examples
+#' \dontrun{
 #' pmid2doi(33317393)
+#' }
 pmid2doi <- function(pmid) {
   glue("https://pubmed.ncbi.nlm.nih.gov/{pmid}") %>%
     read_html(.) %>%
@@ -21,12 +24,16 @@ pmid2doi <- function(pmid) {
 
 #' @title pmid2pmcid
 #' @concept references_pubmed
-#' @param pmid
+#' @family PubMed helpers
+#' @param pmid PubMed identifier
 #'
-#' @return
+#' @return Character PMCID for the PMID, when available.
 #' @export
 #'
-#' @examples pmid2pmcid(33317393)
+#' @examples
+#' \dontrun{
+#' pmid2pmcid(33317393)
+#' }
 #' @import dplyr stringr rvest
 #' @importFrom glue glue
 pmid2pmcid <- function(pmid) {
@@ -50,13 +57,17 @@ pmid2pmcid <- function(pmid) {
 
 #' @title pmid2bibtex
 #' @concept references_pubmed
-#' @param pmid
-#' @param key_as_first_author_year
+#' @family PubMed helpers
+#' @param pmid PubMed identifier
+#' @param key_as_first_author_year logical, whether to use first-author-year as the BibTeX key
 #'
-#' @return
+#' @return Character string containing BibTeX citation text.
 #' @export
 #'
-#' @examples # pmid2bibtex(33317393)
+#' @examples
+#' \dontrun{
+#' pmid2bibtex(33317393)
+#' }
 #' @import dplyr stringr rvest
 #' @importFrom glue glue
 pmid2bibtex <- function(pmid, key_as_first_author_year = TRUE) {
@@ -101,12 +112,16 @@ pmid2bibtex <- function(pmid, key_as_first_author_year = TRUE) {
 
 #' @title pmcid2pdf
 #' @concept references_pubmed
-#' @param pmcid
+#' @family PubMed helpers
+#' @param pmcid PubMed Central identifier
 #'
-#' @return
+#' @return Downloaded PDF response/content from PubMed Central.
 #' @export
 #'
-#' @examples pmcid2pdf(33317393)
+#' @examples
+#' \dontrun{
+#' pmcid2pdf("PMC7778853")
+#' }
 #' @import dplyr stringr rvest
 #' @importFrom glue glue
 pmcid2pdf <- function(pmcid) {
@@ -123,12 +138,16 @@ pmcid2pdf <- function(pmcid) {
 
 #' @title pmid2abstract
 #' @concept references_pubmed
-#' @param pmid
+#' @family PubMed helpers
+#' @param pmid PubMed identifier
 #'
-#' @return
+#' @return Character abstract text for the PMID, when available.
 #' @export
 #'
-#' @examples pmid2abstract(33317393)
+#' @examples
+#' \dontrun{
+#' pmid2abstract(33317393)
+#' }
 #' @import dplyr stringr rvest
 #' @importFrom glue glue
 pmid2abstract <- function(pmid) {

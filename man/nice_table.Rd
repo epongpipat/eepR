@@ -15,3 +15,12 @@ a kable-styled table
 \description{
 nice_table
 }
+\examples{
+nice_table(head(mtcars))
+}
+\seealso{
+Other table helpers: 
+\code{\link{nice_table_html}()},
+\code{\link{nice_table_html_short}()}
+}
+\concept{table helpers}

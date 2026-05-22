@@ -9,7 +9,23 @@ check_in_paths(paths)
 \arguments{
 \item{paths}{paths to check}
 }
+\value{
+Invisibly returns \code{NULL}; errors if any input path is missing.
+}
 \description{
 check_in_paths
 }
+\examples{
+check_in_paths(tempdir())
+}
+\seealso{
+Other path helpers: 
+\code{\link{check_out_paths}()},
+\code{\link{eval_cmd}()},
+\code{\link{mkdir_if_dne}()},
+\code{\link{safe_to_write}()},
+\code{\link{stop_if_dne}()},
+\code{\link{stop_if_e}()}
+}
+\concept{path helpers}
 \concept{r_helper}

@@ -1,12 +1,13 @@
 #' plot_bland_altman
 #' @concept visualization
+#' @family plotting helpers
 #' @param a first variable in comparison
 #' @param b second variable in comparison
 #' @param data data of the variables
 #' @param ci confidence interval (default: 0.95)
 #' @param txt_offset text offset for labels (default: 0.25)
 #'
-#' @return
+#' @return ggplot2 Bland-Altman plot.
 #' @export
 #' @import ggplot2
 #' @importFrom ggtext element_markdown

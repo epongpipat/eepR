@@ -10,6 +10,8 @@ model_categorical_elastic_net(x, y, alpha_list = seq(1e-04, 0.9999, 1e-04))
 \item{x}{features/predictors used in prediction of outcome}
 
 \item{y}{categorical outcome to predict}
+
+\item{alpha_list}{vector of alpha values to cross-validate}
 }
 \value{
 elastic net results
@@ -18,6 +20,19 @@ elastic net results
 model_categorical_elastic_net
 }
 \examples{
-# to be added
+\dontrun{
+x <- iris[, c("Sepal.Length", "Sepal.Width", "Petal.Length", "Petal.Width")]
+y <- iris$Species
+model_categorical_elastic_net(x, y, alpha_list = c(0.25, 0.5, 0.75))
 }
+}
+\seealso{
+Other categorical model wrappers: 
+\code{\link{model_categorical_all}()},
+\code{\link{model_categorical_glm}()},
+\code{\link{model_categorical_lasso}()},
+\code{\link{model_categorical_ridge}()},
+\code{\link{model_categorical_svm}()}
+}
+\concept{categorical model wrappers}
 \concept{model_categorical}

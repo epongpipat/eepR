@@ -18,6 +18,14 @@ ridge results
 model_continuous_ridge
 }
 \examples{
-# to be added
+data <- data.frame(y = mtcars$mpg, wt = mtcars$wt, hp = mtcars$hp)
+model_continuous_ridge(data, "y")
 }
+\seealso{
+Other continuous model wrappers: 
+\code{\link{model_continuous_elastic_net}()},
+\code{\link{model_continuous_lasso}()},
+\code{\link{model_continuous_svm_linear}()}
+}
+\concept{continuous model wrappers}
 \concept{model_continuous}

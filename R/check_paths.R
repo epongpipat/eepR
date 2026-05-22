@@ -1,12 +1,14 @@
 
 #' check_in_paths
 #' @concept r_helper
+#' @family path helpers
 #' @param paths paths to check
 #'
-#' @return
+#' @return Invisibly returns \code{NULL}; errors if any input path is missing.
 #' @export
 #' @importFrom glue glue
 #' @examples
+#' check_in_paths(tempdir())
 check_in_paths <- function(paths) {
   if (length(paths) == 0) {
     stop('no input paths found')
@@ -20,13 +22,15 @@ check_in_paths <- function(paths) {
 
 #' check_out_paths
 #' @concept r_helper
+#' @family path helpers
 #' @param paths paths to check
 #' @param overwrite boolean
 #'
-#' @return
+#' @return Invisibly returns \code{NULL}; errors or warns if output paths already exist.
 #' @export
 #' @importFrom glue glue
 #' @examples
+#' check_out_paths(file.path(tempdir(), "new-file.txt"))
 check_out_paths <- function(paths, overwrite = 0) {
   if (length(paths) == 0) {
     stop('no output paths found')

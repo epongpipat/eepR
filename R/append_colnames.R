@@ -2,6 +2,7 @@
 #' @title append_colnames
 #' @concept data_wrangle
 #' @description add a string to beginning and/or ending of all the column names
+#' @family column name helpers
 #' @param data data.frame that contains the column names to change with a prefix
 #' @param prefix string to add to the beginning of all of the column names of the data.frame
 #' @param suffix string to add to the end of all of the column names of the data.frame
@@ -21,6 +22,7 @@ append_colnames <- function(data, prefix = NULL, suffix = NULL) {
 #' @title append_prefix_to_colnames
 #' @concept data_wrangle
 #' @description add a string to beginning of all the column names
+#' @family column name helpers
 #' @param data data.frame that contains the column names to change with a prefix
 #' @param prefix string to add to the beginning of all of the column names of the data.frame
 #'
@@ -39,6 +41,7 @@ append_prefix_to_colnames <- function(data, prefix) {
 #' @title append_suffix_to_colnames
 #' @concept data_wrangle
 #' @description add a string to end of all the column names
+#' @family column name helpers
 #' @param data data.frame that contains the column names to change with a suffix
 #' @param suffix string to add to the end of all of the column names of the data.frame
 #'

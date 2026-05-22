@@ -9,13 +9,13 @@ plot_age(data, y_var, x_var = "age", y_lab = NULL, x_lab = "Age")
 \arguments{
 \item{data}{input data.frame}
 
+\item{y_var}{y-axis variable to plot}
+
+\item{x_var}{x-axis variable to plot}
+
 \item{y_lab}{y-axis label}
 
 \item{x_lab}{x-axis label}
-
-\item{var_y}{y-axis variable to plot}
-
-\item{var_x}{x-axis variable to plot}
 }
 \value{
 ggplot figure of y-axis variable and age
@@ -23,4 +23,18 @@ ggplot figure of y-axis variable and age
 \description{
 plot_age
 }
+\examples{
+data <- data.frame(age = c(20, 30, 40, 50), score = c(4, 6, 7, 9))
+plot_age(data, y_var = "score")
+}
+\seealso{
+Other plotting helpers: 
+\code{\link{cor_plot}()},
+\code{\link{move_legend_to_btm}()},
+\code{\link{plot_bland_altman}()},
+\code{\link{plot_cor}()},
+\code{\link{plot_cor_heatmap}()},
+\code{\link{plot_scree}()}
+}
+\concept{plotting helpers}
 \concept{visualization}

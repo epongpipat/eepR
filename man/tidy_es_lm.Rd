@@ -21,4 +21,15 @@ size (confidence intervals for the regression coefficient and adjusted R^2)
 \examples{
 tidy_es_lm(lm(salary ~ yrs.since.phd, carData::Salaries))
 }
+\seealso{
+Other model summary helpers: 
+\code{\link{get_lm_multicollinearity}()},
+\code{\link{models2coefs}()},
+\code{\link{models2omni}()},
+\code{\link{r_sq_to_adj_r_sq}()},
+\code{\link{renamed_tidy}()},
+\code{\link{tidy_es}()},
+\code{\link{tidy_es_lmer}()}
+}
+\concept{model summary helpers}
 \concept{stats}

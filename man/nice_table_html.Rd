@@ -7,8 +7,20 @@
 nice_table_html(table)
 }
 \arguments{
-\item{table}{}
+\item{table}{a data.frame/table to pass through kable}
+}
+\value{
+a scrollable HTML table
 }
 \description{
 nice_table_html
 }
+\examples{
+nice_table_html(head(mtcars))
+}
+\seealso{
+Other table helpers: 
+\code{\link{nice_table}()},
+\code{\link{nice_table_html_short}()}
+}
+\concept{table helpers}

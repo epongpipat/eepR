@@ -15,7 +15,28 @@ eval_cmd(cmd, out_paths, overwrite = FALSE, print = FALSE)
 
 \item{print}{flag to print command only (default: FALSE)}
 }
+\value{
+Invisibly returns \code{NULL}; evaluates \code{cmd} for its side effects.
+}
 \description{
 eval_cmd
 }
+\examples{
+out_path <- file.path(tempdir(), "eval-cmd-example.txt")
+eval_cmd(
+  "writeLines('hello', out_path)",
+  out_paths = out_path,
+  overwrite = TRUE
+)
+}
+\seealso{
+Other path helpers: 
+\code{\link{check_in_paths}()},
+\code{\link{check_out_paths}()},
+\code{\link{mkdir_if_dne}()},
+\code{\link{safe_to_write}()},
+\code{\link{stop_if_dne}()},
+\code{\link{stop_if_e}()}
+}
+\concept{path helpers}
 \concept{r_helper}

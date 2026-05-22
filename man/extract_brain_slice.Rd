@@ -19,4 +19,18 @@ data.frame of the slice in long format (columns: x, y, value)
 \description{
 extract_brain_slice
 }
+\examples{
+brain <- array(1:27, dim = c(3, 3, 3))
+extract_brain_slice(brain, dir = "k", slice = 2)
+}
+\seealso{
+Other neuroimaging helpers: 
+\code{\link{compare_brains}()},
+\code{\link{convet_lut_fs2bids}()},
+\code{\link{get_3dstats}()},
+\code{\link{plot_brain}()},
+\code{\link{plot_brain_slice}()},
+\code{\link{split_dseg2mask}()}
+}
 \concept{neuroimaging}
+\concept{neuroimaging helpers}
