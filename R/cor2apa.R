@@ -1,6 +1,7 @@
 #' cor2apa
 #' @description converts \code{cor.test()} model to APA format string
 #' @concept stats
+#' @family model2apa
 #' @param m model from \code{cor.test()}
 #' @param level specify confidence level (default: 0.95). note: level should match the confidence level used in \code{cor.test()}. this argument does not actually update the confidence interval range, but only the reported confidence interval level
 #' @param digits round statistics to specified digit
@@ -8,7 +9,6 @@
 #'
 #' @returns
 #' @export
-#'
 #' @examples cor2apa(cor.test(carData::Salaries$yrs.since.phd, carData::Salaries$salary), format = 'plain')
 #' @importFrom broom tidy
 #' @importFrom scales scientific

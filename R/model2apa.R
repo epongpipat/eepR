@@ -1,15 +1,14 @@
 #' @title model2apa
 #' @description converts a model to APA format string
 #' @concept stats
+#' @family model2apa
 #' @param m model from \code{lmer()}
 #' @param terms specify terms to print in APA format (default: all)
 #' @param level specify confidence level (default: 0.95)
 #' @param digits specify digit to round statistics (default: 3)
 #' @param format specify format (default: html) (options: html, plain)
-#' @seealso [cor2apa(), lm2apa(), lmer2apa]
 #' @return
 #' @export
-#'
 #' @examples
 #' # cor.test
 #' model2apa(cor.test(carData::Salaries$yrs.since.phd, carData::Salaries$salary), format = 'plain')

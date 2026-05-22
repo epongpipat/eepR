@@ -3,6 +3,7 @@
 #' Checks if a numeric vector or matrix (column-wise) is mean-centered. In other words, checks if the mean is zero (within a specified tolerance)
 #'
 #' @concept data_wrangle
+#' @family check scale functions
 #' @param x a numeric vector or matrix
 #' @param eps small error tolerance of being close enough to zero (default: 1e-8)
 #'
@@ -24,6 +25,7 @@ is_centered <- function(x, eps = 1e-8) {
 #' Checks if a numeric vector or matrix (column-wise) is z-scored. In other words, checks if the mean is zero and the standard deviation is one (within a specified tolerance)
 #'
 #' @concept data_wrangle
+#' @family check scale functions
 #' @param x a numeric vector or matrix
 #' @param eps small error tolerance of being close enough to zero (default: 1e-8)
 #'
@@ -45,6 +47,7 @@ is_z_scored <- function(x, eps = 1e-8) {
 #' Checks if a numeric vector or matrix (column-wise) has a sum of squares equal to 1 (within a specified tolerance)
 #'
 #' @concept data_wrangle
+#' @family check scale functions
 #' @param x a numeric vector or matrix
 #' @param eps small error tolerance of being close enough to zero (default: 1e-8)
 #'
@@ -67,6 +70,7 @@ is_ss1 <- function(x, eps = 1e-8) {
 #' Checks if a numeric vector or matrix (column-wise) is scaled according to a specified type
 #'
 #' @concept data_wrangle
+#' @family check scale functions
 #' @param x a numeric vector or matrix
 #' @param type type of scaling to check for. Options are: "mean_centered" (or "centered"), "z_scored" (or "z"), and "ss1". Default is "z".
 #' @param eps small error tolerance of being close enough to zero (default: 1e-8)

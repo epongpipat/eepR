@@ -1,6 +1,7 @@
 #' @title lmer2apa
 #' @description converts \code{lmer()} model to APA format string
 #' @concept stats
+#' @family model2apa
 #' @param m model from \code{lmer()}
 #' @param terms specify terms to print in APA format (default: all)
 #' @param level specify confidence level (default: 0.95)
@@ -9,7 +10,8 @@
 
 #' @returns
 #' @export
-#'
+#' @examples
+#' lmer2apa(lmerTest::lmer(Reaction ~ 1 + Days + (1 + Days | Subject), lme4::sleepstudy), format = 'plain')
 #' @importFrom scales scientific
 #' @importFrom broomExtra tidy
 #' @importFrom broomExtra glance

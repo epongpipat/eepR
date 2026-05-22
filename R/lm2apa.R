@@ -1,6 +1,7 @@
 #' lm2apa
 #' @description converts \code{lm()} model to APA format string
 #' @concept stats
+#' @family model2apa
 #' @param m model from \code{lm()}
 #' @param terms specify terms to print in APA format (default: all)
 #' @param level specify confidence level (default: 0.95)
@@ -9,7 +10,6 @@
 
 #' @returns
 #' @export
-#'
 #' @examples lm2apa(lm(mpg ~ wt, data = mtcars), format = 'plain')
 #' @importFrom broom tidy
 #' @importFrom broom glance
