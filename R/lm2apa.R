@@ -12,6 +12,7 @@
 #'
 #' @examples lm2apa(lm(mpg ~ wt, data = mtcars), format = 'plain')
 #' @importFrom broom tidy
+#' @importFrom broom glance
 #' @importFrom scales scientific
 #' @importFrom glue glue
 #' @importFrom effectsize t_to_eta2_adj
