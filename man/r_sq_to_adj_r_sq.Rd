@@ -28,9 +28,9 @@ Other model summary helpers:
 \code{\link{models2coefs}()},
 \code{\link{models2omni}()},
 \code{\link{renamed_tidy}()},
-\code{\link{tidy_es}()},
+\code{\link{tidy_es_lmer}()},
 \code{\link{tidy_es_lm}()},
-\code{\link{tidy_es_lmer}()}
+\code{\link{tidy_es}()}
 }
 \concept{model summary helpers}
 \concept{stats}

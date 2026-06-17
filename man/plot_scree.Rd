@@ -30,8 +30,8 @@ Other plotting helpers:
 \code{\link{move_legend_to_btm}()},
 \code{\link{plot_age}()},
 \code{\link{plot_bland_altman}()},
-\code{\link{plot_cor}()},
-\code{\link{plot_cor_heatmap}()}
+\code{\link{plot_cor_heatmap}()},
+\code{\link{plot_cor}()}
 }
 \concept{plotting helpers}
 \concept{visualization}

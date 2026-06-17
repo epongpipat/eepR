@@ -28,8 +28,8 @@ Other neuroimaging helpers:
 \code{\link{compare_brains}()},
 \code{\link{convet_lut_fs2bids}()},
 \code{\link{get_3dstats}()},
-\code{\link{plot_brain}()},
 \code{\link{plot_brain_slice}()},
+\code{\link{plot_brain}()},
 \code{\link{split_dseg2mask}()}
 }
 \concept{neuroimaging}

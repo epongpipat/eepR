@@ -20,7 +20,7 @@ nice_table(head(mtcars))
 }
 \seealso{
 Other table helpers: 
-\code{\link{nice_table_html}()},
-\code{\link{nice_table_html_short}()}
+\code{\link{nice_table_html_short}()},
+\code{\link{nice_table_html}()}
 }
 \concept{table helpers}

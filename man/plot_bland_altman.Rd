@@ -32,8 +32,8 @@ Other plotting helpers:
 \code{\link{cor_plot}()},
 \code{\link{move_legend_to_btm}()},
 \code{\link{plot_age}()},
-\code{\link{plot_cor}()},
 \code{\link{plot_cor_heatmap}()},
+\code{\link{plot_cor}()},
 \code{\link{plot_scree}()}
 }
 \concept{plotting helpers}

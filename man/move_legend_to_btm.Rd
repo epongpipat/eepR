@@ -23,8 +23,8 @@ Other plotting helpers:
 \code{\link{cor_plot}()},
 \code{\link{plot_age}()},
 \code{\link{plot_bland_altman}()},
-\code{\link{plot_cor}()},
 \code{\link{plot_cor_heatmap}()},
+\code{\link{plot_cor}()},
 \code{\link{plot_scree}()}
 }
 \concept{plotting helpers}

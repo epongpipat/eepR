@@ -22,7 +22,7 @@ nice_table_html_short(mtcars, height = "150px")
 }
 \seealso{
 Other table helpers: 
-\code{\link{nice_table}()},
-\code{\link{nice_table_html}()}
+\code{\link{nice_table_html}()},
+\code{\link{nice_table}()}
 }
 \concept{table helpers}
