@@ -23,7 +23,7 @@ model_3 <- lm(salary ~ yrs.since.phd * rank * sex, data)
 compare_all_models(list(model_1, model_2, model_3))
 }
 \seealso{
-Other model comparison helpers: 
-\code{\link{compare_models}()}
+Other model comparison helpers:
+\code{\link[=compare_models]{compare_models()}}
 }
 \concept{model comparison helpers}

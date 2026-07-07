@@ -20,13 +20,13 @@ A data.frame with BIDS-style LUT columns; optionally writes it to \code{out_path
 converts look up table (LUT) from freesurfer-format (No., Label Name, R, G, B, A) to BIDS-format (index, name, color [hex], alpha)
 }
 \seealso{
-Other neuroimaging helpers: 
-\code{\link{compare_brains}()},
-\code{\link{extract_brain_slice}()},
-\code{\link{get_3dstats}()},
-\code{\link{plot_brain_slice}()},
-\code{\link{plot_brain}()},
-\code{\link{split_dseg2mask}()}
+Other neuroimaging helpers:
+\code{\link[=compare_brains]{compare_brains()}},
+\code{\link[=extract_brain_slice]{extract_brain_slice()}},
+\code{\link[=get_3dstats]{get_3dstats()}},
+\code{\link[=plot_brain]{plot_brain()}},
+\code{\link[=plot_brain_slice]{plot_brain_slice()}},
+\code{\link[=split_dseg2mask]{split_dseg2mask()}}
 }
 \concept{neuroimaging}
 \concept{neuroimaging helpers}

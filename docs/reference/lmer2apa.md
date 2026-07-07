@@ -45,6 +45,7 @@ Other model2apa:
 
 ``` r
 lmer2apa(lmerTest::lmer(Reaction ~ 1 + Days + (1 + Days | Subject), lme4::sleepstudy), format = 'plain')
+#> Warning: 'oldNames' is deprecated. Please use 'signames' instead.
 #> Computing profile confidence intervals ...
 #>                                                                                         (Intercept) 
 #> "b = 251.405, t(174) = 36.838, p = 1.17e-17, 95% CI [237.681, 265.130], Adjusted R-Squared = 0.987" 

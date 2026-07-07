@@ -21,11 +21,11 @@ pmcid2pdf("PMC7778853")
 }
 }
 \seealso{
-Other PubMed helpers: 
-\code{\link{pmid2abstract}()},
-\code{\link{pmid2bibtex}()},
-\code{\link{pmid2doi}()},
-\code{\link{pmid2pmcid}()}
+Other PubMed helpers:
+\code{\link[=pmid2abstract]{pmid2abstract()}},
+\code{\link[=pmid2bibtex]{pmid2bibtex()}},
+\code{\link[=pmid2doi]{pmid2doi()}},
+\code{\link[=pmid2pmcid]{pmid2pmcid()}}
 }
 \concept{PubMed helpers}
 \concept{references_pubmed}

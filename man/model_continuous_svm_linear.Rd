@@ -22,10 +22,10 @@ data <- data.frame(y = mtcars$mpg, wt = mtcars$wt, hp = mtcars$hp)
 model_continuous_svm_linear(data, "y")
 }
 \seealso{
-Other continuous model wrappers: 
-\code{\link{model_continuous_elastic_net}()},
-\code{\link{model_continuous_lasso}()},
-\code{\link{model_continuous_ridge}()}
+Other continuous model wrappers:
+\code{\link[=model_continuous_elastic_net]{model_continuous_elastic_net()}},
+\code{\link[=model_continuous_lasso]{model_continuous_lasso()}},
+\code{\link[=model_continuous_ridge]{model_continuous_ridge()}}
 }
 \concept{continuous model wrappers}
 \concept{model_continuous}

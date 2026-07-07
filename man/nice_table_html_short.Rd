@@ -21,8 +21,8 @@ nice_table_html_short
 nice_table_html_short(mtcars, height = "150px")
 }
 \seealso{
-Other table helpers: 
-\code{\link{nice_table_html}()},
-\code{\link{nice_table}()}
+Other table helpers:
+\code{\link[=nice_table]{nice_table()}},
+\code{\link[=nice_table_html]{nice_table_html()}}
 }
 \concept{table helpers}

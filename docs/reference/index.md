@@ -53,6 +53,8 @@
   : plot_brain
 - [`plot_brain_slice()`](https://ekarinpongpipat.com/eepR/reference/plot_brain_slice.md)
   : plot_brain_slice
+- [`plot_heatmap()`](https://ekarinpongpipat.com/eepR/reference/plot_heatmap.md)
+  : plot_heatmap
 - [`split_dseg2mask()`](https://ekarinpongpipat.com/eepR/reference/split_dseg2mask.md)
   : split_dseg2mask
 
@@ -122,8 +124,12 @@
   : plot_cor
 - [`plot_cor_heatmap()`](https://ekarinpongpipat.com/eepR/reference/plot_cor_heatmap.md)
   : plot_cor_heatmap
+- [`plot_heatmap()`](https://ekarinpongpipat.com/eepR/reference/plot_heatmap.md)
+  : plot_heatmap
 - [`plot_scree()`](https://ekarinpongpipat.com/eepR/reference/plot_scree.md)
   : plot_scree
+- [`plot_steps()`](https://ekarinpongpipat.com/eepR/reference/plot_steps.md)
+  : plot_steps
 
 ## PubMed
 

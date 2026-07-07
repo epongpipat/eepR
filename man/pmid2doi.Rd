@@ -21,11 +21,11 @@ pmid2doi(33317393)
 }
 }
 \seealso{
-Other PubMed helpers: 
-\code{\link{pmcid2pdf}()},
-\code{\link{pmid2abstract}()},
-\code{\link{pmid2bibtex}()},
-\code{\link{pmid2pmcid}()}
+Other PubMed helpers:
+\code{\link[=pmcid2pdf]{pmcid2pdf()}},
+\code{\link[=pmid2abstract]{pmid2abstract()}},
+\code{\link[=pmid2bibtex]{pmid2bibtex()}},
+\code{\link[=pmid2pmcid]{pmid2pmcid()}}
 }
 \concept{PubMed helpers}
 \concept{references_pubmed}

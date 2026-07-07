@@ -28,7 +28,7 @@ Other table helpers:
 
 ``` r
 nice_table(head(mtcars))
-#> <table class="table table-striped table-hover table-condensed table-responsive" style="margin-left: auto; margin-right: auto;">
+#> <table class="table table-striped table-hover table-condensed table-responsive" style="color: black; margin-left: auto; margin-right: auto;">
 #>  <thead>
 #>   <tr>
 #>    <th style="text-align:left;">  </th>

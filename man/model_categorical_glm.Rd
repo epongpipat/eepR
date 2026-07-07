@@ -23,12 +23,12 @@ y <- iris$Species
 model_categorical_glm(x, y)
 }
 \seealso{
-Other categorical model wrappers: 
-\code{\link{model_categorical_all}()},
-\code{\link{model_categorical_elastic_net}()},
-\code{\link{model_categorical_lasso}()},
-\code{\link{model_categorical_ridge}()},
-\code{\link{model_categorical_svm}()}
+Other categorical model wrappers:
+\code{\link[=model_categorical_all]{model_categorical_all()}},
+\code{\link[=model_categorical_elastic_net]{model_categorical_elastic_net()}},
+\code{\link[=model_categorical_lasso]{model_categorical_lasso()}},
+\code{\link[=model_categorical_ridge]{model_categorical_ridge()}},
+\code{\link[=model_categorical_svm]{model_categorical_svm()}}
 }
 \concept{categorical model wrappers}
 \concept{model_categorical}

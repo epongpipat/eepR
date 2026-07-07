@@ -19,8 +19,8 @@ nice_table
 nice_table(head(mtcars))
 }
 \seealso{
-Other table helpers: 
-\code{\link{nice_table_html_short}()},
-\code{\link{nice_table_html}()}
+Other table helpers:
+\code{\link[=nice_table_html]{nice_table_html()}},
+\code{\link[=nice_table_html_short]{nice_table_html_short()}}
 }
 \concept{table helpers}

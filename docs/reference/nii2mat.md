@@ -45,5 +45,5 @@ Other conversions between NIfTI and 2D-matrix:
 ## Examples
 
 ``` r
-# nii2mat("sub-01_task-rest_bold.nii.gz", "sub-01_brain_mask.nii.gz")
+# mat <- nii2mat("sub-01_task-rest_bold.nii.gz", "sub-01_brain_mask.nii.gz")
 ```

@@ -34,10 +34,10 @@ model2apa(lm(mpg ~ wt, data = mtcars), format = 'plain')
 model2apa(lmerTest::lmer(Reaction ~ 1 + Days + (1 + Days | Subject), lme4::sleepstudy), format = 'plain')
 }
 \seealso{
-Other model2apa: 
-\code{\link{cor2apa}()},
-\code{\link{lm2apa}()},
-\code{\link{lmer2apa}()}
+Other model2apa:
+\code{\link[=cor2apa]{cor2apa()}},
+\code{\link[=lm2apa]{lm2apa()}},
+\code{\link[=lmer2apa]{lmer2apa()}}
 }
 \concept{model2apa}
 \concept{stats}
