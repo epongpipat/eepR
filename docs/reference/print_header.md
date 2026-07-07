@@ -25,7 +25,7 @@ Other console messaging helpers:
 ``` r
 start_time <- print_header()
 #> 
-#> date:        2026-07-07 10:44:01.832215 
+#> date:        2026-07-07 11:09:34.912381 
 #> hostname:    CVL91905 
 #> user:        ekarinpongpipat 
 #> 

@@ -191,35 +191,42 @@ A `ggplot` object.
 ## Examples
 
 ``` r
-# Simulate a 5x5 lookup table
+# Simulate a 400-node lookup table matching Schaefer 400 with Yeo 7 networks
+networks <- c("Visual", "Somatomotor", "Dorsal Attention", "Ventral Attention",
+              "Limbic", "Frontoparietal", "Default")
+net_colors <- c("#781286", "#4682B4", "#00760E", "#C43A4D",
+                "#FFFFC4", "#E69422", "#CD3E4E")
+net_rep <- rep(networks, each = 57, length.out = 400)
+color_rep <- rep(net_colors, each = 57, length.out = 400)
+
 sim_lut <- data.frame(
-  index = 1:5,
-  name = as.character(1:5),
-  color = c("#ff0000", "#ff0000", "#0000ff", "#0000ff", "#0000ff"),
-  network = c("Vis", "Vis", "Default", "Default", "Default"),
+  index = 1:400,
+  name = paste0("parcel", 1:400),
+  color = color_rep,
+  network = net_rep,
   stringsAsFactors = FALSE
 )
 
-# Simulate a 5x5 symmetric matrix
-sim_matrix <- matrix(
-  c(1.0, 0.8, 0.1, 0.2, 0.0,
-    0.8, 1.0, 0.2, 0.1, 0.1,
-    0.1, 0.2, 1.0, 0.7, 0.6,
-    0.2, 0.1, 0.7, 1.0, 0.8,
-    0.0, 0.1, 0.6, 0.8, 1.0),
-  nrow = 5, ncol = 5
-)
-rownames(sim_matrix) <- paste0("parcel", 1:5)
-colnames(sim_matrix) <- paste0("parcel", 1:5)
+# Simulate a 400x400 symmetric correlation matrix with network block structures
+set.seed(42)
+sim_matrix <- matrix(runif(400 * 400, min = -0.2, max = 0.2), nrow = 400, ncol = 400)
+sim_matrix <- (sim_matrix + t(sim_matrix)) / 2
+for (net in networks) {
+  idx <- which(sim_lut$network == net)
+  sim_matrix[idx, idx] <- sim_matrix[idx, idx] + runif(length(idx)^2, min = 0.3, max = 0.7)
+}
+diag(sim_matrix) <- 1.0
+rownames(sim_matrix) <- sim_lut$name
+colnames(sim_matrix) <- sim_lut$name
 
 # Plot the heatmap
 p <- plot_heatmap(
   affine_matrix = sim_matrix,
   lut = sim_lut,
   group_var = "network",
-  border_width = 1,
+  border_width = 10,
   diagonal_to_na = TRUE,
-  title = "Simulated Heatmap"
+  title = "Simulated Schaefer 400 (Yeo 7 Networks)"
 )
 print(p)
 
