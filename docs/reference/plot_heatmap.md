@@ -33,6 +33,8 @@ plot_heatmap(
   units = "in",
   dpi = 300,
   match_by_name = TRUE,
+  diamond = FALSE,
+  diamond_direction = c("vertical", "horizontal"),
   grid_color = "black",
   grid_linewidth = 0.5,
   legend_title = "Value",
@@ -167,6 +169,16 @@ plot_heatmap(
   to match the lookup table using colnames/rownames matching. Default is
   `TRUE`.
 
+- diamond:
+
+  Logical. If `TRUE`, the heatmap is rotated 45 degrees to display as a
+  diamond shape. Default is `FALSE`.
+
+- diamond_direction:
+
+  Character. Direction of the main diagonal in diamond view:
+  `"vertical"` (default) or `"horizontal"`.
+
 - grid_color:
 
   Character. Color of the grid lines. Default is `"black"`.
@@ -229,5 +241,18 @@ p <- plot_heatmap(
   title = "Simulated Schaefer 400 (Yeo 7 Networks)"
 )
 print(p)
+
+
+# Plot the same heatmap rotated to be a diamond shape
+p_diamond <- plot_heatmap(
+  affine_matrix = sim_matrix,
+  lut = sim_lut,
+  group_var = "network",
+  border_width = 10,
+  diagonal_to_na = TRUE,
+  diamond = TRUE,
+  title = "Rotated Simulated Schaefer 400"
+)
+print(p_diamond)
 
 ```

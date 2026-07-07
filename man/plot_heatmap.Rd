@@ -31,6 +31,8 @@ plot_heatmap(
   units = "in",
   dpi = 300,
   match_by_name = TRUE,
+  diamond = FALSE,
+  diamond_direction = c("vertical", "horizontal"),
   grid_color = "black",
   grid_linewidth = 0.5,
   legend_title = "Value",
@@ -100,6 +102,11 @@ Default is \code{"in"}.}
 \item{match_by_name}{Logical. If \code{TRUE}, attempts to align and reorder matrix rows/columns to match the lookup table using colnames/rownames matching.
 Default is \code{TRUE}.}
 
+\item{diamond}{Logical. If \code{TRUE}, the heatmap is rotated 45 degrees to display as a diamond shape.
+Default is \code{FALSE}.}
+
+\item{diamond_direction}{Character. Direction of the main diagonal in diamond view: \code{"vertical"} (default) or \code{"horizontal"}.}
+
 \item{grid_color}{Character. Color of the grid lines. Default is \code{"black"}.}
 
 \item{grid_linewidth}{Numeric. Width of the grid lines. Default is \code{0.5}.}
@@ -154,6 +161,18 @@ p <- plot_heatmap(
   title = "Simulated Schaefer 400 (Yeo 7 Networks)"
 )
 print(p)
+
+# Plot the same heatmap rotated to be a diamond shape
+p_diamond <- plot_heatmap(
+  affine_matrix = sim_matrix,
+  lut = sim_lut,
+  group_var = "network",
+  border_width = 10,
+  diagonal_to_na = TRUE,
+  diamond = TRUE,
+  title = "Rotated Simulated Schaefer 400"
+)
+print(p_diamond)
 
 }
 \concept{neuroimaging}

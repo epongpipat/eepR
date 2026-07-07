@@ -32,9 +32,9 @@ Other console messaging helpers:
 start_time <- Sys.time()
 print_footer(start_time)
 #> 
-#> date:        2026-07-07 11:09:34.707772 
+#> date:        2026-07-07 11:49:04.984366 
 #> hostname:    CVL91905 
 #> user:        ekarinpongpipat 
-#> duration:    00:00:00:0.001 
+#> duration:    00:00:00:0.000 
 #> 
 ```
