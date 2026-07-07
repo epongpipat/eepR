@@ -41,6 +41,9 @@
 #' @param dpi Numeric. Resolution of the output image in dots per inch. Default is \code{300}.
 #' @param match_by_name Logical. If \code{TRUE}, attempts to align and reorder matrix rows/columns to match the lookup table using colnames/rownames matching.
 #'   Default is \code{TRUE}.
+#' @param diamond Logical. If \code{TRUE}, the heatmap is rotated 45 degrees to display as a diamond shape.
+#'   Default is \code{FALSE}.
+#' @param diamond_direction Character. Direction of the main diagonal in diamond view: \code{"vertical"} (default) or \code{"horizontal"}.
 #' @param grid_color Character. Color of the grid lines. Default is \code{"black"}.
 #' @param grid_linewidth Numeric. Width of the grid lines. Default is \code{0.5}.
 #' @param legend_title Character. Title of the heatmap color legend. Default is \code{"Value"}.
@@ -85,6 +88,18 @@
 #'   title = "Simulated Schaefer 400 (Yeo 7 Networks)"
 #' )
 #' print(p)
+#' 
+#' # Plot the same heatmap rotated to be a diamond shape
+#' p_diamond <- plot_heatmap(
+#'   affine_matrix = sim_matrix,
+#'   lut = sim_lut,
+#'   group_var = "network",
+#'   border_width = 10,
+#'   diagonal_to_na = TRUE,
+#'   diamond = TRUE,
+#'   title = "Rotated Simulated Schaefer 400"
+#' )
+#' print(p_diamond)
 #'
 #' @return A \code{ggplot} object.
 #' @export
@@ -121,6 +136,8 @@ plot_heatmap <- function(affine_matrix,
                          units = "in",
                          dpi = 300,
                          match_by_name = TRUE,
+                         diamond = FALSE,
+                         diamond_direction = c("vertical", "horizontal"),
                          grid_color = "black",
                          grid_linewidth = 0.5,
                          legend_title = "Value",
@@ -128,6 +145,39 @@ plot_heatmap <- function(affine_matrix,
 
   # Match scale_fill_type parameter
   scale_fill_type <- match.arg(scale_fill_type)
+  diamond_direction <- match.arg(diamond_direction)
+
+  # Helper for rotating coordinates for diamond view
+  make_polygon_data <- function(df, x_col, y_col, id_prefix) {
+    df$cell_id <- paste0(id_prefix, "_", seq_len(nrow(df)))
+    if (diamond_direction == "horizontal") {
+      df$x_rot <- df[[x_col]] - df[[y_col]]
+      df$y_rot <- df[[x_col]] + df[[y_col]]
+    } else {
+      df$x_rot <- df[[x_col]] + df[[y_col]]
+      df$y_rot <- df[[y_col]] - df[[x_col]]
+    }
+    
+    v1 <- df
+    v1$x_coord <- v1$x_rot
+    v1$y_coord <- v1$y_rot + 1
+    
+    v2 <- df
+    v2$x_coord <- v2$x_rot + 1
+    v2$y_coord <- v2$y_rot
+    
+    v3 <- df
+    v3$x_coord <- v3$x_rot
+    v3$y_coord <- v3$y_rot - 1
+    
+    v4 <- df
+    v4$x_coord <- v4$x_rot - 1
+    v4$y_coord <- v4$y_rot
+    
+    poly_df <- rbind(v1, v2, v3, v4)
+    poly_df <- poly_df[order(poly_df$cell_id), ]
+    return(poly_df)
+  }
 
   # 1. Load the lookup table (lut)
   if (is.character(lut)) {
@@ -278,30 +328,63 @@ plot_heatmap <- function(affine_matrix,
     df_lut_long3 <- df_lut_long |> dplyr::mutate(x = pos, y = 1 - step)
     df_lut_long4 <- df_lut_long |> dplyr::mutate(x = N + step, y = y_mapped)
 
-    p <- p +
-      ggplot2::geom_raster(data = df_lut_long1, ggplot2::aes(x = x, y = y, fill = group_val)) +
-      ggplot2::scale_fill_manual(values = colors_vec) +
-      ggplot2::labs(fill = group_legend_title) +
-      ggnewscale::new_scale_fill() +
-      
-      ggplot2::geom_raster(data = df_lut_long2, ggplot2::aes(x = x, y = y, fill = group_val)) +
-      ggplot2::scale_fill_manual(values = colors_vec) +
-      ggplot2::labs(fill = group_legend_title) +
-      ggnewscale::new_scale_fill() +
-      
-      ggplot2::geom_raster(data = df_lut_long3, ggplot2::aes(x = x, y = y, fill = group_val)) +
-      ggplot2::scale_fill_manual(values = colors_vec) +
-      ggplot2::labs(fill = group_legend_title) +
-      ggnewscale::new_scale_fill() +
-      
-      ggplot2::geom_raster(data = df_lut_long4, ggplot2::aes(x = x, y = y, fill = group_val)) +
-      ggplot2::scale_fill_manual(values = colors_vec) +
-      ggplot2::labs(fill = group_legend_title) +
-      ggnewscale::new_scale_fill()
+    if (diamond) {
+      poly_df1 <- make_polygon_data(df_lut_long1, "x", "y", "lut1")
+      poly_df2 <- make_polygon_data(df_lut_long2, "x", "y", "lut2")
+      poly_df3 <- make_polygon_data(df_lut_long3, "x", "y", "lut3")
+      poly_df4 <- make_polygon_data(df_lut_long4, "x", "y", "lut4")
+
+      p <- p +
+        ggplot2::geom_polygon(data = poly_df1, ggplot2::aes(x = x_coord, y = y_coord, group = cell_id, fill = group_val)) +
+        ggplot2::scale_fill_manual(values = colors_vec) +
+        ggplot2::labs(fill = group_legend_title) +
+        ggnewscale::new_scale_fill() +
+        
+        ggplot2::geom_polygon(data = poly_df2, ggplot2::aes(x = x_coord, y = y_coord, group = cell_id, fill = group_val)) +
+        ggplot2::scale_fill_manual(values = colors_vec) +
+        ggplot2::labs(fill = group_legend_title) +
+        ggnewscale::new_scale_fill() +
+        
+        ggplot2::geom_polygon(data = poly_df3, ggplot2::aes(x = x_coord, y = y_coord, group = cell_id, fill = group_val)) +
+        ggplot2::scale_fill_manual(values = colors_vec) +
+        ggplot2::labs(fill = group_legend_title) +
+        ggnewscale::new_scale_fill() +
+        
+        ggplot2::geom_polygon(data = poly_df4, ggplot2::aes(x = x_coord, y = y_coord, group = cell_id, fill = group_val)) +
+        ggplot2::scale_fill_manual(values = colors_vec) +
+        ggplot2::labs(fill = group_legend_title) +
+        ggnewscale::new_scale_fill()
+    } else {
+      p <- p +
+        ggplot2::geom_raster(data = df_lut_long1, ggplot2::aes(x = x, y = y, fill = group_val)) +
+        ggplot2::scale_fill_manual(values = colors_vec) +
+        ggplot2::labs(fill = group_legend_title) +
+        ggnewscale::new_scale_fill() +
+        
+        ggplot2::geom_raster(data = df_lut_long2, ggplot2::aes(x = x, y = y, fill = group_val)) +
+        ggplot2::scale_fill_manual(values = colors_vec) +
+        ggplot2::labs(fill = group_legend_title) +
+        ggnewscale::new_scale_fill() +
+        
+        ggplot2::geom_raster(data = df_lut_long3, ggplot2::aes(x = x, y = y, fill = group_val)) +
+        ggplot2::scale_fill_manual(values = colors_vec) +
+        ggplot2::labs(fill = group_legend_title) +
+        ggnewscale::new_scale_fill() +
+        
+        ggplot2::geom_raster(data = df_lut_long4, ggplot2::aes(x = x, y = y, fill = group_val)) +
+        ggplot2::scale_fill_manual(values = colors_vec) +
+        ggplot2::labs(fill = group_legend_title) +
+        ggnewscale::new_scale_fill()
+    }
   }
 
   # Draw main matrix heatmap
-  p <- p + ggplot2::geom_raster(data = df_r_long, ggplot2::aes(x = x_coord, y = y_coord, fill = value))
+  if (diamond) {
+    poly_df_r <- make_polygon_data(df_r_long, "x_coord", "y_coord", "r")
+    p <- p + ggplot2::geom_polygon(data = poly_df_r, ggplot2::aes(x = x_coord, y = y_coord, group = cell_id, fill = value))
+  } else {
+    p <- p + ggplot2::geom_raster(data = df_r_long, ggplot2::aes(x = x_coord, y = y_coord, fill = value))
+  }
 
   # Main heatmap fill colorscale
   if (scale_fill_type == "gradient2") {
@@ -349,31 +432,132 @@ plot_heatmap <- function(affine_matrix,
       subtitle = subtitle,
       x = x_label,
       y = y_label
-    ) +
-    ggplot2::scale_x_continuous(breaks = x_breaks) +
-    ggplot2::scale_y_continuous(breaks = y_break_positions, labels = y_breaks)
+    )
+
+  if (diamond) {
+    p <- p + ggplot2::theme(
+      axis.title.x = ggplot2::element_blank(),
+      axis.title.y = ggplot2::element_blank(),
+      axis.text.x = ggplot2::element_blank(),
+      axis.text.y = ggplot2::element_blank(),
+      axis.ticks.x = ggplot2::element_blank(),
+      axis.ticks.y = ggplot2::element_blank()
+    )
+  } else {
+    p <- p +
+      ggplot2::scale_x_continuous(breaks = x_breaks) +
+      ggplot2::scale_y_continuous(breaks = y_break_positions, labels = y_breaks)
+  }
 
   # Draw grid lines separating groups
   transitions <- which(diff(df_lut$group_num) != 0)
   grid_idx_x <- c(0.5, transitions + 0.5, N + 0.5)
   grid_idx_y <- c(0.5, N - transitions + 0.5, N + 0.5)
 
-  # Draw vertical grid lines
-  for (idx in grid_idx_x) {
-    p <- p + ggplot2::annotate("segment", x = idx, xend = idx, y = 0.5 - border_width, yend = N + 0.5 + border_width, color = grid_color, linewidth = grid_linewidth)
-  }
-  # Draw horizontal grid lines
-  for (idx in grid_idx_y) {
-    p <- p + ggplot2::annotate("segment", x = 0.5 - border_width, xend = N + 0.5 + border_width, y = idx, yend = idx, color = grid_color, linewidth = grid_linewidth)
-  }
+  if (diamond) {
+    if (diamond_direction == "horizontal") {
+      # Draw vertical grid lines (rotated, horizontal direction)
+      for (idx in grid_idx_x) {
+        y_start <- 0.5 - border_width
+        y_end <- N + 0.5 + border_width
+        p <- p + ggplot2::annotate(
+          "segment",
+          x = idx - y_start,
+          xend = idx - y_end,
+          y = idx + y_start,
+          yend = idx + y_end,
+          color = grid_color,
+          linewidth = grid_linewidth
+        )
+      }
+      # Draw horizontal grid lines (rotated, horizontal direction)
+      for (idx in grid_idx_y) {
+        x_start <- 0.5 - border_width
+        x_end <- N + 0.5 + border_width
+        p <- p + ggplot2::annotate(
+          "segment",
+          x = x_start - idx,
+          xend = x_end - idx,
+          y = x_start + idx,
+          yend = x_end + idx,
+          color = grid_color,
+          linewidth = grid_linewidth
+        )
+      }
 
-  # Outer border boxes
-  if (border_width > 0) {
-    p <- p +
-      ggplot2::annotate("segment", x = 0.5 - border_width, xend = 0.5 - border_width, y = 0.5, yend = N + 0.5, color = grid_color, linewidth = grid_linewidth) +
-      ggplot2::annotate("segment", x = N + 0.5 + border_width, xend = N + 0.5 + border_width, y = 0.5, yend = N + 0.5, color = grid_color, linewidth = grid_linewidth) +
-      ggplot2::annotate("segment", x = 0.5, xend = N + 0.5, y = 0.5 - border_width, yend = 0.5 - border_width, color = grid_color, linewidth = grid_linewidth) +
-      ggplot2::annotate("segment", x = 0.5, xend = N + 0.5, y = N + 0.5 + border_width, yend = N + 0.5 + border_width, color = grid_color, linewidth = grid_linewidth)
+      # Outer border boxes (rotated, horizontal direction)
+      if (border_width > 0) {
+        p <- p +
+          # Left outer boundary
+          ggplot2::annotate("segment", x = 0.5 - border_width - 0.5, xend = 0.5 - border_width - (N + 0.5), y = 0.5 - border_width + 0.5, yend = 0.5 - border_width + N + 0.5, color = grid_color, linewidth = grid_linewidth) +
+          # Right outer boundary
+          ggplot2::annotate("segment", x = N + 0.5 + border_width - 0.5, xend = N + 0.5 + border_width - (N + 0.5), y = N + 0.5 + border_width + 0.5, yend = N + 0.5 + border_width + N + 0.5, color = grid_color, linewidth = grid_linewidth) +
+          # Bottom outer boundary
+          ggplot2::annotate("segment", x = 0.5 - (0.5 - border_width), xend = N + 0.5 - (0.5 - border_width), y = 0.5 + 0.5 - border_width, yend = N + 0.5 + 0.5 - border_width, color = grid_color, linewidth = grid_linewidth) +
+          # Top outer boundary
+          ggplot2::annotate("segment", x = 0.5 - (N + 0.5 + border_width), xend = N + 0.5 - (N + 0.5 + border_width), y = 0.5 + N + 0.5 + border_width, yend = N + 0.5 + N + 0.5 + border_width, color = grid_color, linewidth = grid_linewidth)
+      }
+    } else {
+      # Draw vertical grid lines (rotated, vertical direction)
+      for (idx in grid_idx_x) {
+        y_start <- 0.5 - border_width
+        y_end <- N + 0.5 + border_width
+        p <- p + ggplot2::annotate(
+          "segment",
+          x = idx + y_start,
+          xend = idx + y_end,
+          y = y_start - idx,
+          yend = y_end - idx,
+          color = grid_color,
+          linewidth = grid_linewidth
+        )
+      }
+      # Draw horizontal grid lines (rotated, vertical direction)
+      for (idx in grid_idx_y) {
+        x_start <- 0.5 - border_width
+        x_end <- N + 0.5 + border_width
+        p <- p + ggplot2::annotate(
+          "segment",
+          x = x_start + idx,
+          xend = x_end + idx,
+          y = idx - x_start,
+          yend = idx - x_end,
+          color = grid_color,
+          linewidth = grid_linewidth
+        )
+      }
+
+      # Outer border boxes (rotated, vertical direction)
+      if (border_width > 0) {
+        p <- p +
+          # Left outer boundary
+          ggplot2::annotate("segment", x = 0.5 - border_width + 0.5, xend = 0.5 - border_width + N + 0.5, y = border_width, yend = N + border_width, color = grid_color, linewidth = grid_linewidth) +
+          # Right outer boundary
+          ggplot2::annotate("segment", x = N + 0.5 + border_width + 0.5, xend = N + 0.5 + border_width + N + 0.5, y = -N - border_width, yend = -border_width, color = grid_color, linewidth = grid_linewidth) +
+          # Bottom outer boundary
+          ggplot2::annotate("segment", x = 0.5 + 0.5 - border_width, xend = N + 0.5 + 0.5 - border_width, y = -border_width, yend = -N - border_width, color = grid_color, linewidth = grid_linewidth) +
+          # Top outer boundary
+          ggplot2::annotate("segment", x = 0.5 + N + 0.5 + border_width, xend = N + 0.5 + N + 0.5 + border_width, y = N + border_width, yend = border_width, color = grid_color, linewidth = grid_linewidth)
+      }
+    }
+  } else {
+    # Draw vertical grid lines
+    for (idx in grid_idx_x) {
+      p <- p + ggplot2::annotate("segment", x = idx, xend = idx, y = 0.5 - border_width, yend = N + 0.5 + border_width, color = grid_color, linewidth = grid_linewidth)
+    }
+    # Draw horizontal grid lines
+    for (idx in grid_idx_y) {
+      p <- p + ggplot2::annotate("segment", x = 0.5 - border_width, xend = N + 0.5 + border_width, y = idx, yend = idx, color = grid_color, linewidth = grid_linewidth)
+    }
+
+    # Outer border boxes
+    if (border_width > 0) {
+      p <- p +
+        ggplot2::annotate("segment", x = 0.5 - border_width, xend = 0.5 - border_width, y = 0.5, yend = N + 0.5, color = grid_color, linewidth = grid_linewidth) +
+        ggplot2::annotate("segment", x = N + 0.5 + border_width, xend = N + 0.5 + border_width, y = 0.5, yend = N + 0.5, color = grid_color, linewidth = grid_linewidth) +
+        ggplot2::annotate("segment", x = 0.5, xend = N + 0.5, y = 0.5 - border_width, yend = 0.5 - border_width, color = grid_color, linewidth = grid_linewidth) +
+        ggplot2::annotate("segment", x = 0.5, xend = N + 0.5, y = N + 0.5 + border_width, yend = N + 0.5 + border_width, color = grid_color, linewidth = grid_linewidth)
+    }
   }
 
   # Save plot if out_path is provided
