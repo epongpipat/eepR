@@ -8,7 +8,7 @@
 #' @param affine_matrix A square matrix, data.frame, or a path to a CSV/TSV file containing the matrix.
 #'   Can be with or without row and column names.
 #' @param lut A data.frame or a path to a BIDS-format TSV file containing the lookup table.
-#'   Must contain 'index', 'name', and 'color' (hex values) columns, and the grouping variable column.
+#'   Must contain 'index' and 'color' (hex values) columns, and the grouping variable column.
 #' @param group_var Character. Name of the column in \code{lut} to use as the grouping variable.
 #'   Default is \code{"network"}.
 #' @param border_width Integer. Width (in plot units/pixels) of the grouping bands around the plot.
@@ -191,7 +191,7 @@ plot_heatmap <- function(affine_matrix,
   }
 
   # Validate lookup table columns
-  required_cols <- c("index", "name", "color")
+  required_cols <- c("index", "color")
   missing_cols <- setdiff(required_cols, colnames(df_lut))
   if (length(missing_cols) > 0) {
     stop(sprintf("Lookup table is missing required columns: %s", paste(missing_cols, collapse = ", ")))
@@ -238,32 +238,38 @@ plot_heatmap <- function(affine_matrix,
   # 3. Match matrix rows/cols to lookup table if requested
   mat_names <- colnames(df_r)
   mat_rownames <- rownames(df_r)
-  lut_names <- as.character(df_lut$name)
   lut_indexes <- as.character(df_lut$index)
 
   matched <- FALSE
 
   if (match_by_name && !is.null(mat_names) && !is.null(mat_rownames)) {
-    if (all(lut_names %in% mat_names) && all(lut_names %in% mat_rownames)) {
-      df_r <- df_r[lut_names, lut_names, drop = FALSE]
-      matched <- TRUE
-    } else if (all(lut_indexes %in% mat_names) && all(lut_indexes %in% mat_rownames)) {
-      df_r <- df_r[lut_indexes, lut_indexes, drop = FALSE]
-      matched <- TRUE
-    } else {
-      # Strip non-numeric characters for indices comparison (e.g. 'parcel1' -> '1')
-      clean_mat_names <- gsub("[^0-9]", "", mat_names)
-      clean_mat_rownames <- gsub("[^0-9]", "", mat_rownames)
-      
-      if (all(lut_indexes %in% clean_mat_names) && all(lut_indexes %in% clean_mat_rownames)) {
-        col_map <- setNames(mat_names, clean_mat_names)
-        row_map <- setNames(mat_rownames, clean_mat_rownames)
-        
-        target_cols <- col_map[lut_indexes]
-        target_rows <- row_map[lut_indexes]
-        
-        df_r <- df_r[target_rows, target_cols, drop = FALSE]
+    if ("name" %in% colnames(df_lut)) {
+      lut_names <- as.character(df_lut$name)
+      if (all(lut_names %in% mat_names) && all(lut_names %in% mat_rownames)) {
+        df_r <- df_r[lut_names, lut_names, drop = FALSE]
         matched <- TRUE
+      }
+    }
+    
+    if (!matched) {
+      if (all(lut_indexes %in% mat_names) && all(lut_indexes %in% mat_rownames)) {
+        df_r <- df_r[lut_indexes, lut_indexes, drop = FALSE]
+        matched <- TRUE
+      } else {
+        # Strip non-numeric characters for indices comparison (e.g. 'parcel1' -> '1')
+        clean_mat_names <- gsub("[^0-9]", "", mat_names)
+        clean_mat_rownames <- gsub("[^0-9]", "", mat_rownames)
+        
+        if (all(lut_indexes %in% clean_mat_names) && all(lut_indexes %in% clean_mat_rownames)) {
+          col_map <- setNames(mat_names, clean_mat_names)
+          row_map <- setNames(mat_rownames, clean_mat_rownames)
+          
+          target_cols <- col_map[lut_indexes]
+          target_rows <- row_map[lut_indexes]
+          
+          df_r <- df_r[target_rows, target_cols, drop = FALSE]
+          matched <- TRUE
+        }
       }
     }
   }
