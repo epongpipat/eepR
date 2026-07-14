@@ -44,7 +44,7 @@ plot_heatmap(
 Can be with or without row and column names.}
 
 \item{lut}{A data.frame or a path to a BIDS-format TSV file containing the lookup table.
-Must contain 'index', 'name', and 'color' (hex values) columns, and the grouping variable column.}
+Must contain 'index' and 'color' (hex values) columns, and the grouping variable column.}
 
 \item{group_var}{Character. Name of the column in \code{lut} to use as the grouping variable.
 Default is \code{"network"}.}

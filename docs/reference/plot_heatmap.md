@@ -52,8 +52,8 @@ plot_heatmap(
 - lut:
 
   A data.frame or a path to a BIDS-format TSV file containing the lookup
-  table. Must contain 'index', 'name', and 'color' (hex values) columns,
-  and the grouping variable column.
+  table. Must contain 'index' and 'color' (hex values) columns, and the
+  grouping variable column.
 
 - group_var:
 
