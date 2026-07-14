@@ -200,6 +200,12 @@ plot_heatmap <- function(affine_matrix,
     stop(sprintf("Grouping variable '%s' not found in lookup table. Available columns: %s", 
                   group_var, paste(colnames(df_lut), collapse = ", ")))
   }
+  # Check if group_var and color are 1-1 matching
+  group_to_color_counts <- tapply(df_lut$color, df_lut[[group_var]], function(x) length(unique(x)))
+  color_to_group_counts <- tapply(df_lut[[group_var]], df_lut$color, function(x) length(unique(x)))
+  if (any(group_to_color_counts != 1) || any(color_to_group_counts != 1)) {
+    stop(sprintf("The grouping variable '%s' and column 'color' must have a 1-to-1 mapping.", group_var))
+  }
 
   # Ensure df_lut is ordered by index first to align with matrix matching
   df_lut <- df_lut[order(df_lut$index), , drop = FALSE]
