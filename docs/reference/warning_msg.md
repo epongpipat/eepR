@@ -30,5 +30,5 @@ Other console messaging helpers:
 
 ``` r
 warning_msg("example warning")
-#> Warning: [2026-07-07 11:49:31] [WARN]  example warning
+#> Warning: [2026-07-14 12:45:17] [WARN]  example warning
 ```

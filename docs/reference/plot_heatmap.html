@@ -44,7 +44,7 @@ grouping bands, and grid lines.</p>
     <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">plot_heatmap</span><span class="op">(</span></span>
 <span>  <span class="va">affine_matrix</span>,</span>
 <span>  <span class="va">lut</span>,</span>
-<span>  group_var <span class="op">=</span> <span class="st">"network"</span>,</span>
+<span>  group_var <span class="op">=</span> <span class="st">"name"</span>,</span>
 <span>  border_width <span class="op">=</span> <span class="fl">10</span>,</span>
 <span>  scale_fill_type <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"gradient2"</span>, <span class="st">"viridis"</span>, <span class="st">"distiller"</span><span class="op">)</span>,</span>
 <span>  scale_fill_limits <span class="op">=</span> <span class="cn">NULL</span>,</span>
@@ -93,7 +93,7 @@ Must contain 'index', 'name', and 'color' (hex values) columns, and the grouping
 
 <dt id="arg-group-var">group_var<a class="anchor" aria-label="anchor" href="#arg-group-var"></a></dt>
 <dd><p>Character. Name of the column in <code>lut</code> to use as the grouping variable.
-Default is <code>"network"</code>.</p></dd>
+Default is <code>"name"</code>.</p></dd>
 
 
 <dt id="arg-border-width">border_width<a class="anchor" aria-label="anchor" href="#arg-border-width"></a></dt>
@@ -237,9 +237,8 @@ Default is <code>FALSE</code>.</p></dd>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">sim_lut</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span></span></span>
 <span class="r-in"><span>  index <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">400</span>,</span></span>
-<span class="r-in"><span>  name <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span><span class="st">"parcel"</span>, <span class="fl">1</span><span class="op">:</span><span class="fl">400</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>  name <span class="op">=</span> <span class="va">net_rep</span>,</span></span>
 <span class="r-in"><span>  color <span class="op">=</span> <span class="va">color_rep</span>,</span></span>
-<span class="r-in"><span>  network <span class="op">=</span> <span class="va">net_rep</span>,</span></span>
 <span class="r-in"><span>  stringsAsFactors <span class="op">=</span> <span class="cn">FALSE</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
@@ -248,18 +247,17 @@ Default is <code>FALSE</code>.</p></dd>
 <span class="r-in"><span><span class="va">sim_matrix</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html" class="external-link">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Uniform.html" class="external-link">runif</a></span><span class="op">(</span><span class="fl">400</span> <span class="op">*</span> <span class="fl">400</span>, min <span class="op">=</span> <span class="op">-</span><span class="fl">0.2</span>, max <span class="op">=</span> <span class="fl">0.2</span><span class="op">)</span>, nrow <span class="op">=</span> <span class="fl">400</span>, ncol <span class="op">=</span> <span class="fl">400</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">sim_matrix</span> <span class="op">&lt;-</span> <span class="op">(</span><span class="va">sim_matrix</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/base/t.html" class="external-link">t</a></span><span class="op">(</span><span class="va">sim_matrix</span><span class="op">)</span><span class="op">)</span> <span class="op">/</span> <span class="fl">2</span></span></span>
 <span class="r-in"><span><span class="kw">for</span> <span class="op">(</span><span class="va">net</span> <span class="kw">in</span> <span class="va">networks</span><span class="op">)</span> <span class="op">{</span></span></span>
-<span class="r-in"><span>  <span class="va">idx</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/which.html" class="external-link">which</a></span><span class="op">(</span><span class="va">sim_lut</span><span class="op">$</span><span class="va">network</span> <span class="op">==</span> <span class="va">net</span><span class="op">)</span></span></span>
+<span class="r-in"><span>  <span class="va">idx</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/which.html" class="external-link">which</a></span><span class="op">(</span><span class="va">sim_lut</span><span class="op">$</span><span class="va">name</span> <span class="op">==</span> <span class="va">net</span><span class="op">)</span></span></span>
 <span class="r-in"><span>  <span class="va">sim_matrix</span><span class="op">[</span><span class="va">idx</span>, <span class="va">idx</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="va">sim_matrix</span><span class="op">[</span><span class="va">idx</span>, <span class="va">idx</span><span class="op">]</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/stats/Uniform.html" class="external-link">runif</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">idx</span><span class="op">)</span><span class="op">^</span><span class="fl">2</span>, min <span class="op">=</span> <span class="fl">0.3</span>, max <span class="op">=</span> <span class="fl">0.7</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="op">}</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/diag.html" class="external-link">diag</a></span><span class="op">(</span><span class="va">sim_matrix</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fl">1.0</span></span></span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html" class="external-link">rownames</a></span><span class="op">(</span><span class="va">sim_matrix</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="va">sim_lut</span><span class="op">$</span><span class="va">name</span></span></span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html" class="external-link">colnames</a></span><span class="op">(</span><span class="va">sim_matrix</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="va">sim_lut</span><span class="op">$</span><span class="va">name</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html" class="external-link">rownames</a></span><span class="op">(</span><span class="va">sim_matrix</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="va">sim_lut</span><span class="op">$</span><span class="va">index</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html" class="external-link">colnames</a></span><span class="op">(</span><span class="va">sim_matrix</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="va">sim_lut</span><span class="op">$</span><span class="va">index</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Plot the heatmap</span></span></span>
 <span class="r-in"><span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">plot_heatmap</span><span class="op">(</span></span></span>
 <span class="r-in"><span>  affine_matrix <span class="op">=</span> <span class="va">sim_matrix</span>,</span></span>
 <span class="r-in"><span>  lut <span class="op">=</span> <span class="va">sim_lut</span>,</span></span>
-<span class="r-in"><span>  group_var <span class="op">=</span> <span class="st">"network"</span>,</span></span>
 <span class="r-in"><span>  border_width <span class="op">=</span> <span class="fl">10</span>,</span></span>
 <span class="r-in"><span>  diagonal_to_na <span class="op">=</span> <span class="cn">TRUE</span>,</span></span>
 <span class="r-in"><span>  title <span class="op">=</span> <span class="st">"Simulated Schaefer 400 (Yeo 7 Networks)"</span></span></span>
@@ -271,7 +269,6 @@ Default is <code>FALSE</code>.</p></dd>
 <span class="r-in"><span><span class="va">p_diamond</span> <span class="op">&lt;-</span> <span class="fu">plot_heatmap</span><span class="op">(</span></span></span>
 <span class="r-in"><span>  affine_matrix <span class="op">=</span> <span class="va">sim_matrix</span>,</span></span>
 <span class="r-in"><span>  lut <span class="op">=</span> <span class="va">sim_lut</span>,</span></span>
-<span class="r-in"><span>  group_var <span class="op">=</span> <span class="st">"network"</span>,</span></span>
 <span class="r-in"><span>  border_width <span class="op">=</span> <span class="fl">10</span>,</span></span>
 <span class="r-in"><span>  diagonal_to_na <span class="op">=</span> <span class="cn">TRUE</span>,</span></span>
 <span class="r-in"><span>  diamond <span class="op">=</span> <span class="cn">TRUE</span>,</span></span>
