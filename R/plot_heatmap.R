@@ -200,6 +200,7 @@ plot_heatmap <- function(affine_matrix,
 
   # Ensure df_lut is ordered by index first to align with matrix matching
   df_lut <- df_lut[order(df_lut$index), , drop = FALSE]
+  N <- nrow(df_lut)
 
   # 2. Load the affine matrix
   if (is.character(affine_matrix)) {
