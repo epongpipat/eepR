@@ -7,7 +7,7 @@
 plot_heatmap(
   affine_matrix,
   lut,
-  group_var = "network",
+  group_var = "name",
   border_width = 10,
   scale_fill_type = c("gradient2", "viridis", "distiller"),
   scale_fill_limits = NULL,
@@ -47,7 +47,7 @@ Can be with or without row and column names.}
 Must contain 'index', 'name', and 'color' (hex values) columns, and the grouping variable column.}
 
 \item{group_var}{Character. Name of the column in \code{lut} to use as the grouping variable.
-Default is \code{"network"}.}
+Default is \code{"name"}.}
 
 \item{border_width}{Integer. Width (in plot units/pixels) of the grouping bands around the plot.
 Set to \code{0} to omit. Default is \code{10}.}
@@ -133,9 +133,8 @@ color_rep <- rep(net_colors, each = 57, length.out = 400)
 
 sim_lut <- data.frame(
   index = 1:400,
-  name = paste0("parcel", 1:400),
+  name = net_rep,
   color = color_rep,
-  network = net_rep,
   stringsAsFactors = FALSE
 )
 
@@ -144,18 +143,17 @@ set.seed(42)
 sim_matrix <- matrix(runif(400 * 400, min = -0.2, max = 0.2), nrow = 400, ncol = 400)
 sim_matrix <- (sim_matrix + t(sim_matrix)) / 2
 for (net in networks) {
-  idx <- which(sim_lut$network == net)
+  idx <- which(sim_lut$name == net)
   sim_matrix[idx, idx] <- sim_matrix[idx, idx] + runif(length(idx)^2, min = 0.3, max = 0.7)
 }
 diag(sim_matrix) <- 1.0
-rownames(sim_matrix) <- sim_lut$name
-colnames(sim_matrix) <- sim_lut$name
+rownames(sim_matrix) <- sim_lut$index
+colnames(sim_matrix) <- sim_lut$index
 
 # Plot the heatmap
 p <- plot_heatmap(
   affine_matrix = sim_matrix,
   lut = sim_lut,
-  group_var = "network",
   border_width = 10,
   diagonal_to_na = TRUE,
   title = "Simulated Schaefer 400 (Yeo 7 Networks)"
@@ -166,7 +164,6 @@ print(p)
 p_diamond <- plot_heatmap(
   affine_matrix = sim_matrix,
   lut = sim_lut,
-  group_var = "network",
   border_width = 10,
   diagonal_to_na = TRUE,
   diamond = TRUE,

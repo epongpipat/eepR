@@ -10,7 +10,7 @@
 #' @param lut A data.frame or a path to a BIDS-format TSV file containing the lookup table.
 #'   Must contain 'index', 'name', and 'color' (hex values) columns, and the grouping variable column.
 #' @param group_var Character. Name of the column in \code{lut} to use as the grouping variable.
-#'   Default is \code{"network"}.
+#'   Default is \code{"name"}.
 #' @param border_width Integer. Width (in plot units/pixels) of the grouping bands around the plot.
 #'   Set to \code{0} to omit. Default is \code{10}.
 #' @param scale_fill_type Character. Type of color scale to use: \code{"gradient2"} (diverging),
@@ -60,9 +60,8 @@
 #' 
 #' sim_lut <- data.frame(
 #'   index = 1:400,
-#'   name = paste0("parcel", 1:400),
+#'   name = net_rep,
 #'   color = color_rep,
-#'   network = net_rep,
 #'   stringsAsFactors = FALSE
 #' )
 #' 
@@ -71,18 +70,17 @@
 #' sim_matrix <- matrix(runif(400 * 400, min = -0.2, max = 0.2), nrow = 400, ncol = 400)
 #' sim_matrix <- (sim_matrix + t(sim_matrix)) / 2
 #' for (net in networks) {
-#'   idx <- which(sim_lut$network == net)
+#'   idx <- which(sim_lut$name == net)
 #'   sim_matrix[idx, idx] <- sim_matrix[idx, idx] + runif(length(idx)^2, min = 0.3, max = 0.7)
 #' }
 #' diag(sim_matrix) <- 1.0
-#' rownames(sim_matrix) <- sim_lut$name
-#' colnames(sim_matrix) <- sim_lut$name
+#' rownames(sim_matrix) <- sim_lut$index
+#' colnames(sim_matrix) <- sim_lut$index
 #' 
 #' # Plot the heatmap
 #' p <- plot_heatmap(
 #'   affine_matrix = sim_matrix,
 #'   lut = sim_lut,
-#'   group_var = "network",
 #'   border_width = 10,
 #'   diagonal_to_na = TRUE,
 #'   title = "Simulated Schaefer 400 (Yeo 7 Networks)"
@@ -93,7 +91,6 @@
 #' p_diamond <- plot_heatmap(
 #'   affine_matrix = sim_matrix,
 #'   lut = sim_lut,
-#'   group_var = "network",
 #'   border_width = 10,
 #'   diagonal_to_na = TRUE,
 #'   diamond = TRUE,
@@ -110,9 +107,10 @@
 #' @importFrom dplyr mutate select distinct first group_by summarize
 #' @importFrom tibble rownames_to_column
 #' @importFrom glue glue
+#' @importFrom scales squish
 plot_heatmap <- function(affine_matrix,
                          lut,
-                         group_var = "network",
+                         group_var = "name",
                          border_width = 10,
                          scale_fill_type = c("gradient2", "viridis", "distiller"),
                          scale_fill_limits = NULL,
@@ -200,10 +198,8 @@ plot_heatmap <- function(affine_matrix,
                   group_var, paste(colnames(df_lut), collapse = ", ")))
   }
 
-  # Ensure df_lut is ordered by index
+  # Ensure df_lut is ordered by index first to align with matrix matching
   df_lut <- df_lut[order(df_lut$index), , drop = FALSE]
-  N <- nrow(df_lut)
-  df_lut$pos <- seq_len(N)
 
   # 2. Load the affine matrix
   if (is.character(affine_matrix)) {
@@ -285,6 +281,14 @@ plot_heatmap <- function(affine_matrix,
       df_r[df_r == val] <- NA
     }
   }
+
+  # Sort lookup table by grouping variable and then index, and reorder matrix accordingly
+  sort_idx <- order(df_lut[[group_var]], df_lut$index)
+  df_lut <- df_lut[sort_idx, , drop = FALSE]
+  df_r <- df_r[sort_idx, sort_idx, drop = FALSE]
+
+  N <- nrow(df_lut)
+  df_lut$pos <- seq_len(N)
 
   # Reset rownames and colnames to 1:N to align with lut$pos
   rownames(df_r) <- seq_len(N)
@@ -394,6 +398,7 @@ plot_heatmap <- function(affine_matrix,
       high = scale_fill_high,
       midpoint = scale_fill_midpoint,
       limits = scale_fill_limits,
+      oob = scales::squish,
       na.value = scale_fill_na_color
     )
   } else if (scale_fill_type == "viridis") {
@@ -401,6 +406,7 @@ plot_heatmap <- function(affine_matrix,
     p <- p + ggplot2::scale_fill_viridis_c(
       option = palette_option,
       limits = scale_fill_limits,
+      oob = scales::squish,
       na.value = scale_fill_na_color
     )
   } else if (scale_fill_type == "distiller") {
@@ -408,6 +414,7 @@ plot_heatmap <- function(affine_matrix,
     p <- p + ggplot2::scale_fill_distiller(
       palette = palette_name,
       limits = scale_fill_limits,
+      oob = scales::squish,
       na.value = scale_fill_na_color
     )
   }
