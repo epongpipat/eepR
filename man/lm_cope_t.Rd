@@ -4,15 +4,17 @@
 \alias{lm_cope_t}
 \title{lm_cope_t}
 \usage{
-lm_cope_t(model_fit, c)
+lm_cope_t(model_fit, c, ci = 0.95)
 }
 \arguments{
 \item{model_fit}{model fitted using \code{lm()}}
 
 \item{c}{contrast matrix}
+
+\item{ci}{confidence interval (default: 0.95)}
 }
 \value{
-data.frame with columns term, b, se, t, and p
+data.frame with columns term, b, se, t, p, b_ci_ll, b_ci_ul, r_sq_adj, r_sq_adj_ci_ll, and r_sq_adj_ci_ul
 }
 \description{
 perform a contrast over parameter estimate (COPE) \emph{t}-test

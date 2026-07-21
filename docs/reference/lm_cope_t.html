@@ -48,7 +48,7 @@
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">lm_cope_t</span><span class="op">(</span><span class="va">model_fit</span>, <span class="va">c</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">lm_cope_t</span><span class="op">(</span><span class="va">model_fit</span>, <span class="va">c</span>, ci <span class="op">=</span> <span class="fl">0.95</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -60,12 +60,16 @@
 <dt>c</dt>
 <dd><p>contrast matrix</p></dd>
 
+
+<dt>ci</dt>
+<dd><p>confidence interval (default: 0.95)</p></dd>
+
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
     
 
-<p>data.frame with columns term, b, se, t, and p</p>
+<p>data.frame with columns term, b, se, t, p, b_ci_ll, b_ci_ul, r_sq_adj, r_sq_adj_ci_ll, and r_sq_adj_ci_ul</p>
     </div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
@@ -82,14 +86,14 @@
 <span class="r-in"><span>  Prof_minus_AssocProf     <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="op">-</span><span class="fl">1</span>, <span class="fl">1</span>, <span class="fl">0</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu">lm_cope_t</span><span class="op">(</span><span class="va">model_fit</span>, <span class="va">c</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                                              term        b       se         t</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> AssocProf_minus_AsstProf AssocProf_minus_AsstProf 13761.54 3960.661  3.474557</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Prof_minus_AsstProf           Prof_minus_AsstProf 47843.84 3111.552 15.376197</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Prof_minus_AssocProf         Prof_minus_AssocProf 34082.30 3159.885 10.785929</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                                     p</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> AssocProf_minus_AsstProf 5.686954e-04</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Prof_minus_AsstProf      4.174398e-42</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Prof_minus_AssocProf     6.211644e-24</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                       term        b       se         t            p  b_ci_ll</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 AssocProf_minus_AsstProf 13761.54 3960.661  3.474557 5.686954e-04  5974.81</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2      Prof_minus_AsstProf 47843.84 3111.552 15.376197 4.174398e-42 41726.47</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3     Prof_minus_AssocProf 34082.30 3159.885 10.785929 6.211644e-24 27869.90</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    b_ci_ul   r_sq_adj r_sq_adj_ci_ll r_sq_adj_ci_ul</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 21548.28 0.02733473    0.007003391              1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 53961.21 0.37403428    0.314935373              1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3 40294.69 0.22644424    0.169579185              1</span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>

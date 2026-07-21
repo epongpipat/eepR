@@ -48,7 +48,7 @@
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">lm_cope_F</span><span class="op">(</span><span class="va">model_fit</span>, <span class="va">c</span>, <span class="va">label</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">lm_cope_F</span><span class="op">(</span><span class="va">model_fit</span>, <span class="va">c</span>, <span class="va">label</span>, ci <span class="op">=</span> <span class="fl">0.95</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -64,12 +64,16 @@
 <dt>label</dt>
 <dd><p>label for the contrast term</p></dd>
 
+
+<dt>ci</dt>
+<dd><p>confidence interval (default: 0.95)</p></dd>
+
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
     
 
-<p>data.frame with columns term, ss, df, ms, F, and p</p>
+<p>data.frame with columns term, ss, df, ms, F, p, r_sq_adj, r_sq_adj_ci_ll, and r_sq_adj_ci_ul</p>
     </div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
@@ -85,8 +89,10 @@
 <span class="r-in"><span>  <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">0</span>, <span class="fl">1</span>, <span class="fl">0</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu">lm_cope_F</span><span class="op">(</span><span class="va">model_fit</span>, <span class="va">c</span>, label <span class="op">=</span> <span class="st">"rank"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   term           ss df          ms        F            p</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 rank 152810893487  2 76405446744 148.9164 7.267053e-49</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   term           ss df          ms        F            p  r_sq_adj</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 rank 152810893487  2 76405446744 148.9164 7.267053e-49 0.4282263</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   r_sq_adj_ci_ll r_sq_adj_ci_ul</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1      0.3698418              1</span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>

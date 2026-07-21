@@ -4,7 +4,7 @@
 \alias{lm_cope_F}
 \title{lm_cope_F}
 \usage{
-lm_cope_F(model_fit, c, label)
+lm_cope_F(model_fit, c, label, ci = 0.95)
 }
 \arguments{
 \item{model_fit}{model fitted using \code{lm()}}
@@ -12,9 +12,11 @@ lm_cope_F(model_fit, c, label)
 \item{c}{contrast matrix}
 
 \item{label}{label for the contrast term}
+
+\item{ci}{confidence interval (default: 0.95)}
 }
 \value{
-data.frame with columns term, ss, df, ms, F, and p
+data.frame with columns term, ss, df, ms, F, p, r_sq_adj, r_sq_adj_ci_ll, and r_sq_adj_ci_ul
 }
 \description{
 perform a contrast over parameter estimate (COPE) \emph{F}-test
