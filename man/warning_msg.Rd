@@ -19,10 +19,10 @@ warning_msg
 warning_msg("example warning")
 }
 \seealso{
-Other console messaging helpers:
-\code{\link[=error_msg]{error_msg()}},
-\code{\link[=info_msg]{info_msg()}},
-\code{\link[=print_footer]{print_footer()}},
-\code{\link[=print_header]{print_header()}}
+Other console messaging helpers: 
+\code{\link{error_msg}()},
+\code{\link{info_msg}()},
+\code{\link{print_footer}()},
+\code{\link{print_header}()}
 }
 \concept{console messaging helpers}

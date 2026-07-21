@@ -22,11 +22,11 @@ df <- append_suffix_to_colnames(carData::Salaries, '_s')
 head(df)
 }
 \seealso{
-Other column name helpers:
-\code{\link[=append_colnames]{append_colnames()}},
-\code{\link[=append_prefix_to_colnames]{append_prefix_to_colnames()}},
-\code{\link[=rename_colnames]{rename_colnames()}},
-\code{\link[=tidy_colnames]{tidy_colnames()}}
+Other column name helpers: 
+\code{\link{append_colnames}()},
+\code{\link{append_prefix_to_colnames}()},
+\code{\link{rename_colnames}()},
+\code{\link{tidy_colnames}()}
 }
 \concept{column name helpers}
 \concept{data_wrangle}

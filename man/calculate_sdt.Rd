@@ -25,8 +25,8 @@ calculate signal detection theory (SDT) metrics such as d' and c
 calculate_sdt(25, 26, 5, 4)
 }
 \seealso{
-Other statistical helpers:
-\code{\link[=check_contrast_orthogonality]{check_contrast_orthogonality()}}
+Other statistical helpers: 
+\code{\link{check_contrast_orthogonality}()}
 }
 \concept{statistical helpers}
 \concept{stats}

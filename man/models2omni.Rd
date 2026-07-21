@@ -23,14 +23,14 @@ attr(m1, 'extra_info') <- list(m = 1, another_key = 'another_value')
 models2omni(m1)
 }
 \seealso{
-Other model summary helpers:
-\code{\link[=get_lm_multicollinearity]{get_lm_multicollinearity()}},
-\code{\link[=models2coefs]{models2coefs()}},
-\code{\link[=r_sq_to_adj_r_sq]{r_sq_to_adj_r_sq()}},
-\code{\link[=renamed_tidy]{renamed_tidy()}},
-\code{\link[=tidy_es]{tidy_es()}},
-\code{\link[=tidy_es_lm]{tidy_es_lm()}},
-\code{\link[=tidy_es_lmer]{tidy_es_lmer()}}
+Other model summary helpers: 
+\code{\link{get_lm_multicollinearity}()},
+\code{\link{models2coefs}()},
+\code{\link{r_sq_to_adj_r_sq}()},
+\code{\link{renamed_tidy}()},
+\code{\link{tidy_es_lmer}()},
+\code{\link{tidy_es_lm}()},
+\code{\link{tidy_es}()}
 }
 \concept{model summary helpers}
 \concept{stats}

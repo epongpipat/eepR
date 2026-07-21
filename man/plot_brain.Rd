@@ -46,13 +46,13 @@ brain <- array(1:125, dim = c(5, 5, 5))
 plot_brain(brain, indices = c(3, 3, 3))
 }
 \seealso{
-Other neuroimaging helpers:
-\code{\link[=compare_brains]{compare_brains()}},
-\code{\link[=convet_lut_fs2bids]{convet_lut_fs2bids()}},
-\code{\link[=extract_brain_slice]{extract_brain_slice()}},
-\code{\link[=get_3dstats]{get_3dstats()}},
-\code{\link[=plot_brain_slice]{plot_brain_slice()}},
-\code{\link[=split_dseg2mask]{split_dseg2mask()}}
+Other neuroimaging helpers: 
+\code{\link{compare_brains}()},
+\code{\link{convet_lut_fs2bids}()},
+\code{\link{extract_brain_slice}()},
+\code{\link{get_3dstats}()},
+\code{\link{plot_brain_slice}()},
+\code{\link{split_dseg2mask}()}
 }
 \concept{neuroimaging}
 \concept{neuroimaging helpers}

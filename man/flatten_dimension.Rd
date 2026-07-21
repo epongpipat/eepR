@@ -21,8 +21,8 @@ flattened_once <- flatten_dimension(x)
 str(flattened_once)
 }
 \seealso{
-Other dimension flattening helpers:
-\code{\link[=flatten_dimension_all]{flatten_dimension_all()}}
+Other dimension flattening helpers: 
+\code{\link{flatten_dimension_all}()}
 }
 \concept{data_wrangle}
 \concept{dimension flattening helpers}

@@ -44,8 +44,8 @@ binary mask is provided, voxels are mapped back to their specific coordinates.
 # nii_obj <- mat2nii(full_matrix, in_reference = "T1w.nii.gz", in_mask = NULL)
 }
 \seealso{
-Other conversions between NIfTI and 2D-matrix:
-\code{\link[=nii2mat]{nii2mat()}}
+Other conversions between NIfTI and 2D-matrix: 
+\code{\link{nii2mat}()}
 }
 \concept{conversions between NIfTI and 2D-matrix}
 \concept{neuroimaging}

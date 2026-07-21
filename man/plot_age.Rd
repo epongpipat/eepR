@@ -28,13 +28,13 @@ data <- data.frame(age = c(20, 30, 40, 50), score = c(4, 6, 7, 9))
 plot_age(data, y_var = "score")
 }
 \seealso{
-Other plotting helpers:
-\code{\link[=cor_plot]{cor_plot()}},
-\code{\link[=move_legend_to_btm]{move_legend_to_btm()}},
-\code{\link[=plot_bland_altman]{plot_bland_altman()}},
-\code{\link[=plot_cor]{plot_cor()}},
-\code{\link[=plot_cor_heatmap]{plot_cor_heatmap()}},
-\code{\link[=plot_scree]{plot_scree()}}
+Other plotting helpers: 
+\code{\link{cor_plot}()},
+\code{\link{move_legend_to_btm}()},
+\code{\link{plot_bland_altman}()},
+\code{\link{plot_cor_heatmap}()},
+\code{\link{plot_cor}()},
+\code{\link{plot_scree}()}
 }
 \concept{plotting helpers}
 \concept{visualization}

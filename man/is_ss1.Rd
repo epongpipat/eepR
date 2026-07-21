@@ -22,10 +22,10 @@ x <- c(1, 2, 2, 3, 3, 3)
 is_ss1(scale(x) / sqrt(length(x)))
 }
 \seealso{
-Other check scale functions:
-\code{\link[=is_centered]{is_centered()}},
-\code{\link[=is_scaled]{is_scaled()}},
-\code{\link[=is_z_scored]{is_z_scored()}}
+Other check scale functions: 
+\code{\link{is_centered}()},
+\code{\link{is_scaled}()},
+\code{\link{is_z_scored}()}
 }
 \concept{check scale functions}
 \concept{data_wrangle}

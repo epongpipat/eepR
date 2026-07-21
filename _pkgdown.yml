@@ -9,6 +9,7 @@ reference:
   - title: Statistics
     contents:
     - has_concept("stats")
+    - has_concept("statsistics")
   - title: Neuroimaging
     contents:
     - has_concept("neuroimaging")

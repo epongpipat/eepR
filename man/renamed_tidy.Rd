@@ -19,14 +19,14 @@ Minor modification of the \code{tidy()} function that renames the columns to be 
 renamed_tidy(lm(mpg ~ wt, data = mtcars))
 }
 \seealso{
-Other model summary helpers:
-\code{\link[=get_lm_multicollinearity]{get_lm_multicollinearity()}},
-\code{\link[=models2coefs]{models2coefs()}},
-\code{\link[=models2omni]{models2omni()}},
-\code{\link[=r_sq_to_adj_r_sq]{r_sq_to_adj_r_sq()}},
-\code{\link[=tidy_es]{tidy_es()}},
-\code{\link[=tidy_es_lm]{tidy_es_lm()}},
-\code{\link[=tidy_es_lmer]{tidy_es_lmer()}}
+Other model summary helpers: 
+\code{\link{get_lm_multicollinearity}()},
+\code{\link{models2coefs}()},
+\code{\link{models2omni}()},
+\code{\link{r_sq_to_adj_r_sq}()},
+\code{\link{tidy_es_lmer}()},
+\code{\link{tidy_es_lm}()},
+\code{\link{tidy_es}()}
 }
 \concept{model summary helpers}
 \concept{stats}

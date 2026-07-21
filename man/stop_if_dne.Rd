@@ -19,12 +19,12 @@ stop_if_dne
 stop_if_dne(tempdir())
 }
 \seealso{
-Other path helpers:
-\code{\link[=check_in_paths]{check_in_paths()}},
-\code{\link[=check_out_paths]{check_out_paths()}},
-\code{\link[=eval_cmd]{eval_cmd()}},
-\code{\link[=mkdir_if_dne]{mkdir_if_dne()}},
-\code{\link[=safe_to_write]{safe_to_write()}},
-\code{\link[=stop_if_e]{stop_if_e()}}
+Other path helpers: 
+\code{\link{check_in_paths}()},
+\code{\link{check_out_paths}()},
+\code{\link{eval_cmd}()},
+\code{\link{mkdir_if_dne}()},
+\code{\link{safe_to_write}()},
+\code{\link{stop_if_e}()}
 }
 \concept{path helpers}

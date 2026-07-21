@@ -24,13 +24,13 @@ brain <- array(1:27, dim = c(3, 3, 3))
 extract_brain_slice(brain, dir = "k", slice = 2)
 }
 \seealso{
-Other neuroimaging helpers:
-\code{\link[=compare_brains]{compare_brains()}},
-\code{\link[=convet_lut_fs2bids]{convet_lut_fs2bids()}},
-\code{\link[=get_3dstats]{get_3dstats()}},
-\code{\link[=plot_brain]{plot_brain()}},
-\code{\link[=plot_brain_slice]{plot_brain_slice()}},
-\code{\link[=split_dseg2mask]{split_dseg2mask()}}
+Other neuroimaging helpers: 
+\code{\link{compare_brains}()},
+\code{\link{convet_lut_fs2bids}()},
+\code{\link{get_3dstats}()},
+\code{\link{plot_brain_slice}()},
+\code{\link{plot_brain}()},
+\code{\link{split_dseg2mask}()}
 }
 \concept{neuroimaging}
 \concept{neuroimaging helpers}

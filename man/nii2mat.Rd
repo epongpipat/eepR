@@ -29,8 +29,8 @@ Handles single-volume (3D) inputs by returning a 1-row matrix.
 # mat <- nii2mat("sub-01_task-rest_bold.nii.gz", "sub-01_brain_mask.nii.gz")
 }
 \seealso{
-Other conversions between NIfTI and 2D-matrix:
-\code{\link[=mat2nii]{mat2nii()}}
+Other conversions between NIfTI and 2D-matrix: 
+\code{\link{mat2nii}()}
 }
 \concept{conversions between NIfTI and 2D-matrix}
 \concept{neuroimaging}

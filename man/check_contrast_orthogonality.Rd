@@ -26,8 +26,8 @@ contrast_example <- data.frame(c1 = c(1/3, 1/3, -2/3),
 check_contrast_orthogonality(contrast_example)
 }
 \seealso{
-Other statistical helpers:
-\code{\link[=calculate_sdt]{calculate_sdt()}}
+Other statistical helpers: 
+\code{\link{calculate_sdt}()}
 }
 \concept{statistical helpers}
 \concept{stats}

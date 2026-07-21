@@ -28,13 +28,13 @@ plot_bland_altman
 plot_bland_altman('yrs.since.phd', 'yrs.service', carData::Salaries)
 }
 \seealso{
-Other plotting helpers:
-\code{\link[=cor_plot]{cor_plot()}},
-\code{\link[=move_legend_to_btm]{move_legend_to_btm()}},
-\code{\link[=plot_age]{plot_age()}},
-\code{\link[=plot_cor]{plot_cor()}},
-\code{\link[=plot_cor_heatmap]{plot_cor_heatmap()}},
-\code{\link[=plot_scree]{plot_scree()}}
+Other plotting helpers: 
+\code{\link{cor_plot}()},
+\code{\link{move_legend_to_btm}()},
+\code{\link{plot_age}()},
+\code{\link{plot_cor_heatmap}()},
+\code{\link{plot_cor}()},
+\code{\link{plot_scree}()}
 }
 \concept{plotting helpers}
 \concept{visualization}
