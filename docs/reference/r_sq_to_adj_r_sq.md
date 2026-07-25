@@ -34,6 +34,8 @@ Other model summary helpers:
 [`models2omni()`](https://ekarinpongpipat.com/eepR/reference/models2omni.md),
 [`renamed_tidy()`](https://ekarinpongpipat.com/eepR/reference/renamed_tidy.md),
 [`tidy_es()`](https://ekarinpongpipat.com/eepR/reference/tidy_es.md),
+[`tidy_es_cope_F()`](https://ekarinpongpipat.com/eepR/reference/tidy_es_cope_F.md),
+[`tidy_es_cope_t()`](https://ekarinpongpipat.com/eepR/reference/tidy_es_cope_t.md),
 [`tidy_es_lm()`](https://ekarinpongpipat.com/eepR/reference/tidy_es_lm.md),
 [`tidy_es_lmer()`](https://ekarinpongpipat.com/eepR/reference/tidy_es_lmer.md)
 

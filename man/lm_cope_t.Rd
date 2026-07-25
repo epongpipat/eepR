@@ -29,8 +29,8 @@ c <- rbind(
 lm_cope_t(model_fit, c)
 }
 \seealso{
-Other lm_cope: 
-\code{\link{lm_cope_F}()}
+Other lm_cope:
+\code{\link[=lm_cope_F]{lm_cope_F()}}
 }
 \concept{lm_cope}
 \concept{stats}

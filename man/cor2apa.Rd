@@ -25,10 +25,10 @@ converts \code{cor.test()} model to APA format string
 cor2apa(cor.test(carData::Salaries$yrs.since.phd, carData::Salaries$salary), format = 'plain')
 }
 \seealso{
-Other model2apa: 
-\code{\link{lm2apa}()},
-\code{\link{lmer2apa}()},
-\code{\link{model2apa}()}
+Other model2apa:
+\code{\link[=lm2apa]{lm2apa()}},
+\code{\link[=lmer2apa]{lmer2apa()}},
+\code{\link[=model2apa]{model2apa()}}
 }
 \concept{model2apa}
 \concept{stats}

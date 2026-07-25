@@ -22,13 +22,13 @@ Invisibly returns \code{NULL}; writes one mask NIfTI per LUT entry.
 split_dseg2mask
 }
 \seealso{
-Other neuroimaging helpers: 
-\code{\link{compare_brains}()},
-\code{\link{convet_lut_fs2bids}()},
-\code{\link{extract_brain_slice}()},
-\code{\link{get_3dstats}()},
-\code{\link{plot_brain_slice}()},
-\code{\link{plot_brain}()}
+Other neuroimaging helpers:
+\code{\link[=compare_brains]{compare_brains()}},
+\code{\link[=convet_lut_fs2bids]{convet_lut_fs2bids()}},
+\code{\link[=extract_brain_slice]{extract_brain_slice()}},
+\code{\link[=get_3dstats]{get_3dstats()}},
+\code{\link[=plot_brain]{plot_brain()}},
+\code{\link[=plot_brain_slice]{plot_brain_slice()}}
 }
 \concept{neuroimaging}
 \concept{neuroimaging helpers}

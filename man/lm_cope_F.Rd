@@ -4,14 +4,14 @@
 \alias{lm_cope_F}
 \title{lm_cope_F}
 \usage{
-lm_cope_F(model_fit, c, label, ci = 0.95)
+lm_cope_F(model_fit, c, label = NULL, ci = 0.95)
 }
 \arguments{
 \item{model_fit}{model fitted using \code{lm()}}
 
-\item{c}{contrast matrix}
+\item{c}{contrast matrix or list of contrast matrices}
 
-\item{label}{label for the contrast term}
+\item{label}{label for the contrast term (optional, default: names of the contrast list or 'Contrast')}
 
 \item{ci}{confidence interval (default: 0.95)}
 }
@@ -23,15 +23,27 @@ perform a contrast over parameter estimate (COPE) \emph{F}-test
 }
 \examples{
 model_fit <- lm(salary ~ rank + discipline, data = carData::Salaries)
-c <- rbind(
+
+# single contrast matrix
+c_single <- rbind(
   c(0, 1, 0, 0),
   c(0, 0, 1, 0)
 )
-lm_cope_F(model_fit, c, label = "rank")
+lm_cope_F(model_fit, c_single, label = "rank")
+
+# list of contrast matrices
+c_list <- list(
+  rank = rbind(
+    c(0, 1, 0, 0),
+    c(0, 0, 1, 0)
+  ),
+  discipline = matrix(c(0, 0, 0, 1), nrow = 1)
+)
+lm_cope_F(model_fit, c_list)
 }
 \seealso{
-Other lm_cope: 
-\code{\link{lm_cope_t}()}
+Other lm_cope:
+\code{\link[=lm_cope_t]{lm_cope_t()}}
 }
 \concept{lm_cope}
 \concept{stats}

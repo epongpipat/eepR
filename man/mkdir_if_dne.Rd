@@ -23,13 +23,13 @@ mkdir_if_dne(out_dir)
 dir.exists(out_dir)
 }
 \seealso{
-Other path helpers: 
-\code{\link{check_in_paths}()},
-\code{\link{check_out_paths}()},
-\code{\link{eval_cmd}()},
-\code{\link{safe_to_write}()},
-\code{\link{stop_if_dne}()},
-\code{\link{stop_if_e}()}
+Other path helpers:
+\code{\link[=check_in_paths]{check_in_paths()}},
+\code{\link[=check_out_paths]{check_out_paths()}},
+\code{\link[=eval_cmd]{eval_cmd()}},
+\code{\link[=safe_to_write]{safe_to_write()}},
+\code{\link[=stop_if_dne]{stop_if_dne()}},
+\code{\link[=stop_if_e]{stop_if_e()}}
 }
 \concept{path helpers}
 \concept{r_helper}

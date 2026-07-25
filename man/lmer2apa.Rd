@@ -27,10 +27,10 @@ converts \code{lmer()} model to APA format string
 lmer2apa(lmerTest::lmer(Reaction ~ 1 + Days + (1 + Days | Subject), lme4::sleepstudy), format = 'plain')
 }
 \seealso{
-Other model2apa: 
-\code{\link{cor2apa}()},
-\code{\link{lm2apa}()},
-\code{\link{model2apa}()}
+Other model2apa:
+\code{\link[=cor2apa]{cor2apa()}},
+\code{\link[=lm2apa]{lm2apa()}},
+\code{\link[=model2apa]{model2apa()}}
 }
 \concept{model2apa}
 \concept{stats}

@@ -20,10 +20,10 @@ start_time <- Sys.time()
 print_footer(start_time)
 }
 \seealso{
-Other console messaging helpers: 
-\code{\link{error_msg}()},
-\code{\link{info_msg}()},
-\code{\link{print_header}()},
-\code{\link{warning_msg}()}
+Other console messaging helpers:
+\code{\link[=error_msg]{error_msg()}},
+\code{\link[=info_msg]{info_msg()}},
+\code{\link[=print_header]{print_header()}},
+\code{\link[=warning_msg]{warning_msg()}}
 }
 \concept{console messaging helpers}

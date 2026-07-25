@@ -33,6 +33,8 @@ Other model summary helpers:
 [`r_sq_to_adj_r_sq()`](https://ekarinpongpipat.com/eepR/reference/r_sq_to_adj_r_sq.md),
 [`renamed_tidy()`](https://ekarinpongpipat.com/eepR/reference/renamed_tidy.md),
 [`tidy_es()`](https://ekarinpongpipat.com/eepR/reference/tidy_es.md),
+[`tidy_es_cope_F()`](https://ekarinpongpipat.com/eepR/reference/tidy_es_cope_F.md),
+[`tidy_es_cope_t()`](https://ekarinpongpipat.com/eepR/reference/tidy_es_cope_t.md),
 [`tidy_es_lm()`](https://ekarinpongpipat.com/eepR/reference/tidy_es_lm.md),
 [`tidy_es_lmer()`](https://ekarinpongpipat.com/eepR/reference/tidy_es_lmer.md)
 

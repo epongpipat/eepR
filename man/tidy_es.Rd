@@ -7,7 +7,7 @@
 tidy_es(model, ci = 0.95)
 }
 \arguments{
-\item{model}{model fit from \code{lm()}, \code{lmerTest::lmer()}, or \code{lme4::lmer()}}
+\item{model}{model fit from \code{lm()}, \code{lmerTest::lmer()}, \code{lme4::lmer()}, or \code{multcomp::glht()}}
 
 \item{ci}{confidence interval (0, 1)}
 }
@@ -24,16 +24,28 @@ tidy_es(lm(salary ~ yrs.since.phd, carData::Salaries))
 
 # example: lmer
 tidy_es(lmerTest::lmer(Reaction ~ 1 + Days + (1 + Days | Subject), lme4::sleepstudy))
+
+# example: glht
+model_fit <- lm(salary ~ rank + discipline, carData::Salaries)
+c <- rbind(
+  AssocProf_minus_AsstProf = c(0, 1, 0, 0),
+  Prof_minus_AsstProf      = c(0, 0, 1, 0),
+  Prof_minus_AssocProf     = c(0, -1, 1, 0)
+)
+model_fit_cope_t <- multcomp::glht(model_fit, c)
+tidy_es(model_fit_cope_t)
 }
 \seealso{
-Other model summary helpers: 
-\code{\link{get_lm_multicollinearity}()},
-\code{\link{models2coefs}()},
-\code{\link{models2omni}()},
-\code{\link{r_sq_to_adj_r_sq}()},
-\code{\link{renamed_tidy}()},
-\code{\link{tidy_es_lmer}()},
-\code{\link{tidy_es_lm}()}
+Other model summary helpers:
+\code{\link[=get_lm_multicollinearity]{get_lm_multicollinearity()}},
+\code{\link[=models2coefs]{models2coefs()}},
+\code{\link[=models2omni]{models2omni()}},
+\code{\link[=r_sq_to_adj_r_sq]{r_sq_to_adj_r_sq()}},
+\code{\link[=renamed_tidy]{renamed_tidy()}},
+\code{\link[=tidy_es_cope_F]{tidy_es_cope_F()}},
+\code{\link[=tidy_es_cope_t]{tidy_es_cope_t()}},
+\code{\link[=tidy_es_lm]{tidy_es_lm()}},
+\code{\link[=tidy_es_lmer]{tidy_es_lmer()}}
 }
 \concept{model summary helpers}
 \concept{stats}

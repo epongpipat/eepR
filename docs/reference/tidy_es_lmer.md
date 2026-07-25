@@ -34,13 +34,14 @@ Other model summary helpers:
 [`r_sq_to_adj_r_sq()`](https://ekarinpongpipat.com/eepR/reference/r_sq_to_adj_r_sq.md),
 [`renamed_tidy()`](https://ekarinpongpipat.com/eepR/reference/renamed_tidy.md),
 [`tidy_es()`](https://ekarinpongpipat.com/eepR/reference/tidy_es.md),
+[`tidy_es_cope_F()`](https://ekarinpongpipat.com/eepR/reference/tidy_es_cope_F.md),
+[`tidy_es_cope_t()`](https://ekarinpongpipat.com/eepR/reference/tidy_es_cope_t.md),
 [`tidy_es_lm()`](https://ekarinpongpipat.com/eepR/reference/tidy_es_lm.md)
 
 ## Examples
 
 ``` r
 tidy_es_lmer(lmerTest::lmer(Reaction ~ 1 + Days + (1 + Days | Subject), lme4::sleepstudy))
-#> Warning: 'oldNames' is deprecated. Please use 'signames' instead.
 #> Computing profile confidence intervals ...
 #>         lh op          rh         b       se       df         t            p
 #> 1 Reaction  ~ (Intercept) 251.40510 6.824597 16.99973 36.838090 1.171558e-17
