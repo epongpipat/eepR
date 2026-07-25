@@ -5,8 +5,9 @@
 #' @param model_2 the other model to compare
 #'
 #' @return comparison of the two models
+#' @importFrom tibble tibble
+#' @importFrom broom tidy
 #' @export
-#' @import tibble broom
 #' @examples
 #' data <- carData::Salaries
 #' model_1 <- lm(salary ~ yrs.since.phd * rank, data)

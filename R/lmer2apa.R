@@ -13,8 +13,6 @@
 #' @examples
 #' lmer2apa(lmerTest::lmer(Reaction ~ 1 + Days + (1 + Days | Subject), lme4::sleepstudy), format = 'plain')
 #' @importFrom scales scientific
-#' @importFrom broomExtra tidy
-#' @importFrom broomExtra glance
 #' @importFrom glue glue
 #' @importFrom effectsize t_to_eta2_adj
 #' @importFrom dplyr select
@@ -63,7 +61,7 @@ lmer2apa <- function(m, terms = 'all', level = 0.95, digits = 3, format = 'html'
     }
 
 
-    tmp$df <- glance(m)[['df.residual']]
+    tmp$df <- broomExtra::glance(m)[['df.residual']]
     tmp$t <- model_tidy[[i, 't']]
     if (abs(tmp$t) < .001) {
       tmp$t_str <- scientific(tmp$t, digits)

@@ -4,8 +4,9 @@
 #' @param model fitted model from \code{lm()}
 #'
 #' @return A data.frame with multicollinearity diagnostics for each model term.
+#' @import dplyr
+#' @importFrom broom glance
 #' @export
-#' @import dplyr broom
 #' @examples get_lm_multicollinearity(lm(salary ~ yrs.since.phd + yrs.service, carData::Salaries))
 get_lm_multicollinearity <- function(model) {
   X <- model.matrix(model)
