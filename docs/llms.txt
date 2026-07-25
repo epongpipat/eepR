@@ -31,10 +31,6 @@ remotes::install_github("epongpipat/eepR")
   : get_lm_multicollinearity
 - [`lm2apa()`](https://ekarinpongpipat.com/eepR/reference/lm2apa.md) :
   lm2apa
-- [`lm_cope_F()`](https://ekarinpongpipat.com/eepR/reference/lm_cope_F.md)
-  : lm_cope_F
-- [`lm_cope_t()`](https://ekarinpongpipat.com/eepR/reference/lm_cope_t.md)
-  : lm_cope_t
 - [`lmer2apa()`](https://ekarinpongpipat.com/eepR/reference/lmer2apa.md)
   : lmer2apa
 - [`model2apa()`](https://ekarinpongpipat.com/eepR/reference/model2apa.md)
