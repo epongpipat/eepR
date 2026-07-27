@@ -129,6 +129,7 @@ tidy_es_lmer <- function(model, ci = 0.95) {
 #' for linear hypothesis testing contrasts (t-test) using glht
 #' @concept stats
 #' @family model summary helpers
+#' @family contrast or COPE helpers
 #' @param model contrast model from \code{multcomp::glht()}
 #' @param ci confidence interval (0, 1)
 #' @return data.frame
@@ -138,11 +139,7 @@ tidy_es_lmer <- function(model, ci = 0.95) {
 #' @importFrom multcomp glht
 #' @examples
 #' model_fit <- lm(salary ~ rank + discipline, data = carData::Salaries)
-#' c <- rbind(
-#'   AssocProf_minus_AsstProf = c(0, 1, 0, 0),
-#'   Prof_minus_AsstProf      = c(0, 0, 1, 0),
-#'   Prof_minus_AssocProf     = c(0, -1, 1, 0)
-#' )
+#' c <- gen_contrast_ss(model_fit, x = "rank")[-1, ]
 #' model_fit_cope_t <- multcomp::glht(model_fit, c)
 #' tidy_es_cope_t(model_fit_cope_t)
 tidy_es_cope_t <- function(model, ci = 0.95) {
@@ -227,6 +224,7 @@ tidy_es_cope_t <- function(model, ci = 0.95) {
 #' testing contrasts (joint F-test) using glht
 #' @concept stats
 #' @family model summary helpers
+#' @family contrast or COPE helpers
 #' @param model contrast model from \code{multcomp::glht()}
 #' @param label label for the contrast term (default: joined contrast names)
 #' @param ci confidence interval (0, 1)
@@ -237,10 +235,7 @@ tidy_es_cope_t <- function(model, ci = 0.95) {
 #' @importFrom multcomp glht
 #' @examples
 #' model_fit <- lm(salary ~ rank + discipline, data = carData::Salaries)
-#' c <- rbind(
-#'   c(0, 1, 0, 0),
-#'   c(0, 0, 1, 0)
-#' )
+#' c <- gen_contrast_ss(model_fit, x = "rank")[-1, ]
 #' model_fit_cope_F <- multcomp::glht(model_fit, c)
 #' tidy_es_cope_F(model_fit_cope_F, label = "rank")
 tidy_es_cope_F <- function(model, label = NULL, ci = 0.95) {
