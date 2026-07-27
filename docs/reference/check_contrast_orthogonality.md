@@ -29,6 +29,12 @@ of each contrast pair equals 0
 Other statistical helpers:
 [`calculate_sdt()`](https://ekarinpongpipat.com/eepR/reference/calculate_sdt.md)
 
+Other contrast or COPE helpers:
+[`gen_contrast_blank()`](https://ekarinpongpipat.com/eepR/reference/gen_contrast_blank.md),
+[`gen_contrast_ss()`](https://ekarinpongpipat.com/eepR/reference/gen_contrast_ss.md),
+[`tidy_es_cope_F()`](https://ekarinpongpipat.com/eepR/reference/tidy_es_cope_F.md),
+[`tidy_es_cope_t()`](https://ekarinpongpipat.com/eepR/reference/tidy_es_cope_t.md)
+
 ## Examples
 
 ``` r

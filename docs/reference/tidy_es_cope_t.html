@@ -74,27 +74,26 @@ for linear hypothesis testing contrasts (t-test) using glht</p>
 <code><a href="tidy_es.html">tidy_es()</a></code>,
 <code><a href="tidy_es_cope_F.html">tidy_es_cope_F()</a></code>,
 <code><a href="tidy_es_lm.html">tidy_es_lm()</a></code>,
-<code><a href="tidy_es_lmer.html">tidy_es_lmer()</a></code></p></div>
+<code><a href="tidy_es_lmer.html">tidy_es_lmer()</a></code></p>
+<p>Other contrast or COPE helpers:
+<code><a href="check_contrast_orthogonality.html">check_contrast_orthogonality()</a></code>,
+<code><a href="gen_contrast_blank.html">gen_contrast_blank()</a></code>,
+<code><a href="gen_contrast_ss.html">gen_contrast_ss()</a></code>,
+<code><a href="tidy_es_cope_F.html">tidy_es_cope_F()</a></code></p></div>
     </div>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">model_fit</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html" class="external-link">lm</a></span><span class="op">(</span><span class="va">salary</span> <span class="op">~</span> <span class="va">rank</span> <span class="op">+</span> <span class="va">discipline</span>, data <span class="op">=</span> <span class="fu">carData</span><span class="fu">::</span><span class="va"><a href="https://rdrr.io/pkg/carData/man/Salaries.html" class="external-link">Salaries</a></span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="va">c</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/cbind.html" class="external-link">rbind</a></span><span class="op">(</span></span></span>
-<span class="r-in"><span>  AssocProf_minus_AsstProf <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">1</span>, <span class="fl">0</span>, <span class="fl">0</span><span class="op">)</span>,</span></span>
-<span class="r-in"><span>  Prof_minus_AsstProf      <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">0</span>, <span class="fl">1</span>, <span class="fl">0</span><span class="op">)</span>,</span></span>
-<span class="r-in"><span>  Prof_minus_AssocProf     <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="op">-</span><span class="fl">1</span>, <span class="fl">1</span>, <span class="fl">0</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">c</span> <span class="op">&lt;-</span> <span class="fu"><a href="gen_contrast_ss.html">gen_contrast_ss</a></span><span class="op">(</span><span class="va">model_fit</span>, x <span class="op">=</span> <span class="st">"rank"</span><span class="op">)</span><span class="op">[</span><span class="op">-</span><span class="fl">1</span>, <span class="op">]</span></span></span>
 <span class="r-in"><span><span class="va">model_fit_cope_t</span> <span class="op">&lt;-</span> <span class="fu">multcomp</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/multcomp/man/glht.html" class="external-link">glht</a></span><span class="op">(</span><span class="va">model_fit</span>, <span class="va">c</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu">tidy_es_cope_t</span><span class="op">(</span><span class="va">model_fit_cope_t</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>       lh op                       rh        b       se  df         t</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 salary  ~ AssocProf_minus_AsstProf 13761.54 3960.661 393  3.474557</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2 salary  ~      Prof_minus_AsstProf 47843.84 3111.552 393 15.376197</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3 salary  ~     Prof_minus_AssocProf 34082.30 3159.885 393 10.785929</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             p   r_sq_adj   b_ci_ll  b_ci_ul r_sq_adj_ci_ll r_sq_adj_ci_ul</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 0.001612599 0.02733473  4485.395 23037.69    0.007003391              1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2 0.000000000 0.37403428 40556.364 55131.31    0.314935373              1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3 0.000000000 0.22644424 26681.621 41482.97    0.169579185              1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       lh op            rh        b       se  df         t            p</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 salary  ~ rankAssocProf 13761.54 3960.661 393  3.474557 1.092134e-03</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 salary  ~      rankProf 47843.84 3111.552 393 15.376197 1.887379e-15</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     r_sq_adj   b_ci_ll  b_ci_ul r_sq_adj_ci_ll r_sq_adj_ci_ul</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 0.02733473  5037.619 22485.47    0.007003391              1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 0.37403428 40990.199 54697.48    0.314935373              1</span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>

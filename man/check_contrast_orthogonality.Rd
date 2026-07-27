@@ -28,6 +28,13 @@ check_contrast_orthogonality(contrast_example)
 \seealso{
 Other statistical helpers:
 \code{\link[=calculate_sdt]{calculate_sdt()}}
+
+Other contrast or COPE helpers:
+\code{\link[=gen_contrast_blank]{gen_contrast_blank()}},
+\code{\link[=gen_contrast_ss]{gen_contrast_ss()}},
+\code{\link[=tidy_es_cope_F]{tidy_es_cope_F()}},
+\code{\link[=tidy_es_cope_t]{tidy_es_cope_t()}}
 }
+\concept{contrast or COPE helpers}
 \concept{statistical helpers}
 \concept{stats}

@@ -21,11 +21,7 @@ for linear hypothesis testing contrasts (t-test) using glht
 }
 \examples{
 model_fit <- lm(salary ~ rank + discipline, data = carData::Salaries)
-c <- rbind(
-  AssocProf_minus_AsstProf = c(0, 1, 0, 0),
-  Prof_minus_AsstProf      = c(0, 0, 1, 0),
-  Prof_minus_AssocProf     = c(0, -1, 1, 0)
-)
+c <- gen_contrast_ss(model_fit, x = "rank")[-1, ]
 model_fit_cope_t <- multcomp::glht(model_fit, c)
 tidy_es_cope_t(model_fit_cope_t)
 }
@@ -40,6 +36,13 @@ Other model summary helpers:
 \code{\link[=tidy_es_cope_F]{tidy_es_cope_F()}},
 \code{\link[=tidy_es_lm]{tidy_es_lm()}},
 \code{\link[=tidy_es_lmer]{tidy_es_lmer()}}
+
+Other contrast or COPE helpers:
+\code{\link[=check_contrast_orthogonality]{check_contrast_orthogonality()}},
+\code{\link[=gen_contrast_blank]{gen_contrast_blank()}},
+\code{\link[=gen_contrast_ss]{gen_contrast_ss()}},
+\code{\link[=tidy_es_cope_F]{tidy_es_cope_F()}}
 }
+\concept{contrast or COPE helpers}
 \concept{model summary helpers}
 \concept{stats}

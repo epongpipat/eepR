@@ -38,23 +38,23 @@ Other model summary helpers:
 [`tidy_es_lm()`](https://ekarinpongpipat.com/eepR/reference/tidy_es_lm.md),
 [`tidy_es_lmer()`](https://ekarinpongpipat.com/eepR/reference/tidy_es_lmer.md)
 
+Other contrast or COPE helpers:
+[`check_contrast_orthogonality()`](https://ekarinpongpipat.com/eepR/reference/check_contrast_orthogonality.md),
+[`gen_contrast_blank()`](https://ekarinpongpipat.com/eepR/reference/gen_contrast_blank.md),
+[`gen_contrast_ss()`](https://ekarinpongpipat.com/eepR/reference/gen_contrast_ss.md),
+[`tidy_es_cope_F()`](https://ekarinpongpipat.com/eepR/reference/tidy_es_cope_F.md)
+
 ## Examples
 
 ``` r
 model_fit <- lm(salary ~ rank + discipline, data = carData::Salaries)
-c <- rbind(
-  AssocProf_minus_AsstProf = c(0, 1, 0, 0),
-  Prof_minus_AsstProf      = c(0, 0, 1, 0),
-  Prof_minus_AssocProf     = c(0, -1, 1, 0)
-)
+c <- gen_contrast_ss(model_fit, x = "rank")[-1, ]
 model_fit_cope_t <- multcomp::glht(model_fit, c)
 tidy_es_cope_t(model_fit_cope_t)
-#>       lh op                       rh        b       se  df         t
-#> 1 salary  ~ AssocProf_minus_AsstProf 13761.54 3960.661 393  3.474557
-#> 2 salary  ~      Prof_minus_AsstProf 47843.84 3111.552 393 15.376197
-#> 3 salary  ~     Prof_minus_AssocProf 34082.30 3159.885 393 10.785929
-#>             p   r_sq_adj   b_ci_ll  b_ci_ul r_sq_adj_ci_ll r_sq_adj_ci_ul
-#> 1 0.001612599 0.02733473  4485.395 23037.69    0.007003391              1
-#> 2 0.000000000 0.37403428 40556.364 55131.31    0.314935373              1
-#> 3 0.000000000 0.22644424 26681.621 41482.97    0.169579185              1
+#>       lh op            rh        b       se  df         t            p
+#> 1 salary  ~ rankAssocProf 13761.54 3960.661 393  3.474557 1.092134e-03
+#> 2 salary  ~      rankProf 47843.84 3111.552 393 15.376197 1.887379e-15
+#>     r_sq_adj   b_ci_ll  b_ci_ul r_sq_adj_ci_ll r_sq_adj_ci_ul
+#> 1 0.02733473  5037.619 22485.47    0.007003391              1
+#> 2 0.37403428 40990.199 54697.48    0.314935373              1
 ```

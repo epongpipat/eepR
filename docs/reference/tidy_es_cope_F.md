@@ -42,14 +42,17 @@ Other model summary helpers:
 [`tidy_es_lm()`](https://ekarinpongpipat.com/eepR/reference/tidy_es_lm.md),
 [`tidy_es_lmer()`](https://ekarinpongpipat.com/eepR/reference/tidy_es_lmer.md)
 
+Other contrast or COPE helpers:
+[`check_contrast_orthogonality()`](https://ekarinpongpipat.com/eepR/reference/check_contrast_orthogonality.md),
+[`gen_contrast_blank()`](https://ekarinpongpipat.com/eepR/reference/gen_contrast_blank.md),
+[`gen_contrast_ss()`](https://ekarinpongpipat.com/eepR/reference/gen_contrast_ss.md),
+[`tidy_es_cope_t()`](https://ekarinpongpipat.com/eepR/reference/tidy_es_cope_t.md)
+
 ## Examples
 
 ``` r
 model_fit <- lm(salary ~ rank + discipline, data = carData::Salaries)
-c <- rbind(
-  c(0, 1, 0, 0),
-  c(0, 0, 1, 0)
-)
+c <- gen_contrast_ss(model_fit, x = "rank")[-1, ]
 model_fit_cope_F <- multcomp::glht(model_fit, c)
 tidy_es_cope_F(model_fit_cope_F, label = "rank")
 #>       lh op   rh       ss df       ms        F            p  r_sq_adj

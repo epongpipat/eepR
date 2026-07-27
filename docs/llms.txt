@@ -27,6 +27,15 @@ remotes::install_github("epongpipat/eepR")
   cor2apa
 - [`cor_long()`](https://ekarinpongpipat.com/eepR/reference/cor_long.md)
   : cor_long
+- [`extract_model_data()`](https://ekarinpongpipat.com/eepR/reference/extract_model_data.md)
+  : Extract Raw Variables from a Fitted Model
+- [`gen_contrast_blank()`](https://ekarinpongpipat.com/eepR/reference/gen_contrast_blank.md)
+  : Create a Blank COPE / Contrast Matrix from a Model or Predictor
+  Names
+- [`gen_contrast_ss()`](https://ekarinpongpipat.com/eepR/reference/gen_contrast_ss.md)
+  : Create Simple Slopes Contrast Matrix (COPE Matrix)
+- [`gen_data_predict()`](https://ekarinpongpipat.com/eepR/reference/gen_data_predict.md)
+  : Create Data Grid for Model Predictions
 - [`get_lm_multicollinearity()`](https://ekarinpongpipat.com/eepR/reference/get_lm_multicollinearity.md)
   : get_lm_multicollinearity
 - [`lm2apa()`](https://ekarinpongpipat.com/eepR/reference/lm2apa.md) :
