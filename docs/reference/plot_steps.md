@@ -6,7 +6,7 @@ plot_steps
 
 ``` r
 plot_steps(
-  in_path,
+  data,
   out_path = NULL,
   subjid = "sub",
   title = NULL,
@@ -16,9 +16,10 @@ plot_steps(
 
 ## Arguments
 
-- in_path:
+- data:
 
-  path to input csv file of subjects by rows (required)
+  path to input csv file of subjects by rows (character) OR a data.frame
+  containing the data (required)
 
 - out_path:
 
@@ -40,3 +41,28 @@ plot_steps(
 ## Value
 
 ggplot2 heatmap of steps
+
+## Examples
+
+``` r
+df <- data.frame(
+  sub = c("sub01", "sub02", "sub03"),
+  `1. Step 1` = c(1, 1, 1),
+  `2. Step 2` = c(1, 1, 0),
+  `3. Step 3` = c(1, 0, 0),
+  check.names = FALSE
+)
+plot_steps(df)
+#> 
+#> step: 
+#> ✓ 1. Step 1 
+#> ✗ 2. Step 2 
+#> ✗ 3. Step 3 
+#> 
+#> steps incomplete: 
+#>   subjid 1. Step 1 2. Step 2 3. Step 3
+#> 2  sub02         1         1         0
+#> 3  sub03         1         0         0
+#> 
+#> no. subjects incomplete:  2 
+```

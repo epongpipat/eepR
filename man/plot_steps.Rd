@@ -5,7 +5,7 @@
 \title{plot_steps}
 \usage{
 plot_steps(
-  in_path,
+  data,
   out_path = NULL,
   subjid = "sub",
   title = NULL,
@@ -13,7 +13,7 @@ plot_steps(
 )
 }
 \arguments{
-\item{in_path}{path to input csv file of subjects by rows (required)}
+\item{data}{path to input csv file of subjects by rows (character) OR a data.frame containing the data (required)}
 
 \item{out_path}{path to save output image (optional)}
 
@@ -28,5 +28,15 @@ ggplot2 heatmap of steps
 }
 \description{
 plot_steps
+}
+\examples{
+df <- data.frame(
+  sub = c("sub01", "sub02", "sub03"),
+  `1. Step 1` = c(1, 1, 1),
+  `2. Step 2` = c(1, 1, 0),
+  `3. Step 3` = c(1, 0, 0),
+  check.names = FALSE
+)
+plot_steps(df)
 }
 \concept{visualization}

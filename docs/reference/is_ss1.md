@@ -35,5 +35,5 @@ Other check scale functions:
 ``` r
 x <- c(1, 2, 2, 3, 3, 3)
 is_ss1(scale(x) / sqrt(length(x)))
-#> [1] TRUE
+#> [1] FALSE
 ```
