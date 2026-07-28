@@ -1,6 +1,6 @@
 #' plot_steps
 #' @concept visualization
-#' @param in_path path to input csv file of subjects by rows (required)
+#' @param data path to input csv file of subjects by rows (character) OR a data.frame containing the data (required)
 #' @param out_path path to save output image (optional)
 #' @param subjid columns that identify the rows. if more than one, will combine into key1-value1_key2-value2_...keyN-valueN
 #' @param title title of plot
@@ -12,6 +12,7 @@
 #' @importFrom stringr str_replace_all
 #' @importFrom stringr  str_remove
 #' @importFrom stringr str_subset
+#' @importFrom stringr str_pad
 #' @importFrom tidyr pivot_longer
 #' @importFrom dplyr group_by
 #' @importFrom dplyr summarize
@@ -19,16 +20,31 @@
 #' @importFrom dplyr mutate
 #' @importFrom crayon green
 #' @importFrom crayon red
+#' @importFrom glue glue
 #' @import ggplot2
 #' @import patchwork
-plot_steps <- function(in_path, out_path = NULL, subjid = 'sub', title = NULL, subtitle = NULL) {
+#' @examples
+#' df <- data.frame(
+#'   sub = c("sub01", "sub02", "sub03"),
+#'   `1. Step 1` = c(1, 1, 1),
+#'   `2. Step 2` = c(1, 1, 0),
+#'   `3. Step 3` = c(1, 0, 0),
+#'   check.names = FALSE
+#' )
+#' plot_steps(df)
+plot_steps <- function(data, out_path = NULL, subjid = 'sub', title = NULL, subtitle = NULL) {
   # checks
-  if (!file.exists(in_path)) {
-    stop(sprintf("file does not exist (%s)", in_path))
+  if (is.character(data)) {
+    if (!file.exists(data)) {
+      stop(sprintf("file does not exist (%s)", data))
+    }
+    df <- read.csv(data)
+  } else if (is.data.frame(data)) {
+    df <- data
+  } else {
+    stop("data must be a file path (character) or a data.frame")
   }
-
-  df <- read.csv(in_path)
-  colnames(df) <- str_replace_all(colnames(df), '\\..', '. ')
+  colnames(df) <- str_replace_all(colnames(df), '\\.\\.', '. ')
   colnames(df) <- str_remove(colnames(df), 'X')
 
   if (length(subjid) >= 2) {
@@ -49,7 +65,7 @@ plot_steps <- function(in_path, out_path = NULL, subjid = 'sub', title = NULL, s
     group_by(step) |>
     summarize(pct_complete = mean(complete),
               n_complete = sum(complete)) |>
-    separate(col = step, into = c('step_number', 'step_name'), sep = '. ', remove = FALSE) |>
+    separate(col = step, into = c('step_number', 'step_name'), sep = '\\. ', remove = FALSE) |>
     mutate(step_number = as.numeric(step_number))
 
   cat("\n")
@@ -68,7 +84,7 @@ plot_steps <- function(in_path, out_path = NULL, subjid = 'sub', title = NULL, s
                  names_to = 'step',
                  values_to = 'complete') |>
     mutate(complete = as.factor(complete)) |>
-    separate(col = step, into = c('step_number', 'step_name'), sep = '. ', remove = FALSE) |>
+    separate(col = step, into = c('step_number', 'step_name'), sep = '\\. ', remove = FALSE) |>
     mutate(step_number = as.integer(step_number)) |>
     mutate(step2 = str_pad(step_number, 2, 'left', 0))
 
