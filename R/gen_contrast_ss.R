@@ -151,6 +151,7 @@ gen_contrast_ss <- function(model, x, m = NULL, covariates = 0, digits = 4) {
   if (is_x_factor) {
     # Categorical focal predictor contrast logic
     levels_x <- if (is.factor(raw_df[[x]])) levels(raw_df[[x]]) else unique(raw_df[[x]])
+    ref_level <- levels_x[1]
     comp_levels <- levels_x
     
     m_vars <- setdiff(colnames(pred_grid), x)
@@ -164,22 +165,29 @@ gen_contrast_ss <- function(model, x, m = NULL, covariates = 0, digits = 4) {
     grid_rows <- list()
     
     for (r in 1:nrow(mod_grid)) {
-      for (L in comp_levels) {
-        cond_comp <- pred_grid[[x]] == L
-        if (length(m_vars) > 0) {
-          for (mv in m_vars) {
-            cond_comp <- cond_comp & (pred_grid[[mv]] == mod_grid[r, mv])
-          }
+      cond_ref <- pred_grid[[x]] == ref_level
+      if (length(m_vars) > 0) {
+        for (mv in m_vars) {
+          cond_ref <- cond_ref & (pred_grid[[mv]] == mod_grid[r, mv])
         }
-        comp_idx <- which(cond_comp)
-        
-        if (length(comp_idx) == 1) {
-          contrast_vec <- X[comp_idx, ]
-          if ("(Intercept)" %in% names(contrast_vec)) {
-            contrast_vec["(Intercept)"] <- 0
+      }
+      ref_idx <- which(cond_ref)
+      
+      if (length(ref_idx) == 1) {
+        for (L in comp_levels) {
+          cond_comp <- pred_grid[[x]] == L
+          if (length(m_vars) > 0) {
+            for (mv in m_vars) {
+              cond_comp <- cond_comp & (pred_grid[[mv]] == mod_grid[r, mv])
+            }
           }
-          slope_rows[[length(slope_rows) + 1]] <- contrast_vec
-          grid_rows[[length(grid_rows) + 1]] <- pred_grid[comp_idx, , drop = FALSE]
+          comp_idx <- which(cond_comp)
+          
+          if (length(comp_idx) == 1) {
+            contrast_vec <- X[comp_idx, ] - X[ref_idx, ]
+            slope_rows[[length(slope_rows) + 1]] <- contrast_vec
+            grid_rows[[length(grid_rows) + 1]] <- pred_grid[comp_idx, , drop = FALSE]
+          }
         }
       }
     }
