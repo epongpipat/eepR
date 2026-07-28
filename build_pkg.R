@@ -1,4 +1,5 @@
 # renv::snapshot()
 # usethis::use_version(which = "minor")
+testthat::test_local()
 roxygen2::roxygenize()
 pkgdown::build_site()
