@@ -15,7 +15,7 @@
 is_centered <- function(x, eps = 1e-8) {
   X <- as.matrix(x)
   Y <- apply(X, 2, function(x) {
-    ifelse(mean(x) - 0 < eps, TRUE, FALSE)
+    abs(mean(x)) < eps
   })
   return(Y)
 }
@@ -37,7 +37,7 @@ is_centered <- function(x, eps = 1e-8) {
 is_z_scored <- function(x, eps = 1e-8) {
   X <- as.matrix(x)
   Y <- apply(X, 2, function(x) {
-    ifelse((mean(x) - 0) < eps & (sd(x) - 1) < eps, TRUE, FALSE)
+    abs(mean(x)) < eps && abs(sd(x) - 1) < eps
   })
   return(Y)
 }
@@ -60,7 +60,7 @@ is_z_scored <- function(x, eps = 1e-8) {
 is_ss1 <- function(x, eps = 1e-8) {
   X <- as.matrix(x)
   Y <- apply(X, 2, function(x) {
-    sum(x^2) - 1 < eps
+    abs(sum(x^2) - 1) < eps
   })
   return(Y)
 }
