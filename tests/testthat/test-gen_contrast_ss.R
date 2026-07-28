@@ -116,3 +116,18 @@ test_that("gen_contrast_ss works for continuous and categorical variables, custo
   c_term_self_mod <- gen_contrast_ss(fit_test, x = "scale(yrs.since.phd, scale = F)", m = list("scale(yrs.since.phd, scale = F)" = "real"))
   expect_equal(unname(c_term_self_mod), unname(c_raw_self))
 })
+
+test_that("gen_contrast_ss works with lmerTest S4 models", {
+  skip_if_not_installed("lmerTest")
+  skip_if_not_installed("lme4")
+  
+  data <- carData::Salaries
+  set.seed(42)
+  data$subject <- factor(rep(1:10, length.out = nrow(data)))
+  
+  fit_lmer <- lmerTest::lmer(salary ~ scale(yrs.since.phd, scale = F) * rank + (1 | subject), data = data)
+  
+  c_lmer <- gen_contrast_ss(fit_lmer, x = "yrs.since.phd", m = list(rank = "real"))
+  expect_equal(dim(c_lmer), c(3L, 6L))
+  expect_equal(unname(c_lmer[, "scale(yrs.since.phd, scale = F)"]), c(1, 1, 1))
+})

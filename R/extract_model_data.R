@@ -23,9 +23,10 @@ extract_model_data <- function(model,
   
   # 1. Try to extract raw data from the model call
   data_obj <- NULL
-  if (!is.null(model$call$data)) {
+  model_call <- stats::getCall(model)
+  if (!is.null(model_call) && !is.null(model_call$data)) {
     data_obj <- tryCatch({
-      eval(model$call$data, envir = environment(stats::formula(model)))
+      eval(model_call$data, envir = environment(stats::formula(model)))
     }, error = function(e) NULL)
   }
   
