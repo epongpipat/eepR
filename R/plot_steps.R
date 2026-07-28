@@ -140,5 +140,5 @@ plot_steps <- function(data, out_path = NULL, subjid = 'sub', title = NULL, subt
     ggsave(out_path, fig)
   }
 
-  return(invisible(fig))
+  return(fig)
 }
