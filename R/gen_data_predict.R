@@ -40,12 +40,10 @@ gen_data_predict <- function(model, x, m = NULL, covariates = 0) {
   # 1. Handle Focal Predictor(s)
   for (f_var in x) {
     val <- raw_df[[f_var]]
-    grid_list[[f_var]] <- if (is.factor(val)) {
-      levels(val)
-    } else if (is.numeric(val)) {
-      unique(val)
-    } else {
-      unique(val)
+    if (is.factor(val) || is.character(val)) {
+      grid_list[[f_var]] <- if (is.factor(val)) levels(val) else unique(val)
+    } else if (f_var %in% names(m)) {
+      grid_list[[f_var]] <- unique(val)
     }
   }
   
