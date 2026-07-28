@@ -12,6 +12,8 @@
   cor2apa
 - [`cor_long()`](https://ekarinpongpipat.com/eepR/reference/cor_long.md)
   : cor_long
+- [`extract_interaction_terms()`](https://ekarinpongpipat.com/eepR/reference/extract_interaction_terms.md)
+  : Extract Interaction Terms Involving a Predictor
 - [`extract_model_data()`](https://ekarinpongpipat.com/eepR/reference/extract_model_data.md)
   : Extract Raw Variables from a Fitted Model
 - [`gen_contrast_blank()`](https://ekarinpongpipat.com/eepR/reference/gen_contrast_blank.md)
@@ -27,6 +29,8 @@
   lm2apa
 - [`lmer2apa()`](https://ekarinpongpipat.com/eepR/reference/lmer2apa.md)
   : lmer2apa
+- [`map_terms_to_data()`](https://ekarinpongpipat.com/eepR/reference/map_terms_to_data.md)
+  : Map Model Terms to Raw Data Variables
 - [`model2apa()`](https://ekarinpongpipat.com/eepR/reference/model2apa.md)
   : model2apa
 - [`models2coefs()`](https://ekarinpongpipat.com/eepR/reference/models2coefs.md)

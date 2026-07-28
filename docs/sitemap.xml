@@ -22,6 +22,7 @@
 <url><loc>https://ekarinpongpipat.com/eepR/reference/error_msg.html</loc></url>
 <url><loc>https://ekarinpongpipat.com/eepR/reference/eval_cmd.html</loc></url>
 <url><loc>https://ekarinpongpipat.com/eepR/reference/extract_brain_slice.html</loc></url>
+<url><loc>https://ekarinpongpipat.com/eepR/reference/extract_interaction_terms.html</loc></url>
 <url><loc>https://ekarinpongpipat.com/eepR/reference/extract_model_data.html</loc></url>
 <url><loc>https://ekarinpongpipat.com/eepR/reference/flatten_dimension.html</loc></url>
 <url><loc>https://ekarinpongpipat.com/eepR/reference/flatten_dimension_all.html</loc></url>
@@ -43,6 +44,7 @@
 <url><loc>https://ekarinpongpipat.com/eepR/reference/lm_cope_F.html</loc></url>
 <url><loc>https://ekarinpongpipat.com/eepR/reference/lm_cope_t.html</loc></url>
 <url><loc>https://ekarinpongpipat.com/eepR/reference/lmer2apa.html</loc></url>
+<url><loc>https://ekarinpongpipat.com/eepR/reference/map_terms_to_data.html</loc></url>
 <url><loc>https://ekarinpongpipat.com/eepR/reference/mat2nii.html</loc></url>
 <url><loc>https://ekarinpongpipat.com/eepR/reference/mkdir_if_dne.html</loc></url>
 <url><loc>https://ekarinpongpipat.com/eepR/reference/model.html</loc></url>

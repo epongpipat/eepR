@@ -79,4 +79,40 @@ test_that("gen_contrast_ss works for continuous and categorical variables, custo
   fit11 <- lm(salary ~ scale(yrs.since.phd, scale = F) + rank, data = data)
   expect_error(gen_contrast_ss(fit11, x = "yrs.since.phd", m = list("rank" = "real")))
   expect_error(gen_contrast_ss(fit11, x = "yrs.since.phd", m = "sd"))
+
+  # --- Test Case 11: Full term and transformed predictor names with strict exact matching ---
+  fit_test <- lm(salary ~ scale(yrs.since.phd, scale = F) * rank + I(scale(yrs.since.phd, scale = F)^2) * rank, data = data)
+  
+  c_term1 <- gen_contrast_ss(fit_test, x = "scale(yrs.since.phd, scale = F)", m = list(rank = "real"))
+  expect_true(any(grepl("scale(yrs.since.phd, scale = F)", rownames(c_term1), fixed = TRUE)))
+  expect_equal(unname(c_term1[, "scale(yrs.since.phd, scale = F)"]), c(1, 1, 1))
+  expect_equal(unname(c_term1[, "I(scale(yrs.since.phd, scale = F)^2)"]), c(0, 0, 0))
+  expect_equal(unname(c_term1["scale(yrs.since.phd, scale = F)@rank==\"AsstProf\"", "scale(yrs.since.phd, scale = F):rankAssocProf"]), 0)
+  expect_equal(unname(c_term1["scale(yrs.since.phd, scale = F)@rank==\"AssocProf\"", "scale(yrs.since.phd, scale = F):rankAssocProf"]), 1)
+  
+  c_term2 <- gen_contrast_ss(fit_test, x = "I(scale(yrs.since.phd, scale = F)^2)", m = list(rank = "real"))
+  expect_true(any(grepl("I(scale(yrs.since.phd, scale = F)^2)", rownames(c_term2), fixed = TRUE)))
+  expect_equal(unname(c_term2[, "I(scale(yrs.since.phd, scale = F)^2)"]), c(1, 1, 1))
+  expect_equal(unname(c_term2[, "scale(yrs.since.phd, scale = F)"]), c(0, 0, 0))
+  expect_equal(unname(c_term2["I(scale(yrs.since.phd, scale = F)^2)@rank==\"AssocProf\"", "rankAssocProf:I(scale(yrs.since.phd, scale = F)^2)"]), 1)
+
+  # Check that typos throw an error under strict exact matching
+  expect_error(gen_contrast_ss(fit_test, x = "I(scale(yrs.since.phd, scale = F), ^2)"))
+
+  # Check that passing raw variable name "yrs.since.phd" without self-moderation evaluates only the linear term
+  c_raw <- gen_contrast_ss(fit_test, x = "yrs.since.phd", m = list(rank = "real"))
+  expect_equal(unname(c_raw[, "scale(yrs.since.phd, scale = F)"]), c(1, 1, 1))
+  expect_equal(unname(c_raw[, "I(scale(yrs.since.phd, scale = F)^2)"]), c(0, 0, 0))
+
+  # Check that passing raw variable name "yrs.since.phd" WITH self-moderation evaluates the full polynomial (non-zero quadratic)
+  c_raw_self <- gen_contrast_ss(fit_test, x = "yrs.since.phd", m = list(yrs.since.phd = "real"))
+  expect_true(all(c_raw_self[, "I(scale(yrs.since.phd, scale = F)^2)"] != 0))
+
+  # Check that passing transformed term or raw variable under self-moderation matches exactly in values
+  c_term_self <- gen_contrast_ss(fit_test, x = "scale(yrs.since.phd, scale = F)", m = list(yrs.since.phd = "real"))
+  expect_equal(unname(c_term_self), unname(c_raw_self))
+
+  # Check that passing transformed term name as a moderator behaves exactly the same as raw variable name under self-moderation
+  c_term_self_mod <- gen_contrast_ss(fit_test, x = "scale(yrs.since.phd, scale = F)", m = list("scale(yrs.since.phd, scale = F)" = "real"))
+  expect_equal(unname(c_term_self_mod), unname(c_raw_self))
 })

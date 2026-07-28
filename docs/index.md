@@ -7,8 +7,4 @@ use this with caution.
 
 ## Install
 
-``` r
-
-# install.packages("remotes")
-remotes::install_github("epongpipat/eepR")
-```
+`# install.packages("remotes")`` ``remotes``::`[`install_github`](https://remotes.r-lib.org/reference/install_github.html)`(``"epongpipat/eepR"``)`
