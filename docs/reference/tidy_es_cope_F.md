@@ -46,6 +46,8 @@ Other contrast or COPE helpers:
 [`check_contrast_orthogonality()`](https://ekarinpongpipat.com/eepR/reference/check_contrast_orthogonality.md),
 [`gen_contrast_blank()`](https://ekarinpongpipat.com/eepR/reference/gen_contrast_blank.md),
 [`gen_contrast_ss()`](https://ekarinpongpipat.com/eepR/reference/gen_contrast_ss.md),
+[`gen_data_jn()`](https://ekarinpongpipat.com/eepR/reference/gen_data_jn.md),
+[`plot.jn_df()`](https://ekarinpongpipat.com/eepR/reference/plot.jn_df.md),
 [`tidy_es_cope_t()`](https://ekarinpongpipat.com/eepR/reference/tidy_es_cope_t.md)
 
 ## Examples

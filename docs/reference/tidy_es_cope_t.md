@@ -7,7 +7,12 @@ hypothesis testing contrasts (t-test) using glht
 ## Usage
 
 ``` r
-tidy_es_cope_t(model, ci = 0.95)
+tidy_es_cope_t(
+  model,
+  ci = 0.95,
+  mcc = c("single-step", "none", "uncorrected", "fdr", "FDR", "tukey", "tukey's HSD",
+    "Tukey")
+)
 ```
 
 ## Arguments
@@ -20,6 +25,12 @@ tidy_es_cope_t(model, ci = 0.95)
 - ci:
 
   confidence interval (0, 1)
+
+- mcc:
+
+  multiple comparison correction method. Options include "single-step"
+  (default, which is what glht provides for Tukey's HSD), "none"
+  (uncorrected), "fdr", "FDR", "tukey", "tukey's HSD", and "Tukey".
 
 ## Value
 
@@ -42,6 +53,8 @@ Other contrast or COPE helpers:
 [`check_contrast_orthogonality()`](https://ekarinpongpipat.com/eepR/reference/check_contrast_orthogonality.md),
 [`gen_contrast_blank()`](https://ekarinpongpipat.com/eepR/reference/gen_contrast_blank.md),
 [`gen_contrast_ss()`](https://ekarinpongpipat.com/eepR/reference/gen_contrast_ss.md),
+[`gen_data_jn()`](https://ekarinpongpipat.com/eepR/reference/gen_data_jn.md),
+[`plot.jn_df()`](https://ekarinpongpipat.com/eepR/reference/plot.jn_df.md),
 [`tidy_es_cope_F()`](https://ekarinpongpipat.com/eepR/reference/tidy_es_cope_F.md)
 
 ## Examples

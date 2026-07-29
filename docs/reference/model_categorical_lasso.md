@@ -40,6 +40,6 @@ model_categorical_lasso(x, y)
 #> 
 #> Call:  glmnet(x = x, y = y, family = family, alpha = 1, lambda = cv$lambda.min) 
 #> 
-#>   Df %Dev   Lambda
-#> 1  4 95.6 0.001239
+#>   Df  %Dev   Lambda
+#> 1  4 95.75 0.001029
 ```

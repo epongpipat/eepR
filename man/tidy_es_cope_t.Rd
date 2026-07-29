@@ -49,6 +49,7 @@ Other contrast or COPE helpers:
 \code{\link[=gen_contrast_blank]{gen_contrast_blank()}},
 \code{\link[=gen_contrast_ss]{gen_contrast_ss()}},
 \code{\link[=gen_data_jn]{gen_data_jn()}},
+\code{\link[=plot.jn_df]{plot.jn_df()}},
 \code{\link[=tidy_es_cope_F]{tidy_es_cope_F()}}
 }
 \concept{contrast or COPE helpers}

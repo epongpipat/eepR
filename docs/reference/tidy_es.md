@@ -6,7 +6,12 @@ a modification of the renamed tidy command to adds the effect size
 ## Usage
 
 ``` r
-tidy_es(model, ci = 0.95)
+tidy_es(
+  model,
+  ci = 0.95,
+  mcc = c("single-step", "none", "uncorrected", "fdr", "FDR", "tukey", "tukey's HSD",
+    "Tukey")
+)
 ```
 
 ## Arguments
@@ -21,6 +26,12 @@ tidy_es(model, ci = 0.95)
 - ci:
 
   confidence interval (0, 1)
+
+- mcc:
+
+  multiple comparison correction method. Options include "single-step"
+  (default, which is what glht provides for Tukey's HSD), "none"
+  (uncorrected), "fdr", "FDR", "tukey", "tukey's HSD", and "Tukey".
 
 ## Value
 

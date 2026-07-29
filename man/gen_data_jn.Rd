@@ -12,17 +12,19 @@ gen_data_jn(data, ci = 0.95)
 \item{ci}{Confidence interval (0, 1). Default is 0.95.}
 }
 \value{
-A data.frame containing:
+A data.frame of class \code{c("jn_df", "data.frame")} containing:
 \itemize{
-\item Column(s) for the moderator(s) with their values.
-\item \code{b}: Simple slope estimate.
-\item \code{se}: Standard error.
+\item \code{x}: Values of the primary moderator (mapped to the x-axis).
+\item \code{group}: Values of the secondary moderator, if any.
+\item \code{facet}: Values of the tertiary moderator, if any.
+\item \code{predicted}: Simple slope estimate.
+\item \code{std.error}: Standard error of the slope.
 \item \code{df}: Degrees of freedom.
-\item \code{t}: t-statistic.
-\item \code{p}: p-value.
-\item \code{b_ci_ll}: Lower bound of the slope confidence interval.
-\item \code{b_ci_ul}: Upper bound of the slope confidence interval.
-\item \code{sig}: Logical indicating whether the slope is significant (p < 1 - ci).
+\item \code{statistic}: t-statistic.
+\item \code{p.value}: p-value.
+\item \code{conf.low}: Lower bound of the slope confidence interval.
+\item \code{conf.high}: Upper bound of the slope confidence interval.
+\item \code{sig}: Logical indicating whether the slope is significant (p.value < 1 - ci).
 }
 }
 \description{
@@ -33,13 +35,15 @@ fit <- lm(salary ~ yrs.since.phd * yrs.service, data = carData::Salaries)
 contrast_mat <- gen_contrast_ss(fit, x = "yrs.since.phd", m = list(yrs.service = seq(0, 50, 10)))
 glht_obj <- multcomp::glht(fit, linfct = contrast_mat)
 tidy_res <- tidy_es(glht_obj)
-gen_data_jn(tidy_res)
+jn_data <- gen_data_jn(tidy_res)
+plot(jn_data)
 }
 \seealso{
 Other contrast or COPE helpers:
 \code{\link[=check_contrast_orthogonality]{check_contrast_orthogonality()}},
 \code{\link[=gen_contrast_blank]{gen_contrast_blank()}},
 \code{\link[=gen_contrast_ss]{gen_contrast_ss()}},
+\code{\link[=plot.jn_df]{plot.jn_df()}},
 \code{\link[=tidy_es_cope_F]{tidy_es_cope_F()}},
 \code{\link[=tidy_es_cope_t]{tidy_es_cope_t()}}
 }

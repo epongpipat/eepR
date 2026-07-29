@@ -37,6 +37,6 @@ model_continuous_lasso(data, "y")
 #> 
 #> Call:  glmnet(x = x, y = y, alpha = 1, lambda = cv_lasso$lambda.min) 
 #> 
-#>   Df %Dev Lambda
-#> 1  2 82.6   0.15
+#>   Df  %Dev Lambda
+#> 1  2 82.63 0.1135
 ```

@@ -44,7 +44,12 @@ for linear hypothesis testing contrasts (t-test) using glht</p>
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">tidy_es_cope_t</span><span class="op">(</span><span class="va">model</span>, ci <span class="op">=</span> <span class="fl">0.95</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">tidy_es_cope_t</span><span class="op">(</span></span>
+<span>  <span class="va">model</span>,</span>
+<span>  ci <span class="op">=</span> <span class="fl">0.95</span>,</span>
+<span>  mcc <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"single-step"</span>, <span class="st">"none"</span>, <span class="st">"uncorrected"</span>, <span class="st">"fdr"</span>, <span class="st">"FDR"</span>, <span class="st">"tukey"</span>, <span class="st">"tukey's HSD"</span>,</span>
+<span>    <span class="st">"Tukey"</span><span class="op">)</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -57,6 +62,10 @@ for linear hypothesis testing contrasts (t-test) using glht</p>
 
 <dt id="arg-ci">ci<a class="anchor" aria-label="anchor" href="#arg-ci"></a></dt>
 <dd><p>confidence interval (0, 1)</p></dd>
+
+
+<dt id="arg-mcc">mcc<a class="anchor" aria-label="anchor" href="#arg-mcc"></a></dt>
+<dd><p>multiple comparison correction method. Options include "single-step" (default, which is what glht provides for Tukey's HSD), "none" (uncorrected), "fdr", "FDR", "tukey", "tukey's HSD", and "Tukey".</p></dd>
 
 </dl></div>
     <div class="section level2">
@@ -79,6 +88,8 @@ for linear hypothesis testing contrasts (t-test) using glht</p>
 <code><a href="check_contrast_orthogonality.html">check_contrast_orthogonality()</a></code>,
 <code><a href="gen_contrast_blank.html">gen_contrast_blank()</a></code>,
 <code><a href="gen_contrast_ss.html">gen_contrast_ss()</a></code>,
+<code><a href="gen_data_jn.html">gen_data_jn()</a></code>,
+<code><a href="plot.jn_df.html">plot.jn_df()</a></code>,
 <code><a href="tidy_es_cope_F.html">tidy_es_cope_F()</a></code></p></div>
     </div>
 
