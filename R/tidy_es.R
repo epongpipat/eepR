@@ -5,6 +5,7 @@
 #' @family model summary helpers
 #' @param model model fit from \code{lm()}, \code{lmerTest::lmer()}, \code{lme4::lmer()}, or \code{multcomp::glht()}
 #' @param ci confidence interval (0, 1)
+#' @param mcc multiple comparison correction method. Options include "single-step" (default, which is what glht provides for Tukey's HSD), "none" (uncorrected), "fdr", "FDR", "tukey", "tukey's HSD", and "Tukey".
 #' @return data.frame
 #' @export
 #' @examples
@@ -23,9 +24,10 @@
 #' )
 #' model_fit_cope_t <- multcomp::glht(model_fit, c)
 #' tidy_es(model_fit_cope_t)
-tidy_es <- function(model, ci = 0.95) {
+tidy_es <- function(model, ci = 0.95, mcc = c("single-step", "none", "uncorrected", "fdr", "FDR", "tukey", "tukey's HSD", "Tukey")) {
+  mcc <- match.arg(mcc)
   if (inherits(model, 'glht')) {
-    return(tidy_es_cope_t(model, ci = ci))
+    return(tidy_es_cope_t(model, ci = ci, mcc = mcc))
   } else if (inherits(model, 'lm')) {
     return(tidy_es_lm(model, ci = ci))
   } else if (inherits(model, 'lmerModLmerTest') || inherits(model, 'lmerMod')) {
@@ -132,22 +134,35 @@ tidy_es_lmer <- function(model, ci = 0.95) {
 #' @family contrast or COPE helpers
 #' @param model contrast model from \code{multcomp::glht()}
 #' @param ci confidence interval (0, 1)
+#' @param mcc multiple comparison correction method. Options include "single-step" (default, which is what glht provides for Tukey's HSD), "none" (uncorrected), "fdr", "FDR", "tukey", "tukey's HSD", and "Tukey".
 #' @return data.frame
 #' @export
 #' @import dplyr
 #' @importFrom effectsize t_to_eta2_adj
-#' @importFrom multcomp glht
+#' @importFrom multcomp glht adjusted univariate_calpha
 #' @examples
 #' model_fit <- lm(salary ~ rank + discipline, data = carData::Salaries)
 #' c <- gen_contrast_ss(model_fit, x = "rank")[-1, ]
 #' model_fit_cope_t <- multcomp::glht(model_fit, c)
 #' tidy_es_cope_t(model_fit_cope_t)
-tidy_es_cope_t <- function(model, ci = 0.95) {
+tidy_es_cope_t <- function(model, ci = 0.95, mcc = c("single-step", "none", "uncorrected", "fdr", "FDR", "tukey", "tukey's HSD", "Tukey")) {
   if (!inherits(model, "glht")) {
     stop("model must be a glht object")
   }
 
-  sum_model <- summary(model)
+  mcc <- match.arg(mcc)
+  mcc_adj <- switch(mcc,
+    "single-step" = "single-step",
+    "none" = "none",
+    "uncorrected" = "none",
+    "fdr" = "fdr",
+    "FDR" = "fdr",
+    "tukey" = "single-step",
+    "tukey's HSD" = "single-step",
+    "Tukey" = "single-step"
+  )
+
+  sum_model <- summary(model, test = multcomp::adjusted(mcc_adj))
   underlying_model <- model$model
 
   lh <- NA_character_
@@ -166,7 +181,11 @@ tidy_es_cope_t <- function(model, ci = 0.95) {
   p <- sum_model$test$pvalues
   rh <- names(b)
 
-  b_ci <- as.data.frame(confint(model, level = ci)$confint)
+  if (mcc_adj %in% c("none", "fdr")) {
+    b_ci <- as.data.frame(confint(model, level = ci, calpha = multcomp::univariate_calpha())$confint)
+  } else {
+    b_ci <- as.data.frame(confint(model, level = ci)$confint)
+  }
   b_ci_ll <- b_ci$lwr
   b_ci_ul <- b_ci$upr
 
