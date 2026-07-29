@@ -4,12 +4,19 @@
 \alias{tidy_es}
 \title{tidy_es}
 \usage{
-tidy_es(model, ci = 0.95)
+tidy_es(
+  model,
+  ci = 0.95,
+  mcc = c("single-step", "none", "uncorrected", "fdr", "FDR", "tukey", "tukey's HSD",
+    "Tukey")
+)
 }
 \arguments{
 \item{model}{model fit from \code{lm()}, \code{lmerTest::lmer()}, \code{lme4::lmer()}, or \code{multcomp::glht()}}
 
 \item{ci}{confidence interval (0, 1)}
+
+\item{mcc}{multiple comparison correction method. Options include "single-step" (default, which is what glht provides for Tukey's HSD), "none" (uncorrected), "fdr", "FDR", "tukey", "tukey's HSD", and "Tukey".}
 }
 \value{
 data.frame

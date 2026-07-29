@@ -27,6 +27,7 @@ gen_contrast_blank(fit, contrasts = c("ContrastA", "ContrastB"))
 Other contrast or COPE helpers:
 \code{\link[=check_contrast_orthogonality]{check_contrast_orthogonality()}},
 \code{\link[=gen_contrast_ss]{gen_contrast_ss()}},
+\code{\link[=gen_data_jn]{gen_data_jn()}},
 \code{\link[=tidy_es_cope_F]{tidy_es_cope_F()}},
 \code{\link[=tidy_es_cope_t]{tidy_es_cope_t()}}
 }

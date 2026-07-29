@@ -38,6 +38,7 @@ gen_contrast_ss(fit, x = "yrs.since.phd", m = list(yrs.service = "sd"))
 Other contrast or COPE helpers:
 \code{\link[=check_contrast_orthogonality]{check_contrast_orthogonality()}},
 \code{\link[=gen_contrast_blank]{gen_contrast_blank()}},
+\code{\link[=gen_data_jn]{gen_data_jn()}},
 \code{\link[=tidy_es_cope_F]{tidy_es_cope_F()}},
 \code{\link[=tidy_es_cope_t]{tidy_es_cope_t()}}
 }

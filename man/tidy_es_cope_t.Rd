@@ -4,12 +4,19 @@
 \alias{tidy_es_cope_t}
 \title{tidy_es_cope_t}
 \usage{
-tidy_es_cope_t(model, ci = 0.95)
+tidy_es_cope_t(
+  model,
+  ci = 0.95,
+  mcc = c("single-step", "none", "uncorrected", "fdr", "FDR", "tukey", "tukey's HSD",
+    "Tukey")
+)
 }
 \arguments{
 \item{model}{contrast model from \code{multcomp::glht()}}
 
 \item{ci}{confidence interval (0, 1)}
+
+\item{mcc}{multiple comparison correction method. Options include "single-step" (default, which is what glht provides for Tukey's HSD), "none" (uncorrected), "fdr", "FDR", "tukey", "tukey's HSD", and "Tukey".}
 }
 \value{
 data.frame
@@ -41,6 +48,7 @@ Other contrast or COPE helpers:
 \code{\link[=check_contrast_orthogonality]{check_contrast_orthogonality()}},
 \code{\link[=gen_contrast_blank]{gen_contrast_blank()}},
 \code{\link[=gen_contrast_ss]{gen_contrast_ss()}},
+\code{\link[=gen_data_jn]{gen_data_jn()}},
 \code{\link[=tidy_es_cope_F]{tidy_es_cope_F()}}
 }
 \concept{contrast or COPE helpers}
