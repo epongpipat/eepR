@@ -136,7 +136,7 @@ gen_data_jn <- function(data, ci = 0.95) {
   attr(res_df, "facet.name") <- mod_names$facet
   attr(res_df, "focal.name") <- focal_name
   attr(res_df, "y.title") <- paste("Slope of", focal_name)
-  attr(res_df, "title") <- paste("Johnson-Neyman Plot for", focal_name)
+  attr(res_df, "title") <- "Johnson-Neyman Plot"
   
   # Set S3 class
   class(res_df) <- c("jn_df", "data.frame")
@@ -150,11 +150,12 @@ gen_data_jn <- function(data, ci = 0.95) {
 #' @concept stats
 #' @family contrast or COPE helpers
 #' @param x An object of class `jn_df` (the output from [gen_data_jn()]).
+#' @param scales Character vector specifying whether facet scales should be `"fixed"`, `"free_y"`, `"free_x"`, or `"free"`. Default is `"fixed"`.
 #' @param ... Additional arguments (not used).
 #' @return A `ggplot` object.
 #' @export
 #' @import ggplot2
-plot.jn_df <- function(x, ...) {
+plot.jn_df <- function(x, scales = "fixed", ...) {
   # Retrieve metadata from attributes
   x_title <- attr(x, "x.title")
   y_title <- attr(x, "y.title")
@@ -186,94 +187,72 @@ plot.jn_df <- function(x, ...) {
   has_group <- "group" %in% colnames(x)
   has_facet <- "facet" %in% colnames(x)
   
+  if (has_group) {
+    group_name <- attr(x, "group.name")
+    if (is.null(group_name)) group_name <- "Group"
+    x$group <- factor(x$group, labels = paste(group_name, "=", levels(factor(x$group))))
+  }
+  if (has_facet) {
+    facet_name <- attr(x, "facet.name")
+    if (is.null(facet_name)) facet_name <- "Facet"
+    x$facet <- factor(x$facet, labels = paste(facet_name, "=", levels(factor(x$facet))))
+  }
+  
   p <- ggplot2::ggplot(x) +
     ggplot2::geom_hline(yintercept = 0, linetype = "dashed", color = "grey50")
   
   if (is_x_numeric) {
-    if (has_group) {
-      x$group <- factor(x$group)
-      num_levels <- length(levels(x$group))
-      
-      p <- p +
-        ggplot2::geom_ribbon(ggplot2::aes(x = x, ymin = conf.low, ymax = conf.high, fill = group, group = group), alpha = 0.15) +
-        ggplot2::geom_line(ggplot2::aes(x = x, y = predicted, color = group, linetype = sig, group = group), linewidth = 1)
-      
-      if (num_levels <= 8) {
-        p <- p +
-          ggplot2::scale_color_manual(values = okabe_ito[1:num_levels], name = legend_title) +
-          ggplot2::scale_fill_manual(values = okabe_ito[1:num_levels], name = legend_title)
-      } else {
-        p <- p +
-          ggplot2::scale_color_viridis_d(name = legend_title) +
-          ggplot2::scale_fill_viridis_d(name = legend_title)
-      }
-      
-      p <- p + ggplot2::scale_linetype_manual(
-        values = c("TRUE" = "solid", "FALSE" = "dashed"),
-        labels = c("TRUE" = "Significant", "FALSE" = "Non-significant"),
+    # Continuous primary moderator: black solid line, separate ribbons for pos/neg/non-sig (no color/gradient)
+    p <- p +
+      ggplot2::geom_ribbon(ggplot2::aes(x = x, ymin = conf.low, ymax = conf.high, fill = "Non-significant"), alpha = 0.3) +
+      ggplot2::geom_ribbon(
+        data = subset(x, conf.low > 0),
+        ggplot2::aes(x = x, ymin = conf.low, ymax = conf.high, fill = "Significant"),
+        alpha = 0.3
+      ) +
+      ggplot2::geom_ribbon(
+        data = subset(x, conf.high < 0),
+        ggplot2::aes(x = x, ymin = conf.low, ymax = conf.high, fill = "Significant"),
+        alpha = 0.3
+      ) +
+      ggplot2::geom_line(ggplot2::aes(x = x, y = predicted), color = "black", linewidth = 1) +
+      ggplot2::scale_fill_manual(
+        values = c(
+          "Significant" = "grey60",
+          "Non-significant" = "grey90"
+        ),
         name = "Significance"
       )
-    } else {
-      # No secondary moderator: color line and ribbon by significance
-      p <- p +
-        ggplot2::geom_ribbon(ggplot2::aes(x = x, ymin = conf.low, ymax = conf.high, fill = sig, group = 1), alpha = 0.15) +
-        ggplot2::geom_line(ggplot2::aes(x = x, y = predicted, color = sig, group = 1), linewidth = 1) +
-        ggplot2::scale_color_manual(
-          values = c("TRUE" = "#0072B2", "FALSE" = "#999999"),
-          labels = c("TRUE" = "Significant", "FALSE" = "Non-significant"),
-          name = "Significance"
-        ) +
-        ggplot2::scale_fill_manual(
-          values = c("TRUE" = "#0072B2", "FALSE" = "#999999"),
-          labels = c("TRUE" = "Significant", "FALSE" = "Non-significant"),
-          name = "Significance"
-        )
-    }
   } else {
-    # Categorical primary moderator (x is factor/character)
-    if (has_group) {
-      x$group <- factor(x$group)
-      num_levels <- length(levels(x$group))
-      
-      p <- p +
-        ggplot2::geom_pointrange(
-          ggplot2::aes(x = factor(x), y = predicted, ymin = conf.low, ymax = conf.high, color = group, shape = sig),
-          position = ggplot2::position_dodge(width = 0.5),
-          size = 0.8
-        )
-      
-      if (num_levels <= 8) {
-        p <- p + ggplot2::scale_color_manual(values = okabe_ito[1:num_levels], name = legend_title)
-      } else {
-        p <- p + ggplot2::scale_color_viridis_d(name = legend_title)
-      }
-      
-      p <- p + ggplot2::scale_shape_manual(
+    # Categorical primary moderator: black shapes by significance (no color)
+    p <- p +
+      ggplot2::geom_pointrange(
+        ggplot2::aes(x = factor(x), y = predicted, ymin = conf.low, ymax = conf.high, shape = sig),
+        color = "black",
+        size = 0.8
+      ) +
+      ggplot2::scale_shape_manual(
         values = c("TRUE" = 16, "FALSE" = 1),
         labels = c("TRUE" = "Significant", "FALSE" = "Non-significant"),
         name = "Significance"
       )
-    } else {
-      p <- p +
-        ggplot2::geom_pointrange(
-          ggplot2::aes(x = factor(x), y = predicted, ymin = conf.low, ymax = conf.high, color = sig),
-          size = 0.8
-        ) +
-        ggplot2::scale_color_manual(
-          values = c("TRUE" = "#0072B2", "FALSE" = "#999999"),
-          labels = c("TRUE" = "Significant", "FALSE" = "Non-significant"),
-          name = "Significance"
-        )
-    }
   }
   
-  if (has_facet) {
-    p <- p + ggplot2::facet_wrap(~ facet)
+  # Faceting for additional moderators
+  if (has_group && has_facet) {
+    p <- p + ggplot2::facet_wrap(group ~ facet, scales = scales)
+  } else if (has_group) {
+    p <- p + ggplot2::facet_wrap(~ group, scales = scales)
+  } else if (has_facet) {
+    p <- p + ggplot2::facet_wrap(~ facet, scales = scales)
   }
   
   p <- p +
     ggplot2::labs(x = x_title, y = y_title, title = title_text) +
-    ggplot2::theme_classic()
+    ggplot2::theme_classic() +
+    ggplot2::theme(
+      strip.background = ggplot2::element_blank()
+    )
   
   return(p)
 }
