@@ -29,6 +29,24 @@ map_terms_to_data <- function(model, terms) {
       return(name)
     }
     
+    # Check if the name is a specific contrast column/term in the model
+    param_names <- tryCatch({
+      if (inherits(model, c("merMod", "lmerModLmerTest"))) {
+        names(lme4::fixef(model))
+      } else {
+        names(stats::coef(model))
+      }
+    }, error = function(e) NULL)
+    
+    if (!is.null(param_names) && name %in% param_names) {
+      raw_candidates <- raw_vars[sapply(raw_vars, function(v) {
+        grepl(paste0("^", gsub(".", "\\.", v, fixed = TRUE)), name)
+      })]
+      if (length(raw_candidates) > 0) {
+        return(raw_candidates[which.max(nchar(raw_candidates))])
+      }
+    }
+    
     if (name %in% predictor_terms) {
       parsed_vars <- tryCatch({
         all.vars(parse(text = name))

@@ -157,3 +157,59 @@ test_that("gen_contrast_ss sets unspecified factor covariates to 0", {
   expect_equal(unname(colSums(c_test[, cols_network, drop = FALSE])), rep(0, length(cols_network)))
 })
 
+test_that("gen_contrast_ss validates covariates argument inputs", {
+  skip_if_not_installed("lme4")
+  library(lme4)
+  
+  set.seed(999)
+  n_test <- 100
+  df_test <- data.frame(
+    y = rnorm(n_test),
+    Age = rnorm(n_test, 40, 10),
+    Time = sample(0:2, n_test, replace = TRUE),
+    Difficulty = factor(sample(c("Easy", "Hard"), n_test, replace = TRUE)),
+    Subject = factor(sample(1:10, n_test, replace = TRUE))
+  )
+  
+  # Fit model where Time interacts with Age, but Difficulty does NOT interact with Age
+  fit_test <- lmer(y ~ Age * Time + Difficulty + (1 | Subject), data = df_test)
+  
+  # 1. Expect error if a covariate length is not exactly 1
+  expect_error(
+    gen_contrast_ss(fit_test, 'Age', m = list('Time' = 0:1), covariates = list(Difficulty = c(0, 1))),
+    "Each covariate specification in 'covariates' must have a length of exactly 1"
+  )
+  
+  # 2. Expect error if a specified covariate does not interact with the focal predictor in the model
+  expect_error(
+    gen_contrast_ss(fit_test, 'Age', m = list('Time' = 0:1), covariates = list(Difficulty = 0)),
+    "Covariate 'Difficulty' does not interact with focal predictor 'Age' in the model"
+  )
+  
+  # 3. Named vectors should work identically
+  expect_error(
+    gen_contrast_ss(fit_test, 'Age', m = list('Time' = 0:1), covariates = c(Difficulty = 0)),
+    "Covariate 'Difficulty' does not interact with focal predictor 'Age' in the model"
+  )
+})
+
+test_that("gen_contrast_ss allows specifying factor level and custom contrast columns in covariates", {
+  data <- carData::Salaries
+  data$rank <- factor(data$rank)
+  contrasts(data$rank) <- contr.sum(3)
+  
+  fit <- lm(salary ~ scale(yrs.since.phd, scale = FALSE) * rank + I(scale(yrs.since.phd, scale = FALSE)^2) * rank, data = data)
+  
+  # 1. Specifying factor level directly (e.g. rank = 'Prof')
+  c_prof <- gen_contrast_ss(fit, x = "yrs.since.phd", covariates = list(rank = "Prof"))
+  expect_equal(unname(c_prof[, "scale(yrs.since.phd, scale = FALSE):rank1"]), -1)
+  expect_equal(unname(c_prof[, "scale(yrs.since.phd, scale = FALSE):rank2"]), -1)
+  
+  # 2. Specifying custom contrast columns directly (e.g. rank1 = 1, rank2 = 0)
+  c_custom <- gen_contrast_ss(fit, x = "yrs.since.phd", covariates = list(rank1 = 1, rank2 = 0))
+  expect_equal(unname(c_custom[, "scale(yrs.since.phd, scale = FALSE):rank1"]), 1)
+  expect_equal(unname(c_custom[, "scale(yrs.since.phd, scale = FALSE):rank2"]), 0)
+})
+
+
+

@@ -126,17 +126,32 @@ gen_data_predict <- function(model, x, m = NULL, covariates = 0) {
     val <- raw_df[[r_var]]
     
     is_zero <- FALSE
-    if (is.list(covariates) && r_var %in% names(covariates)) {
-      val_spec <- covariates[[r_var]]
-      if (!is.numeric(val) && (identical(val_spec, 0) || identical(val_spec, 0L) || identical(val_spec, "0"))) {
+    is_custom_contrast <- FALSE
+    
+    if (is.list(covariates) && !is.null(names(covariates))) {
+      matching_names <- names(covariates)[sapply(names(covariates), function(cn) {
+        cn != r_var && grepl(paste0("^", gsub(".", "\\.", r_var, fixed = TRUE)), cn)
+      })]
+      if (length(matching_names) > 0) {
+        is_custom_contrast <- TRUE
+      }
+    }
+    
+    if (!is_custom_contrast) {
+      if (is.list(covariates) && r_var %in% names(covariates)) {
+        val_spec <- covariates[[r_var]]
+        if (!is.numeric(val) && (identical(val_spec, 0) || identical(val_spec, 0L) || identical(val_spec, "0"))) {
+          is_zero <- TRUE
+        }
+      } else if (!is.numeric(val) && is.numeric(covariates) && length(covariates) == 1 && covariates == 0) {
         is_zero <- TRUE
       }
-    } else if (!is.numeric(val) && is.numeric(covariates) && length(covariates) == 1 && covariates == 0) {
-      is_zero <- TRUE
     }
     
     if (is_zero) {
       zero_factors <- c(zero_factors, r_var)
+      grid_list[[r_var]] <- levels(factor(val))[1]
+    } else if (is_custom_contrast) {
       grid_list[[r_var]] <- levels(factor(val))[1]
     } else {
       if (is.list(covariates) && r_var %in% names(covariates)) {

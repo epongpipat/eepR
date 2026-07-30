@@ -129,6 +129,51 @@ gen_contrast_ss <- function(model, x, m = NULL, covariates = 0, digits = 4) {
     }
   }
   
+  # 1.6 Validate 'covariates' syntax and interaction checks
+  if (!is.null(covariates) && (is.list(covariates) || (is.vector(covariates) && !is.null(names(covariates))))) {
+    # Convert named vector to list for uniform processing if needed
+    if (is.vector(covariates) && !is.list(covariates) && !is.null(names(covariates))) {
+      covariates_list <- as.list(covariates)
+    } else {
+      covariates_list <- covariates
+    }
+    
+    cov_names <- names(covariates_list)
+    if (!is.null(cov_names)) {
+      # Map names to raw variable names and validate they are in the model frame
+      mapped_cov_names <- sapply(cov_names, function(cn) {
+        if (cn == "") return("")
+        map_terms_to_data(model, cn)
+      })
+      
+      valid_idx <- mapped_cov_names != ""
+      mapped_cov_names <- mapped_cov_names[valid_idx]
+      cov_names <- cov_names[valid_idx]
+      covariates_list <- covariates_list[valid_idx]
+      
+      # Check: Each specified covariate can only have one item
+      for (i in seq_along(covariates_list)) {
+        val_spec <- covariates_list[[i]]
+        if (length(val_spec) != 1) {
+          stop(sprintf("Error: Each covariate specification in 'covariates' must have a length of exactly 1. Variable '%s' has length %d.",
+                       cov_names[i], length(val_spec)))
+        }
+      }
+      
+      # Check: Each specified covariate must interact with focal predictor x in the model
+      inter_terms <- extract_interaction_terms(model, x)
+      valid_moderators <- unique(names(inter_terms))
+      
+      for (i in seq_along(mapped_cov_names)) {
+        cov_var <- mapped_cov_names[i]
+        if (!(cov_var %in% valid_moderators)) {
+          stop(sprintf("Error: Covariate '%s' does not interact with focal predictor '%s' in the model.",
+                       cov_names[i], x))
+        }
+      }
+    }
+  }
+  
   # 2. Build prediction data grid across moderator levels
   pred_grid <- gen_data_predict(model, x = raw_x, m = m, covariates = covariates)
   
@@ -202,6 +247,68 @@ gen_contrast_ss <- function(model, x, m = NULL, covariates = 0, digits = 4) {
       cols_to_zero <- grep(pattern, colnames(X))
       if (length(cols_to_zero) > 0) {
         X[, cols_to_zero] <- 0
+      }
+    }
+  }
+  
+  # Overwrite custom contrast columns in X directly if specified in covariates
+  if (!is.null(covariates) && (is.list(covariates) || (is.vector(covariates) && !is.null(names(covariates))))) {
+    if (is.vector(covariates) && !is.list(covariates) && !is.null(names(covariates))) {
+      covariates_list <- as.list(covariates)
+    } else {
+      covariates_list <- covariates
+    }
+    
+    cov_names <- names(covariates_list)
+    if (!is.null(cov_names)) {
+      overwrite_contrast_column <- function(X_mat, col, V) {
+        if (col %in% colnames(X_mat)) {
+          X_mat[, col] <- V
+        }
+        col_escaped <- col
+        for (char in c(".", "\\", "+", "*", "?", "^", "$", "(", ")", "[", "]", "{", "}", "|", "-")) {
+          col_escaped <- gsub(char, paste0("\\", char), col_escaped, fixed = TRUE)
+        }
+        pattern <- paste0("(^|:)", col_escaped, "(:|$)")
+        inter_cols <- grep(pattern, colnames(X_mat), value = TRUE)
+        inter_cols <- setdiff(inter_cols, col)
+        
+        for (icol in inter_cols) {
+          parts <- strsplit(icol, ":")[[1]]
+          other_parts <- setdiff(parts, col)
+          other_col <- paste(other_parts, collapse = ":")
+          if (other_col %in% colnames(X_mat)) {
+            X_mat[, icol] <- X_mat[, other_col] * V
+          } else {
+            match_found <- FALSE
+            for (candidate in colnames(X_mat)) {
+              cp <- strsplit(candidate, ":")[[1]]
+              if (length(cp) == length(other_parts) && all(cp %in% other_parts) && all(other_parts %in% cp)) {
+                X_mat[, icol] <- X_mat[, candidate] * V
+                match_found <- TRUE
+                break
+              }
+            }
+            if (!match_found) {
+              val <- rep(1, nrow(X_mat))
+              for (op in other_parts) {
+                if (op %in% colnames(X_mat)) {
+                  val <- val * X_mat[, op]
+                }
+              }
+              X_mat[, icol] <- val * V
+            }
+          }
+        }
+        return(X_mat)
+      }
+      
+      for (i in seq_along(cov_names)) {
+        col <- cov_names[i]
+        if (col %in% colnames(X)) {
+          V <- as.numeric(covariates_list[[i]])
+          X <- overwrite_contrast_column(X, col, V)
+        }
       }
     }
   }
