@@ -154,7 +154,7 @@ gen_data_jn <- function(data, ci = 0.95) {
 #' Plot Johnson-Neyman Data
 #'
 #' @md
-#' @concept stats
+#' @concept visualization
 #' @family contrast or COPE helpers
 #' @param x An object of class `jn_df` (the output from [gen_data_jn()]).
 #' @param scales Character vector specifying whether facet scales should be `"fixed"`, `"free_y"`, `"free_x"`, or `"free"`. Default is `"fixed"`.
@@ -180,7 +180,7 @@ gen_data_jn <- function(data, ci = 0.95) {
 #'   m = list(yrs.service = "real")
 #' )
 #' df_tidy_cope1 <- tidy_es(multcomp::glht(fit1, linfct = c1))
-#' plot(gen_data_jn(df_tidy_cope1))
+#' plot(gen_data_jn(df_tidy_cope1), font_size_max = 12)
 #'
 #' # 2. Multi-moderator polynomial example with free y scales and custom layout
 #' fit2 <- lm(
@@ -190,7 +190,7 @@ gen_data_jn <- function(data, ci = 0.95) {
 #' )
 #' c2 <- gen_contrast_ss(fit2, x = "yrs.since.phd", m = list(yrs.since.phd = "real", yrs.service = "sd"))
 #' df_tidy_cope2 <- tidy_es(multcomp::glht(fit2, c2), mcc = "none")
-#' plot(gen_data_jn(df_tidy_cope2), scales = "free_y", nrow = 2)
+#' plot(gen_data_jn(df_tidy_cope2), scales = "free_y", nrow = 1, font_size_max = 10)
 plot.jn_df <- function(x, scales = "fixed", nrow = NULL, ncol = NULL, font_family = NULL, legend.position = c("bottom", "right"), slope.symbol = c("b", "beta", "bhat", "betahat"), font_size_max = 7, x_digits = NULL, y_digits = NULL, x_scientific = TRUE, y_scientific = TRUE, ...) {
   legend.position <- match.arg(legend.position)
   slope.symbol <- match.arg(slope.symbol)
