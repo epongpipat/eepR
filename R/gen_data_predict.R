@@ -119,43 +119,57 @@ gen_data_predict <- function(model, x, m = NULL, covariates = 0) {
       }
     }
   }
-  
-  # 3. Hold remaining unspecified covariates constant using `covariates`
   remaining_vars <- setdiff(all_preds, names(grid_list))
+  zero_factors <- character(0)
   
   for (r_var in remaining_vars) {
     val <- raw_df[[r_var]]
     
+    is_zero <- FALSE
     if (is.list(covariates) && r_var %in% names(covariates)) {
       val_spec <- covariates[[r_var]]
-      if (is.factor(val)) {
-        invalid_levels <- setdiff(val_spec, levels(val))
-        if (length(invalid_levels) > 0) {
-          stop(sprintf("Error: Invalid level(s) [%s] specified for factor variable '%s'. Valid levels are: [%s].",
-                       paste(invalid_levels, collapse = ", "),
-                       r_var,
-                       paste(levels(val), collapse = ", ")))
-        }
-      } else if (is.character(val)) {
-        invalid_levels <- setdiff(val_spec, unique(val))
-        if (length(invalid_levels) > 0) {
-          stop(sprintf("Error: Invalid value(s) [%s] specified for character variable '%s'. Valid values are: [%s].",
-                       paste(invalid_levels, collapse = ", "),
-                       r_var,
-                       paste(unique(val), collapse = ", ")))
-        }
+      if (!is.numeric(val) && (identical(val_spec, 0) || identical(val_spec, 0L) || identical(val_spec, "0"))) {
+        is_zero <- TRUE
       }
-      grid_list[[r_var]] <- val_spec
-    } else if (is.numeric(val)) {
-      if (is.function(covariates)) {
-        grid_list[[r_var]] <- covariates(val, na.rm = TRUE)
-      } else if (is.numeric(covariates)) {
-        grid_list[[r_var]] <- covariates
-      } else {
-        grid_list[[r_var]] <- 0
-      }
+    } else if (!is.numeric(val) && is.numeric(covariates) && length(covariates) == 1 && covariates == 0) {
+      is_zero <- TRUE
+    }
+    
+    if (is_zero) {
+      zero_factors <- c(zero_factors, r_var)
+      grid_list[[r_var]] <- levels(factor(val))[1]
     } else {
-      grid_list[[r_var]] <- levels(factor(val))[1] # Default reference factor level
+      if (is.list(covariates) && r_var %in% names(covariates)) {
+        val_spec <- covariates[[r_var]]
+        if (is.factor(val)) {
+          invalid_levels <- setdiff(val_spec, levels(val))
+          if (length(invalid_levels) > 0) {
+            stop(sprintf("Error: Invalid level(s) [%s] specified for factor variable '%s'. Valid levels are: [%s].",
+                         paste(invalid_levels, collapse = ", "),
+                         r_var,
+                         paste(levels(val), collapse = ", ")))
+          }
+        } else if (is.character(val)) {
+          invalid_levels <- setdiff(val_spec, unique(val))
+          if (length(invalid_levels) > 0) {
+            stop(sprintf("Error: Invalid value(s) [%s] specified for character variable '%s'. Valid values are: [%s].",
+                         paste(invalid_levels, collapse = ", "),
+                         r_var,
+                         paste(unique(val), collapse = ", ")))
+          }
+        }
+        grid_list[[r_var]] <- val_spec
+      } else if (is.numeric(val)) {
+        if (is.function(covariates)) {
+          grid_list[[r_var]] <- covariates(val, na.rm = TRUE)
+        } else if (is.numeric(covariates)) {
+          grid_list[[r_var]] <- covariates
+        } else {
+          grid_list[[r_var]] <- 0
+        }
+      } else {
+        grid_list[[r_var]] <- levels(factor(val))[1]
+      }
     }
   }
   
@@ -172,6 +186,7 @@ gen_data_predict <- function(model, x, m = NULL, covariates = 0) {
   }
   
   attr(pred_grid, "scale_params") <- attr(raw_df, "scale_params")
+  attr(pred_grid, "zero_factors") <- zero_factors
   rownames(pred_grid) <- NULL
   return(pred_grid)
 }

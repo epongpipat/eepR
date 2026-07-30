@@ -144,10 +144,17 @@ gen_contrast_ss <- function(model, x, m = NULL, covariates = 0, digits = 4) {
   is_x_factor <- !is.numeric(raw_df[[raw_x]])
   
   # 4. Compute design matrix X
-  model_contrasts <- if (inherits(model, c("merMod", "lmerModLmerTest"))) {
-    attr(model@frame, "contrasts")
-  } else {
-    model$contrasts
+  model_contrasts <- tryCatch({
+    attr(stats::model.matrix(model), "contrasts")
+  }, error = function(e) {
+    NULL
+  })
+  if (is.null(model_contrasts)) {
+    model_contrasts <- if (inherits(model, c("merMod", "lmerModLmerTest"))) {
+      attr(model@frame, "contrasts")
+    } else {
+      model$contrasts
+    }
   }
   
   terms_no_resp <- stats::delete.response(stats::terms(model))
@@ -181,6 +188,22 @@ gen_contrast_ss <- function(model, x, m = NULL, covariates = 0, digits = 4) {
     }
   } else {
     X <- stats::model.matrix(terms_no_resp, data = pred_grid, contrasts.arg = model_contrasts)
+  }
+  
+  # Set columns in X corresponding to zero_factors to 0
+  zero_factors <- attr(pred_grid, "zero_factors")
+  if (!is.null(zero_factors) && length(zero_factors) > 0) {
+    for (zf in zero_factors) {
+      zf_escaped <- zf
+      for (char in c(".", "\\", "+", "*", "?", "^", "$", "(", ")", "[", "]", "{", "}", "|", "-")) {
+        zf_escaped <- gsub(char, paste0("\\", char), zf_escaped, fixed = TRUE)
+      }
+      pattern <- paste0("(^|:)", zf_escaped, "([0-9]+)?(:|$)")
+      cols_to_zero <- grep(pattern, colnames(X))
+      if (length(cols_to_zero) > 0) {
+        X[, cols_to_zero] <- 0
+      }
+    }
   }
   
   if (is_x_factor) {
