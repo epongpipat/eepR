@@ -60,10 +60,14 @@ Other contrast or COPE helpers:
 ## Examples
 
 ``` r
-fit <- lm(salary ~ yrs.since.phd * yrs.service, data = carData::Salaries)
-contrast_mat <- gen_contrast_ss(fit, x = "yrs.since.phd", m = list(yrs.service = seq(0, 50, 10)))
-glht_obj <- multcomp::glht(fit, linfct = contrast_mat)
-tidy_res <- tidy_es(glht_obj)
-jn_data <- gen_data_jn(tidy_res)
-plot(jn_data)
+fit1 <- lm(salary ~ yrs.since.phd * yrs.service, data = carData::Salaries)
+c1 <- gen_contrast_ss(
+  fit1,
+  x = "yrs.since.phd",
+  m = list(yrs.service = "real")
+)
+fit_cope1 <- multcomp::glht(fit1, linfct = c1)
+df_cope_coef1 <- tidy_es(fit_cope1)
+df_cope_jn1 <- gen_data_jn(df_cope_coef1)
+plot(df_cope_jn1)
 ```

@@ -131,3 +131,29 @@ test_that("gen_contrast_ss works with lmerTest S4 models", {
   expect_equal(dim(c_lmer), c(3L, 6L))
   expect_equal(unname(c_lmer[, "scale(yrs.since.phd, scale = F)"]), c(1, 1, 1))
 })
+
+test_that("gen_contrast_ss sets unspecified factor covariates to 0", {
+  skip_if_not_installed("lme4")
+  library(lme4)
+  
+  set.seed(789)
+  n_test <- 200
+  df_test <- data.frame(
+    y = rnorm(n_test),
+    Age = rnorm(n_test, 40, 10),
+    Time = sample(0:2, n_test, replace = TRUE),
+    Difficulty = factor(sample(c("Easy", "Hard"), n_test, replace = TRUE)),
+    Network = factor(sample(c("A", "B", "C", "D"), n_test, replace = TRUE), levels = c("A", "B", "C", "D")),
+    Subject = factor(sample(1:10, n_test, replace = TRUE))
+  )
+  contrasts(df_test$Network) <- contr.sum(4)
+  
+  fit_test <- lmer(y ~ Age * Time * Difficulty * Network + (1 | Subject), data = df_test)
+  
+  c_test <- gen_contrast_ss(fit_test, 'Age', m = list('Time' = 0:1, 'Difficulty' = 'real'))
+  
+  cols_network <- grep("(^|:)Network([0-9]+)?(:|$)", colnames(c_test))
+  expect_true(length(cols_network) > 0)
+  expect_equal(unname(colSums(c_test[, cols_network, drop = FALSE])), rep(0, length(cols_network)))
+})
+

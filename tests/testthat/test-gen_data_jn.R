@@ -47,15 +47,10 @@ test_that("gen_data_jn works for continuous focal variables and handles moderato
   expect_error(gen_data_jn(tidy_res_no_mod))
   
   # Error if focal predictor x is categorical (has multiple unique values of x)
-  tidy_res_cat <- data.frame(
-    rh = c("rankAsstProf@yrs.service==10", "rankAssocProf@yrs.service==10"),
-    b = c(1000, 2000),
-    se = c(100, 200),
-    t = c(10, 10),
-    p = c(0.001, 0.001),
-    b_ci_ll = c(800, 1600),
-    b_ci_ul = c(1200, 2400)
-  )
+  fit_cat <- lm(salary ~ rank * yrs.service, data = data)
+  c_cat <- gen_contrast_ss(fit_cat, x = "rank", m = list(yrs.service = c(10, 20)))
+  c_cat <- c_cat[!grepl("rankAsstProf", rownames(c_cat)), ]
+  tidy_res_cat <- tidy_es(multcomp::glht(fit_cat, c_cat))
   expect_error(gen_data_jn(tidy_res_cat))
 })
 
@@ -95,11 +90,52 @@ test_that("gen_data_jn works with lmerTest S4 models and supports plotting", {
   
   # Test the specific polynomial / multi-moderator model that previously threw factor scaling errors
   fit_poly <- lm(salary ~ scale(yrs.since.phd, scale = F) * scale(yrs.service, scale = F) + I(scale(yrs.since.phd, scale = F)^2) * scale(yrs.service, scale = F), data = carData::Salaries)
-  c_poly <- gen_contrast_ss(fit_poly, x = "yrs.since.phd", m = list(yrs.since.phd = 'sd', yrs.service = "sd"))
+  c_poly <- gen_contrast_ss(fit_poly, x = "yrs.since.phd", m = list(yrs.since.phd = "real", yrs.service = "sd"))
   df_es_poly <- tidy_es(multcomp::glht(fit_poly, c_poly), mcc = 'none')
   
   res_poly <- gen_data_jn(df_es_poly)
   expect_s3_class(res_poly, "jn_df")
   expect_s3_class(plot(res_poly), "ggplot")
   expect_s3_class(plot(res_poly, scales = "free_y"), "ggplot")
+  expect_s3_class(plot(res_poly, nrow = 2, ncol = 2), "ggplot")
+  expect_s3_class(plot(res_poly, font_family = "Arial"), "ggplot")
+  expect_s3_class(plot(res_poly, font_family = "Helvetica"), "ggplot")
+  expect_s3_class(plot(res_poly, legend.position = "bottom"), "ggplot")
+  expect_s3_class(plot(res_poly, legend.position = "right"), "ggplot")
+  expect_error(plot(res_poly, legend.position = "top"))
+  expect_s3_class(plot(res_poly, slope.symbol = "b"), "ggplot")
+  expect_s3_class(plot(res_poly, slope.symbol = "beta"), "ggplot")
+  expect_s3_class(plot(res_poly, slope.symbol = "bhat"), "ggplot")
+  expect_s3_class(plot(res_poly, slope.symbol = "betahat"), "ggplot")
+  expect_error(plot(res_poly, slope.symbol = "invalid"))
+  expect_s3_class(plot(res_poly, font_size_max = 6), "ggplot")
+  expect_s3_class(plot(res_poly, font_size_max = 8), "ggplot")
+  expect_s3_class(plot(res_poly, x_digits = 2, y_digits = 1), "ggplot")
+  expect_s3_class(plot(res_poly, x_scientific = FALSE, y_scientific = FALSE), "ggplot")
 })
+
+test_that("lmer sum contrasts preserve all factor levels in gen_contrast_ss and gen_data_jn", {
+  skip_if_not_installed("lme4")
+  library(lme4)
+  
+  set.seed(456)
+  n_test <- 200
+  df_test <- data.frame(
+    y = rnorm(n_test),
+    Age = rnorm(n_test, 40, 10),
+    Time = sample(0:2, n_test, replace = TRUE),
+    Difficulty = factor(sample(c("Easy", "Hard"), n_test, replace = TRUE)),
+    Network = factor(sample(c("A", "B", "C", "D"), n_test, replace = TRUE), levels = c("A", "B", "C", "D")),
+    Subject = factor(sample(1:10, n_test, replace = TRUE))
+  )
+  contrasts(df_test$Network) <- contr.sum(4)
+  
+  fit_test <- lmer(y ~ Age * Time * Difficulty * Network + (1 | Subject), data = df_test)
+  
+  c_test <- gen_contrast_ss(fit_test, 'Age', m = list('Time' = 0:1, 'Difficulty' = 'real', 'Network' = 'real'))
+  df_coef_test <- tidy_es(multcomp::glht(fit_test, c_test), mcc = 'none')
+  df_jn_test <- gen_data_jn(df_coef_test)
+  
+  expect_equal(sort(unique(df_jn_test$facet)), c("A", "B", "C", "D"))
+})
+

@@ -4,12 +4,44 @@
 \alias{plot.jn_df}
 \title{Plot Johnson-Neyman Data}
 \usage{
-\method{plot}{jn_df}(x, scales = "fixed", ...)
+\method{plot}{jn_df}(
+  x,
+  scales = "fixed",
+  nrow = NULL,
+  ncol = NULL,
+  font_family = NULL,
+  legend.position = c("bottom", "right"),
+  slope.symbol = c("b", "beta", "bhat", "betahat"),
+  font_size_max = 7,
+  x_digits = NULL,
+  y_digits = NULL,
+  x_scientific = TRUE,
+  y_scientific = TRUE,
+  ...
+)
 }
 \arguments{
 \item{x}{An object of class \code{jn_df} (the output from \code{\link[=gen_data_jn]{gen_data_jn()}}).}
 
 \item{scales}{Character vector specifying whether facet scales should be \code{"fixed"}, \code{"free_y"}, \code{"free_x"}, or \code{"free"}. Default is \code{"fixed"}.}
+
+\item{nrow}{Number of rows in the facet grid. Default is \code{NULL}.}
+
+\item{ncol}{Number of columns in the facet grid. Default is \code{NULL}.}
+
+\item{font_family}{Font family name for the plot text. If \code{NULL} (default), dynamically checks and uses \code{"Arial"}, falling back to \code{"Helvetica"}, then \code{"sans"}.}
+
+\item{legend.position}{Character vector specifying the legend position: \code{"bottom"} (default) or \code{"right"}.}
+
+\item{slope.symbol}{Character vector specifying the symbol to represent the slope in the y-axis label: \code{"b"} (italicized b, default), \code{"beta"} (italicized Greek beta), \code{"bhat"} (italicized b with a hat), or \code{"betahat"} (Greek beta with a hat).}
+
+\item{x_digits}{Integer specifying the number of decimal places for rounding the x-axis tick labels. Default is \code{NULL} (no rounding).}
+
+\item{y_digits}{Integer specifying the number of decimal places for rounding the y-axis tick labels. Default is \code{NULL} (no rounding).}
+
+\item{x_scientific}{Logical flag indicating whether to use clean plotmath scientific notation formatting for the x-axis tick labels. Default is \code{TRUE}.}
+
+\item{y_scientific}{Logical flag indicating whether to use clean plotmath scientific notation formatting for the y-axis tick labels. Default is \code{TRUE}.}
 
 \item{...}{Additional arguments (not used).}
 }
@@ -18,6 +50,27 @@ A \code{ggplot} object.
 }
 \description{
 Plot Johnson-Neyman Data
+}
+\examples{
+# 1. Simple moderator example using real values
+fit1 <- lm(salary ~ yrs.since.phd * yrs.service, data = carData::Salaries)
+c1 <- gen_contrast_ss(
+  fit1,
+  x = "yrs.since.phd",
+  m = list(yrs.service = "real")
+)
+df_tidy_cope1 <- tidy_es(multcomp::glht(fit1, linfct = c1))
+plot(gen_data_jn(df_tidy_cope1))
+
+# 2. Multi-moderator polynomial example with free y scales and custom layout
+fit2 <- lm(
+  salary ~ scale(yrs.since.phd, scale = FALSE) * scale(yrs.service, scale = FALSE) +
+    I(scale(yrs.since.phd, scale = FALSE)^2) * scale(yrs.service, scale = FALSE),
+  data = carData::Salaries
+)
+c2 <- gen_contrast_ss(fit2, x = "yrs.since.phd", m = list(yrs.since.phd = "real", yrs.service = "sd"))
+df_tidy_cope2 <- tidy_es(multcomp::glht(fit2, c2), mcc = "none")
+plot(gen_data_jn(df_tidy_cope2), scales = "free_y", nrow = 2)
 }
 \seealso{
 Other contrast or COPE helpers:
