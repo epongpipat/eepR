@@ -60,7 +60,7 @@ c1 <- gen_contrast_ss(
   m = list(yrs.service = "real")
 )
 df_tidy_cope1 <- tidy_es(multcomp::glht(fit1, linfct = c1))
-plot(gen_data_jn(df_tidy_cope1))
+plot(gen_data_jn(df_tidy_cope1), font_size_max = 12)
 
 # 2. Multi-moderator polynomial example with free y scales and custom layout
 fit2 <- lm(
@@ -70,7 +70,7 @@ fit2 <- lm(
 )
 c2 <- gen_contrast_ss(fit2, x = "yrs.since.phd", m = list(yrs.since.phd = "real", yrs.service = "sd"))
 df_tidy_cope2 <- tidy_es(multcomp::glht(fit2, c2), mcc = "none")
-plot(gen_data_jn(df_tidy_cope2), scales = "free_y", nrow = 2)
+plot(gen_data_jn(df_tidy_cope2), scales = "free_y", nrow = 1, font_size_max = 10)
 }
 \seealso{
 Other contrast or COPE helpers:
@@ -82,4 +82,4 @@ Other contrast or COPE helpers:
 \code{\link[=tidy_es_cope_t]{tidy_es_cope_t()}}
 }
 \concept{contrast or COPE helpers}
-\concept{stats}
+\concept{visualization}

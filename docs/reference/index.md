@@ -39,8 +39,6 @@
   : models2coefs
 - [`models2omni()`](https://ekarinpongpipat.com/eepR/reference/models2omni.md)
   : models2omni
-- [`plot(`*`<jn_df>`*`)`](https://ekarinpongpipat.com/eepR/reference/plot.jn_df.md)
-  : Plot Johnson-Neyman Data
 - [`r_sq_to_adj_r_sq()`](https://ekarinpongpipat.com/eepR/reference/r_sq_to_adj_r_sq.md)
   : r_sq_to_adj_r_sq
 - [`renamed_tidy()`](https://ekarinpongpipat.com/eepR/reference/renamed_tidy.md)
@@ -133,6 +131,8 @@
   : cor_plot
 - [`move_legend_to_btm()`](https://ekarinpongpipat.com/eepR/reference/move_legend_to_btm.md)
   : move_legend_to_btm
+- [`plot(`*`<jn_df>`*`)`](https://ekarinpongpipat.com/eepR/reference/plot.jn_df.md)
+  : Plot Johnson-Neyman Data
 - [`plot_age()`](https://ekarinpongpipat.com/eepR/reference/plot_age.md)
   : plot_age
 - [`plot_bland_altman()`](https://ekarinpongpipat.com/eepR/reference/plot_bland_altman.md)
