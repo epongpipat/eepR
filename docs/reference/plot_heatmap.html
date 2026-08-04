@@ -44,7 +44,7 @@ grouping bands, and grid lines.</p>
     <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">plot_heatmap</span><span class="op">(</span></span>
 <span>  <span class="va">affine_matrix</span>,</span>
 <span>  <span class="va">lut</span>,</span>
-<span>  group_var <span class="op">=</span> <span class="st">"network"</span>,</span>
+<span>  group_by <span class="op">=</span> <span class="st">"network"</span>,</span>
 <span>  border_width <span class="op">=</span> <span class="fl">10</span>,</span>
 <span>  scale_fill_type <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"gradient2"</span>, <span class="st">"viridis"</span>, <span class="st">"distiller"</span><span class="op">)</span>,</span>
 <span>  scale_fill_limits <span class="op">=</span> <span class="cn">NULL</span>,</span>
@@ -73,7 +73,9 @@ grouping bands, and grid lines.</p>
 <span>  grid_color <span class="op">=</span> <span class="st">"black"</span>,</span>
 <span>  grid_linewidth <span class="op">=</span> <span class="fl">0.5</span>,</span>
 <span>  legend_title <span class="op">=</span> <span class="st">"Value"</span>,</span>
-<span>  group_legend_title <span class="op">=</span> <span class="va">group_var</span></span>
+<span>  legend_title_group_by <span class="op">=</span> <span class="va">group_by</span>,</span>
+<span>  legend <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  legend_group_by <span class="op">=</span> <span class="cn">TRUE</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
 
@@ -91,7 +93,7 @@ Can be with or without row and column names.</p></dd>
 Must contain 'index' and 'color' (hex values) columns, and the grouping variable column.</p></dd>
 
 
-<dt id="arg-group-var">group_var<a class="anchor" aria-label="anchor" href="#arg-group-var"></a></dt>
+<dt id="arg-group-by">group_by<a class="anchor" aria-label="anchor" href="#arg-group-by"></a></dt>
 <dd><p>Character. Name of the column in <code>lut</code> to use as the grouping variable.
 Default is <code>"network"</code>.</p></dd>
 
@@ -216,8 +218,16 @@ Default is <code>FALSE</code>.</p></dd>
 <dd><p>Character. Title of the heatmap color legend. Default is <code>"Value"</code>.</p></dd>
 
 
-<dt id="arg-group-legend-title">group_legend_title<a class="anchor" aria-label="anchor" href="#arg-group-legend-title"></a></dt>
-<dd><p>Character. Title of the grouping band legend. Default matches <code>group_var</code>.</p></dd>
+<dt id="arg-legend-title-group-by">legend_title_group_by<a class="anchor" aria-label="anchor" href="#arg-legend-title-group-by"></a></dt>
+<dd><p>Character. Title of the grouping band legend. Default matches <code>group_by</code>.</p></dd>
+
+
+<dt id="arg-legend">legend<a class="anchor" aria-label="anchor" href="#arg-legend"></a></dt>
+<dd><p>Logical. If <code>TRUE</code> (default), the heatmap fill legend (regular fill) is shown. If <code>FALSE</code>, it is hidden.</p></dd>
+
+
+<dt id="arg-legend-group-by">legend_group_by<a class="anchor" aria-label="anchor" href="#arg-legend-group-by"></a></dt>
+<dd><p>Logical. If <code>TRUE</code> (default), the grouping band legend (group_by fill) is shown. If <code>FALSE</code>, it is hidden.</p></dd>
 
 </dl></div>
     <div class="section level2">
@@ -259,7 +269,7 @@ Default is <code>FALSE</code>.</p></dd>
 <span class="r-in"><span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">plot_heatmap</span><span class="op">(</span></span></span>
 <span class="r-in"><span>  affine_matrix <span class="op">=</span> <span class="va">sim_matrix</span>,</span></span>
 <span class="r-in"><span>  lut <span class="op">=</span> <span class="va">sim_lut</span>,</span></span>
-<span class="r-in"><span>  group_var <span class="op">=</span> <span class="st">"network"</span>,</span></span>
+<span class="r-in"><span>  group_by <span class="op">=</span> <span class="st">"network"</span>,</span></span>
 <span class="r-in"><span>  border_width <span class="op">=</span> <span class="fl">10</span>,</span></span>
 <span class="r-in"><span>  diagonal_to_na <span class="op">=</span> <span class="cn">TRUE</span>,</span></span>
 <span class="r-in"><span>  title <span class="op">=</span> <span class="st">"Simulated Schaefer 400 (Yeo 7 Networks)"</span></span></span>
@@ -271,7 +281,7 @@ Default is <code>FALSE</code>.</p></dd>
 <span class="r-in"><span><span class="va">p_diamond</span> <span class="op">&lt;-</span> <span class="fu">plot_heatmap</span><span class="op">(</span></span></span>
 <span class="r-in"><span>  affine_matrix <span class="op">=</span> <span class="va">sim_matrix</span>,</span></span>
 <span class="r-in"><span>  lut <span class="op">=</span> <span class="va">sim_lut</span>,</span></span>
-<span class="r-in"><span>  group_var <span class="op">=</span> <span class="st">"network"</span>,</span></span>
+<span class="r-in"><span>  group_by <span class="op">=</span> <span class="st">"network"</span>,</span></span>
 <span class="r-in"><span>  border_width <span class="op">=</span> <span class="fl">10</span>,</span></span>
 <span class="r-in"><span>  diagonal_to_na <span class="op">=</span> <span class="cn">TRUE</span>,</span></span>
 <span class="r-in"><span>  diamond <span class="op">=</span> <span class="cn">TRUE</span>,</span></span>

@@ -94,8 +94,8 @@ testing contrasts (joint F-test) using glht</p>
 <span class="r-in"><span><span class="va">c</span> <span class="op">&lt;-</span> <span class="fu"><a href="gen_contrast_ss.html">gen_contrast_ss</a></span><span class="op">(</span><span class="va">model_fit</span>, x <span class="op">=</span> <span class="st">"rank"</span><span class="op">)</span><span class="op">[</span><span class="op">-</span><span class="fl">1</span>, <span class="op">]</span></span></span>
 <span class="r-in"><span><span class="va">model_fit_cope_F</span> <span class="op">&lt;-</span> <span class="fu">multcomp</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/multcomp/man/glht.html" class="external-link">glht</a></span><span class="op">(</span><span class="va">model_fit</span>, <span class="va">c</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu">tidy_es_cope_F</span><span class="op">(</span><span class="va">model_fit_cope_F</span>, label <span class="op">=</span> <span class="st">"rank"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>       lh op   rh       ss df       ms        F            p  r_sq_adj</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 salary  ~ rank 297.8327  2 148.9164 148.9164 7.267053e-49 0.4282263</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       lh op   rh           ss df          ms        F            p  r_sq_adj</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 salary  ~ rank 152810893487  2 76405446744 148.9164 7.267053e-49 0.4282263</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   r_sq_adj_ci_ll r_sq_adj_ci_ul</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1      0.3698418              1</span>
 </code></pre></div>

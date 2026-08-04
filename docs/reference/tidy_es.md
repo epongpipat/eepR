@@ -10,7 +10,9 @@ tidy_es(
   model,
   ci = 0.95,
   mcc = c("single-step", "none", "uncorrected", "fdr", "FDR", "tukey", "tukey's HSD",
-    "Tukey")
+    "Tukey"),
+  test = c("t", "F"),
+  ...
 )
 ```
 
@@ -32,6 +34,17 @@ tidy_es(
   multiple comparison correction method. Options include "single-step"
   (default, which is what glht provides for Tukey's HSD), "none"
   (uncorrected), "fdr", "FDR", "tukey", "tukey's HSD", and "Tukey".
+
+- test:
+
+  statistical test for \`glht\` models. Options are "t" (default) for
+  t-tests (multiple comparisons/pairwise contrasts) and "F" for joint
+  F-tests.
+
+- ...:
+
+  additional arguments passed to the underlying tidying functions (e.g.
+  \`label\` for \`tidy_es_cope_F\`).
 
 ## Value
 

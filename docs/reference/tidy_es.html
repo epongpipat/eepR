@@ -45,7 +45,9 @@ size (confidence intervals for the regression coefficient and adjusted R^2)</p>
 <span>  <span class="va">model</span>,</span>
 <span>  ci <span class="op">=</span> <span class="fl">0.95</span>,</span>
 <span>  mcc <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"single-step"</span>, <span class="st">"none"</span>, <span class="st">"uncorrected"</span>, <span class="st">"fdr"</span>, <span class="st">"FDR"</span>, <span class="st">"tukey"</span>, <span class="st">"tukey's HSD"</span>,</span>
-<span>    <span class="st">"Tukey"</span><span class="op">)</span></span>
+<span>    <span class="st">"Tukey"</span><span class="op">)</span>,</span>
+<span>  test <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"t"</span>, <span class="st">"F"</span><span class="op">)</span>,</span>
+<span>  <span class="va">...</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
 
@@ -63,6 +65,14 @@ size (confidence intervals for the regression coefficient and adjusted R^2)</p>
 
 <dt id="arg-mcc">mcc<a class="anchor" aria-label="anchor" href="#arg-mcc"></a></dt>
 <dd><p>multiple comparison correction method. Options include "single-step" (default, which is what glht provides for Tukey's HSD), "none" (uncorrected), "fdr", "FDR", "tukey", "tukey's HSD", and "Tukey".</p></dd>
+
+
+<dt id="arg-test">test<a class="anchor" aria-label="anchor" href="#arg-test"></a></dt>
+<dd><p>statistical test for `glht` models. Options are "t" (default) for t-tests (multiple comparisons/pairwise contrasts) and "F" for joint F-tests.</p></dd>
+
+
+<dt id="arg--">...<a class="anchor" aria-label="anchor" href="#arg--"></a></dt>
+<dd><p>additional arguments passed to the underlying tidying functions (e.g. `label` for `tidy_es_cope_F`).</p></dd>
 
 </dl></div>
     <div class="section level2">

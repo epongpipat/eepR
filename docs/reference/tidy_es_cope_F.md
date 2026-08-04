@@ -57,8 +57,8 @@ model_fit <- lm(salary ~ rank + discipline, data = carData::Salaries)
 c <- gen_contrast_ss(model_fit, x = "rank")[-1, ]
 model_fit_cope_F <- multcomp::glht(model_fit, c)
 tidy_es_cope_F(model_fit_cope_F, label = "rank")
-#>       lh op   rh       ss df       ms        F            p  r_sq_adj
-#> 1 salary  ~ rank 297.8327  2 148.9164 148.9164 7.267053e-49 0.4282263
+#>       lh op   rh           ss df          ms        F            p  r_sq_adj
+#> 1 salary  ~ rank 152810893487  2 76405446744 148.9164 7.267053e-49 0.4282263
 #>   r_sq_adj_ci_ll r_sq_adj_ci_ul
 #> 1      0.3698418              1
 ```

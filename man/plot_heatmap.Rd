@@ -7,7 +7,7 @@
 plot_heatmap(
   affine_matrix,
   lut,
-  group_var = "network",
+  group_by = "network",
   border_width = 10,
   scale_fill_type = c("gradient2", "viridis", "distiller"),
   scale_fill_limits = NULL,
@@ -36,7 +36,9 @@ plot_heatmap(
   grid_color = "black",
   grid_linewidth = 0.5,
   legend_title = "Value",
-  group_legend_title = group_var
+  legend_title_group_by = group_by,
+  legend = TRUE,
+  legend_group_by = TRUE
 )
 }
 \arguments{
@@ -46,7 +48,7 @@ Can be with or without row and column names.}
 \item{lut}{A data.frame or a path to a BIDS-format TSV file containing the lookup table.
 Must contain 'index' and 'color' (hex values) columns, and the grouping variable column.}
 
-\item{group_var}{Character. Name of the column in \code{lut} to use as the grouping variable.
+\item{group_by}{Character. Name of the column in \code{lut} to use as the grouping variable.
 Default is \code{"network"}.}
 
 \item{border_width}{Integer. Width (in plot units/pixels) of the grouping bands around the plot.
@@ -113,7 +115,11 @@ Default is \code{FALSE}.}
 
 \item{legend_title}{Character. Title of the heatmap color legend. Default is \code{"Value"}.}
 
-\item{group_legend_title}{Character. Title of the grouping band legend. Default matches \code{group_var}.}
+\item{legend_title_group_by}{Character. Title of the grouping band legend. Default matches \code{group_by}.}
+
+\item{legend}{Logical. If \code{TRUE} (default), the heatmap fill legend (regular fill) is shown. If \code{FALSE}, it is hidden.}
+
+\item{legend_group_by}{Logical. If \code{TRUE} (default), the grouping band legend (group_by fill) is shown. If \code{FALSE}, it is hidden.}
 }
 \value{
 A \code{ggplot} object.
@@ -155,7 +161,7 @@ colnames(sim_matrix) <- sim_lut$name
 p <- plot_heatmap(
   affine_matrix = sim_matrix,
   lut = sim_lut,
-  group_var = "network",
+  group_by = "network",
   border_width = 10,
   diagonal_to_na = TRUE,
   title = "Simulated Schaefer 400 (Yeo 7 Networks)"
@@ -166,7 +172,7 @@ print(p)
 p_diamond <- plot_heatmap(
   affine_matrix = sim_matrix,
   lut = sim_lut,
-  group_var = "network",
+  group_by = "network",
   border_width = 10,
   diagonal_to_na = TRUE,
   diamond = TRUE,

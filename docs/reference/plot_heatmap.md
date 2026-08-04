@@ -9,7 +9,7 @@ BIDS-format lookup table, grouping bands, and grid lines.
 plot_heatmap(
   affine_matrix,
   lut,
-  group_var = "network",
+  group_by = "network",
   border_width = 10,
   scale_fill_type = c("gradient2", "viridis", "distiller"),
   scale_fill_limits = NULL,
@@ -38,7 +38,9 @@ plot_heatmap(
   grid_color = "black",
   grid_linewidth = 0.5,
   legend_title = "Value",
-  group_legend_title = group_var
+  legend_title_group_by = group_by,
+  legend = TRUE,
+  legend_group_by = TRUE
 )
 ```
 
@@ -55,7 +57,7 @@ plot_heatmap(
   table. Must contain 'index' and 'color' (hex values) columns, and the
   grouping variable column.
 
-- group_var:
+- group_by:
 
   Character. Name of the column in `lut` to use as the grouping
   variable. Default is `"network"`.
@@ -191,10 +193,20 @@ plot_heatmap(
 
   Character. Title of the heatmap color legend. Default is `"Value"`.
 
-- group_legend_title:
+- legend_title_group_by:
 
   Character. Title of the grouping band legend. Default matches
-  `group_var`.
+  `group_by`.
+
+- legend:
+
+  Logical. If `TRUE` (default), the heatmap fill legend (regular fill)
+  is shown. If `FALSE`, it is hidden.
+
+- legend_group_by:
+
+  Logical. If `TRUE` (default), the grouping band legend (group_by fill)
+  is shown. If `FALSE`, it is hidden.
 
 ## Value
 
@@ -235,7 +247,7 @@ colnames(sim_matrix) <- sim_lut$name
 p <- plot_heatmap(
   affine_matrix = sim_matrix,
   lut = sim_lut,
-  group_var = "network",
+  group_by = "network",
   border_width = 10,
   diagonal_to_na = TRUE,
   title = "Simulated Schaefer 400 (Yeo 7 Networks)"
@@ -247,7 +259,7 @@ print(p)
 p_diamond <- plot_heatmap(
   affine_matrix = sim_matrix,
   lut = sim_lut,
-  group_var = "network",
+  group_by = "network",
   border_width = 10,
   diagonal_to_na = TRUE,
   diamond = TRUE,
