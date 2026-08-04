@@ -6,6 +6,8 @@
 #' @param model model fit from \code{lm()}, \code{lmerTest::lmer()}, \code{lme4::lmer()}, or \code{multcomp::glht()}
 #' @param ci confidence interval (0, 1)
 #' @param mcc multiple comparison correction method. Options include "single-step" (default, which is what glht provides for Tukey's HSD), "none" (uncorrected), "fdr", "FDR", "tukey", "tukey's HSD", and "Tukey".
+#' @param test statistical test for `glht` models. Options are "t" (default) for t-tests (multiple comparisons/pairwise contrasts) and "F" for joint F-tests.
+#' @param ... additional arguments passed to the underlying tidying functions (e.g. `label` for `tidy_es_cope_F`).
 #' @return data.frame
 #' @export
 #' @examples
@@ -24,10 +26,15 @@
 #' )
 #' model_fit_cope_t <- multcomp::glht(model_fit, c)
 #' tidy_es(model_fit_cope_t)
-tidy_es <- function(model, ci = 0.95, mcc = c("single-step", "none", "uncorrected", "fdr", "FDR", "tukey", "tukey's HSD", "Tukey")) {
+tidy_es <- function(model, ci = 0.95, mcc = c("single-step", "none", "uncorrected", "fdr", "FDR", "tukey", "tukey's HSD", "Tukey"), test = c("t", "F"), ...) {
   mcc <- match.arg(mcc)
+  test <- match.arg(test)
   if (inherits(model, 'glht')) {
-    return(tidy_es_cope_t(model, ci = ci, mcc = mcc))
+    if (test == "F") {
+      return(tidy_es_cope_F(model, ci = ci, ...))
+    } else {
+      return(tidy_es_cope_t(model, ci = ci, mcc = mcc))
+    }
   } else if (inherits(model, 'lm')) {
     return(tidy_es_lm(model, ci = ci))
   } else if (inherits(model, 'lmerModLmerTest') || inherits(model, 'lmerMod')) {
@@ -284,6 +291,13 @@ tidy_es_cope_F <- function(model, label = NULL, ci = 0.95) {
   df_den <- sum_model$test$df[2]
   p_val <- sum_model$test$pvalue[1, 1]
   ss <- sum_model$test$SSH[1, 1]
+
+  if (!is.null(underlying_model)) {
+    sig2 <- tryCatch(sigma(underlying_model)^2, error = function(e) NULL)
+    if (!is.null(sig2)) {
+      ss <- ss * sig2
+    }
+  }
   ms <- ss / df_num
 
   if ((is.null(model$df) || length(model$df) == 0 || model$df == 0) &&

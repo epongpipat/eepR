@@ -52,3 +52,26 @@ test_that("tidy_es and tidy_es_cope_t support multiple comparison corrections (m
   # 4. Error handling for invalid mcc option
   expect_error(tidy_es(glht_obj, mcc = "invalid_mcc"))
 })
+
+test_that("tidy_es_cope_F and tidy_es with test = 'F' calculate correct SS/MS values", {
+  model_fit <- lm(salary ~ rank + discipline, data = carData::Salaries)
+  c <- gen_contrast_ss(model_fit, x = "rank")[-1, ]
+  glht_obj <- multcomp::glht(model_fit, c)
+
+  # 1. Direct call to tidy_es_cope_F
+  res_direct <- tidy_es_cope_F(glht_obj, label = "rank")
+  
+  # Check if SS and MS are correct (compared to car::Anova)
+  anova_res <- car::Anova(model_fit, type = 2)
+  expected_ss <- anova_res["rank", "Sum Sq"]
+  expected_ms <- expected_ss / 2
+  
+  expect_equal(res_direct$ss, expected_ss, tolerance = 1e-5)
+  expect_equal(res_direct$ms, expected_ms, tolerance = 1e-5)
+  expect_equal(res_direct$rh, "rank")
+
+  # 2. Indirect call through tidy_es(..., test = "F")
+  res_indirect <- tidy_es(glht_obj, test = "F", label = "rank")
+  expect_equal(res_direct, res_indirect)
+})
+
