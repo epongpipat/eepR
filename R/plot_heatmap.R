@@ -9,7 +9,7 @@
 #'   Can be with or without row and column names.
 #' @param lut A data.frame or a path to a BIDS-format TSV file containing the lookup table.
 #'   Must contain 'index' and 'color' (hex values) columns, and the grouping variable column.
-#' @param group_var Character. Name of the column in \code{lut} to use as the grouping variable.
+#' @param group_by Character. Name of the column in \code{lut} to use as the grouping variable.
 #'   Default is \code{"network"}.
 #' @param border_width Integer. Width (in plot units/pixels) of the grouping bands around the plot.
 #'   Set to \code{0} to omit. Default is \code{10}.
@@ -47,7 +47,9 @@
 #' @param grid_color Character. Color of the grid lines. Default is \code{"black"}.
 #' @param grid_linewidth Numeric. Width of the grid lines. Default is \code{0.5}.
 #' @param legend_title Character. Title of the heatmap color legend. Default is \code{"Value"}.
-#' @param group_legend_title Character. Title of the grouping band legend. Default matches \code{group_var}.
+#' @param legend_title_group_by Character. Title of the grouping band legend. Default matches \code{group_by}.
+#' @param legend Logical. If \code{TRUE} (default), the heatmap fill legend (regular fill) is shown. If \code{FALSE}, it is hidden.
+#' @param legend_group_by Logical. If \code{TRUE} (default), the grouping band legend (group_by fill) is shown. If \code{FALSE}, it is hidden.
 #'
 #' @examples
 #' # Simulate a 400-node lookup table matching Schaefer 400 with Yeo 7 networks
@@ -82,7 +84,7 @@
 #' p <- plot_heatmap(
 #'   affine_matrix = sim_matrix,
 #'   lut = sim_lut,
-#'   group_var = "network",
+#'   group_by = "network",
 #'   border_width = 10,
 #'   diagonal_to_na = TRUE,
 #'   title = "Simulated Schaefer 400 (Yeo 7 Networks)"
@@ -93,7 +95,7 @@
 #' p_diamond <- plot_heatmap(
 #'   affine_matrix = sim_matrix,
 #'   lut = sim_lut,
-#'   group_var = "network",
+#'   group_by = "network",
 #'   border_width = 10,
 #'   diagonal_to_na = TRUE,
 #'   diamond = TRUE,
@@ -113,7 +115,7 @@
 #' @importFrom scales squish
 plot_heatmap <- function(affine_matrix,
                          lut,
-                         group_var = "network",
+                         group_by = "network",
                          border_width = 10,
                          scale_fill_type = c("gradient2", "viridis", "distiller"),
                          scale_fill_limits = NULL,
@@ -142,7 +144,9 @@ plot_heatmap <- function(affine_matrix,
                          grid_color = "black",
                          grid_linewidth = 0.5,
                          legend_title = "Value",
-                         group_legend_title = group_var) {
+                         legend_title_group_by = group_by,
+                         legend = TRUE,
+                         legend_group_by = TRUE) {
 
   # Match scale_fill_type parameter
   scale_fill_type <- match.arg(scale_fill_type)
@@ -196,15 +200,15 @@ plot_heatmap <- function(affine_matrix,
   if (length(missing_cols) > 0) {
     stop(sprintf("Lookup table is missing required columns: %s", paste(missing_cols, collapse = ", ")))
   }
-  if (!group_var %in% colnames(df_lut)) {
+  if (!group_by %in% colnames(df_lut)) {
     stop(sprintf("Grouping variable '%s' not found in lookup table. Available columns: %s", 
-                  group_var, paste(colnames(df_lut), collapse = ", ")))
+                  group_by, paste(colnames(df_lut), collapse = ", ")))
   }
-  # Check if group_var and color are 1-1 matching
-  group_to_color_counts <- tapply(df_lut$color, df_lut[[group_var]], function(x) length(unique(x)))
-  color_to_group_counts <- tapply(df_lut[[group_var]], df_lut$color, function(x) length(unique(x)))
+  # Check if group_by and color are 1-1 matching
+  group_to_color_counts <- tapply(df_lut$color, df_lut[[group_by]], function(x) length(unique(x)))
+  color_to_group_counts <- tapply(df_lut[[group_by]], df_lut$color, function(x) length(unique(x)))
   if (any(group_to_color_counts != 1) || any(color_to_group_counts != 1)) {
-    stop(sprintf("The grouping variable '%s' and column 'color' must have a 1-to-1 mapping.", group_var))
+    stop(sprintf("The grouping variable '%s' and column 'color' must have a 1-to-1 mapping.", group_by))
   }
 
   # Ensure df_lut is ordered by index first to align with matrix matching
@@ -299,7 +303,7 @@ plot_heatmap <- function(affine_matrix,
   }
 
   # Sort lookup table by grouping variable and then index, and reorder matrix accordingly
-  sort_idx <- order(df_lut[[group_var]], df_lut$index)
+  sort_idx <- order(df_lut[[group_by]], df_lut$index)
   df_lut <- df_lut[sort_idx, , drop = FALSE]
   df_r <- df_r[sort_idx, sort_idx, drop = FALSE]
 
@@ -321,8 +325,8 @@ plot_heatmap <- function(affine_matrix,
                   x_coord = j)
 
   # 5. Build dynamic grouping attributes (factor preserves order of appearance in LUT)
-  df_lut$group_val <- factor(df_lut[[group_var]], levels = unique(df_lut[[group_var]]))
-  df_lut$group_num <- match(df_lut[[group_var]], unique(df_lut[[group_var]]))
+  df_lut$group_val <- factor(df_lut[[group_by]], levels = unique(df_lut[[group_by]]))
+  df_lut$group_num <- match(df_lut[[group_by]], unique(df_lut[[group_by]]))
 
   group_colors <- df_lut |>
     dplyr::group_by(group_val) |>
@@ -356,44 +360,44 @@ plot_heatmap <- function(affine_matrix,
 
       p <- p +
         ggplot2::geom_polygon(data = poly_df1, ggplot2::aes(x = x_coord, y = y_coord, group = cell_id, fill = group_val)) +
-        ggplot2::scale_fill_manual(values = colors_vec) +
-        ggplot2::labs(fill = group_legend_title) +
+        ggplot2::scale_fill_manual(values = colors_vec, guide = if (legend_group_by) "legend" else "none") +
+        ggplot2::labs(fill = legend_title_group_by) +
         ggnewscale::new_scale_fill() +
         
         ggplot2::geom_polygon(data = poly_df2, ggplot2::aes(x = x_coord, y = y_coord, group = cell_id, fill = group_val)) +
-        ggplot2::scale_fill_manual(values = colors_vec) +
-        ggplot2::labs(fill = group_legend_title) +
+        ggplot2::scale_fill_manual(values = colors_vec, guide = if (legend_group_by) "legend" else "none") +
+        ggplot2::labs(fill = legend_title_group_by) +
         ggnewscale::new_scale_fill() +
         
         ggplot2::geom_polygon(data = poly_df3, ggplot2::aes(x = x_coord, y = y_coord, group = cell_id, fill = group_val)) +
-        ggplot2::scale_fill_manual(values = colors_vec) +
-        ggplot2::labs(fill = group_legend_title) +
+        ggplot2::scale_fill_manual(values = colors_vec, guide = if (legend_group_by) "legend" else "none") +
+        ggplot2::labs(fill = legend_title_group_by) +
         ggnewscale::new_scale_fill() +
         
         ggplot2::geom_polygon(data = poly_df4, ggplot2::aes(x = x_coord, y = y_coord, group = cell_id, fill = group_val)) +
-        ggplot2::scale_fill_manual(values = colors_vec) +
-        ggplot2::labs(fill = group_legend_title) +
+        ggplot2::scale_fill_manual(values = colors_vec, guide = if (legend_group_by) "legend" else "none") +
+        ggplot2::labs(fill = legend_title_group_by) +
         ggnewscale::new_scale_fill()
     } else {
       p <- p +
         ggplot2::geom_raster(data = df_lut_long1, ggplot2::aes(x = x, y = y, fill = group_val)) +
-        ggplot2::scale_fill_manual(values = colors_vec) +
-        ggplot2::labs(fill = group_legend_title) +
+        ggplot2::scale_fill_manual(values = colors_vec, guide = if (legend_group_by) "legend" else "none") +
+        ggplot2::labs(fill = legend_title_group_by) +
         ggnewscale::new_scale_fill() +
         
         ggplot2::geom_raster(data = df_lut_long2, ggplot2::aes(x = x, y = y, fill = group_val)) +
-        ggplot2::scale_fill_manual(values = colors_vec) +
-        ggplot2::labs(fill = group_legend_title) +
+        ggplot2::scale_fill_manual(values = colors_vec, guide = if (legend_group_by) "legend" else "none") +
+        ggplot2::labs(fill = legend_title_group_by) +
         ggnewscale::new_scale_fill() +
         
         ggplot2::geom_raster(data = df_lut_long3, ggplot2::aes(x = x, y = y, fill = group_val)) +
-        ggplot2::scale_fill_manual(values = colors_vec) +
-        ggplot2::labs(fill = group_legend_title) +
+        ggplot2::scale_fill_manual(values = colors_vec, guide = if (legend_group_by) "legend" else "none") +
+        ggplot2::labs(fill = legend_title_group_by) +
         ggnewscale::new_scale_fill() +
         
         ggplot2::geom_raster(data = df_lut_long4, ggplot2::aes(x = x, y = y, fill = group_val)) +
-        ggplot2::scale_fill_manual(values = colors_vec) +
-        ggplot2::labs(fill = group_legend_title) +
+        ggplot2::scale_fill_manual(values = colors_vec, guide = if (legend_group_by) "legend" else "none") +
+        ggplot2::labs(fill = legend_title_group_by) +
         ggnewscale::new_scale_fill()
     }
   }
@@ -415,7 +419,8 @@ plot_heatmap <- function(affine_matrix,
       midpoint = scale_fill_midpoint,
       limits = scale_fill_limits,
       oob = scales::squish,
-      na.value = scale_fill_na_color
+      na.value = scale_fill_na_color,
+      guide = if (legend) "colourbar" else "none"
     )
   } else if (scale_fill_type == "viridis") {
     palette_option <- if (is.null(scale_fill_palette)) "D" else scale_fill_palette
@@ -423,7 +428,8 @@ plot_heatmap <- function(affine_matrix,
       option = palette_option,
       limits = scale_fill_limits,
       oob = scales::squish,
-      na.value = scale_fill_na_color
+      na.value = scale_fill_na_color,
+      guide = if (legend) "colourbar" else "none"
     )
   } else if (scale_fill_type == "distiller") {
     palette_name <- if (is.null(scale_fill_palette)) "RdBu" else scale_fill_palette
@@ -431,7 +437,8 @@ plot_heatmap <- function(affine_matrix,
       palette = palette_name,
       limits = scale_fill_limits,
       oob = scales::squish,
-      na.value = scale_fill_na_color
+      na.value = scale_fill_na_color,
+      guide = if (legend) "colourbar" else "none"
     )
   }
 
