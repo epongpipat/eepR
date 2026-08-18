@@ -39,6 +39,7 @@ Character string with APA-formatted linear model results.
 
 Other model2apa:
 [`cor2apa()`](https://ekarinpongpipat.com/eepR/reference/cor2apa.md),
+[`glht2apa()`](https://ekarinpongpipat.com/eepR/reference/glht2apa.md),
 [`lmer2apa()`](https://ekarinpongpipat.com/eepR/reference/lmer2apa.md),
 [`model2apa()`](https://ekarinpongpipat.com/eepR/reference/model2apa.md)
 
@@ -46,8 +47,8 @@ Other model2apa:
 
 ``` r
 lm2apa(lm(mpg ~ wt, data = mtcars), format = 'plain')
-#>                                                                                     (Intercept) 
-#> "b = 37.285, t(30) = 19.858, p = 8.24e-19, 95% CI [33.450, 41.120], Adjusted R-Squared = 0.927" 
-#>                                                                                              wt 
-#> "b = -5.344, t(30) = -9.559, p = 1.29e-10, 95% CI [-6.486, -4.203], Adjusted R-Squared = 0.745" 
+#>                                                                                         (Intercept) 
+#> "b = 37.285, t(30) = 19.858, p = 8.242×10^-19, 95% CI [33.450, 41.120], Adjusted R-Squared = 0.927" 
+#>                                                                                                  wt 
+#> "b = -5.344, t(30) = -9.559, p = 1.294×10^-10, 95% CI [-6.486, -4.203], Adjusted R-Squared = 0.745" 
 ```

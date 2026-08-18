@@ -31,6 +31,6 @@ Other console messaging helpers:
 ``` r
 try(error_msg("example error"))
 #> Error in error_msg("example error") : 
-#>   [2026-08-04 00:04:45] [ERROR] example error
+#>   [2026-08-18 00:18:28] [ERROR] example error
 #> 
 ```

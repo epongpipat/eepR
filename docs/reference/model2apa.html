@@ -38,7 +38,14 @@
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">model2apa</span><span class="op">(</span><span class="va">m</span>, terms <span class="op">=</span> <span class="st">"all"</span>, level <span class="op">=</span> <span class="fl">0.95</span>, digits <span class="op">=</span> <span class="fl">3</span>, format <span class="op">=</span> <span class="st">"html"</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">model2apa</span><span class="op">(</span></span>
+<span>  <span class="va">m</span>,</span>
+<span>  terms <span class="op">=</span> <span class="st">"all"</span>,</span>
+<span>  level <span class="op">=</span> <span class="fl">0.95</span>,</span>
+<span>  digits <span class="op">=</span> <span class="fl">3</span>,</span>
+<span>  format <span class="op">=</span> <span class="st">"html"</span>,</span>
+<span>  test <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"t"</span>, <span class="st">"F"</span><span class="op">)</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -46,7 +53,7 @@
 
 
 <dl><dt id="arg-m">m<a class="anchor" aria-label="anchor" href="#arg-m"></a></dt>
-<dd><p>model from <code>lmer()</code></p></dd>
+<dd><p>model from <code>lmer()</code>, <code><a href="https://rdrr.io/r/stats/lm.html" class="external-link">lm()</a></code>, <code><a href="https://rdrr.io/r/stats/cor.test.html" class="external-link">cor.test()</a></code>, or <code><a href="https://rdrr.io/pkg/multcomp/man/glht.html" class="external-link">multcomp::glht()</a></code></p></dd>
 
 
 <dt id="arg-terms">terms<a class="anchor" aria-label="anchor" href="#arg-terms"></a></dt>
@@ -64,6 +71,10 @@
 <dt id="arg-format">format<a class="anchor" aria-label="anchor" href="#arg-format"></a></dt>
 <dd><p>specify format (default: html) (options: html, plain)</p></dd>
 
+
+<dt id="arg-test">test<a class="anchor" aria-label="anchor" href="#arg-test"></a></dt>
+<dd><p>statistical test for <code>glht</code> models. Options are "t" (default) for t-tests and "F" for joint F-tests.</p></dd>
+
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
@@ -73,6 +84,7 @@
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
     <div class="dont-index"><p>Other model2apa:
 <code><a href="cor2apa.html">cor2apa()</a></code>,
+<code><a href="glht2apa.html">glht2apa()</a></code>,
 <code><a href="lm2apa.html">lm2apa()</a></code>,
 <code><a href="lmer2apa.html">lmer2apa()</a></code></p></div>
     </div>
@@ -81,22 +93,32 @@
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># cor.test</span></span></span>
 <span class="r-in"><span><span class="fu">model2apa</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/cor.test.html" class="external-link">cor.test</a></span><span class="op">(</span><span class="fu">carData</span><span class="fu">::</span><span class="va"><a href="https://rdrr.io/pkg/carData/man/Salaries.html" class="external-link">Salaries</a></span><span class="op">$</span><span class="va">yrs.since.phd</span>, <span class="fu">carData</span><span class="fu">::</span><span class="va"><a href="https://rdrr.io/pkg/carData/man/Salaries.html" class="external-link">Salaries</a></span><span class="op">$</span><span class="va">salary</span><span class="op">)</span>, format <span class="op">=</span> <span class="st">'plain'</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> r(395) = 0.419, p = 2.5e-18, 95% CI [0.335, 0.497]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> r(395) = 0.419, p = 2.495×10^-18, 95% CI [0.335, 0.497]</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># lm</span></span></span>
 <span class="r-in"><span><span class="fu">model2apa</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/lm.html" class="external-link">lm</a></span><span class="op">(</span><span class="va">mpg</span> <span class="op">~</span> <span class="va">wt</span>, data <span class="op">=</span> <span class="va">mtcars</span><span class="op">)</span>, format <span class="op">=</span> <span class="st">'plain'</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                                     (Intercept) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> "b = 37.285, t(30) = 19.858, p = 8.24e-19, 95% CI [33.450, 41.120], Adjusted R-Squared = 0.927" </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                                              wt </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> "b = -5.344, t(30) = -9.559, p = 1.29e-10, 95% CI [-6.486, -4.203], Adjusted R-Squared = 0.745" </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                                         (Intercept) </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> "b = 37.285, t(30) = 19.858, p = 8.242×10^-19, 95% CI [33.450, 41.120], Adjusted R-Squared = 0.927" </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                                                  wt </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> "b = -5.344, t(30) = -9.559, p = 1.294×10^-10, 95% CI [-6.486, -4.203], Adjusted R-Squared = 0.745" </span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># lme</span></span></span>
 <span class="r-in"><span><span class="fu">model2apa</span><span class="op">(</span><span class="fu">lmerTest</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/lmerTest/man/lmer.html" class="external-link">lmer</a></span><span class="op">(</span><span class="va">Reaction</span> <span class="op">~</span> <span class="fl">1</span> <span class="op">+</span> <span class="va">Days</span> <span class="op">+</span> <span class="op">(</span><span class="fl">1</span> <span class="op">+</span> <span class="va">Days</span> <span class="op">|</span> <span class="va">Subject</span><span class="op">)</span>, <span class="fu">lme4</span><span class="fu">::</span><span class="va"><a href="https://rdrr.io/pkg/lme4/man/sleepstudy.html" class="external-link">sleepstudy</a></span><span class="op">)</span>, format <span class="op">=</span> <span class="st">'plain'</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Computing profile confidence intervals ...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                                         (Intercept) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> "b = 251.405, t(174) = 36.838, p = 1.17e-17, 95% CI [237.681, 265.130], Adjusted R-Squared = 0.987" </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                                                Days </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      "b = 10.467, t(174) = 6.771, p = 3.26e-06, 95% CI [7.359, 13.576], Adjusted R-Squared = 0.714" </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                                             (Intercept) </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> "b = 251.405, t(174) = 36.838, p = 1.172×10^-17, 95% CI [237.681, 265.130], Adjusted R-Squared = 0.987" </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                                                    Days </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       "b = 10.467, t(174) = 6.771, p = 3.264×10^-6, 95% CI [7.359, 13.576], Adjusted R-Squared = 0.714" </span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># glht (t-test)</span></span></span>
+<span class="r-in"><span><span class="va">model_fit</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html" class="external-link">lm</a></span><span class="op">(</span><span class="va">salary</span> <span class="op">~</span> <span class="va">rank</span> <span class="op">+</span> <span class="va">discipline</span>, data <span class="op">=</span> <span class="fu">carData</span><span class="fu">::</span><span class="va"><a href="https://rdrr.io/pkg/carData/man/Salaries.html" class="external-link">Salaries</a></span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">c</span> <span class="op">&lt;-</span> <span class="fu"><a href="gen_contrast_ss.html">gen_contrast_ss</a></span><span class="op">(</span><span class="va">model_fit</span>, x <span class="op">=</span> <span class="st">"rank"</span><span class="op">)</span><span class="op">[</span><span class="op">-</span><span class="fl">1</span>, <span class="op">]</span></span></span>
+<span class="r-in"><span><span class="va">glht_obj</span> <span class="op">&lt;-</span> <span class="fu">multcomp</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/multcomp/man/glht.html" class="external-link">glht</a></span><span class="op">(</span><span class="va">model_fit</span>, <span class="va">c</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">model2apa</span><span class="op">(</span><span class="va">glht_obj</span>, test <span class="op">=</span> <span class="st">'t'</span>, format <span class="op">=</span> <span class="st">'plain'</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                                                   rankAssocProf </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>        "b = 1.376×10^4, t(393) = 3.475, p = 0.001, 95% CI [5.038×10^3, 2.249×10^4], Adjusted R-Squared = 0.027" </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                                                        rankProf </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> "b = 4.784×10^4, t(393) = 15.376, p = 1.887×10^-15, 95% CI [4.099×10^4, 5.47×10^4], Adjusted R-Squared = 0.374" </span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>

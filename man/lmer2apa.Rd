@@ -29,6 +29,7 @@ lmer2apa(lmerTest::lmer(Reaction ~ 1 + Days + (1 + Days | Subject), lme4::sleeps
 \seealso{
 Other model2apa:
 \code{\link[=cor2apa]{cor2apa()}},
+\code{\link[=glht2apa]{glht2apa()}},
 \code{\link[=lm2apa]{lm2apa()}},
 \code{\link[=model2apa]{model2apa()}}
 }

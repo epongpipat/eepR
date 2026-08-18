@@ -4,10 +4,17 @@
 \alias{model2apa}
 \title{model2apa}
 \usage{
-model2apa(m, terms = "all", level = 0.95, digits = 3, format = "html")
+model2apa(
+  m,
+  terms = "all",
+  level = 0.95,
+  digits = 3,
+  format = "html",
+  test = c("t", "F")
+)
 }
 \arguments{
-\item{m}{model from \code{lmer()}}
+\item{m}{model from \code{lmer()}, \code{lm()}, \code{cor.test()}, or \code{multcomp::glht()}}
 
 \item{terms}{specify terms to print in APA format (default: all)}
 
@@ -16,6 +23,8 @@ model2apa(m, terms = "all", level = 0.95, digits = 3, format = "html")
 \item{digits}{specify digit to round statistics (default: 3)}
 
 \item{format}{specify format (default: html) (options: html, plain)}
+
+\item{test}{statistical test for \code{glht} models. Options are "t" (default) for t-tests and "F" for joint F-tests.}
 }
 \value{
 Character string with APA-formatted model results.
@@ -32,10 +41,17 @@ model2apa(lm(mpg ~ wt, data = mtcars), format = 'plain')
 
 # lme
 model2apa(lmerTest::lmer(Reaction ~ 1 + Days + (1 + Days | Subject), lme4::sleepstudy), format = 'plain')
+
+# glht (t-test)
+model_fit <- lm(salary ~ rank + discipline, data = carData::Salaries)
+c <- gen_contrast_ss(model_fit, x = "rank")[-1, ]
+glht_obj <- multcomp::glht(model_fit, c)
+model2apa(glht_obj, test = 't', format = 'plain')
 }
 \seealso{
 Other model2apa:
 \code{\link[=cor2apa]{cor2apa()}},
+\code{\link[=glht2apa]{glht2apa()}},
 \code{\link[=lm2apa]{lm2apa()}},
 \code{\link[=lmer2apa]{lmer2apa()}}
 }

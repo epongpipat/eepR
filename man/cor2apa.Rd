@@ -26,6 +26,7 @@ cor2apa(cor.test(carData::Salaries$yrs.since.phd, carData::Salaries$salary), for
 }
 \seealso{
 Other model2apa:
+\code{\link[=glht2apa]{glht2apa()}},
 \code{\link[=lm2apa]{lm2apa()}},
 \code{\link[=lmer2apa]{lmer2apa()}},
 \code{\link[=model2apa]{model2apa()}}

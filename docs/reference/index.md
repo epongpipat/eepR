@@ -16,6 +16,8 @@
   : Extract Interaction Terms Involving a Predictor
 - [`extract_model_data()`](https://ekarinpongpipat.com/eepR/reference/extract_model_data.md)
   : Extract Raw Variables from a Fitted Model
+- [`format_numeric()`](https://ekarinpongpipat.com/eepR/reference/format_numeric.md)
+  : format_numeric
 - [`gen_contrast_blank()`](https://ekarinpongpipat.com/eepR/reference/gen_contrast_blank.md)
   : Create a Blank COPE / Contrast Matrix from a Model or Predictor
   Names
@@ -27,6 +29,8 @@
   : Create Data Grid for Model Predictions
 - [`get_lm_multicollinearity()`](https://ekarinpongpipat.com/eepR/reference/get_lm_multicollinearity.md)
   : get_lm_multicollinearity
+- [`glht2apa()`](https://ekarinpongpipat.com/eepR/reference/glht2apa.md)
+  : glht2apa
 - [`lm2apa()`](https://ekarinpongpipat.com/eepR/reference/lm2apa.md) :
   lm2apa
 - [`lmer2apa()`](https://ekarinpongpipat.com/eepR/reference/lmer2apa.md)

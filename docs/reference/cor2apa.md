@@ -38,6 +38,7 @@ Character string with APA-formatted correlation results.
 ## See also
 
 Other model2apa:
+[`glht2apa()`](https://ekarinpongpipat.com/eepR/reference/glht2apa.md),
 [`lm2apa()`](https://ekarinpongpipat.com/eepR/reference/lm2apa.md),
 [`lmer2apa()`](https://ekarinpongpipat.com/eepR/reference/lmer2apa.md),
 [`model2apa()`](https://ekarinpongpipat.com/eepR/reference/model2apa.md)
@@ -46,5 +47,5 @@ Other model2apa:
 
 ``` r
 cor2apa(cor.test(carData::Salaries$yrs.since.phd, carData::Salaries$salary), format = 'plain')
-#> r(395) = 0.419, p = 2.5e-18, 95% CI [0.335, 0.497]
+#> r(395) = 0.419, p = 2.495×10^-18, 95% CI [0.335, 0.497]
 ```
