@@ -52,66 +52,39 @@ lm2apa <- function(m, terms = 'all', level = 0.95, digits = 3, format = 'html') 
     tmp <- list()
 
     tmp$b <- model_tidy[[i, 'estimate']]
-    if (abs(tmp$b) < .001) {
-      tmp$b_str <- scientific(tmp$b, digits)
-    } else {
-      tmp$b_str <- sprintf(glue('%.{digits}f'), tmp$b)
-    }
+    tmp$b_formatted <- format_numeric(tmp$b, digits = digits, format = format)
     if (format == 'html') {
-      tmp$b_str <- glue("<i>b</i> = {tmp$b_str}")
+      tmp$b_str <- glue("<i>b</i> = {tmp$b_formatted}")
     } else if (format == 'plain') {
-      tmp$b_str <- glue("b = {tmp$b_str}")
+      tmp$b_str <- glue("b = {tmp$b_formatted}")
     }
 
 
     tmp$df <- glance(m)[['df.residual']]
     tmp$t <- model_tidy[[i, 'statistic']]
-    if (abs(tmp$t) < .001) {
-      tmp$t_str <- scientific(tmp$t, digits)
-    } else {
-      tmp$t_str <- sprintf(glue('%.{digits}f'), tmp$t)
-    }
+    tmp$t_formatted <- format_numeric(tmp$t, digits = digits, format = format)
     if (format == 'html') {
-      tmp$t_str <- glue("<i>t</i>({tmp$df}) = {tmp$t_str}")
+      tmp$t_str <- glue("<i>t</i>({tmp$df}) = {tmp$t_formatted}")
     } else if (format == 'plain') {
-      tmp$t_str <- glue("t({tmp$df}) = {tmp$t_str}")
+      tmp$t_str <- glue("t({tmp$df}) = {tmp$t_formatted}")
     }
 
 
     tmp$p <- model_tidy[[i, 'p.value']]
-    if (tmp$p < .001) {
-      tmp$p_str <- scientific(tmp$p, digits)
-    } else {
-      tmp$p_str <- sprintf(glue('%.{digits}f'), tmp$p)
-    }
+    tmp$p_formatted <- format_numeric(tmp$p, digits = digits, format = format)
     if (format == 'html') {
-      tmp$p_str <- glue("<i>p</i> = {tmp$p_str}")
+      tmp$p_str <- glue("<i>p</i> = {tmp$p_formatted}")
     } else if (format == 'plain') {
-      tmp$p_str <- glue("p = {tmp$p_str}")
+      tmp$p_str <- glue("p = {tmp$p_formatted}")
     }
 
-    tmp$ci_ll <- model_tidy[[i, 'ci_ll']]
-    if (abs(tmp$ci_ll) < .001) {
-      tmp$ci_ll <- scientific(tmp$ci_ll, digits = digits)
-    } else {
-      tmp$ci_ll <- sprintf(glue('%.{digits}f'), tmp$ci_ll)
-    }
-
-    tmp$ci_ul <- model_tidy[[i, 'ci_ul']]
-    if (abs(tmp$ci_ul) < .001) {
-      tmp$ci_ul <- scientific(tmp$ci_ul, digits = digits)
-    } else {
-      tmp$ci_ul <- sprintf(glue('%.{digits}f'), tmp$ci_ul)
-    }
+    tmp$ci_ll <- format_numeric(model_tidy[[i, 'ci_ll']], digits = digits, format = format)
+    tmp$ci_ul <- format_numeric(model_tidy[[i, 'ci_ul']], digits = digits, format = format)
 
     tmp$ci_str <- glue("{level*100}% CI [{tmp$ci_ll}, {tmp$ci_ul}]")
 
-    tmp$r_sq_adj <- t_to_eta2_adj(tmp$t, tmp$df)[[1]]
-    if (abs(tmp$r_sq_adj) < .001) {
-      tmp$r_sq_adj <- scientific(tmp$r_sq_adj, digits = digits)
-    } else {
-      tmp$r_sq_adj <- sprintf(glue('%.{digits}f'), tmp$r_sq_adj)
-    }
+    r_sq_adj_val <- t_to_eta2_adj(tmp$t, tmp$df)[[1]]
+    tmp$r_sq_adj <- format_numeric(r_sq_adj_val, digits = digits, format = format)
     if (format == 'html') {
       tmp$r_sq_adj_str <- glue('<i>R<sup>2</sup><sub>Adj.</sub></i> = {tmp$r_sq_adj}')
     } else if (format == 'plain') {

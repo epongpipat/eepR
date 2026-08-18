@@ -17,39 +17,24 @@ cor2apa <- function(m, level = 0.95, digits = 3, format = 'html') {
 
   cor_tidy <- tidy(m)
 
-  r <- round(cor_tidy[['estimate']], 3)
+  r_formatted <- format_numeric(cor_tidy[['estimate']], digits = digits, format = format)
   df_r <- cor_tidy[['parameter']]
   if (format == 'html') {
-    r_stat_str <- glue("<i>r</i>({df_r}) = {r}")
+    r_stat_str <- glue("<i>r</i>({df_r}) = {r_formatted}")
   } else if (format == 'plain') {
-    r_stat_str <- glue("r({df_r}) = {r}")
+    r_stat_str <- glue("r({df_r}) = {r_formatted}")
   }
 
-  p <- cor_tidy[['p.value']]
-  if (p < .001) {
-    p_str <- scientific({cor_tidy[['p.value']]})
-  } else {
-    p_str <- sprintf(glue('%.{digits}f'), p)
-  }
+  p_val <- cor_tidy[['p.value']]
+  p_formatted <- format_numeric(p_val, digits = digits, format = format)
   if (format == 'html') {
-    p_str <- glue("<i>p</i> = {p_str}")
+    p_str <- glue("<i>p</i> = {p_formatted}")
   } else if (format == 'plain') {
-    p_str <- glue("p = {p_str}")
+    p_str <- glue("p = {p_formatted}")
   }
 
-  ci_ll <- cor_tidy[['conf.low']]
-  if (abs(ci_ll) < .001) {
-    ci_ll <- scientific(ci_ll, digits = digits)
-  } else {
-    ci_ll <- sprintf(glue('%.{digits}f'), ci_ll)
-  }
-
-  ci_ul <- cor_tidy[['conf.high']]
-  if (abs(ci_ul) < .001) {
-    ci_ul <- scientific(ci_ul, digits = digits)
-  } else {
-    ci_ul <- sprintf(glue('%.{digits}f'), ci_ul)
-  }
+  ci_ll <- format_numeric(cor_tidy[['conf.low']], digits = digits, format = format)
+  ci_ul <- format_numeric(cor_tidy[['conf.high']], digits = digits, format = format)
   ci_str <- glue("{level*100}% CI [{ci_ll}, {ci_ul}]")
 
   stat_str <- glue("{r_stat_str}, {p_str}, {ci_str}")
