@@ -24,8 +24,8 @@ model_continuous_elastic_net <- function(data, y, alpha_list = seq(0.0001, 0.999
   registerDoParallel(cores = availableCores()-1)
   plan(multiprocess)
 
-  x <- data %>% select(-y) %>% as.matrix()
-  y <- data %>% select(y) %>% as.matrix()
+  x <- data %>% dplyr::select(-y) %>% as.matrix()
+  y <- data %>% dplyr::select(y) %>% as.matrix()
   a <- alpha_list
 
   # perform cv.glmnet for each alpha

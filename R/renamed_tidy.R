@@ -19,7 +19,7 @@ renamed_tidy <- function(model) {
              p = p.value) %>%
         mutate(lh = as.character(model[["terms"]][[2]]),
                op = as.character(model[["terms"]][[1]])) %>%
-        select(lh, op, rh, b, se, t, p)
+        dplyr::select(lh, op, rh, b, se, t, p)
   } else if (attributes(model)$class == 'htest') {
     df_tidy <- df_tidy %>%
       rename(chisq = statistic,

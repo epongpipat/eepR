@@ -42,7 +42,7 @@ model_categorical_elastic_net <- function(x, y, alpha_list = seq(0.0001, 0.9999,
   cv <- tibble(a = alpha_list) %>%
     mutate(cv_model = future_map(a, func_cv)) %>%
     unnest(cv_model) %>%
-    select(-a) %>%
+    dplyr::select(-a) %>%
     .[cv$cvm == min(cv$cvm),]
 
   model <- glmnet(x, y, family = family, lambda = cv$lambda.1se, alpha = cv$alpha)

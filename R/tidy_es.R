@@ -71,12 +71,12 @@ tidy_es_lm <- function(model, ci = 0.95) {
   rownames(df_tidy) <- NULL
 
   r_sq_adj <- t_to_eta2_adj(df_tidy$t, df_error = model$df.residual, ci = ci) %>%
-    select(-CI)
+    dplyr::select(-CI)
   colnames(r_sq_adj) <- c('r_sq_adj', 'r_sq_adj_ci_ll', 'r_sq_adj_ci_ul')
   df_tidy <- cbind(df_tidy, r_sq_adj)
 
   df_tidy <- df_tidy %>%
-    select(lh, op, rh, b, se, t, p, r_sq_adj, everything())
+    dplyr::select(lh, op, rh, b, se, t, p, r_sq_adj, everything())
 
   return(df_tidy)
 }
@@ -118,14 +118,14 @@ tidy_es_lmer <- function(model, ci = 0.95) {
 
   # r^2 (adjusted)
   df_r_sq <- as.data.frame(t_to_eta2_adj(df_coef$t, df_error = df_coef$df, ci = ci)) |>
-    select(-CI)
+    dplyr::select(-CI)
   colnames(df_r_sq) <- c('r_sq_adj', 'r_sq_adj_ci_ll', 'r_sq_adj_ci_ul')
   df_r_sq$rh <- df_coef$rh
 
   # combine
   df <- left_join(df_coef, df_ci, by = 'rh') |>
     left_join(df_r_sq, by = 'rh') |>
-    select(lh, op, rh, b, se, df, t, p, r_sq_adj, b_ci_ll, b_ci_ul, r_sq_adj_ci_ll, r_sq_adj_ci_ul)
+    dplyr::select(lh, op, rh, b, se, df, t, p, r_sq_adj, b_ci_ll, b_ci_ul, r_sq_adj_ci_ll, r_sq_adj_ci_ul)
 
   return(df)
 
@@ -238,7 +238,7 @@ tidy_es_cope_t <- function(model, ci = 0.95, mcc = c("single-step", "none", "unc
   )
 
   df_out <- df_out %>%
-    select(lh, op, rh, b, se, df, t, p, r_sq_adj, b_ci_ll, b_ci_ul, r_sq_adj_ci_ll, r_sq_adj_ci_ul)
+    dplyr::select(lh, op, rh, b, se, df, t, p, r_sq_adj, b_ci_ll, b_ci_ul, r_sq_adj_ci_ll, r_sq_adj_ci_ul)
 
   return(df_out)
 }

@@ -12,8 +12,8 @@
 #' data <- data.frame(y = mtcars$mpg, wt = mtcars$wt, hp = mtcars$hp)
 #' model_continuous_svm_linear(data, "y")
 model_continuous_svm_linear <- function(data, y) {
- x <- data %>% select(-y) %>% as.matrix()
- y <- data %>% select(y) %>% as.matrix()
+  x <- data %>% dplyr::select(-y) %>% as.matrix()
+  y <- data %>% dplyr::select(y) %>% as.matrix()
 
  model <- svm(x = x, y = y, kernel = "linear", type = "eps-regression")
  model$w <- t(model$coefs) %*% model$SV

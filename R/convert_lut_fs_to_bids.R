@@ -26,7 +26,7 @@ convet_lut_fs2bids <- function(lut, out_path = NULL, overwrite = FALSE) {
     rename(index = V1,
            name = V2) |>
     mutate(alpha = 1) |>
-    select(index, name, color, alpha)
+    dplyr::select(index, name, color, alpha)
   df[1, 'alpha'] <- 0
   if (safe_to_write(out_path, overwrite)) {
     write.table(df, file = out_path, sep = "\t", row.names = FALSE, col.names = TRUE, quote = FALSE)

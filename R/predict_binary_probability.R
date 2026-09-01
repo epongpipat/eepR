@@ -20,7 +20,7 @@ predict_binary_probability <- function(model, x) {
       attributes() %>%
       .$probabilities %>%
       as_tibble() %>%
-      select(`1`)
+      dplyr::select(`1`)
     
   # not supported
   } else {

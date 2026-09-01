@@ -13,8 +13,8 @@
 #' data <- data.frame(y = mtcars$mpg, wt = mtcars$wt, hp = mtcars$hp)
 #' model_continuous_ridge(data, "y")
 model_continuous_ridge <- function(data, y) {
-  x <- data %>% select(-y) %>% as.matrix()
-  y <- data %>% select(y) %>% as.matrix()
+  x <- data %>% dplyr::select(-y) %>% as.matrix()
+  y <- data %>% dplyr::select(y) %>% as.matrix()
   cv_ridge <- cv.glmnet(x, y, alpha = 0)
   model <- glmnet(x, y, alpha = 0, lambda = cv_ridge$lambda.min)
   model$cv <- cv_ridge

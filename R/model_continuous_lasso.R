@@ -13,8 +13,8 @@
 #' data <- data.frame(y = mtcars$mpg, wt = mtcars$wt, hp = mtcars$hp)
 #' model_continuous_lasso(data, "y")
 model_continuous_lasso <- function(data, y) {
-  x <- data %>% select(-y) %>% as.matrix()
-  y <- data %>% select(y) %>% as.matrix()
+  x <- data %>% dplyr::select(-y) %>% as.matrix()
+  y <- data %>% dplyr::select(y) %>% as.matrix()
   cv_lasso <- cv.glmnet(x, y, alpha = 1)
   model <- glmnet(x, y, alpha = 1, lambda = cv_lasso$lambda.min)
   model$cv <- cv_lasso
