@@ -66,7 +66,7 @@ model_fit_cope_t <- multcomp::glht(model_fit, c)
 tidy_es_cope_t(model_fit_cope_t)
 #>       lh op            rh        b       se  df         t            p
 #> 1 salary  ~ rankAssocProf 13761.54 3960.661 393  3.474557 1.092134e-03
-#> 2 salary  ~      rankProf 47843.84 3111.552 393 15.376197 1.887379e-15
+#> 2 salary  ~      rankProf 47843.84 3111.552 393 15.376197 1.776357e-15
 #>     r_sq_adj   b_ci_ll  b_ci_ul r_sq_adj_ci_ll r_sq_adj_ci_ul
 #> 1 0.02733473  5037.619 22485.47    0.007003391              1
 #> 2 0.37403428 40990.199 54697.48    0.314935373              1

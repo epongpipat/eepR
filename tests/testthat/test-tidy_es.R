@@ -62,6 +62,7 @@ test_that("tidy_es_cope_F and tidy_es with test = 'F' calculate correct SS/MS va
   res_direct <- tidy_es_cope_F(glht_obj, label = "rank")
   
   # Check if SS and MS are correct (compared to car::Anova)
+  skip_if_not_installed("car")
   anova_res <- car::Anova(model_fit, type = 2)
   expected_ss <- anova_res["rank", "Sum Sq"]
   expected_ms <- expected_ss / 2

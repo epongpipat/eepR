@@ -105,10 +105,7 @@
 <span class="r-in"><span><span class="co"># lme</span></span></span>
 <span class="r-in"><span><span class="fu">model2apa</span><span class="op">(</span><span class="fu">lmerTest</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/lmerTest/man/lmer.html" class="external-link">lmer</a></span><span class="op">(</span><span class="va">Reaction</span> <span class="op">~</span> <span class="fl">1</span> <span class="op">+</span> <span class="va">Days</span> <span class="op">+</span> <span class="op">(</span><span class="fl">1</span> <span class="op">+</span> <span class="va">Days</span> <span class="op">|</span> <span class="va">Subject</span><span class="op">)</span>, <span class="fu">lme4</span><span class="fu">::</span><span class="va"><a href="https://rdrr.io/pkg/lme4/man/sleepstudy.html" class="external-link">sleepstudy</a></span><span class="op">)</span>, format <span class="op">=</span> <span class="st">'plain'</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Computing profile confidence intervals ...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                                             (Intercept) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> "b = 251.405, t(174) = 36.838, p = 1.172×10^-17, 95% CI [237.681, 265.130], Adjusted R-Squared = 0.987" </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                                                    Days </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>       "b = 10.467, t(174) = 6.771, p = 3.264×10^-6, 95% CI [7.359, 13.576], Adjusted R-Squared = 0.714" </span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in loadNamespace(x):</span> there is no package called ‘broomExtra’</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># glht (t-test)</span></span></span>
 <span class="r-in"><span><span class="va">model_fit</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html" class="external-link">lm</a></span><span class="op">(</span><span class="va">salary</span> <span class="op">~</span> <span class="va">rank</span> <span class="op">+</span> <span class="va">discipline</span>, data <span class="op">=</span> <span class="fu">carData</span><span class="fu">::</span><span class="va"><a href="https://rdrr.io/pkg/carData/man/Salaries.html" class="external-link">Salaries</a></span><span class="op">)</span></span></span>
@@ -118,7 +115,7 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span>                                                                                                   rankAssocProf </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>        "b = 1.376×10^4, t(393) = 3.475, p = 0.001, 95% CI [5.038×10^3, 2.249×10^4], Adjusted R-Squared = 0.027" </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                                                                                                        rankProf </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> "b = 4.784×10^4, t(393) = 15.376, p = 1.887×10^-15, 95% CI [4.099×10^4, 5.47×10^4], Adjusted R-Squared = 0.374" </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> "b = 4.784×10^4, t(393) = 15.376, p = 1.776×10^-15, 95% CI [4.099×10^4, 5.47×10^4], Adjusted R-Squared = 0.374" </span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
@@ -130,7 +127,7 @@
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.1.</p>
 </div>
 
     </footer></div>

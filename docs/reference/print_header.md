@@ -25,8 +25,8 @@ Other console messaging helpers:
 ``` r
 start_time <- print_header()
 #> 
-#> date:        2026-08-18 00:19:24.857546 
-#> hostname:    CVL91905 
-#> user:        ekarinpongpipat 
+#> date:        2026-09-01 18:02:11.154351 
+#> hostname:    cvl88345.local 
+#> user:        eep170030 
 #> 
 ```

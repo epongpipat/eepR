@@ -58,6 +58,30 @@
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># install.packages("remotes")</span></span>
 <span><span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"epongpipat/eepR"</span><span class="op">)</span></span></code></pre></div>
+<div class="section level3">
+<h3 id="dependencies">Dependencies<a class="anchor" aria-label="anchor" href="#dependencies"></a>
+</h3>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># install.packages("xfun")</span></span>
+<span><span class="va">deps</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span></span>
+<span>  <span class="st">"tidyverse"</span>,</span>
+<span>  <span class="st">"easystats"</span>,</span>
+<span>  <span class="st">"carData"</span>,</span>
+<span>  <span class="st">"doParallel"</span>,</span>
+<span>  <span class="st">"e1071"</span>,</span>
+<span>  <span class="st">"furrr"</span>,</span>
+<span>  <span class="st">"future"</span>,</span>
+<span>  <span class="st">"ggnewscale"</span>,</span>
+<span>  <span class="st">"ggtext"</span>,</span>
+<span>  <span class="st">"glmnet"</span>,</span>
+<span>  <span class="st">"gt"</span>,</span>
+<span>  <span class="st">"kableExtra"</span>,</span>
+<span>  <span class="st">"multcomp"</span>,</span>
+<span>  <span class="st">"patchwork"</span>,</span>
+<span>  <span class="st">"RNifti"</span></span>
+<span><span class="op">)</span></span>
+<span><span class="fu">xfun</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/xfun/man/pkg_attach.html" class="external-link">pkg_attach2</a></span><span class="op">(</span><span class="va">deps</span><span class="op">)</span></span></code></pre></div>
+</div>
 </div>
 </div>
   </main><aside class="col-md-3"><div class="links">
@@ -107,7 +131,7 @@
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.1.</p>
 </div>
 
     </footer>

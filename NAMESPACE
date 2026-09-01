@@ -32,6 +32,7 @@ export(gen_data_predict)
 export(get_3dstats)
 export(get_age_yrs)
 export(get_lm_multicollinearity)
+export(glht)
 export(glht2apa)
 export(info_msg)
 export(initialize_optparse)
@@ -84,6 +85,7 @@ export(r_sq_to_adj_r_sq)
 export(rename_colnames)
 export(renamed_tidy)
 export(safe_to_write)
+export(select)
 export(split_dseg2mask)
 export(stop_if_dne)
 export(stop_if_e)
@@ -107,78 +109,108 @@ import(rvest)
 import(stringr)
 import(tibble)
 import(tidyr)
-importFrom(RNifti,asNifti)
-importFrom(RNifti,pixdim)
-importFrom(RNifti,readNifti)
-importFrom(RNifti,writeNifti)
-importFrom(broom,glance)
-importFrom(broom,tidy)
-importFrom(crayon,green)
-importFrom(crayon,red)
-importFrom(crayon,yellow)
+importFrom(RNifti,
+  asNifti,
+  pixdim,
+  readNifti,
+  writeNifti
+)
+importFrom(broom,
+  glance,
+  tidy
+)
+importFrom(crayon,
+  green,
+  red,
+  yellow
+)
 importFrom(doParallel,registerDoParallel)
-importFrom(dplyr,bind_rows)
-importFrom(dplyr,distinct)
-importFrom(dplyr,first)
-importFrom(dplyr,group_by)
-importFrom(dplyr,mutate)
-importFrom(dplyr,select)
-importFrom(dplyr,summarize)
+importFrom(dplyr,
+  bind_rows,
+  distinct,
+  first,
+  group_by,
+  mutate,
+  select,
+  summarize
+)
 importFrom(e1071,svm)
-importFrom(effectsize,F_to_eta2_adj)
-importFrom(effectsize,t_to_eta2_adj)
+importFrom(effectsize,
+  F_to_eta2_adj,
+  t_to_eta2_adj
+)
 importFrom(furrr,future_map)
-importFrom(future,availableCores)
-importFrom(future,plan)
+importFrom(future,
+  availableCores,
+  plan
+)
 importFrom(ggnewscale,new_scale_fill)
-importFrom(ggplot2,annotate)
-importFrom(ggplot2,coord_fixed)
-importFrom(ggplot2,element_blank)
-importFrom(ggplot2,element_text)
-importFrom(ggplot2,geom_raster)
-importFrom(ggplot2,ggplot)
-importFrom(ggplot2,ggsave)
-importFrom(ggplot2,labs)
-importFrom(ggplot2,scale_fill_distiller)
-importFrom(ggplot2,scale_fill_gradient2)
-importFrom(ggplot2,scale_fill_manual)
-importFrom(ggplot2,scale_fill_viridis_c)
-importFrom(ggplot2,scale_x_continuous)
-importFrom(ggplot2,scale_y_continuous)
-importFrom(ggplot2,theme)
-importFrom(ggplot2,theme_minimal)
+importFrom(ggplot2,
+  annotate,
+  coord_fixed,
+  element_blank,
+  element_text,
+  geom_raster,
+  ggplot,
+  ggsave,
+  labs,
+  scale_fill_distiller,
+  scale_fill_gradient2,
+  scale_fill_manual,
+  scale_fill_viridis_c,
+  scale_x_continuous,
+  scale_y_continuous,
+  theme,
+  theme_minimal
+)
 importFrom(ggtext,element_markdown)
-importFrom(glmnet,cv.glmnet)
-importFrom(glmnet,glmnet)
+importFrom(glmnet,
+  cv.glmnet,
+  glmnet
+)
 importFrom(glue,glue)
-importFrom(kableExtra,kable)
-importFrom(kableExtra,kable_styling)
-importFrom(kableExtra,scroll_box)
+importFrom(kableExtra,
+  kable,
+  kable_styling,
+  scroll_box
+)
 importFrom(lifecycle,deprecate_warn)
-importFrom(lubridate,dyears)
-importFrom(lubridate,interval)
-importFrom(lubridate,today)
-importFrom(multcomp,adjusted)
-importFrom(multcomp,glht)
-importFrom(multcomp,univariate_calpha)
+importFrom(lubridate,
+  dyears,
+  interval,
+  today
+)
+importFrom(multcomp,
+  adjusted,
+  glht,
+  univariate_calpha
+)
 importFrom(nnet,multinom)
 importFrom(readr,read_tsv)
-importFrom(scales,scientific)
-importFrom(scales,squish)
-importFrom(stringr,str_length)
-importFrom(stringr,str_pad)
-importFrom(stringr,str_remove)
-importFrom(stringr,str_replace)
-importFrom(stringr,str_replace_all)
-importFrom(stringr,str_split)
-importFrom(stringr,str_sub)
-importFrom(stringr,str_subset)
-importFrom(stringr,str_to_lower)
-importFrom(stringr,str_to_title)
-importFrom(tibble,rownames_to_column)
-importFrom(tibble,tibble)
-importFrom(tidyr,gather)
-importFrom(tidyr,pivot_longer)
-importFrom(tidyr,separate)
-importFrom(tidyr,tibble)
+importFrom(scales,
+  scientific,
+  squish
+)
+importFrom(stringr,
+  str_length,
+  str_pad,
+  str_remove,
+  str_replace,
+  str_replace_all,
+  str_split,
+  str_sub,
+  str_subset,
+  str_to_lower,
+  str_to_title
+)
+importFrom(tibble,
+  rownames_to_column,
+  tibble
+)
+importFrom(tidyr,
+  gather,
+  pivot_longer,
+  separate,
+  tibble
+)
 importFrom(xfun,pkg_attach)

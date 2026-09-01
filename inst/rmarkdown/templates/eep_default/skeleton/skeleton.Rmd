@@ -63,7 +63,7 @@ nice_table(si_platform)
 si_packages <- sessioninfo::session_info()[["packages"]] %>% 
   as_tibble() %>%
   mutate(package = ifelse(attached == TRUE, paste0(package, " *"), package)) %>%
-  select(package, loadedversion, date, source)
+  dplyr::select(package, loadedversion, date, source)
 colnames(si_packages) <- c("Package", "Version", "Date", "Source")
 datatable(si_packages, caption = htmltools::tags$caption(
   style = "caption-side: bottom; text-align: left;",

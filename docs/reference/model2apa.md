@@ -73,10 +73,7 @@ model2apa(lm(mpg ~ wt, data = mtcars), format = 'plain')
 # lme
 model2apa(lmerTest::lmer(Reaction ~ 1 + Days + (1 + Days | Subject), lme4::sleepstudy), format = 'plain')
 #> Computing profile confidence intervals ...
-#>                                                                                             (Intercept) 
-#> "b = 251.405, t(174) = 36.838, p = 1.172×10^-17, 95% CI [237.681, 265.130], Adjusted R-Squared = 0.987" 
-#>                                                                                                    Days 
-#>       "b = 10.467, t(174) = 6.771, p = 3.264×10^-6, 95% CI [7.359, 13.576], Adjusted R-Squared = 0.714" 
+#> Error in loadNamespace(x): there is no package called ‘broomExtra’
 
 # glht (t-test)
 model_fit <- lm(salary ~ rank + discipline, data = carData::Salaries)
@@ -86,5 +83,5 @@ model2apa(glht_obj, test = 't', format = 'plain')
 #>                                                                                                   rankAssocProf 
 #>        "b = 1.376×10^4, t(393) = 3.475, p = 0.001, 95% CI [5.038×10^3, 2.249×10^4], Adjusted R-Squared = 0.027" 
 #>                                                                                                        rankProf 
-#> "b = 4.784×10^4, t(393) = 15.376, p = 1.887×10^-15, 95% CI [4.099×10^4, 5.47×10^4], Adjusted R-Squared = 0.374" 
+#> "b = 4.784×10^4, t(393) = 15.376, p = 1.776×10^-15, 95% CI [4.099×10^4, 5.47×10^4], Adjusted R-Squared = 0.374" 
 ```

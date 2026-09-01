@@ -44,7 +44,7 @@
 - [`models2omni()`](https://ekarinpongpipat.com/eepR/reference/models2omni.md)
   : models2omni
 - [`r_sq_to_adj_r_sq()`](https://ekarinpongpipat.com/eepR/reference/r_sq_to_adj_r_sq.md)
-  : r_sq_to_adj_r_sq
+  : r_sq_to_adj_r\_sq
 - [`renamed_tidy()`](https://ekarinpongpipat.com/eepR/reference/renamed_tidy.md)
   : renamed_tidy
 - [`tidy_es()`](https://ekarinpongpipat.com/eepR/reference/tidy_es.md) :
@@ -100,7 +100,7 @@
 - [`is_ss1()`](https://ekarinpongpipat.com/eepR/reference/is_ss1.md) :
   is_ss1
 - [`is_z_scored()`](https://ekarinpongpipat.com/eepR/reference/is_z_scored.md)
-  : is_z_scored
+  : is_z\_scored
 
 ## Model Fit
 

@@ -20,3 +20,27 @@ use this with caution.
 # install.packages("remotes")
 remotes::install_github("epongpipat/eepR")
 ```
+
+### Dependencies
+
+``` r
+# install.packages("xfun")
+deps <- c(
+  "tidyverse",
+  "easystats",
+  "carData",
+  "doParallel",
+  "e1071",
+  "furrr",
+  "future",
+  "ggnewscale",
+  "ggtext",
+  "glmnet",
+  "gt",
+  "kableExtra",
+  "multcomp",
+  "patchwork",
+  "RNifti"
+)
+xfun::pkg_attach2(deps)
+```

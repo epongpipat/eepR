@@ -1,4 +1,4 @@
-# is_z_scored
+# is_z\_scored
 
 Checks if a numeric vector or matrix (column-wise) is z-scored. In other
 words, checks if the mean is zero and the standard deviation is one

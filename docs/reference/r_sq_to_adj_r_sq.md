@@ -1,4 +1,4 @@
-# r_sq_to_adj_r_sq
+# r_sq_to_adj_r\_sq
 
 Convert r-squared (\$R^2\$) to adjusted r-squared (\$R^2_Adj.\$).
 

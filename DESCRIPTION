@@ -9,8 +9,7 @@ License: MIT + CC BY-NC-SA 4.0
 URL: https://ekarinpongpipat.com/eepR, https://github.com/epongpipat/eepR
 Encoding: UTF-8
 LazyData: true
-Config/roxygen2/version: 8.0.0
-RoxygenNote: 7.2.3
+Config/roxygen2/version: 8.1.0
 Suggests: 
     testthat (>= 3.0.0)
 Config/testthat/edition: 3

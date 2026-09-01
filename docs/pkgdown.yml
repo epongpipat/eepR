@@ -1,8 +1,8 @@
-pandoc: 3.10.1
-pkgdown: 2.2.0
+pandoc: 2.19.2
+pkgdown: 2.2.1
 pkgdown_sha: ~
 articles: {}
-last_built: 2026-08-18T05:18Z
+last_built: 2026-09-01T23:00Z
 urls:
   reference: https://ekarinpongpipat.com/eepR/reference
   article: https://ekarinpongpipat.com/eepR/articles

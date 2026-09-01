@@ -1,6 +1,7 @@
 # glht2apa
 
-converts `glht()` contrast model to APA format string
+converts [`glht()`](https://rdrr.io/pkg/multcomp/man/glht.html) contrast
+model to APA format string
 
 ## Usage
 
