@@ -8,6 +8,7 @@ use this with caution.
 ## Install
 
 ``` r
+
 # install.packages("remotes")
 remotes::install_github("epongpipat/eepR")
 ```
@@ -15,6 +16,7 @@ remotes::install_github("epongpipat/eepR")
 ### Dependencies
 
 ``` r
+
 # install.packages("xfun")
 deps <- c(
   "tidyverse",

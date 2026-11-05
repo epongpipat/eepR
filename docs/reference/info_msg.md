@@ -30,5 +30,5 @@ Other console messaging helpers:
 
 ``` r
 info_msg("example info")
-#> [2026-09-01 18:00:45] [INFO] example info 
+#> [2026-11-05 11:19:51] [INFO] example info 
 ```

@@ -47,5 +47,8 @@ Other model2apa:
 ``` r
 lmer2apa(lmerTest::lmer(Reaction ~ 1 + Days + (1 + Days | Subject), lme4::sleepstudy), format = 'plain')
 #> Computing profile confidence intervals ...
-#> Error in loadNamespace(x): there is no package called ‘broomExtra’
+#>                                                                                             (Intercept) 
+#> "b = 251.405, t(174) = 36.838, p = 1.172×10^-17, 95% CI [237.681, 265.130], Adjusted R-Squared = 0.987" 
+#>                                                                                                    Days 
+#>       "b = 10.467, t(174) = 6.771, p = 3.264×10^-6, 95% CI [7.359, 13.576], Adjusted R-Squared = 0.714" 
 ```

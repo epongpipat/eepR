@@ -32,7 +32,7 @@ Other table helpers:
 
 ``` r
 nice_table_html_short(mtcars, height = "150px")
-#> <div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:150px; overflow-x: scroll; width:100%; "><table class="table table-striped table-hover table-condensed table-responsive" style="margin-left: auto; margin-right: auto;">
+#> <div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:150px; overflow-x: scroll; width:100%; "><table class="table table-striped table-hover table-condensed table-responsive" style="color: black; margin-left: auto; margin-right: auto;">
 #>  <thead>
 #>   <tr>
 #>    <th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">  </th>

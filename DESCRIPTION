@@ -1,15 +1,18 @@
 Package: eepR
 Type: Package
-Title: eepR: Common Functions that I Use Regularly
+Title: Collection of R functions commonly used by EEP
 Version: 0.6.0
-Author: Ekarin Eric Pongpipat
-Maintainer: Ekarin Pongpipat <epongpipat@gmail.com>
-Description: This package will likely always be in a testing-phase. Please use this package cautiously.
+Author: Ekarin E. Pongpipat <epongpipat@gmail.com>
+Maintainer: Ekarin E. Pongpipat <epongpipat@gmail.com>
+Description: Collection of code that I used enough to turn into a function. 
+    These functions are generally useful for data cleaning, data wrangling, data analysis, and data visualization. 
+    This package will likely always be in an experimental-phase. 
+    Please use this package cautiously.
 License: MIT + CC BY-NC-SA 4.0
 URL: https://ekarinpongpipat.com/eepR, https://github.com/epongpipat/eepR
 Encoding: UTF-8
 LazyData: true
-Config/roxygen2/version: 8.1.0
+Config/roxygen2/version: 8.1.1
 Suggests: 
     testthat (>= 3.0.0)
 Config/testthat/edition: 3

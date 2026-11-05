@@ -119,6 +119,7 @@ importFrom(broom,
   glance,
   tidy
 )
+importFrom(broomExtra,glance)
 importFrom(crayon,
   green,
   red,
