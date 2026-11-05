@@ -8,7 +8,7 @@
 #' @return data.frame of extra_info of model attributes and glance
 #' @export
 #'
-#' @importFrom broom glance
+#' @importFrom broomExtra glance
 #' @importFrom dplyr bind_rows
 #' @examples
 #' m1 <- lm(salary ~ yrs.since.phd, carData::Salaries)
